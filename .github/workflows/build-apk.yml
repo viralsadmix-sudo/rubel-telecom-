@@ -5,6 +5,8 @@ on:
   push:
     paths:
       - "index.html"
+      - "admin.html"
+      - "about.html"
       - "manifest.json"
       - "service-worker.js"
       - "icon-512.png"
