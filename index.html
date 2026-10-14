@@ -128,10 +128,39 @@
     let uploadedFileId = null;
 
     try {
+      // বড় ছবি আপলোডের আগে ছোট করি, যাতে মোবাইল ডেটা কম লাগে ও আপলোড দ্রুত হয়।
+      let uploadPhoto = photo;
+      if (photo.size > 1024 * 1024 && !["image/gif", "image/svg+xml"].includes(photo.type)) {
+        statusBox.textContent = "ছবি আপলোডের জন্য প্রস্তুত হচ্ছে...";
+        try {
+          const bitmap = await createImageBitmap(photo);
+          const maxSide = 1600;
+          const scale = Math.min(1, maxSide / Math.max(bitmap.width, bitmap.height));
+          const canvas = document.createElement("canvas");
+          canvas.width = Math.max(1, Math.round(bitmap.width * scale));
+          canvas.height = Math.max(1, Math.round(bitmap.height * scale));
+          const context = canvas.getContext("2d");
+          context.fillStyle = "#ffffff";
+          context.fillRect(0, 0, canvas.width, canvas.height);
+          context.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+          bitmap.close();
+          const compressedBlob = await new Promise((resolve, reject) => {
+            canvas.toBlob(blob => blob ? resolve(blob) : reject(new Error("ছবি ছোট করা যায়নি")), "image/jpeg", 0.82);
+          });
+          if (compressedBlob.size < photo.size) {
+            uploadPhoto = new File([compressedBlob], photo.name.replace(/\.[^.]+$/, "") + ".jpg", { type: "image/jpeg", lastModified: Date.now() });
+          }
+        } catch (compressionError) {
+          console.warn("ছবি ছোট করা যায়নি; আসল ছবি আপলোড হবে।", compressionError);
+          uploadPhoto = photo;
+        }
+      }
+
+      statusBox.textContent = "ছবি আপলোড হচ্ছে...";
       const uploadedFile = await storage.createFile({
         bucketId: CONFIG.bucketId,
         fileId: ID.unique(),
-        file: photo
+        file: uploadPhoto
       });
 
       uploadedFileId = uploadedFile.$id;
