@@ -4,41 +4,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rubel Telecom</title>
-<link rel="manifest" href="./manifest.json">
   <meta name="theme-color" content="#102b59">
+  <meta name="description" content="Rubel Telecom - আপনার বিশ্বস্ত সেবা কেন্দ্র">
+  <link rel="manifest" href="./manifest.json">
+  <title>Rubel Telecom</title>
+
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       padding: 20px;
       font-family: Arial, sans-serif;
       color: white;
       background: linear-gradient(135deg, #050816, #102b59, #06101e);
     }
 
-    .container {
-      width: 100%;
-      max-width: 390px;
-      padding: 30px 24px;
+    header {
       text-align: center;
-      border: 1px solid #294d80;
-      border-radius: 24px;
-      background: rgba(8, 19, 40, 0.96);
-      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+      padding: 30px 15px;
     }
 
     .logo {
-      width: 78px;
-      height: 78px;
-      margin: 0 auto 18px;
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 15px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -48,153 +39,105 @@
       font-weight: bold;
     }
 
-    h1 {
-      margin: 0 0 12px;
-      font-size: 27px;
-      color: #ffffff;
+    h1 { margin: 0 0 10px; font-size: 28px; }
+    header p { color: #b9c8e3; }
+
+    main { max-width: 600px; margin: auto; }
+
+    section {
+      padding: 22px;
+      margin-bottom: 18px;
+      border: 1px solid #294d80;
+      border-radius: 18px;
+      background: rgba(8, 19, 40, 0.96);
+      box-shadow: 0 10px 30px rgba(0,0,0,.2);
     }
 
-    .subtitle {
-      color: #b9c8e3;
-      font-size: 14px;
-      line-height: 1.7;
-      margin-bottom: 25px;
-    }
+    h2 { color: #76baff; font-size: 20px; }
+    p, li { line-height: 1.8; color: #e0eaff; }
+    li { margin-bottom: 6px; }
 
-    .field {
-      text-align: left;
-      margin-bottom: 16px;
-    }
-
-    label {
+    .contact {
       display: block;
-      margin-bottom: 8px;
-      font-size: 14px;
-      color: #dce8ff;
-    }
-
-    input {
-      width: 100%;
       padding: 14px;
-      border: 1px solid #345078;
-      border-radius: 12px;
-      outline: none;
+      margin-top: 12px;
+      text-align: center;
+      text-decoration: none;
       color: white;
-      background: #101e35;
-      font-size: 15px;
-    }
-
-    input:focus {
-      border-color: #3995ff;
-    }
-
-    .btn {
-      width: 100%;
-      padding: 14px;
-      margin-top: 10px;
-      border: none;
-      border-radius: 12px;
-      font-size: 16px;
       font-weight: bold;
-      cursor: pointer;
-    }
-
-    .login {
-      color: white;
+      border-radius: 12px;
       background: linear-gradient(90deg, #147dff, #624cff);
     }
 
-    .create {
-      color: #dce8ff;
-      border: 1px solid #345078;
-      background: transparent;
-    }
-
-    #message {
-      margin-top: 18px;
-      color: #8fc5ff;
-      font-size: 14px;
-      line-height: 1.6;
-    }
+    .whatsapp { background: #168849; }
 
     footer {
-      margin-top: 25px;
-      color: #8398b8;
-      font-size: 12px;
+      padding: 20px;
+      text-align: center;
+      color: #9aacc8;
+      font-size: 13px;
     }
   </style>
 </head>
 
 <body>
-  <main class="container">
+  <header>
     <div class="logo">RT</div>
-
     <h1>Rubel Telecom</h1>
+    <p>আপনাদের বিশ্বস্ত সেবা কেন্দ্র</p>
+  </header>
 
-    <p class="subtitle">
-      রুবেল টেলিকমে আপনাকে স্বাগতম।<br>
-      আপনার সেবায় আমরা সবসময় প্রস্তুত।
-    </p>
+  <main>
+    <section>
+      <h2>আমাদের পরিচিতি</h2>
+      <p>
+        Rubel Telecom-এ আপনাকে স্বাগতম।
+        আপনার প্রয়োজনীয় বিভিন্ন কাজের জন্য আমাদের সঙ্গে যোগাযোগ করুন।
+      </p>
+    </section>
 
-    <form id="loginForm">
-      <div class="field">
-        <label for="email">Gmail Address</label>
-        <input
-          type="email"
-          id="email"
-          placeholder="আপনার Gmail লিখুন"
-          autocomplete="email"
-          required
-        >
-      </div>
+    <section>
+      <h2>আমাদের সার্ভিস সমূহ</h2>
+      <ul>
+        <li>ফটোকপি</li>
+        <li>প্রিন্টিং</li>
+        <li>ছবি ও ডকুমেন্টের কাজ</li>
+        <li>মোবাইল সার্ভিসিং</li>
+        <li>SIM সংক্রান্ত সেবা</li>
+        <li>অন্যান্য প্রয়োজনীয় দোকানসেবা</li>
+      </ul>
+    </section>
 
-      <div class="field">
-        <label for="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          placeholder="পাসওয়ার্ড লিখুন"
-          autocomplete="current-password"
-          required
-        >
-      </div>
+    <section>
+      <h2>আমাদের সঙ্গে যোগাযোগ</h2>
+      <p>ফোন করুন অথবা WhatsApp-এ মেসেজ পাঠান।</p>
 
-      <button class="btn login" type="submit">
-        Login
-      </button>
+      <a class="contact" href="tel:+8801784904304">
+        📞 ফোন করুন: 01784904304
+      </a>
 
-      <button
-        class="btn create"
-        type="button"
-        id="createAccount"
-      >
-        Create Account
-      </button>
-    </form>
-
-    <p id="message" role="status"></p>
-
-    <footer>
-      © 2026 Rubel Telecom
-    </footer>
+      <a class="contact whatsapp"
+         href="https://wa.me/8801784904304"
+         target="_blank"
+         rel="noopener noreferrer">
+        💬 WhatsApp-এ মেসেজ করুন
+      </a>
+    </section>
   </main>
 
+  <footer>
+    © 2026 Rubel Telecom. সর্বস্বত্ব সংরক্ষিত।
+  </footer>
+
   <script>
-    const message = document.getElementById("message");
-
-    document.getElementById("loginForm")
-      .addEventListener("submit", function(event) {
-        event.preventDefault();
-
-        message.textContent =
-          "লগইন সিস্টেম এখনো তৈরি করা হয়নি। পরবর্তী ধাপে এটি যুক্ত করা হবে।";
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("./service-worker.js")
+          .catch(function (error) {
+            console.log("Service worker registration failed:", error);
+          });
       });
-
-    document.getElementById("createAccount")
-      .addEventListener("click", function() {
-        message.textContent =
-          "অ্যাকাউন্ট তৈরির সুবিধা পরবর্তী ধাপে যুক্ত করা হবে।";
-      });
+    }
   </script>
 </body>
 </html>
