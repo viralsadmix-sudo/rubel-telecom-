@@ -11,7 +11,8 @@ for (const file of [
   "about.html",
   "manifest.json",
   "service-worker.js",
-  "icon-512.png"
+  "icon-512.png",
+  "file_000000008f7c8210abe65a5d06837183.png"
 ]) {
   const source = path.join(root, file);
   if (fs.existsSync(source)) {
