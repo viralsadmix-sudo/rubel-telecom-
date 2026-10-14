@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#102b59">
+<title>Rubel Telecom — Admin Panel</title>
+<script src="https://cdn.jsdelivr.net/npm/appwrite@17.0.0"></script>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#07111f;color:#fff;font-family:Arial,sans-serif}
+header{padding:22px 16px;text-align:center;background:linear-gradient(135deg,#102b59,#087ca7)}
+header h1{margin:0 0 6px}main{max-width:760px;margin:20px auto;padding:0 14px}
+.card{background:#111f33;border:1px solid #263d59;border-radius:15px;padding:18px;margin-bottom:15px}
+h2{color:#69d5ff;margin-top:0}label{display:block;margin:12px 0 6px}
+input,button{width:100%;padding:12px;border-radius:9px;font-size:16px}
+input{background:#07111f;border:1px solid #45607d;color:white}button{border:0;background:#08a4d6;color:#fff;font-weight:bold;margin-top:14px}
+button:disabled{opacity:.6}a{color:#69d5ff}#status{white-space:pre-wrap;overflow-wrap:anywhere;margin-top:12px}
+.row{border-top:1px solid #263d59;padding:14px 0;display:grid;grid-template-columns:100px 1fr;gap:14px}
+.row img{width:100px;height:100px;object-fit:cover;border-radius:9px;background:#07111f}
+.muted{color:#aabbd0;font-size:13px}.hidden{display:none}.actions{display:flex;gap:10px}.actions button{flex:1}
+@media(max-width:420px){.row{grid-template-columns:78px 1fr}.row img{width:78px;height:78px}}
+</style>
+</head>
+<body>
+<header><h1>Rubel Telecom</h1><p>Admin Panel — কাস্টমার জমা ও ছবি</p></header>
+<main>
+<section class="card" id="loginCard">
+<h2>অ্যাডমিন লগইন</h2>
+<p class="muted">আপনার Appwrite অ্যাডমিন অ্যাকাউন্টের ইমেইল ও পাসওয়ার্ড ব্যবহার করুন।</p>
+<form id="loginForm">
+<label for="email">ইমেইল</label><input id="email" type="email" autocomplete="username" required>
+<label for="password">পাসওয়ার্ড</label><input id="password" type="password" autocomplete="current-password" required>
+<button id="loginBtn" type="submit">লগইন করুন</button>
+</form><div id="loginStatus" role="status"></div>
+</section>
+<section class="card hidden" id="dashboard">
+<div class="actions"><h2 style="flex:1;margin-bottom:0">কাস্টমার জমা</h2><button id="logoutBtn" style="width:auto;margin-top:0;padding:10px">লগআউট</button></div>
+<p class="muted">এখানে Appwrite-এ সংরক্ষিত কাস্টমারের তথ্য ও ছবি দেখা যাবে।</p>
+<button id="refreshBtn">তথ্য রিফ্রেশ করুন</button>
+<div id="listStatus" role="status"></div><div id="rows"></div>
+</section>
+<section class="card"><a href="./index.html">← মূল Rubel Telecom অ্যাপে ফিরে যান</a></section>
+</main>
+<script>
+const CONFIG={endpoint:"https://nyc.cloud.appwrite.io/v1",projectId:"6aceec5b0017856576f7",databaseId:"6acef39300396782af9e",tableId:"6acef7960018db31017f",bucketId:"6aceef430035c78dd682"};
+const {Client,Account,Storage,TablesDB,Query}=Appwrite;
+const client=new Client().setEndpoint(CONFIG.endpoint).setProject(CONFIG.projectId);
+const account=new Account(client),storage=new Storage(client),tablesDB=new TablesDB(client);
+const loginCard=document.getElementById("loginCard"),dashboard=document.getElementById("dashboard");
+const loginStatus=document.getElementById("loginStatus"),listStatus=document.getElementById("listStatus"),rowsBox=document.getElementById("rows");
+function showDashboard(){loginCard.classList.add("hidden");dashboard.classList.remove("hidden");loadRows();}
+function showLogin(){dashboard.classList.add("hidden");loginCard.classList.remove("hidden");}
+async function loadRows(){
+ rowsBox.replaceChildren();listStatus.textContent="কাস্টমারের তথ্য লোড হচ্ছে...";
+ try{
+  const result=await tablesDB.listRows({databaseId:CONFIG.databaseId,tableId:CONFIG.tableId,queries:[Query.orderDesc("$createdAt"),Query.limit(100)]});
+  if(!result.rows||result.rows.length===0){listStatus.textContent="এখনো কোনো জমা পাওয়া যায়নি।";return;}
+  listStatus.textContent="মোট "+result.rows.length+"টি জমা পাওয়া গেছে।";
+  for(const item of result.rows){
+   const card=document.createElement("div");card.className="row";
+   const img=document.createElement("img");img.alt="কাস্টমারের ছবি";img.loading="lazy";
+   if(item.photo_file_id){img.src=storage.getFileView({bucketId:CONFIG.bucketId,fileId:item.photo_file_id}).toString();}
+   const details=document.createElement("div");
+   const name=document.createElement("strong");name.textContent=item.customer_name||"নাম দেওয়া হয়নি";
+   const phone=document.createElement("p");phone.textContent="মোবাইল: "+(item.phone||"—");
+   const date=document.createElement("p");date.className="muted";date.textContent="জমার সময়: "+(item.$createdAt?new Date(item.$createdAt).toLocaleString("bn-BD"):"—");
+   details.append(name,phone,date);
+   if(item.photo_file_id){const link=document.createElement("a");link.href=img.src;link.target="_blank";link.rel="noopener";link.textContent="ছবি খুলুন";details.append(link);}
+   card.append(img,details);rowsBox.append(card);
+  }
+ }catch(error){
+  console.error(error);
+  listStatus.textContent="তথ্য লোড হয়নি। Appwrite-এর Table/Row Read permission এবং টেবিলের কলাম পরীক্ষা করুন।\n"+(error.message||"অজানা সমস্যা");
+ }
+}
+document.getElementById("loginForm").addEventListener("submit",async e=>{
+ e.preventDefault();const btn=document.getElementById("loginBtn");btn.disabled=true;loginStatus.textContent="লগইন হচ্ছে...";
+ try{await account.createEmailPasswordSession({email:document.getElementById("email").value.trim(),password:document.getElementById("password").value});loginStatus.textContent="";showDashboard();}
+ catch(error){loginStatus.textContent="লগইন হয়নি: "+(error.message||"ইমেইল/পাসওয়ার্ড পরীক্ষা করুন");}
+ finally{btn.disabled=false;}
+});
+document.getElementById("logoutBtn").addEventListener("click",async()=>{try{await account.deleteSession({sessionId:"current"});}catch(e){console.error(e);}showLogin();loginStatus.textContent="আপনি লগআউট করেছেন।";});
+document.getElementById("refreshBtn").addEventListener("click",loadRows);
+account.get().then(()=>showDashboard()).catch(()=>showLogin());
+</script>
+</body>
+</html>
