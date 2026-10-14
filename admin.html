@@ -42,6 +42,18 @@ button:disabled{opacity:.6}a{color:#69d5ff}#status{white-space:pre-wrap;overflow
 <section class="card"><a href="./index.html">← মূল Rubel Telecom অ্যাপে ফিরে যান</a></section>
 </main>
 <script>
+window.addEventListener("error",function(event){
+ const status=document.getElementById("loginStatus");
+ if(status){status.textContent="অ্যাডমিন প্যানেলে প্রযুক্তিগত সমস্যা: "+(event.message||"স্ক্রিপ্ট চালু হয়নি")+". পেজটি রিফ্রেশ করুন।";}
+});
+window.addEventListener("unhandledrejection",function(event){
+ const status=document.getElementById("loginStatus");
+ if(status){const reason=event.reason;status.textContent="অ্যাডমিন প্যানেলে সমস্যা: "+(reason&&reason.message?reason.message:String(reason||"অজানা সমস্যা"));}
+});
+if(!window.Appwrite){
+ document.getElementById("loginStatus").textContent="Appwrite সংযোগের স্ক্রিপ্ট লোড হয়নি। ইন্টারনেট চালু করে পেজটি আবার খুলুন।";
+ throw new Error("Appwrite SDK missing");
+}
 const CONFIG={endpoint:"https://nyc.cloud.appwrite.io/v1",projectId:"6aceec5b0017856576f7",databaseId:"6acef39300396782af9e",tableId:"6acef7960018db31017f",bucketId:"6aceef430035c78dd682"};
 const {Client,Account,Storage,TablesDB,Query}=Appwrite;
 const client=new Client().setEndpoint(CONFIG.endpoint).setProject(CONFIG.projectId);
