@@ -5,13 +5,25 @@ const root = process.cwd();
 const out = path.join(root, "www");
 fs.mkdirSync(out, { recursive: true });
 
-for (const file of ["index.html", "manifest.json", "service-worker.js", "icon-512.png"]) {
+for (const file of [
+  "index.html",
+  "admin.html",
+  "about.html",
+  "manifest.json",
+  "service-worker.js",
+  "icon-512.png"
+]) {
   const source = path.join(root, file);
   if (fs.existsSync(source)) {
     fs.copyFileSync(source, path.join(out, file));
   }
 }
+
 if (!fs.existsSync(path.join(out, "index.html"))) {
   throw new Error("Root index.html was not found.");
 }
-console.log("Rubel Telecom web files copied into www/.");
+if (!fs.existsSync(path.join(out, "admin.html"))) {
+  throw new Error("admin.html was not found. The Android app must include the Admin Panel.");
+}
+
+console.log("Rubel Telecom website and Admin Panel copied into www/.");
