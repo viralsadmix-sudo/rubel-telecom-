@@ -1,9 +1,9 @@
-const CACHE_NAME = "rubel-telecom-v2";
+const CACHE_NAME = "rubel-telecom-v3";
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) =>
-      cache.addAll(["./", "./index.html", "./admin.html", "./manifest.json"])
+      cache.addAll(["./", "./index.html", "./admin.html", "./manifest.json", "./file_000000008f7c8210abe65a5d06837183.png"])
     )
   );
   self.skipWaiting();
