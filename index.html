@@ -3,141 +3,165 @@
 <html lang="bn">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#102b59">
-  <meta name="description" content="Rubel Telecom - আপনার বিশ্বস্ত সেবা কেন্দ্র">
-  <link rel="manifest" href="./manifest.json">
+  <meta name="description" content="Rubel Telecom customer service and photo submission">
   <title>Rubel Telecom</title>
-
+  <link rel="manifest" href="./manifest.json">
   <style>
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      padding: 20px;
-      font-family: Arial, sans-serif;
-      color: white;
-      background: linear-gradient(135deg, #050816, #102b59, #06101e);
-    }
-
-    header {
-      text-align: center;
-      padding: 30px 15px;
-    }
-
-    .logo {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 22px;
-      background: linear-gradient(135deg, #1685ff, #6847ff);
-      font-size: 30px;
-      font-weight: bold;
-    }
-
-    h1 { margin: 0 0 10px; font-size: 28px; }
-    header p { color: #b9c8e3; }
-
-    main { max-width: 600px; margin: auto; }
-
-    section {
-      padding: 22px;
-      margin-bottom: 18px;
-      border: 1px solid #294d80;
-      border-radius: 18px;
-      background: rgba(8, 19, 40, 0.96);
-      box-shadow: 0 10px 30px rgba(0,0,0,.2);
-    }
-
-    h2 { color: #76baff; font-size: 20px; }
-    p, li { line-height: 1.8; color: #e0eaff; }
-    li { margin-bottom: 6px; }
-
-    .contact {
-      display: block;
-      padding: 14px;
-      margin-top: 12px;
-      text-align: center;
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-      border-radius: 12px;
-      background: linear-gradient(90deg, #147dff, #624cff);
-    }
-
-    .whatsapp { background: #168849; }
-
-    footer {
-      padding: 20px;
-      text-align: center;
-      color: #9aacc8;
-      font-size: 13px;
-    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,sans-serif;background:#07111f;color:#fff}
+    header{text-align:center;padding:28px 16px;background:linear-gradient(135deg,#102b59,#087ca7)}
+    header h1{margin:0 0 8px;font-size:30px}
+    header p{margin:0;color:#e4f4ff}
+    main{max-width:650px;margin:22px auto;padding:0 14px}
+    .card{background:#111f33;border:1px solid #263d59;border-radius:16px;padding:20px;margin-bottom:16px}
+    h2{margin-top:0;color:#69d5ff}
+    label{display:block;margin:14px 0 7px}
+    input,button{width:100%;padding:13px;border-radius:9px;font-size:16px}
+    input{background:#07111f;border:1px solid #45607d;color:white}
+    button{border:0;background:#08a4d6;color:white;font-weight:bold;margin-top:18px;cursor:pointer}
+    button:disabled{opacity:.6}
+    .service{padding:10px;background:#0a1729;border-radius:8px;margin:8px 0}
+    .contact a{display:block;text-decoration:none;text-align:center;padding:12px;border-radius:9px;margin-top:10px;background:#17385a;color:white}
+    #status{white-space:pre-wrap;overflow-wrap:anywhere;margin-top:14px}
+    footer{text-align:center;padding:20px;color:#aabbd0;font-size:13px}
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/appwrite@17.0.0"></script>
 </head>
-
 <body>
-  <header>
-    <div class="logo">RT</div>
-    <h1>Rubel Telecom</h1>
-    <p>আপনাদের বিশ্বস্ত সেবা কেন্দ্র</p>
-  </header>
+<header>
+  <h1>Rubel Telecom</h1>
+  <p>আপনার বিশ্বস্ত ডিজিটাল সেবা কেন্দ্র</p>
+</header>
 
-  <main>
-    <section>
-      <h2>আমাদের পরিচিতি</h2>
-      <p>
-        Rubel Telecom-এ আপনাকে স্বাগতম।
-        আপনার প্রয়োজনীয় বিভিন্ন কাজের জন্য আমাদের সঙ্গে যোগাযোগ করুন।
-      </p>
-    </section>
+<main>
+  <section class="card">
+    <h2>আমাদের সেবাসমূহ</h2>
+    <div class="service">📄 ফটোকপি ও প্রিন্টিং</div>
+    <div class="service">📷 ছবি ও ডকুমেন্ট সেবা</div>
+    <div class="service">📱 মোবাইল সার্ভিসিং</div>
+    <div class="service">📶 SIM-সংক্রান্ত সেবা</div>
+    <div class="service">🛠️ অন্যান্য জরুরি সেবা</div>
+  </section>
 
-    <section>
-      <h2>আমাদের সার্ভিস সমূহ</h2>
-      <ul>
-        <li>ফটোকপি</li>
-        <li>প্রিন্টিং</li>
-        <li>ছবি ও ডকুমেন্টের কাজ</li>
-        <li>মোবাইল সার্ভিসিং</li>
-        <li>SIM সংক্রান্ত সেবা</li>
-        <li>অন্যান্য প্রয়োজনীয় দোকানসেবা</li>
-      </ul>
-    </section>
+  <section class="card">
+    <h2>গ্রাহকের তথ্য ও ছবি জমা দিন</h2>
+    <p>নিচের ফর্ম পূরণ করে আপনার তথ্য ও ছবি পাঠান।</p>
 
-    <section>
-      <h2>আমাদের সঙ্গে যোগাযোগ</h2>
-      <p>ফোন করুন অথবা WhatsApp-এ মেসেজ পাঠান।</p>
+    <form id="customerForm">
+      <label for="customerName">আপনার নাম</label>
+      <input id="customerName" name="customerName" type="text"
+        placeholder="সম্পূর্ণ নাম লিখুন" required>
 
-      <a class="contact" href="tel:+8801784904304">
-        📞 ফোন করুন: 01784904304
-      </a>
+      <label for="phone">মোবাইল নম্বর</label>
+      <input id="phone" name="phone" type="tel"
+        placeholder="01XXXXXXXXX" required>
 
-      <a class="contact whatsapp"
-         href="https://wa.me/8801784904304"
-         target="_blank"
-         rel="noopener noreferrer">
-        💬 WhatsApp-এ মেসেজ করুন
-      </a>
-    </section>
-  </main>
+      <label for="photo">ছবি নির্বাচন করুন</label>
+      <input id="photo" name="photo" type="file"
+        accept="image/*" required>
 
-  <footer>
-    © 2026 Rubel Telecom. সর্বস্বত্ব সংরক্ষিত।
-  </footer>
+      <button id="submitBtn" type="submit">তথ্য ও ছবি জমা দিন</button>
+      <div id="status" role="status"></div>
+    </form>
+  </section>
 
-  <script>
-    if ("serviceWorker" in navigator) {
-      window.addEventListener("load", function () {
-        navigator.serviceWorker.register("./service-worker.js")
-          .catch(function (error) {
-            console.log("Service worker registration failed:", error);
-          });
-      });
+  <section class="card contact">
+    <h2>যোগাযোগ</h2>
+    <p>📍 ঠিকানা: নন্দিনা খন্দকার বাজার, গাইবান্ধা সদর, গাইবান্ধা</p>
+    <p>📞 মোবাইল: 01784904304</p>
+    <a href="tel:+8801784904304">📞 কল করুন</a>
+    <a href="https://wa.me/8801784904304" target="_blank" rel="noopener">💬 WhatsApp করুন</a>
+  </section>
+</main>
+
+<footer>© Rubel Telecom — All rights reserved</footer>
+
+<script>
+  const CONFIG = {
+    endpoint: "https://nyc.cloud.appwrite.io/v1",
+    projectId: "6aceec5b0017856576f7",
+    databaseId: "6acef39300396782af9e",
+    tableId: "6acef7960018db31017f",
+    bucketId: "6aceef430035c78dd682"
+  };
+
+  const { Client, Storage, TablesDB, ID } = Appwrite;
+  const client = new Client()
+    .setEndpoint(CONFIG.endpoint)
+    .setProject(CONFIG.projectId);
+
+  const storage = new Storage(client);
+  const tablesDB = new TablesDB(client);
+
+  const form = document.getElementById("customerForm");
+  const statusBox = document.getElementById("status");
+  const submitBtn = document.getElementById("submitBtn");
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const name = document.getElementById("customerName").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const photo = document.getElementById("photo").files[0];
+
+    if (!name || !phone || !photo) {
+      statusBox.textContent = "দয়া করে সব তথ্য পূরণ করুন এবং ছবি নির্বাচন করুন।";
+      return;
     }
-  </script>
+
+    if (!photo.type.startsWith("image/")) {
+      statusBox.textContent = "দয়া করে একটি ছবির ফাইল নির্বাচন করুন।";
+      return;
+    }
+
+    submitBtn.disabled = true;
+    statusBox.textContent = "তথ্য ও ছবি জমা হচ্ছে...";
+
+    let uploadedFileId = null;
+
+    try {
+      const uploadedFile = await storage.createFile({
+        bucketId: CONFIG.bucketId,
+        fileId: ID.unique(),
+        file: photo
+      });
+
+      uploadedFileId = uploadedFile.$id;
+
+      await tablesDB.createRow({
+        databaseId: CONFIG.databaseId,
+        tableId: CONFIG.tableId,
+        rowId: ID.unique(),
+        data: {
+          customer_name: name,
+          phone: phone,
+          photo_file_id: uploadedFileId
+        }
+      });
+
+      statusBox.textContent =
+        "✅ আপনার তথ্য ও ছবি সফলভাবে জমা হয়েছে। ধন্যবাদ!";
+
+      form.reset();
+
+    } catch (error) {
+      console.error(error);
+
+      statusBox.textContent =
+        "❌ জমা হয়নি। Appwrite-এর Table ID, কলামের নাম এবং Permissions পরীক্ষা করুন।\nসমস্যা: " +
+        (error.message || "অজানা সমস্যা");
+    } finally {
+      submitBtn.disabled = false;
+    }
+  });
+
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./service-worker.js").catch(console.error);
+    });
+  }
+</script>
 </body>
 </html>
