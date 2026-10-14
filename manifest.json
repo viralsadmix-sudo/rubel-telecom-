@@ -2,7 +2,7 @@
 {
   "name": "Rubel Telecom",
   "short_name": "Rubel Telecom",
-  "description": "Rubel Telecom Shop App",
+  "description": "Rubel Telecom customer photo submission and owner admin panel",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
