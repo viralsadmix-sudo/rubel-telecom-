@@ -54,7 +54,7 @@ if(!window.Appwrite){
  document.getElementById("loginStatus").textContent="Appwrite সংযোগের স্ক্রিপ্ট লোড হয়নি। ইন্টারনেট চালু করে পেজটি আবার খুলুন।";
  throw new Error("Appwrite SDK missing");
 }
-const CONFIG={endpoint:"https://nyc.cloud.appwrite.io/v1",projectId:"6aceec5b0017856576f7",databaseId:"6acef39300396782af9e",tableId:"6acef7960018db31017f",bucketId:"6aceef430035c78dd682"};
+const CONFIG={endpoint:"https://nyc.cloud.appwrite.io/v1",projectId:"6aceec5b0017856576f7",databaseId:"6acef39300396782af9e",tableId:"6acf947a00083e1db975",bucketId:"6aceef430035c78dd682"};
 const {Client,Account,Storage,TablesDB,Query}=Appwrite;
 const client=new Client().setEndpoint(CONFIG.endpoint).setProject(CONFIG.projectId);
 const account=new Account(client),storage=new Storage(client),tablesDB=new TablesDB(client);
@@ -88,13 +88,24 @@ async function loadRows(){
 document.getElementById("loginForm").addEventListener("submit",async e=>{
  e.preventDefault();const btn=document.getElementById("loginBtn");btn.disabled=true;loginStatus.textContent="লগইন হচ্ছে...";
  try{await account.createEmailPasswordSession({email:document.getElementById("email").value.trim(),password:document.getElementById("password").value});loginStatus.textContent="";showDashboard();}
- catch(error){loginStatus.textContent="লগইন হয়নি: "+(error.message||"ইমেইল/পাসওয়ার্ড পরীক্ষা করুন");}
+ catch(error){
+  // আগেই Appwrite session চালু থাকলে নতুন session বানানোর চেষ্টা না করে সেটি ব্যবহার করি।
+  try{
+   await account.get();
+   loginStatus.textContent="";
+   showDashboard();
+  }catch(sessionError){
+   loginStatus.textContent="লগইন হয়নি: "+(error.message||"ইমেইল/পাসওয়ার্ড পরীক্ষা করুন");
+  }
+ }
  finally{btn.disabled=false;}
 });
 document.getElementById("logoutBtn").addEventListener("click",async()=>{try{await account.deleteSession({sessionId:"current"});}catch(e){console.error(e);}showLogin();loginStatus.textContent="আপনি লগআউট করেছেন।";});
 document.getElementById("refreshBtn").addEventListener("click",loadRows);
-// শুরুতে লগইন পেজ দেখাই; পুরোনো get() অনুরোধ যেন লগইনের পর ড্যাশবোর্ড আবার লুকিয়ে না দেয়।
-showLogin();
+// আগে থেকে session থাকলে সেটি ব্যবহার করি; না থাকলেই শুধু login form দেখাই।
+account.get()
+ .then(()=>{loginStatus.textContent="";showDashboard();})
+ .catch(()=>showLogin());
 </script>
 </body>
 </html>
