@@ -1,0 +1,12 @@
+
+{
+  "name": "Rubel Telecom",
+  "short_name": "Rubel Telecom",
+  "description": "Rubel Telecom Shop App",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#050816",
+  "theme_color": "#102b59",
+  "orientation": "portrait"
+}
