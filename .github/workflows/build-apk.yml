@@ -10,13 +10,23 @@ on:
       - "manifest.json"
       - "service-worker.js"
       - "icon-512.png"
+      - "file_000000008f7c8210abe65a5d06837183.png"
       - "package.json"
+      - "package-lock.json"
       - "capacitor.config.json"
       - "scripts/**"
       - ".github/workflows/build-apk.yml"
 
+permissions:
+  contents: read
+
+concurrency:
+  group: rubel-telecom-android-build
+  cancel-in-progress: true
+
 jobs:
   build:
+    name: Build and verify Android APK
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
@@ -26,15 +36,22 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
 
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: "21"
+          cache: gradle
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
 
       - name: Prepare bundled website
         run: npm run build:android
@@ -46,11 +63,31 @@ jobs:
         run: npx cap sync android
 
       - name: Build debug APK
-        run: cd android && chmod +x gradlew && ./gradlew assembleDebug
+        run: cd android && chmod +x gradlew && ./gradlew --no-daemon assembleDebug
 
-      - name: Upload APK
+      - name: Verify APK and create checksum
+        run: |
+          APK="android/app/build/outputs/apk/debug/app-debug.apk"
+          test -s "$APK"
+          mkdir -p build-info
+          sha256sum "$APK" | tee build-info/app-debug.apk.sha256
+          {
+            echo "Rubel Telecom Android build"
+            echo "Commit: $GITHUB_SHA"
+            echo "Build type: debug (not a Play Store release)"
+            echo "APK SHA-256:"
+            sha256sum "$APK"
+            echo
+            echo "Important: a successful build or matching checksum does not prove an APK is malware-free."
+          } > build-info/BUILD-INFO.txt
+
+      - name: Upload debug APK
         uses: actions/upload-artifact@v4
         with:
           name: Rubel-Telecom-debug-APK
-          path: android/app/build/outputs/apk/debug/app-debug.apk
+          path: |
+            android/app/build/outputs/apk/debug/app-debug.apk
+            build-info/BUILD-INFO.txt
+            build-info/app-debug.apk.sha256
           if-no-files-found: error
+          retention-days: 14
