@@ -70,14 +70,19 @@ async function loadRows(){
   listStatus.textContent="মোট "+result.rows.length+"টি জমা পাওয়া গেছে।";
   for(const item of result.rows){
    const card=document.createElement("div");card.className="row";
-   const img=document.createElement("img");img.alt="কাস্টমারের ছবি";img.loading="lazy";
-   if(item.photo_file_id){img.src=storage.getFileView({bucketId:CONFIG.bucketId,fileId:item.photo_file_id}).toString();}
+   const img=document.createElement("img");img.alt="কাস্টমারের ছবির প্রিভিউ";img.loading="lazy";img.decoding="async";
+   const fullImageUrl=item.photo_file_id?storage.getFileView({bucketId:CONFIG.bucketId,fileId:item.photo_file_id}).toString():"";
+   if(item.photo_file_id){
+    try{img.src=storage.getFilePreview({bucketId:CONFIG.bucketId,fileId:item.photo_file_id,width:360,height:360,quality:65}).toString();}
+    catch(previewError){img.src=fullImageUrl;}
+    img.onerror=()=>{if(img.src!==fullImageUrl)img.src=fullImageUrl;};
+   }
    const details=document.createElement("div");
    const name=document.createElement("strong");name.textContent=item.customer_name||"নাম দেওয়া হয়নি";
    const phone=document.createElement("p");phone.textContent="মোবাইল: "+(item.phone||"—");
    const date=document.createElement("p");date.className="muted";date.textContent="জমার সময়: "+(item.$createdAt?new Date(item.$createdAt).toLocaleString("bn-BD"):"—");
    details.append(name,phone,date);
-   if(item.photo_file_id){const link=document.createElement("a");link.href=img.src;link.target="_blank";link.rel="noopener";link.textContent="ছবি খুলুন";details.append(link);}
+   if(item.photo_file_id){const link=document.createElement("a");link.href=fullImageUrl;link.target="_blank";link.rel="noopener";link.textContent="পূর্ণ ছবি খুলুন";details.append(link);}
    card.append(img,details);rowsBox.append(card);
   }
  }catch(error){
