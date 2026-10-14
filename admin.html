@@ -93,7 +93,8 @@ document.getElementById("loginForm").addEventListener("submit",async e=>{
 });
 document.getElementById("logoutBtn").addEventListener("click",async()=>{try{await account.deleteSession({sessionId:"current"});}catch(e){console.error(e);}showLogin();loginStatus.textContent="আপনি লগআউট করেছেন।";});
 document.getElementById("refreshBtn").addEventListener("click",loadRows);
-account.get().then(()=>showDashboard()).catch(()=>showLogin());
+// শুরুতে লগইন পেজ দেখাই; পুরোনো get() অনুরোধ যেন লগইনের পর ড্যাশবোর্ড আবার লুকিয়ে না দেয়।
+showLogin();
 </script>
 </body>
 </html>
