@@ -25,7 +25,7 @@ form.addEventListener('submit',async e=>{
  let uploaded=null;
  try{
    uploaded=await storage.createFile({bucketId:'6aceef430035c78dd682',fileId:ID.unique(),file:file,permissions:[Permission.read(Role.user('6acf08cc00087539c14d'))]});
-   await tables.createRow({databaseId:'6acef39300396782af9e',tableId:'6acef7960018db31017f',rowId:ID.unique(),data:{customer_name:name,phone:phone,photo_file_id:uploaded.$id}});
+   await tables.createRow({databaseId:'6acef39300396782af9e',tableId:'6acef7960018db31017f',rowId:ID.unique(),data:{customer_name:name,phone:phone,photo_file_id:uploaded.$id},permissions:[Permission.read(Role.user('6acf08cc00087539c14d'))]});
    status.style.color='#087a3e';status.textContent='✅ আপনার তথ্য ও ছবি সফলভাবে জমা হয়েছে।';form.reset();
  }catch(err){
    if(uploaded){try{await storage.deleteFile({bucketId:'6aceef430035c78dd682',fileId:uploaded.$id});}catch(cleanup){}}
