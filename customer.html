@@ -24,11 +24,11 @@ form.addEventListener('submit',async e=>{
  btn.disabled=true;status.style.color='#152238';status.textContent='জমা হচ্ছে… অনুগ্রহ করে অপেক্ষা করুন।';
  let uploaded=null;
  try{
-   uploaded=await storage.createFile('6aceef430035c78dd682',ID.unique(),file,[Permission.read(Role.users())]);
-   await tables.createRow('6acef39300396782af9e','6acef7960018db31017f',ID.unique(),{customer_name:name,phone:phone,photo_file_id:uploaded.$id});
+   uploaded=await storage.createFile({bucketId:'6aceef430035c78dd682',fileId:ID.unique(),file:file,permissions:[Permission.read(Role.users())]});
+   await tables.createRow({databaseId:'6acef39300396782af9e',tableId:'6acef7960018db31017f',rowId:ID.unique(),data:{customer_name:name,phone:phone,photo_file_id:uploaded.$id}});
    status.style.color='#087a3e';status.textContent='✅ আপনার তথ্য ও ছবি সফলভাবে জমা হয়েছে।';form.reset();
  }catch(err){
-   if(uploaded){try{await storage.deleteFile('6aceef430035c78dd682',uploaded.$id);}catch(cleanup){}}
+   if(uploaded){try{await storage.deleteFile({bucketId:'6aceef430035c78dd682',fileId:uploaded.$id});}catch(cleanup){}}
    status.style.color='#b42318';
    let msg=err&&err.message?err.message:'অজানা সংযোগ সমস্যা';
    if(msg.includes('Missing')||msg.includes('permission'))msg='জমা হয়নি: Appwrite-এ টেবিল/স্টোরেজের Create permission বা কলামের নাম মিলছে না।';
