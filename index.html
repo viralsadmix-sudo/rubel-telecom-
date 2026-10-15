@@ -1,173 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rubel Telecom</title>
-  <script src="https://cdn.jsdelivr.net/npm/appwrite@28.1.0"></script>
-
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 15px; background-color: #f4f4f9; color: #333; }
-    header { text-align: center; background: #007bff; color: white; padding: 15px; border-radius: 8px; }
-    header img { max-width: 80px; border-radius: 50%; }
-    section { background: white; margin: 15px 0; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-    h2 { color: #007bff; margin-top: 0; }
-    input, button { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
-    button { background-color: #28a745; color: white; font-weight: bold; border: none; cursor: pointer; }
-    button:disabled { background-color: #a5d6a7; }
-    a.btn { display: inline-block; background: #007bff; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; margin-top: 5px; }
-    #statusMessage { font-weight: bold; margin-top: 10px; text-align: center; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#102b59">
+<meta name="description" content="Rubel Telecom — ফটোকপি, প্রিন্টিং, ছবি ও ডকুমেন্ট, মোবাইল সার্ভিসিং এবং SIM সেবা।">
+<title>Rubel Telecom | ডিজিটাল সেবা কেন্দ্র</title>
+<style>
+:root{--navy:#102b59;--blue:#087ca7;--ink:#152238;--muted:#596a80;--line:#dbe4ef;--paper:#fff;--bg:#f1f5fa}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Noto Sans Bengali",Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+header{background:linear-gradient(135deg,#0b1e42,var(--navy),var(--blue));color:#fff;padding:28px 16px 34px;text-align:center}
+.brand{width:70px;height:70px;margin:0 auto 10px;border-radius:22px;background:#fff;color:var(--navy);display:grid;place-items:center;font-weight:900;font-size:25px;box-shadow:0 8px 25px #0002}
+h1{font-size:clamp(28px,7vw,40px);margin:0;letter-spacing:.2px}header p{margin:8px 0 0;color:#e6f5ff}
+main{max-width:760px;margin:-16px auto 0;padding:0 14px 28px;position:relative}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:20px;margin:0 0 15px;box-shadow:0 7px 25px #102b590b}
+h2{font-size:21px;margin:0 0 10px;color:var(--navy)}p{margin:7px 0}.muted{color:var(--muted);font-size:14px}
+.primary,.secondary{display:block;text-align:center;text-decoration:none;border-radius:12px;padding:14px 16px;font-weight:800;margin-top:12px}
+.primary{background:var(--blue);color:white}.secondary{border:1px solid var(--line);color:var(--navy);background:#f8fbff}
+.services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.service{padding:12px;border:1px solid var(--line);border-radius:12px;background:#fbfdff}
+.service span{display:block;font-size:22px}.contact{overflow-wrap:anywhere}
+footer{text-align:center;padding:10px 16px 25px;color:var(--muted);font-size:13px}
+@media(min-width:560px){.card{padding:24px}.services{grid-template-columns:repeat(3,minmax(0,1fr))}}
+</style>
 </head>
 <body>
-
-<header>
-  <img alt="Rubel Telecom লোগো" src="./file_000000008f7c8210abe65a5d06837183.png">
-  <h1>Rubel Telecom</h1>
-  <p>আপনার বিশ্বস্ত ডিজিটাল সেবা কেন্দ্র</p>
-</header>
-
+<header><div class="brand" aria-label="Rubel Telecom">RT</div><h1>Rubel Telecom</h1><p>আপনার বিশ্বস্ত ডিজিটাল সেবা কেন্দ্র</p></header>
 <main>
-  <section>
-    <h2>আমাদের সেবাসমূহ</h2>
-    <div>📄 ফটোকপি ও প্রিন্টিং</div>
-    <div>📷 ছবি ও ডকুমেন্ট সেবা</div>
-    <div>📱 মোবাইল সার্ভিসিং</div>
-    <div>📶 SIM-সংক্রান্ত সেবা</div>
-    <div>🛠️ অন্যান্য জরুরি সেবা</div>
-  </section>
-
-  <section>
-    <h2>গ্রাহকের তথ্য ও ছবি জমা দিন</h2>
-    <p>নিচের ফর্ম পূরণ করে আপনার তথ্য ও ছবি পাঠান।</p>
-
-    <form id="uploadForm">
-      <input type="text" id="name" placeholder="আপনার নাম" required>
-      <input type="tel" id="phone" placeholder="মোবাইল নম্বর" required>
-      <label style="font-weight: bold;">ছবি বা ফাইল নির্বাচন করুন:</label>
-      <input type="file" id="photo" accept="image/*" required>
-      
-      <button type="submit" id="submitBtn">জমা দিন</button>
-    </form>
-    
-    <div id="statusMessage"></div>
-  </section>
-
-  <section>
-    <h2>📲 অ্যাপ ডাউনলোড</h2>
-    <p>Rubel Telecom থেকে প্রকাশিত অ্যাপ এখানে ডাউনলোড করতে পারবেন।</p>
-    <a href="https://github.com/viralsadmix-sudo/rubel-telecom-/releases/latest" target="_blank" class="btn">⬇️ সর্বশেষ APK ডাউনলোড করুন</a>
-  </section>
-
-  <section>
-    <h2>অ্যাডমিন</h2>
-    <p>কাস্টমারের জমা দেওয়া তথ্য ও ছবি দেখতে অ্যাডমিন প্যানেলে প্রবেশ করুন।</p>
-    <a href="./admin.html" class="btn" style="background:#6c757d;">🔐 Admin Login / Panel</a>
-  </section>
-
-  <section>
-    <h2>যোগাযোগ</h2>
-    <p>📍 ঠিকানা: নন্দিনা খন্দকার বাজার, গাইবান্ধা সদর, গাইবান্ধা</p>
-    <p>📞 মোবাইল: 01784904304</p>
-    <a href="tel:01784904304" class="btn">📞 কল করুন</a>
-    <a href="https://wa.me/8801784904304" target="_blank" class="btn" style="background:#25D366;">💬 WhatsApp করুন</a>
-  </section>
+<section class="card">
+<h2>📤 কাস্টমারের ছবি ও তথ্য জমা</h2>
+<p>আপনার নাম, মোবাইল নম্বর এবং ছবি বা ডকুমেন্ট পাঠাতে নিচের বোতামে চাপ দিন। ফর্মে তথ্য ঠিকভাবে পূরণ করে শেষে জমা দিন।</p>
+<a class="primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfNmi5-5SnK8kZ7B-HpMy6FZbVo7U9jsF6LB-QlFnpQelGd4-A/viewform?usp=sharing&amp;ouid=110164777443234333226" target="_blank" rel="noopener">ছবি ও তথ্য জমা দিন ↗</a>
+<p class="muted">নোট: Google-এর ফর্মে ছবি আপলোড করতে Google অ্যাকাউন্টে সাইন ইন চাইতে পারে। জমা সফল হয়েছে—এমন বার্তা না দেখা পর্যন্ত পেজ বন্ধ করবেন না।</p>
+</section>
+<section class="card"><h2>🧰 আমাদের সেবাসমূহ</h2><div class="services">
+<div class="service"><span>📄</span>ফটোকপি ও প্রিন্টিং</div>
+<div class="service"><span>🖼️</span>ছবি ও ডকুমেন্ট সেবা</div>
+<div class="service"><span>📱</span>মোবাইল সার্ভিসিং</div>
+<div class="service"><span>📶</span>SIM-সংক্রান্ত সেবা</div>
+<div class="service"><span>🛠️</span>জরুরি ও সাধারণ সেবা</div>
+</div></section>
+<section class="card contact"><h2>📍 দোকানের ঠিকানা ও যোগাযোগ</h2><p><strong>Rubel Telecom</strong></p><p>নন্দিনা খন্দকার বাজার, গাইবান্ধা সদর, গাইবান্ধা</p><p>ফোন: <strong>01784904304</strong></p><a class="primary" href="tel:01784904304">📞 ফোন করুন</a><a class="secondary" href="https://wa.me/8801784904304" target="_blank" rel="noopener">💬 WhatsApp-এ যোগাযোগ</a></section>
+<section class="card"><h2>🔒 আপনার তথ্য</h2><p class="muted">আপনার দেওয়া তথ্য Rubel Telecom-এর কাজ সম্পন্ন করার জন্য ব্যবহার করা হবে। সংবেদনশীল তথ্য জমা দেবেন না।</p></section>
 </main>
-
-<footer>
-  <p style="text-align:center; color:#777;">© Rubel Telecom — All rights reserved</p>
-</footer>
-
-<script>
-  const CONFIG = {
-    endpoint: "https://nyc.cloud.appwrite.io/v1",
-    projectId: "6aceec5b0017856576f7",
-    databaseId: "6acef39300396782af9e",
-    tableId: "6acf947a00083e1db975",
-    bucketId: "6aceef430035c78dd682"
-  };
-
-  const form = document.getElementById("uploadForm");
-  form.addEventListener("submit", async function(event) {
-    event.preventDefault();
-    const submitBtn = document.getElementById("submitBtn");
-    const statusMsg = document.getElementById("statusMessage");
-    const name = document.getElementById("name").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const file = document.getElementById("photo").files[0];
-
-    if (!name || !phone || !file) {
-      statusMsg.style.color = "red";
-      statusMsg.innerText = "নাম, মোবাইল নম্বর ও ছবি—সবগুলো দিন।";
-      return;
-    }
-    if (file.size > 10 * 1024 * 1024) {
-      statusMsg.style.color = "red";
-      statusMsg.innerText = "ছবিটি ১০ MB-এর বেশি। ছোট ছবি নির্বাচন করুন।";
-      return;
-    }
-
-    submitBtn.disabled = true;
-    statusMsg.style.color = "#0756c9";
-    statusMsg.innerText = "ছবি ও তথ্য জমা হচ্ছে—অপেক্ষা করুন...";
-    let uploadStage = "ছবি Storage-এ আপলোড";
-    try {
-      // Send as a public guest request; do not forward an existing Appwrite login cookie.
-      const guestFetch = (url, options = {}) => fetch(url, {
-        ...options,
-        credentials: "omit",
-        headers: {
-          "X-Appwrite-Project": CONFIG.projectId,
-          ...(options.headers || {})
-        }
-      });
-
-      const fileForm = new FormData();
-      fileForm.append("fileId", "unique()");
-      fileForm.append("file", file);
-      const fileResponse = await guestFetch(
-        CONFIG.endpoint + "/storage/buckets/" + CONFIG.bucketId + "/files",
-        { method: "POST", body: fileForm }
-      );
-      const fileResult = await fileResponse.json().catch(() => ({}));
-      if (!fileResponse.ok) {
-        throw new Error((fileResult.message || "Storage-এ ছবি জমা হয়নি") + " [HTTP " + fileResponse.status + "]");
-      }
-      const fileId = fileResult.$id;
-
-      uploadStage = "কাস্টমারের তথ্য Table-এ সংরক্ষণ";
-      const rowResponse = await guestFetch(
-        CONFIG.endpoint + "/tablesdb/" + CONFIG.databaseId + "/tables/" + CONFIG.tableId + "/rows",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            rowId: "unique()",
-            data: {
-              customer_name: name,
-              phone: phone,
-              photo_file_id: fileId
-            }
-          })
-        }
-      );
-      const rowResult = await rowResponse.json().catch(() => ({}));
-      if (!rowResponse.ok) {
-        throw new Error((rowResult.message || "Table-এ তথ্য জমা হয়নি") + " [HTTP " + rowResponse.status + "]");
-      }
-
-      statusMsg.style.color = "green";
-      statusMsg.innerText = "ধন্যবাদ! আপনার নাম, নম্বর ও ছবি সফলভাবে জমা হয়েছে।";
-      form.reset();
-    } catch (error) {
-      console.error(error);
-      statusMsg.style.color = "red";
-      statusMsg.innerText = uploadStage + " ধাপে ব্যর্থ হয়েছে: " + (error && error.message ? error.message : "সংযোগে সমস্যা হয়েছে।");
-    } finally {
-      submitBtn.disabled = false;
-    }
-  });
-</script>
-
+<footer>© Rubel Telecom — সর্বস্বত্ব সংরক্ষিত</footer>
 </body>
 </html>
