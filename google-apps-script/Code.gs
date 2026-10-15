@@ -3,9 +3,12 @@ const PROP_SHEET_ID = "RUBEL_TELECOM_SHEET_ID";
 const PROP_FOLDER_ID = "RUBEL_TELECOM_FOLDER_ID";
 const MAX_FILE_BYTES = 5 * 1024 * 1024;
 
-function doGet() {
-  return HtmlService.createHtmlOutputFromFile("Index")
-    .setTitle(APP_TITLE + " — ছবি জমা দিন")
+function doGet(e) {
+  const page = e && e.parameter ? String(e.parameter.page || "") : "";
+  const file = page === "admin" ? "Admin" : "Index";
+  const title = page === "admin" ? APP_TITLE + " — মালিকের অ্যাডমিন প্যানেল" : APP_TITLE + " — ছবি জমা দিন";
+  return HtmlService.createHtmlOutputFromFile(file)
+    .setTitle(title)
     .addMetaTag("viewport", "width=device-width, initial-scale=1");
 }
 
@@ -31,6 +34,14 @@ function setupRubelTelecom() {
     props.setProperty(PROP_FOLDER_ID, folder.getId());
   }
 
+  let adminPin = props.getProperty("RUBEL_TELECOM_ADMIN_PIN");
+  let newAdminPin = "";
+  if (!adminPin) {
+    adminPin = Utilities.getUuid().replace(/-/g, "").slice(0, 12);
+    props.setProperty("RUBEL_TELECOM_ADMIN_PIN", adminPin);
+    newAdminPin = adminPin;
+  }
+
   const sheet = spreadsheet.getSheets()[0];
   sheet.setName("Customer Submissions");
   if (sheet.getLastRow() === 0) {
@@ -40,7 +51,8 @@ function setupRubelTelecom() {
   }
   Logger.log("Spreadsheet: " + spreadsheet.getUrl());
   Logger.log("Drive folder: " + folder.getName());
-  return { spreadsheetUrl: spreadsheet.getUrl(), folderName: folder.getName(), message: "Setup complete. Keep the spreadsheet private." };
+  if (newAdminPin) Logger.log("ONE-TIME ADMIN PIN (save privately; it will not be shown again): " + newAdminPin);
+  return { spreadsheetUrl: spreadsheet.getUrl(), folderName: folder.getName(), adminPin: newAdminPin || "(already set; not displayed for security)", message: "Setup complete. Keep the spreadsheet and Drive folder private." };
 }
 
 function submitCustomer(data) {
@@ -87,4 +99,59 @@ function submitCustomer(data) {
 
 function cleanText_(value, maxLength) {
   return String(value == null ? "" : value).replace(/[<>]/g, "").replace(/[\u0000-\u001F\u007F]/g, " ").trim().slice(0, maxLength);
+}
+
+
+function getAdminSubmissions(pin) {
+  requireAdminPin_(pin);
+  const props = PropertiesService.getScriptProperties();
+  const sheetId = props.getProperty(PROP_SHEET_ID);
+  if (!sheetId) throw new Error("সিস্টেম সেটআপ করা হয়নি।");
+  const sheet = SpreadsheetApp.openById(sheetId).getSheetByName("Customer Submissions");
+  if (!sheet) throw new Error("কাস্টমার রেকর্ড শিট পাওয়া যায়নি।");
+  const lastRow = sheet.getLastRow();
+  if (lastRow < 2) return [];
+  const startRow = Math.max(2, lastRow - 199);
+  const values = sheet.getRange(startRow, 1, lastRow - startRow + 1, 9).getValues();
+  return values.reverse().map(function(row) {
+    const fileId = String(row[6] || "");
+    return {
+      id: String(row[0] || ""),
+      submittedAt: row[1] instanceof Date ? row[1].toISOString() : String(row[1] || ""),
+      name: String(row[2] || ""),
+      phone: String(row[3] || ""),
+      description: String(row[4] || ""),
+      fileName: String(row[5] || ""),
+      mimeType: String(row[7] || ""),
+      status: String(row[8] || "নতুন"),
+      fileUrl: fileId ? "https://drive.google.com/file/d/" + encodeURIComponent(fileId) + "/view" : ""
+    };
+  });
+}
+
+function setSubmissionStatus(pin, submissionId, status) {
+  requireAdminPin_(pin);
+  const allowed = ["নতুন", "কাজ চলছে", "সম্পন্ন"];
+  const safeId = String(submissionId || "").trim();
+  const safeStatus = String(status || "").trim();
+  if (!safeId || allowed.indexOf(safeStatus) === -1) throw new Error("তথ্য ঠিক নয়।");
+  const sheetId = PropertiesService.getScriptProperties().getProperty(PROP_SHEET_ID);
+  if (!sheetId) throw new Error("সিস্টেম সেটআপ করা হয়নি।");
+  const sheet = SpreadsheetApp.openById(sheetId).getSheetByName("Customer Submissions");
+  if (!sheet) throw new Error("কাস্টমার রেকর্ড শিট পাওয়া যায়নি।");
+  const lastRow = sheet.getLastRow();
+  if (lastRow < 2) throw new Error("কোনো জমা পাওয়া যায়নি।");
+  const ids = sheet.getRange(2, 1, lastRow - 1, 1).getDisplayValues();
+  for (let i = 0; i < ids.length; i++) {
+    if (ids[i][0] === safeId) {
+      sheet.getRange(i + 2, 9).setValue(safeStatus);
+      return { ok: true, message: "স্ট্যাটাস আপডেট হয়েছে।" };
+    }
+  }
+  throw new Error("এই জমাটি পাওয়া যায়নি।");
+}
+
+function requireAdminPin_(pin) {
+  const expected = PropertiesService.getScriptProperties().getProperty("RUBEL_TELECOM_ADMIN_PIN");
+  if (!expected || String(pin || "") !== expected) throw new Error("অ্যাডমিন PIN সঠিক নয়।");
 }
