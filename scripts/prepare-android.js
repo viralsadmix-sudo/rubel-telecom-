@@ -7,6 +7,7 @@ fs.mkdirSync(out, { recursive: true });
 
 for (const file of [
   "index.html",
+  "customer.html",
   "admin.html",
   "about.html",
   "manifest.json",
