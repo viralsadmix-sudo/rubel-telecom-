@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#102b59">
+<title>Rubel Telecom — ছবি জমা দিন</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#eef3f9;color:#142033;font-family:Arial,sans-serif}
+header{background:linear-gradient(135deg,#102b59,#087ca7);color:#fff;text-align:center;padding:25px 16px}
+header h1{margin:0 0 8px;font-size:28px}header p{margin:0}
+main{max-width:620px;margin:20px auto;padding:0 14px}
+.card{background:#fff;border-radius:16px;padding:20px;box-shadow:0 5px 22px #102b5918;margin-bottom:16px}
+h2{margin-top:0;color:#087ca7}label{display:block;font-weight:bold;margin:14px 0 6px}
+input,textarea,button{width:100%;font:inherit;padding:13px;border:1px solid #c7d3e0;border-radius:9px}
+textarea{min-height:90px;resize:vertical}button{margin-top:16px;background:#087ca7;color:white;border:0;font-weight:bold;cursor:pointer}
+button:disabled{opacity:.6}#status{margin-top:14px;white-space:pre-wrap;line-height:1.5}.small{font-size:13px;color:#526174}
+.hp{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+footer{text-align:center;padding:18px;color:#526174;font-size:13px}
+</style>
+</head>
+<body>
+<header><h1>Rubel Telecom</h1><p>আপনার বিশ্বস্ত ডিজিটাল সেবা কেন্দ্র</p></header>
+<main>
+<section class="card">
+<h2>কাস্টমারের তথ্য ও ছবি জমা দিন</h2>
+<p>নিচের তথ্য পূরণ করে ছবি বা PDF পাঠান। সর্বোচ্চ ফাইল সাইজ ৫ MB।</p>
+<form id="uploadForm">
+<label for="name">আপনার নাম *</label><input id="name" name="name" maxlength="100" autocomplete="name" required>
+<label for="phone">মোবাইল নম্বর *</label><input id="phone" name="phone" type="tel" maxlength="25" autocomplete="tel" required>
+<label for="description">কাজের বিবরণ (ঐচ্ছিক)</label><textarea id="description" name="description" maxlength="500" placeholder="কী কাজ করাতে চান?"></textarea>
+<label for="photo">ছবি বা PDF ফাইল *</label><input id="photo" name="photo" type="file" accept="image/jpeg,image/png,image/webp,application/pdf" required>
+<div class="hp" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+<button id="submitBtn" type="submit">তথ্য ও ফাইল জমা দিন</button>
+<div id="status" role="status" aria-live="polite"></div>
+</form>
+</section>
+<section class="card"><h2>দোকানের তথ্য</h2><p><b>Rubel Telecom</b><br>নন্দিনা খন্দকার বাজার, গাইবান্ধা সদর, গাইবান্ধা</p><p>ফোন: <a href="tel:01784904304">01784904304</a></p></section>
+</main>
+<footer>আপনার দেওয়া তথ্য দোকানের কাজের জন্য সংরক্ষণ করা হবে।</footer>
+<script>
+const form=document.getElementById("uploadForm");
+const statusBox=document.getElementById("status");
+const button=document.getElementById("submitBtn");
+form.addEventListener("submit", async function(event){
+  event.preventDefault();
+  const file=document.getElementById("photo").files[0];
+  const name=document.getElementById("name").value.trim();
+  const phone=document.getElementById("phone").value.trim();
+  if(!name||!phone||!file){statusBox.textContent="নাম, মোবাইল নম্বর ও ফাইল দিন।";return;}
+  if(file.size>5*1024*1024){statusBox.textContent="ফাইলটি ৫ MB-এর বেশি। ছোট ফাইল দিন।";return;}
+  const allowed=["image/jpeg","image/png","image/webp","application/pdf"];
+  if(!allowed.includes(file.type)){statusBox.textContent="শুধু JPG, PNG, WEBP অথবা PDF ফাইল দিন।";return;}
+  button.disabled=true;statusBox.style.color="#142033";statusBox.textContent="ফাইল জমা হচ্ছে, অনুগ্রহ করে অপেক্ষা করুন…";
+  try{
+    const base64=await new Promise((resolve,reject)=>{
+      const reader=new FileReader();
+      reader.onload=()=>resolve(String(reader.result).split(",")[1]||"");
+      reader.onerror=()=>reject(new Error("ফাইল পড়া যায়নি। আবার চেষ্টা করুন।"));
+      reader.readAsDataURL(file);
+    });
+    const payload={name:name,phone:phone,description:document.getElementById("description").value.trim(),fileName:file.name,mimeType:file.type,base64:base64,website:document.getElementById("website").value};
+    google.script.run.withSuccessHandler(result=>{
+      statusBox.style.color="#087a3e";statusBox.textContent=(result&&result.message)||"সফলভাবে জমা হয়েছে।";
+      form.reset();button.disabled=false;
+    }).withFailureHandler(error=>{
+      statusBox.style.color="#b42318";statusBox.textContent="জমা হয়নি: "+(error&&error.message?error.message:"সংযোগে সমস্যা হয়েছে।");
+      button.disabled=false;
+    }).submitCustomer(payload);
+  }catch(error){statusBox.style.color="#b42318";statusBox.textContent=error.message||"ফাইল পড়া যায়নি।";button.disabled=false;}
+});
+</script>
+</body>
+</html>
