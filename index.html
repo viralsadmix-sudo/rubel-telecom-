@@ -220,7 +220,7 @@
 
       const detail = [error.message, error.type ? "টাইপ: " + error.type : "", error.code ? "কোড: " + error.code : ""].filter(Boolean).join("\n");
       statusBox.textContent =
-        "❌ জমা হয়নি। আপনার তথ্য সংরক্ষণ করা যায়নি।\n" +
+        "❌ জমা হয়নি। আপনার তথ্য সংরক্ষণ করা যায়নি।\nব্যর্থ ধাপ: " + currentStep + "\n" +
         (detail || "অজানা সমস্যা") +
         (String(error.message || "").toLowerCase().includes("permission")
           ? "\nসমাধান: Appwrite Storage bucket-এ Create permission এবং Database Table-এ Create permission চালু থাকতে হবে।"
