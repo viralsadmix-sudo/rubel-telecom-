@@ -39,6 +39,16 @@ button:disabled{opacity:.6}a{color:#69d5ff}#status{white-space:pre-wrap;overflow
 <p class="muted">এখানে Appwrite-এ সংরক্ষিত কাস্টমারের তথ্য ও ছবি দেখা যাবে।</p>
 <button id="refreshBtn">তথ্য রিফ্রেশ করুন</button>
 <div id="listStatus" role="status"></div><div id="rows"></div>
+<hr style="border:0;border-top:1px solid #263d59;margin:22px 0">
+<h2>📲 অ্যাপ ডাউনলোড পরিচালনা</h2>
+<p class="muted">এখানে APK আপলোড করলে কাস্টমারের মূল ওয়েবসাইটের ডাউনলোড অংশে দেখা যাবে।</p>
+<form id="downloadForm">
+<label for="downloadTitle">অ্যাপের নাম</label><input id="downloadTitle" required maxlength="100" placeholder="যেমন: PMM App">
+<label for="downloadDescription">ছোট বিবরণ (ঐচ্ছিক)</label><input id="downloadDescription" maxlength="300" placeholder="অ্যাপ সম্পর্কে লিখুন">
+<label for="downloadFile">APK ফাইল নির্বাচন করুন</label><input id="downloadFile" type="file" accept=".apk,application/vnd.android.package-archive" required>
+<button id="uploadDownloadBtn" type="submit">APK আপলোড ও প্রকাশ করুন</button>
+<div id="downloadStatus" role="status"></div>
+</form>
 </section>
 <section class="card"><a href="./index.html">← মূল Rubel Telecom অ্যাপে ফিরে যান</a></section>
 </main>
@@ -55,8 +65,8 @@ if(!window.Appwrite){
  document.getElementById("loginStatus").textContent="Appwrite সংযোগের স্ক্রিপ্ট লোড হয়নি। ইন্টারনেট চালু করে পেজটি আবার খুলুন।";
  throw new Error("Appwrite SDK missing");
 }
-const CONFIG={endpoint:"https://nyc.cloud.appwrite.io/v1",projectId:"6aceec5b0017856576f7",databaseId:"6acef39300396782af9e",tableId:"6acf947a00083e1db975",bucketId:"6aceef430035c78dd682"};
-const {Client,Account,Storage,TablesDB,Query}=Appwrite;
+const CONFIG={endpoint:"https://nyc.cloud.appwrite.io/v1",projectId:"6aceec5b0017856576f7",databaseId:"6acef39300396782af9e",tableId:"6acf947a00083e1db975",bucketId:"6aceef430035c78dd682",downloadsTableId:"SET_DOWNLOADS_TABLE_ID",downloadsBucketId:"SET_DOWNLOADS_BUCKET_ID"};
+const {Client,Account,Storage,TablesDB,Query,ID,Permission,Role}=Appwrite;
 const client=new Client().setEndpoint(CONFIG.endpoint).setProject(CONFIG.projectId);
 const account=new Account(client),storage=new Storage(client),tablesDB=new TablesDB(client);
 const loginCard=document.getElementById("loginCard"),dashboard=document.getElementById("dashboard");
@@ -108,6 +118,45 @@ document.getElementById("loginForm").addEventListener("submit",async e=>{
 });
 document.getElementById("logoutBtn").addEventListener("click",async()=>{try{await account.deleteSession({sessionId:"current"});}catch(e){console.error(e);}showLogin();loginStatus.textContent="আপনি লগআউট করেছেন।";});
 document.getElementById("refreshBtn").addEventListener("click",loadRows);
+
+document.getElementById("downloadForm").addEventListener("submit", async e => {
+ e.preventDefault();
+ const status = document.getElementById("downloadStatus");
+ const btn = document.getElementById("uploadDownloadBtn");
+ const title = document.getElementById("downloadTitle").value.trim();
+ const description = document.getElementById("downloadDescription").value.trim();
+ const file = document.getElementById("downloadFile").files[0];
+ if (!title || !file) { status.textContent = "অ্যাপের নাম ও APK ফাইল নির্বাচন করুন।"; return; }
+ if (!file.name.toLowerCase().endsWith(".apk")) { status.textContent = "শুধু .apk ফাইল আপলোড করুন।"; return; }
+ if (CONFIG.downloadsTableId.startsWith("SET_") || CONFIG.downloadsBucketId.startsWith("SET_")) {
+   status.textContent = "ফিচারটি সক্রিয় করতে Appwrite-এ আলাদা Downloads Table ও Downloads Bucket তৈরি করে তাদের ID কোডে বসাতে হবে।";
+   return;
+ }
+ btn.disabled = true;
+ status.textContent = "APK আপলোড হচ্ছে...";
+ let fileId = null;
+ try {
+   const uploaded = await storage.createFile({
+     bucketId: CONFIG.downloadsBucketId,
+     fileId: ID.unique(),
+     file,
+     permissions: [Permission.read(Role.any())]
+   });
+   fileId = uploaded.$id;
+   await tablesDB.createRow({
+     databaseId: CONFIG.databaseId,
+     tableId: CONFIG.downloadsTableId,
+     rowId: ID.unique(),
+     data: {title, description, file_id: fileId, file_name: file.name}
+   });
+   status.textContent = "✅ APK আপলোড হয়েছে এবং কাস্টমারদের ডাউনলোড সেকশনে প্রকাশিত হয়েছে।";
+   e.target.reset();
+ } catch (error) {
+   console.error(error);
+   status.textContent = "❌ আপলোড সম্পন্ন হয়নি: " + (error.message || "অজানা সমস্যা") +
+     (fileId ? "\\nফাইল স্টোরেজে উঠেছে, কিন্তু তালিকায় যোগ হয়নি; Appwrite Table ও Create permission পরীক্ষা করুন।" : "");
+ } finally { btn.disabled = false; }
+});
 // আগে থেকে session থাকলে সেটি ব্যবহার করি; না থাকলেই শুধু login form দেখাই।
 account.get()
  .then(()=>{loginStatus.textContent="";showDashboard();})
