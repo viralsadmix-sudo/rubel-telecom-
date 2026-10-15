@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rubel Telecom</title>
+  <script src="https://cdn.jsdelivr.net/npm/appwrite@28.1.0"></script>
 
   <style>
     body { font-family: Arial, sans-serif; margin: 0; padding: 15px; background-color: #f4f4f9; color: #333; }
@@ -78,64 +79,80 @@
 </footer>
 
 <script>
-  // নিচে আপনার Google Apps Script এর URL বসান
-  const scriptURL = 'আপনার_গুগল_অ্যাপস_স্ক্রিপ্ট_লিঙ্ক'; 
+  const CONFIG = {
+    endpoint: "https://nyc.cloud.appwrite.io/v1",
+    projectId: "6aceec5b0017856576f7",
+    databaseId: "6acef39300396782af9e",
+    tableId: "6acf947a00083e1db975",
+    bucketId: "6aceef430035c78dd682"
+  };
 
-  document.getElementById('uploadForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const submitBtn = document.getElementById('submitBtn');
-    const statusMsg = document.getElementById('statusMessage');
-    const fileInput = document.getElementById('photo');
-    const file = fileInput.files[0];
+  const form = document.getElementById("uploadForm");
+  form.addEventListener("submit", async function(event) {
+    event.preventDefault();
+    const submitBtn = document.getElementById("submitBtn");
+    const statusMsg = document.getElementById("statusMessage");
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const file = document.getElementById("photo").files[0];
 
-    if (!file) {
-      statusMsg.style.color = 'red';
-      statusMsg.innerText = 'অনুগ্রহ করে একটি ছবি নির্বাচন করুন।';
+    if (!name || !phone || !file) {
+      statusMsg.style.color = "red";
+      statusMsg.innerText = "নাম, মোবাইল নম্বর ও ছবি—সবগুলো দিন।";
+      return;
+    }
+    if (!window.Appwrite) {
+      statusMsg.style.color = "red";
+      statusMsg.innerText = "সার্ভার লাইব্রেরি লোড হয়নি। ইন্টারনেট পরীক্ষা করে আবার চেষ্টা করুন।";
+      return;
+    }
+    if (file.size > 10 * 1024 * 1024) {
+      statusMsg.style.color = "red";
+      statusMsg.innerText = "ছবিটি ১০ MB-এর বেশি। ছোট ছবি নির্বাচন করুন।";
       return;
     }
 
     submitBtn.disabled = true;
-    statusMsg.style.color = 'blue';
-    statusMsg.innerText = 'ছবি আপলোড হচ্ছে, অনুগ্রহ করে অপেক্ষা করুন...';
+    statusMsg.style.color = "#0756c9";
+    statusMsg.innerText = "ছবি ও তথ্য জমা হচ্ছে—অপেক্ষা করুন...";
+    let uploadedFileId = null;
+    let uploadStage = "ছবি Storage-এ আপলোড";
+    try {
+      const { Client, Storage, TablesDB, ID } = Appwrite;
+      const client = new Client().setEndpoint(CONFIG.endpoint).setProject(CONFIG.projectId);
+      const storage = new Storage(client);
+      const tablesDB = new TablesDB(client);
 
-    const reader = new FileReader();
-    reader.onload = function(e) {
-      const rawBytes = e.target.result.split(',')[1];
-      
-      const payload = {
-        name: document.getElementById('name').value,
-        phone: document.getElementById('phone').value,
-        filename: file.name,
-        mimeType: file.type,
-        fileData: rawBytes
-      };
-
-      fetch(scriptURL, {
-        method: 'POST',
-        body: JSON.stringify(payload)
-      })
-      .then(response => response.json())
-      .then(data => {
-        submitBtn.disabled = false;
-        if (data.result === 'success' || data.status === 'success') {
-          statusMsg.style.color = 'green';
-          statusMsg.innerText = 'ধন্যবাদ! আপনার তথ্য ও ছবি সফলভাবে জমা হয়েছে।';
-          document.getElementById('uploadForm').reset();
-        } else {
-          statusMsg.style.color = 'red';
-          statusMsg.innerText = 'আপলোড সফল হয়নি! আবার চেষ্টা করুন।';
-        }
-      })
-      .catch(error => {
-        submitBtn.disabled = false;
-        statusMsg.style.color = 'red';
-        statusMsg.innerText = 'ছবি আপলোড সফল হয়েছে!';
-        document.getElementById('uploadForm').reset();
+      const uploaded = await storage.createFile({
+        bucketId: CONFIG.bucketId,
+        fileId: ID.unique(),
+        file: file
       });
-    };
+      uploadedFileId = uploaded.$id;
 
-    reader.readAsDataURL(file);
+      uploadStage = "কাস্টমারের তথ্য Table-এ সংরক্ষণ";
+      await tablesDB.createRow({
+        databaseId: CONFIG.databaseId,
+        tableId: CONFIG.tableId,
+        rowId: ID.unique(),
+        data: {
+          customer_name: name,
+          phone: phone,
+          photo_file_id: uploadedFileId
+        }
+      });
+
+      statusMsg.style.color = "green";
+      statusMsg.innerText = "ধন্যবাদ! আপনার নাম, নম্বর ও ছবি সফলভাবে জমা হয়েছে।";
+      form.reset();
+    } catch (error) {
+      console.error(error);
+      statusMsg.style.color = "red";
+      const code = error && error.code ? " (কোড " + error.code + ")" : "";
+      statusMsg.innerText = uploadStage + " ধাপে ব্যর্থ হয়েছে" + code + ": " + (error && error.message ? error.message : "Appwrite সংযোগ/অনুমতি পরীক্ষা করতে হবে।");
+    } finally {
+      submitBtn.disabled = false;
+    }
   });
 </script>
 
