@@ -14,12 +14,13 @@
 2. New project চাপুন। প্রজেক্টের নাম দিন Rubel Telecom Upload System।
 3. ডিফল্ট Code.gs ফাইলের সব লেখা মুছে এই ফোল্ডারের Code.gs-এর সম্পূর্ণ কোড বসান।
 4. + চাপুন → HTML নির্বাচন করুন → ফাইলের নাম দিন Index। তারপর Index.html-এর সম্পূর্ণ কোড বসান।
-5. Save আইকন চাপুন।
-6. ফাংশন তালিকা থেকে setupRubelTelecom নির্বাচন করে Run চাপুন। প্রথমবার Google permission চাইলে আপনার নিজের অ্যাকাউন্টে অনুমতি দিন। কাজ শেষ হলে Execution log-এ Spreadsheet URL দেখুন।
-7. Sheet খুলে নিশ্চিত করুন নাম Rubel Telecom Customers এবং ট্যাব Customer Submissions আছে। Sheet বা Drive folder-এ Anyone access দেবেন না।
-8. Deploy → New deployment চাপুন। Type gear-এ Web app নির্বাচন করুন।
-9. Execute as: Me (আপনি) নির্বাচন করুন। Who has access: Anyone নির্বাচন করুন, যদি এই অপশনটি আপনার অ্যাকাউন্টে পাওয়া যায়। তারপর Deploy চাপুন এবং Google-এর অনুমতি সম্পন্ন করুন।
-10. প্রকাশের পর যে URL https://script.google.com/macros/s/.../exec দিয়ে শেষ হয় সেটি কাস্টমারের লিংক। শুধু সেই URL-টাই কাস্টমারকে দিন—Sheet-এর URL নয়।
+5. আবার + → HTML নির্বাচন করুন → ফাইলের নাম দিন Admin। তারপর Admin.html-এর সম্পূর্ণ কোড বসান।
+6. Save আইকন চাপুন।
+7. ফাংশন তালিকা থেকে setupRubelTelecom নির্বাচন করে Run চাপুন। প্রথমবার Google permission চাইলে আপনার নিজের অ্যাকাউন্টে অনুমতি দিন। Execution log-এ Spreadsheet URL ও ONE-TIME ADMIN PIN দেখুন। PIN গোপনে সংরক্ষণ করুন।
+8. Sheet খুলে নিশ্চিত করুন নাম Rubel Telecom Customers এবং ট্যাব Customer Submissions আছে। Sheet বা Drive folder-এ Anyone access দেবেন না।
+9. Deploy → New deployment চাপুন। Type gear-এ Web app নির্বাচন করুন।
+10. Execute as: Me (আপনি) নির্বাচন করুন। Who has access: Anyone নির্বাচন করুন, যদি এই অপশনটি আপনার অ্যাকাউন্টে পাওয়া যায়। তারপর Deploy চাপুন এবং Google-এর অনুমতি সম্পন্ন করুন।
+11. প্রকাশের পর পাওয়া URL-টি কাস্টমার ফর্মের URL। অ্যাডমিন প্যানেলের URL হবে একই URL-এর শেষে `?page=admin` যোগ করে।
 
 ## খুব জরুরি নিরাপত্তা
 - Spreadsheet বা Drive folder কখনো public করবেন না।
