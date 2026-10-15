@@ -142,6 +142,7 @@
     statusBox.textContent = "তথ্য ও ছবি জমা হচ্ছে...";
 
     let uploadedFileId = null;
+    let currentStep = "ছবি আপলোডের প্রস্তুতি";
 
     try {
       // বড় ছবি হলে আগে JPEG-এ ছোট করি; Appwrite SDK 5MB-এর বেশি ফাইল chunk করে পাঠায়।
@@ -186,6 +187,7 @@
         }
       }
 
+      currentStep = "Appwrite Storage-এ ছবি আপলোড";
       statusBox.textContent = "ছবি আপলোড হচ্ছে...";
       const uploadedFile = await storage.createFile({
         bucketId: CONFIG.bucketId,
@@ -195,6 +197,8 @@
 
       uploadedFileId = uploadedFile.$id;
 
+      currentStep = "Database Table-এ গ্রাহকের তথ্য সংরক্ষণ";
+      statusBox.textContent = "ছবি আপলোড হয়েছে; এখন গ্রাহকের তথ্য সংরক্ষণ হচ্ছে...";
       await tablesDB.createRow({
         databaseId: CONFIG.databaseId,
         tableId: CONFIG.tableId,
