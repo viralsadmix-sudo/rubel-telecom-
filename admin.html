@@ -11,7 +11,24 @@ import {Client,Account,Storage,TablesDB,Query} from 'https://cdn.jsdelivr.net/np
 const client=new Client().setEndpoint('https://nyc.cloud.appwrite.io/v1').setProject('6aceec5b0017856576f7'),account=new Account(client),storage=new Storage(client),tables=new TablesDB(client);
 const login=document.getElementById('login'),dash=document.getElementById('dashboard'),loginForm=document.getElementById('loginForm'),loginStatus=document.getElementById('loginStatus'),dashStatus=document.getElementById('dashStatus'),records=document.getElementById('records'),loginBtn=document.getElementById('loginBtn');
 function msg(el,text,error=false){el.textContent=text||'';el.style.color=error?'#b42318':'#087a3e';}
-function niceError(e){let s=e&&e.message?e.message:'সংযোগে সমস্যা হয়েছে।';if(s.includes('Failed to fetch'))return 'Appwrite-এ সংযোগ হচ্ছে না। Endpoint ও Appwrite Web Platform domain পরীক্ষা করতে হবে।';if(s.includes('unauthorized')||s.includes('Unauthorized')||s.includes('user_session_not_found'))return 'লগইন সফল হয়নি। ইমেইল/পাসওয়ার্ড পরীক্ষা করুন।';if(s.toLowerCase().includes('permission')||s.includes('authorized'))return 'লগইন হয়েছে, কিন্তু Appwrite Table-এর Read permission এই অ্যাডমিন অ্যাকাউন্টের জন্য নেই।';return s;}
+const OWNER_ID='6acf08cc00087539c14d';
+function niceError(e){
+ const s=String(e&&e.message?e.message:'সংযোগে সমস্যা হয়েছে।');
+ const type=String(e&&e.type?e.type:'');
+ if(s.includes('Failed to fetch'))return 'Appwrite সার্ভারে সংযোগ হচ্ছে না। Appwrite Console → Settings → Platforms-এ viralsadmix-sudo.github.io যোগ আছে কি না দেখতে হবে।';
+ if(type==='user_invalid_credentials'||type==='user_not_found'||/invalid credentials|email.*password|user.*not found/i.test(s))return 'ইমেইল বা পাসওয়ার্ড মেলেনি, অথবা এই ইমেইলে Appwrite-এর Users তালিকায় অ্যাকাউন্ট নেই। Gmail-এর পাসওয়ার্ড নয়—Appwrite ব্যবহারকারী অ্যাকাউন্টের পাসওয়ার্ড দিন।';
+ if(type==='user_session_not_found'||s.includes('user_session_not_found'))return 'লগইন সেশন পাওয়া যায়নি। আবার ইমেইল ও পাসওয়ার্ড দিয়ে লগইন করুন।';
+ if(s.toLowerCase().includes('permission')||s.includes('authorized'))return 'লগইন হয়েছে, কিন্তু Appwrite Table-এর Read permission এই মালিকের অ্যাকাউন্টের জন্য নেই।';
+ return s;
+}
+async function openOwnerDashboard(){
+ const user=await account.get();
+ if(user.$id!==OWNER_ID){
+  try{await account.deleteSession({sessionId:'current'});}catch(e){}
+  throw new Error('এই অ্যাকাউন্টটি Rubel Telecom-এর নির্ধারিত মালিকের অ্যাকাউন্ট নয়। মালিকের Appwrite অ্যাকাউন্ট দিয়ে লগইন করুন।');
+ }
+ login.classList.add('hidden');dash.classList.remove('hidden');await loadRows();
+}
 async function loadRows(){
  msg(dashStatus,'কাস্টমারের জমা লোড হচ্ছে…');records.innerHTML='';
  try{
@@ -35,8 +52,15 @@ async function loadRows(){
   }
  }catch(e){msg(dashStatus,'জমাগুলো লোড হয়নি: '+niceError(e),true);}
 }
-loginForm.addEventListener('submit',async e=>{e.preventDefault();loginBtn.disabled=true;msg(loginStatus,'লগইন হচ্ছে…');try{await account.createEmailPasswordSession({email:document.getElementById('email').value.trim(),password:document.getElementById('password').value});login.classList.add('hidden');dash.classList.remove('hidden');await loadRows();}catch(err){msg(loginStatus,'লগইন হয়নি: '+niceError(err),true);}finally{loginBtn.disabled=false;}});
+loginForm.addEventListener('submit',async e=>{
+ e.preventDefault();loginBtn.disabled=true;msg(loginStatus,'লগইন হচ্ছে…');
+ try{
+  await account.createEmailPasswordSession({email:document.getElementById('email').value.trim(),password:document.getElementById('password').value});
+  await openOwnerDashboard();
+ }catch(err){msg(loginStatus,'লগইন হয়নি: '+niceError(err),true);}
+ finally{loginBtn.disabled=false;}
+});
 document.getElementById('refresh').addEventListener('click',loadRows);
 document.getElementById('logout').addEventListener('click',async()=>{try{await account.deleteSession({sessionId:'current'});}catch(e){}dash.classList.add('hidden');login.classList.remove('hidden');loginForm.reset();records.innerHTML='';msg(loginStatus,'লগআউট হয়েছে।');});
-try{await account.get();login.classList.add('hidden');dash.classList.remove('hidden');await loadRows();}catch(e){}
+try{await openOwnerDashboard();}catch(e){if(e&&e.message&&e.message.includes('নির্ধারিত মালিকের'))msg(loginStatus,e.message,true);}
 </script></body></html>
