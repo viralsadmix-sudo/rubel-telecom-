@@ -15,10 +15,11 @@ h1{font-size:clamp(28px,7vw,40px);margin:0;letter-spacing:.2px}header p{margin:8
 main{max-width:760px;margin:-16px auto 0;padding:0 14px 28px;position:relative}
 .card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:20px;margin:0 0 15px;box-shadow:0 7px 25px #102b590b}
 h2{font-size:21px;margin:0 0 10px;color:var(--navy)}p{margin:7px 0}.muted{color:var(--muted);font-size:14px}
-.primary,.secondary{display:block;text-align:center;text-decoration:none;border-radius:12px;padding:14px 16px;font-weight:800;margin-top:12px;border:0;cursor:pointer;font-size:16px}
+.primary,.secondary{display:block;text-align:center;text-decoration:none;border-radius:12px;padding:14px 16px;font-weight:800;margin-top:12px}
 .primary{background:var(--blue);color:white}.secondary{border:1px solid var(--line);color:var(--navy);background:#f8fbff}
-.services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.service{padding:12px;border:1px solid var(--line);border-radius:12px;background:#fbfdff}.service span{display:block;font-size:22px}.contact{overflow-wrap:anywhere}
-label{display:block;font-weight:700;margin:13px 0 5px}input{width:100%;padding:12px;border:1px solid #b9c8da;border-radius:10px;font:inherit;background:white}input[type=file]{padding:10px}button:disabled{opacity:.6;cursor:wait}.status{padding:11px;border-radius:10px;margin-top:12px;display:none;overflow-wrap:anywhere}.status.show{display:block}.status.error{background:#fff0f0;color:#9c2020}.status.ok{background:#eaf8ef;color:#176b36}
+.services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.service{padding:12px;border:1px solid var(--line);border-radius:12px;background:#fbfdff}
+.service span{display:block;font-size:22px}.contact{overflow-wrap:anywhere}
 footer{text-align:center;padding:10px 16px 25px;color:var(--muted);font-size:13px}
 @media(min-width:560px){.card{padding:24px}.services{grid-template-columns:repeat(3,minmax(0,1fr))}}
 </style>
@@ -28,68 +29,22 @@ footer{text-align:center;padding:10px 16px 25px;color:var(--muted);font-size:13p
 <main>
 <section class="card">
 <h2>📤 কাস্টমারের ছবি ও তথ্য জমা</h2>
-<p>আপনার নাম, মোবাইল নম্বর এবং ছবি বা ডকুমেন্ট দিন। জমা দেওয়ার পর সফলতার বার্তা না আসা পর্যন্ত পেজ বন্ধ করবেন না।</p>
-<form id="customerForm">
-<label for="customerName">আপনার নাম</label><input id="customerName" name="customer_name" maxlength="255" autocomplete="name" required placeholder="আপনার পুরো নাম">
-<label for="customerPhone">মোবাইল নম্বর</label><input id="customerPhone" name="phone" type="tel" maxlength="20" autocomplete="tel" required inputmode="tel" placeholder="01XXXXXXXXX">
-<label for="customerPhoto">ছবি বা ডকুমেন্ট</label><input id="customerPhoto" name="photo" type="file" accept="image/*,.pdf" required>
-<p class="muted">ছবি বা PDF ফাইল বেছে নিন। আপনার পাঠানো তথ্য শুধু অনুমোদিত দোকান-মালিকের দেখা উচিত।</p>
-<button class="primary" id="submitButton" type="submit" style="width:100%">তথ্য ও ছবি জমা দিন</button>
-<div id="formStatus" class="status" role="status" aria-live="polite"></div>
-</form>
+<p>আপনার নাম, মোবাইল নম্বর এবং ছবি বা ডকুমেন্ট পাঠাতে নিচের বোতামে চাপ দিন। ফর্মে তথ্য ঠিকভাবে পূরণ করে শেষে জমা দিন।</p>
+<a class="primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfNmi5-5SnK8kZ7B-HpMy6FZbVo7U9jsF6LB-QlFnpQelGd4-A/viewform?usp=sharing&amp;ouid=110164777443234333226" target="_blank" rel="noopener">ছবি ও তথ্য জমা দিন ↗</a>
+<p class="muted">নোট: Google-এর ফর্মে ছবি আপলোড করতে Google অ্যাকাউন্টে সাইন ইন চাইতে পারে। জমা সফল হয়েছে—এমন বার্তা না দেখা পর্যন্ত পেজ বন্ধ করবেন না।</p>
 </section>
 <section class="card"><h2>📲 Android অ্যাপ</h2><p>Rubel Telecom-এর Android APK প্রকাশিত হলে এখান থেকে ডাউনলোড করতে পারবেন।</p><a class="secondary" href="https://github.com/viralsadmix-sudo/rubel-telecom-/releases/latest" target="_blank" rel="noopener">সর্বশেষ APK দেখুন ↗</a></section>
 <section class="card"><h2>🧰 আমাদের সেবাসমূহ</h2><div class="services">
-<div class="service"><span>📄</span>ফটোকপি ও প্রিন্টিং</div><div class="service"><span>🖼️</span>ছবি ও ডকুমেন্ট সেবা</div><div class="service"><span>📱</span>মোবাইল সার্ভিসিং</div><div class="service"><span>📶</span>SIM-সংক্রান্ত সেবা</div><div class="service"><span>🛠️</span>জরুরি ও সাধারণ সেবা</div>
+<div class="service"><span>📄</span>ফটোকপি ও প্রিন্টিং</div>
+<div class="service"><span>🖼️</span>ছবি ও ডকুমেন্ট সেবা</div>
+<div class="service"><span>📱</span>মোবাইল সার্ভিসিং</div>
+<div class="service"><span>📶</span>SIM-সংক্রান্ত সেবা</div>
+<div class="service"><span>🛠️</span>জরুরি ও সাধারণ সেবা</div>
 </div></section>
-<section class="card"><h2>🔐 অ্যাডমিন প্যানেল</h2><p>দোকানের মালিক কাস্টমারের জমা দেখতে এখানে প্রবেশ করবেন।</p><a class="secondary" href="./admin.html">অ্যাডমিন প্যানেল খুলুন ↗</a></section>
+<section class="card"><h2>🔐 অ্যাডমিন প্যানেল</h2><p>দোকানের মালিক হিসেবে কাস্টমারের জমা দেখার নির্দেশনা ও ফর্মের লিংক এখানে পাবেন।</p><a class="secondary" href="./admin.html">অ্যাডমিন প্যানেল খুলুন ↗</a></section>
 <section class="card contact"><h2>📍 দোকানের ঠিকানা ও যোগাযোগ</h2><p><strong>Rubel Telecom</strong></p><p>নন্দিনা খন্দকার বাজার, গাইবান্ধা সদর, গাইবান্ধা</p><p>ফোন: <strong>01784904304</strong></p><a class="primary" href="tel:01784904304">📞 ফোন করুন</a><a class="secondary" href="https://wa.me/8801784904304" target="_blank" rel="noopener">💬 WhatsApp-এ যোগাযোগ</a></section>
 <section class="card"><h2>🔒 আপনার তথ্য</h2><p class="muted">আপনার দেওয়া তথ্য Rubel Telecom-এর কাজ সম্পন্ন করার জন্য ব্যবহার করা হবে। সংবেদনশীল তথ্য জমা দেবেন না।</p></section>
 </main>
 <footer>© Rubel Telecom — সর্বস্বত্ব সংরক্ষিত</footer>
-<script>
-(function(){
-"use strict";
-var ENDPOINT="https://nyc.cloud.appwrite.io/v1";
-var PROJECT_ID="6aceec5b0017856576f7";
-var DATABASE_ID="6acef39300396782af9e";
-var TABLE_ID="6acef7960018db31017f";
-var BUCKET_ID="6aceef430035c78dd682";
-var form=document.getElementById("customerForm");
-var button=document.getElementById("submitButton");
-var statusBox=document.getElementById("formStatus");
-function showStatus(message,type){statusBox.textContent=message;statusBox.className="status show "+type;}
-async function api(path,options){
- options=options||{};options.credentials="include";options.headers=options.headers||{};options.headers["X-Appwrite-Project"]=PROJECT_ID;
- var response=await fetch(ENDPOINT+path,options);var data={};try{data=await response.json();}catch(e){}
- if(!response.ok){var err=new Error(data.message||data.type||("HTTP "+response.status));err.code=response.status;throw err;}return data;
-}
-form.addEventListener("submit",async function(event){
- event.preventDefault();
- var name=document.getElementById("customerName").value.trim();
- var phone=document.getElementById("customerPhone").value.trim();
- var file=document.getElementById("customerPhoto").files[0];
- if(!name||!phone||!file){showStatus("নাম, ফোন নম্বর ও ছবি—সব পূরণ করুন।","error");return;}
- if(file.size>15*1024*1024){showStatus("ফাইলটি ১৫ MB-এর বেশি। ছোট ছবি/PDF বেছে নিন।","error");return;}
- if(!(file.type.indexOf("image/")===0||file.type==="application/pdf")){showStatus("শুধু ছবি অথবা PDF ফাইল পাঠানো যাবে।","error");return;}
- button.disabled=true;button.textContent="জমা হচ্ছে…";showStatus("ছবি নিরাপদে পাঠানোর চেষ্টা চলছে। পেজ বন্ধ করবেন না।","ok");
- var uploadedFileId=null;
- try{
-  var fd=new FormData();fd.append("fileId","unique()");fd.append("file",file,file.name);
-  var uploaded=await api("/storage/buckets/"+BUCKET_ID+"/files",{method:"POST",body:fd});
-  uploadedFileId=uploaded.$id;
-  await api("/tablesdb/"+DATABASE_ID+"/tables/"+TABLE_ID+"/rows",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({rowId:"unique()",data:{customer_name:name,phone:phone,photo_file_id:uploadedFileId}})});
-  form.reset();showStatus("✅ জমা সফল হয়েছে। Rubel Telecom আপনার তথ্য ও ছবি পেয়েছে।","ok");
- }catch(error){
-  var message=error.message||"অজানা সমস্যা";
-  if(message.toLowerCase().indexOf("failed to fetch")!==-1||message.toLowerCase().indexOf("network")!==-1){message="Appwrite সার্ভারে সংযোগ হচ্ছে না। Endpoint, Web platform/CORS এবং নেটওয়ার্ক পরীক্ষা করতে হবে।";}
-  else if(error.code===401||error.code===403){message="Appwrite অনুমতি প্রত্যাখ্যান করেছে। ছবি/রো তৈরির অনুমতি এবং সঠিক Table/Bucket ID মিলিয়ে দেখতে হবে।";}
-  else if(error.code===404){message="Appwrite-এ Table বা Bucket খুঁজে পাওয়া যায়নি। ID ঠিক আছে কি না পরীক্ষা করতে হবে।";}
-  else if(uploadedFileId){message="ছবি আপলোড হয়েছে, কিন্তু তথ্যের রো তৈরি হয়নি। Appwrite Table-এর customer_name, phone ও photo_file_id কলাম এবং Create permission পরীক্ষা করতে হবে। মূল বার্তা: "+message;}
-  showStatus("❌ জমা হয়নি। "+message,"error");
- }finally{button.disabled=false;button.textContent="তথ্য ও ছবি জমা দিন";}
-});
-})();
-</script>
 </body>
 </html>
