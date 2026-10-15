@@ -223,7 +223,9 @@
         "❌ জমা হয়নি। আপনার তথ্য সংরক্ষণ করা যায়নি।\nব্যর্থ ধাপ: " + currentStep + "\n" +
         (detail || "অজানা সমস্যা") +
         (String(error.message || "").toLowerCase().includes("permission")
-          ? "\nসমাধান: Appwrite Storage bucket-এ Create permission এবং Database Table-এ Create permission চালু থাকতে হবে।"
+          ? "\nকারণ: Appwrite এই ব্রাউজারকে লগ-ইন করা user হিসেবে চিনেছে, কিন্তু এই রিসোর্সে অনুমোদিত role-এর সঙ্গে মিলছে না।"
+            + "\nনিরাপদ সমাধান: Appwrite Console-এ Storage Bucket এবং Database Table—দুটির Settings > Permissions-এ Create-এর role হিসেবে Any দিন (শুধু Guests থাকলে লগ-ইন করা user ব্যর্থ হতে পারে)।"
+            + "\nনোট: গ্রাহকের ছবি/তথ্যের Read, Update বা Delete permission Any করবেন না।"
           : "");
     } finally {
       submitBtn.disabled = false;
