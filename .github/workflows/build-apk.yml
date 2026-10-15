@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - "index.html"
+      - "customer.html"
       - "admin.html"
       - "about.html"
       - "manifest.json"
