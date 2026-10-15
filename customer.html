@@ -11,29 +11,43 @@
 <button id="submit" type="submit">তথ্য ও ছবি জমা দিন</button><div id="status" role="status" aria-live="polite"></div>
 </form><p class="muted">জমা সফল হওয়ার বার্তা না দেখা পর্যন্ত পেজ বন্ধ করবেন না।</p></section>
 <section class="card"><a class="back" href="./index.html">← Rubel Telecom মূল পেজে ফিরে যান</a></section></main>
-<script type="module">
-import {Client,ID,Storage,TablesDB,Permission,Role} from 'https://cdn.jsdelivr.net/npm/appwrite@17.0.0/+esm';
-const client=new Client().setEndpoint('https://nyc.cloud.appwrite.io/v1').setProject('6aceec5b0017856576f7');
-const storage=new Storage(client);const tables=new TablesDB(client);
-const form=document.getElementById('form'),btn=document.getElementById('submit'),status=document.getElementById('status');
-form.addEventListener('submit',async e=>{
- e.preventDefault();const name=document.getElementById('name').value.trim(),phone=document.getElementById('phone').value.trim(),file=document.getElementById('photo').files[0];
- if(!name||!phone||!file){status.textContent='নাম, মোবাইল নম্বর ও ছবি/ডকুমেন্ট দিন।';status.style.color='#b42318';return;}
- if(file.size>5*1024*1024){status.textContent='ফাইল ৫ MB-এর বেশি। ছোট ফাইল নির্বাচন করুন।';status.style.color='#b42318';return;}
- if(!['image/jpeg','image/png','image/webp','application/pdf'].includes(file.type)){status.textContent='শুধু JPG, PNG, WEBP অথবা PDF ফাইল দিন।';status.style.color='#b42318';return;}
- btn.disabled=true;status.style.color='#152238';status.textContent='জমা হচ্ছে… অনুগ্রহ করে অপেক্ষা করুন।';
- let uploaded=null;
- try{
+<script>
+const status=document.getElementById('status');
+status.textContent='ফর্ম প্রস্তুত হচ্ছে…';
+status.style.color='#152238';
+window.addEventListener('error',e=>{status.textContent='❌ পেজে JavaScript সমস্যা হয়েছে: '+(e.message||'অজানা ত্রুটি');status.style.color='#b42318';});
+window.addEventListener('unhandledrejection',e=>{status.textContent='❌ সংযোগ/স্ক্রিপ্ট সমস্যা: '+(e.reason&&e.reason.message?e.reason.message:String(e.reason||'অজানা ত্রুটি'));status.style.color='#b42318';});
+(async()=>{
+try{
+ const {Client,ID,Storage,TablesDB,Permission,Role}=await import('https://cdn.jsdelivr.net/npm/appwrite@17.0.0/+esm');
+ const client=new Client().setEndpoint('https://nyc.cloud.appwrite.io/v1').setProject('6aceec5b0017856576f7');
+ const storage=new Storage(client),tables=new TablesDB(client);
+ const form=document.getElementById('form'),btn=document.getElementById('submit');
+ form.addEventListener('submit',async e=>{
+  e.preventDefault();
+  const name=document.getElementById('name').value.trim(),phone=document.getElementById('phone').value.trim(),file=document.getElementById('photo').files[0];
+  if(!name||!phone||!file){status.textContent='নাম, মোবাইল নম্বর ও ছবি/ডকুমেন্ট দিন।';status.style.color='#b42318';return;}
+  if(file.size>5*1024*1024){status.textContent='ফাইল ৫ MB-এর বেশি। ছোট ফাইল নির্বাচন করুন।';status.style.color='#b42318';return;}
+  if(!['image/jpeg','image/png','image/webp','application/pdf'].includes(file.type)){status.textContent='শুধু JPG, PNG, WEBP অথবা PDF ফাইল দিন।';status.style.color='#b42318';return;}
+  btn.disabled=true;status.style.color='#152238';status.textContent='জমা হচ্ছে… অনুগ্রহ করে অপেক্ষা করুন।';
+  let uploaded=null;
+  try{
    uploaded=await storage.createFile({bucketId:'6aceef430035c78dd682',fileId:ID.unique(),file:file,permissions:[Permission.read(Role.user('6acf08cc00087539c14d'))]});
    await tables.createRow({databaseId:'6acef39300396782af9e',tableId:'6acef7960018db31017f',rowId:ID.unique(),data:{customer_name:name,phone:phone,photo_file_id:uploaded.$id},permissions:[Permission.read(Role.user('6acf08cc00087539c14d'))]});
    status.style.color='#087a3e';status.textContent='✅ আপনার তথ্য ও ছবি সফলভাবে জমা হয়েছে।';form.reset();
- }catch(err){
+  }catch(err){
    if(uploaded){try{await storage.deleteFile({bucketId:'6aceef430035c78dd682',fileId:uploaded.$id});}catch(cleanup){}}
    status.style.color='#b42318';
-   let msg=err&&err.message?err.message:'অজানা সংযোগ সমস্যা';
-   if(msg.includes('Missing')||msg.includes('permission'))msg='জমা হয়নি: Appwrite-এ টেবিল/স্টোরেজের Create permission বা কলামের নাম মিলছে না।';
-   if(msg.includes('Failed to fetch'))msg='সংযোগ হচ্ছে না। Appwrite Endpoint এবং Web Platform domain পরীক্ষা করতে হবে।';
-   status.textContent='❌ জমা হয়নি। '+msg;
- }finally{btn.disabled=false;}
-});
+   const raw=err&&err.message?err.message:'অজানা সংযোগ সমস্যা';
+   if(raw.toLowerCase().includes('permission')||raw.includes('Missing'))status.textContent='❌ জমা হয়নি: Appwrite-এ Bucket ও Table-এর Create permission পাবলিক কাস্টমারের জন্য চালু নেই।';
+   else if(raw.includes('Failed to fetch'))status.textContent='❌ Appwrite-এ সংযোগ হচ্ছে না। Web Platform domain বা ইন্টারনেট সংযোগ পরীক্ষা করতে হবে।';
+   else status.textContent='❌ জমা হয়নি: '+raw;
+  }finally{btn.disabled=false;}
+ });
+ status.textContent='ফর্ম প্রস্তুত। নাম, ফোন ও ছবি দিয়ে জমা দিতে পারো।';
+}catch(err){
+ status.style.color='#b42318';
+ status.textContent='❌ ফর্মের সংযোগ চালু হয়নি: '+(err&&err.message?err.message:'Appwrite স্ক্রিপ্ট লোড হয়নি')+'. ইন্টারনেট চালু রেখে পেজটি আবার খোলো।';
+}
+})();
 </script></body></html>
