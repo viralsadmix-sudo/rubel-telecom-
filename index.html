@@ -130,31 +130,45 @@
     let uploadedFileId = null;
 
     try {
-      // বড় ছবি আপলোডের আগে ছোট করি, যাতে মোবাইল ডেটা কম লাগে ও আপলোড দ্রুত হয়।
+      // বড় ছবি হলে আগে JPEG-এ ছোট করি; Appwrite SDK 5MB-এর বেশি ফাইল chunk করে পাঠায়।
       let uploadPhoto = photo;
-      if (photo.size > 1024 * 1024 && !["image/gif", "image/svg+xml"].includes(photo.type)) {
-        statusBox.textContent = "ছবি আপলোডের জন্য প্রস্তুত হচ্ছে...";
+      const targetBytes = 4.5 * 1024 * 1024;
+      if (photo.size > targetBytes && !["image/gif", "image/svg+xml"].includes(photo.type)) {
+        statusBox.textContent = "বড় ছবিটি ছোট করা হচ্ছে—দয়া করে অপেক্ষা করুন...";
         try {
           const bitmap = await createImageBitmap(photo);
-          const maxSide = 1600;
-          const scale = Math.min(1, maxSide / Math.max(bitmap.width, bitmap.height));
-          const canvas = document.createElement("canvas");
-          canvas.width = Math.max(1, Math.round(bitmap.width * scale));
-          canvas.height = Math.max(1, Math.round(bitmap.height * scale));
-          const context = canvas.getContext("2d");
-          context.fillStyle = "#ffffff";
-          context.fillRect(0, 0, canvas.width, canvas.height);
-          context.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
-          bitmap.close();
-          const compressedBlob = await new Promise((resolve, reject) => {
-            canvas.toBlob(blob => blob ? resolve(blob) : reject(new Error("ছবি ছোট করা যায়নি")), "image/jpeg", 0.82);
+          const makeJpeg = (maxSide, quality) => new Promise((resolve, reject) => {
+            const scale = Math.min(1, maxSide / Math.max(bitmap.width, bitmap.height));
+            const canvas = document.createElement("canvas");
+            canvas.width = Math.max(1, Math.round(bitmap.width * scale));
+            canvas.height = Math.max(1, Math.round(bitmap.height * scale));
+            const ctx = canvas.getContext("2d");
+            if (!ctx) { reject(new Error("ছবি প্রসেস করা যাচ্ছে না")); return; }
+            ctx.fillStyle = "#ffffff";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+            canvas.toBlob(blob => {
+              canvas.width = 1;
+              canvas.height = 1;
+              blob ? resolve(blob) : reject(new Error("ছবি ছোট করা যায়নি"));
+            }, "image/jpeg", quality);
           });
-          if (compressedBlob.size < photo.size) {
-            uploadPhoto = new File([compressedBlob], photo.name.replace(/\.[^.]+$/, "") + ".jpg", { type: "image/jpeg", lastModified: Date.now() });
+          let bestBlob = null;
+          for (const maxSide of [1920, 1600, 1280, 1024]) {
+            for (const quality of [0.82, 0.72, 0.62]) {
+              const blob = await makeJpeg(maxSide, quality);
+              if (!bestBlob || blob.size < bestBlob.size) bestBlob = blob;
+              if (blob.size <= targetBytes) break;
+            }
+            if (bestBlob && bestBlob.size <= targetBytes) break;
+          }
+          bitmap.close();
+          if (bestBlob && bestBlob.size < photo.size) {
+            const safeName = (photo.name || "customer-photo").replace(/\.[^.]+$/, "") + ".jpg";
+            uploadPhoto = new File([bestBlob], safeName, { type: "image/jpeg", lastModified: Date.now() });
           }
         } catch (compressionError) {
-          console.warn("ছবি ছোট করা যায়নি; আসল ছবি আপলোড হবে।", compressionError);
-          uploadPhoto = photo;
+          console.warn("ছবি কমপ্রেস করা যায়নি; আসল ফাইল আপলোডের চেষ্টা করা হবে।", compressionError);
         }
       }
 
@@ -186,9 +200,13 @@
     } catch (error) {
       console.error(error);
 
+      const detail = [error.message, error.type ? "টাইপ: " + error.type : "", error.code ? "কোড: " + error.code : ""].filter(Boolean).join("\n");
       statusBox.textContent =
-        "❌ জমা হয়নি। Appwrite-এর Table ID, কলামের নাম এবং Permissions পরীক্ষা করুন।\nসমস্যা: " +
-        (error.message || "অজানা সমস্যা");
+        "❌ জমা হয়নি। আপনার তথ্য সংরক্ষণ করা যায়নি।\n" +
+        (detail || "অজানা সমস্যা") +
+        (String(error.message || "").toLowerCase().includes("permission")
+          ? "\nসমাধান: Appwrite Storage bucket-এ Create permission এবং Database Table-এ Create permission চালু থাকতে হবে।"
+          : "");
     } finally {
       submitBtn.disabled = false;
     }
