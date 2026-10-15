@@ -1,4 +1,4 @@
-const CACHE_NAME = "rubel-telecom-v7";
+const CACHE_NAME = "rubel-telecom-v8";
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
