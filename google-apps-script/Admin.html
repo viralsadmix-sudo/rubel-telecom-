@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#102b59">
+<title>Rubel Telecom — অ্যাডমিন প্যানেল</title>
+<style>
+:root{--navy:#102b59;--blue:#087ca7;--ink:#17243a;--muted:#526174;--line:#dbe4ef;--bg:#f1f5fa}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans Bengali",Arial,sans-serif;line-height:1.6}
+header{background:linear-gradient(135deg,#0b1e42,var(--navy),var(--blue));color:#fff;text-align:center;padding:24px 15px}
+header h1{margin:0;font-size:27px}header p{margin:6px 0 0;color:#e6f5ff}
+main{max-width:900px;margin:18px auto;padding:0 14px 30px}.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:14px;box-shadow:0 6px 20px #102b590b}
+h2{font-size:20px;color:var(--navy);margin:0 0 10px}label{display:block;font-weight:700;margin-bottom:6px}
+input,button,select{font:inherit;border-radius:10px;padding:12px;border:1px solid #cbd6e2}input{width:100%;margin-bottom:10px}
+button{background:var(--blue);color:white;border:0;font-weight:800;cursor:pointer}button:disabled{opacity:.6}
+.actions{display:flex;gap:8px;flex-wrap:wrap}.actions button{flex:1}
+.status{font-size:14px;white-space:pre-wrap;margin-top:10px}.muted{font-size:14px;color:var(--muted)}
+#records{display:grid;gap:12px}.record{border:1px solid var(--line);border-radius:13px;padding:14px;background:#fbfdff}
+.record h3{margin:0 0 4px;font-size:18px}.record p{margin:4px 0;overflow-wrap:anywhere}.record a{color:#056b91;font-weight:700}
+.record select{width:100%;margin:8px 0}.record .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.record .row button{padding:9px 12px}
+.hidden{display:none!important}.empty{text-align:center;color:var(--muted);padding:20px}
+footer{text-align:center;padding:8px 12px 24px;color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+<header><h1>Rubel Telecom</h1><p>মালিকের অ্যাডমিন প্যানেল</p></header>
+<main>
+<section class="card" id="loginCard">
+<h2>🔐 অ্যাডমিন লগইন</h2>
+<p>শুধু দোকানের মালিকের জন্য। আপনার সেটআপের সময় তৈরি হওয়া গোপন Admin PIN লিখুন।</p>
+<label for="pin">Admin PIN</label><input id="pin" type="password" autocomplete="current-password" maxlength="40" placeholder="গোপন PIN লিখুন">
+<div class="actions"><button id="loginBtn" type="button">লগইন করুন</button></div>
+<div id="loginStatus" class="status" role="status" aria-live="polite"></div>
+<p class="muted">PIN কাউকে দেবেন না। এই পেজে PIN ব্রাউজারের স্টোরেজে সংরক্ষণ করা হয় না।</p>
+</section>
+<section class="card hidden" id="dashboard">
+<div class="actions"><h2 style="flex:1;margin:0">📥 কাস্টমারের জমা</h2><button id="refreshBtn" type="button">রিফ্রেশ</button><button id="logoutBtn" type="button">লগআউট</button></div>
+<p id="dashboardStatus" class="status" role="status" aria-live="polite"></p>
+<div id="records"></div>
+</section>
+<section class="card"><a href="https://viralsadmix-sudo.github.io/rubel-telecom-/" style="color:#087ca7;font-weight:700">← মূল ওয়েবসাইটে ফিরে যান</a></section>
+</main>
+<footer>© Rubel Telecom — গ্রাহকের তথ্য ব্যক্তিগত রাখুন</footer>
+<script>
+(function(){
+const pinInput=document.getElementById("pin"),loginBtn=document.getElementById("loginBtn"),loginStatus=document.getElementById("loginStatus");
+const loginCard=document.getElementById("loginCard"),dashboard=document.getElementById("dashboard"),dashboardStatus=document.getElementById("dashboardStatus"),records=document.getElementById("records");
+let adminPin="";
+function setStatus(el,msg,error){el.textContent=msg||"";el.style.color=error?"#b42318":"#087a3e";}
+function callServer(method,args,success,failure){
+  try{
+    const runner=google.script.run.withSuccessHandler(success).withFailureHandler(err=>failure(err&&err.message?err.message:"সংযোগে সমস্যা হয়েছে।"));
+    runner[method].apply(runner,args);
+  }catch(e){failure("এই পেজটি Google Apps Script-এর প্রকাশিত অ্যাডমিন লিংক থেকে খুলুন।");}
+}
+function loadRecords(){
+  setStatus(dashboardStatus,"জমাগুলো লোড হচ্ছে…",false);records.innerHTML="";
+  callServer("getAdminSubmissions",[adminPin],items=>{
+    setStatus(dashboardStatus,(items.length?"মোট "+items.length+"টি সাম্প্রতিক জমা পাওয়া গেছে।":"এখনো কোনো জমা নেই।"),false);
+    if(!items.length){records.innerHTML='<div class="empty">কাস্টমারের জমা এখানে দেখা যাবে।</div>';return;}
+    items.forEach(item=>{
+      const card=document.createElement("article");card.className="record";
+      const heading=document.createElement("h3");heading.textContent=item.name||"নাম নেই";card.appendChild(heading);
+      const info=document.createElement("p");info.textContent="ফোন: "+(item.phone||"—");card.appendChild(info);
+      const date=document.createElement("p");date.className="muted";date.textContent="জমা: "+(item.submittedAt?new Date(item.submittedAt).toLocaleString("bn-BD"):"—");card.appendChild(date);
+      if(item.description){const desc=document.createElement("p");desc.textContent="কাজের বিবরণ: "+item.description;card.appendChild(desc);}
+      const file=document.createElement("p");
+      if(item.fileUrl){const a=document.createElement("a");a.href=item.fileUrl;a.target="_blank";a.rel="noopener";a.textContent="📎 "+(item.fileName||"ছবি/ডকুমেন্ট খুলুন");file.appendChild(a);}
+      else file.textContent="ফাইলের লিংক নেই";
+      card.appendChild(file);
+      const row=document.createElement("div");row.className="row";
+      const sel=document.createElement("select");
+      [["নতুন","নতুন"],["কাজ চলছে","কাজ চলছে"],["সম্পন্ন","সম্পন্ন"]].forEach(pair=>{const op=document.createElement("option");op.value=pair[0];op.textContent="স্ট্যাটাস: "+pair[1];sel.appendChild(op);});
+      sel.value=["নতুন","কাজ চলছে","সম্পন্ন"].includes(item.status)?item.status:"নতুন";
+      const save=document.createElement("button");save.type="button";save.textContent="স্ট্যাটাস সংরক্ষণ";
+      save.addEventListener("click",()=>{save.disabled=true;callServer("setSubmissionStatus",[adminPin,item.id,sel.value],res=>{setStatus(dashboardStatus,res.message||"আপডেট হয়েছে।",false);save.disabled=false;},err=>{setStatus(dashboardStatus,err,true);save.disabled=false;});});
+      row.appendChild(sel);row.appendChild(save);card.appendChild(row);records.appendChild(card);
+    });
+  },err=>{setStatus(dashboardStatus,err,true);});
+}
+loginBtn.addEventListener("click",()=>{
+  const value=pinInput.value.trim();if(!value){setStatus(loginStatus,"Admin PIN লিখুন।",true);return;}
+  adminPin=value;loginBtn.disabled=true;setStatus(loginStatus,"যাচাই হচ্ছে…",false);
+  callServer("getAdminSubmissions",[adminPin],items=>{
+    loginCard.classList.add("hidden");dashboard.classList.remove("hidden");setStatus(dashboardStatus,(items.length?"মোট "+items.length+"টি সাম্প্রতিক জমা পাওয়া গেছে।":"এখনো কোনো জমা নেই।"),false);
+    pinInput.value="";renderItems(items);loginBtn.disabled=false;
+  },err=>{adminPin="";setStatus(loginStatus,err,true);loginBtn.disabled=false;});
+});
+function renderItems(items){
+ records.innerHTML="";
+ if(!items.length){records.innerHTML='<div class="empty">এখনো কোনো জমা নেই।</div>';return;}
+ items.forEach(item=>{
+  const card=document.createElement("article");card.className="record";
+  const h=document.createElement("h3");h.textContent=item.name||"নাম নেই";card.appendChild(h);
+  const p=document.createElement("p");p.textContent="ফোন: "+(item.phone||"—");card.appendChild(p);
+  const d=document.createElement("p");d.className="muted";d.textContent="জমা: "+(item.submittedAt?new Date(item.submittedAt).toLocaleString("bn-BD"):"—");card.appendChild(d);
+  if(item.description){const x=document.createElement("p");x.textContent="কাজের বিবরণ: "+item.description;card.appendChild(x);}
+  const f=document.createElement("p");if(item.fileUrl){const a=document.createElement("a");a.href=item.fileUrl;a.target="_blank";a.rel="noopener";a.textContent="📎 "+(item.fileName||"ছবি/ডকুমেন্ট খুলুন");f.appendChild(a);}else f.textContent="ফাইলের লিংক নেই";card.appendChild(f);
+  const row=document.createElement("div");row.className="row";const sel=document.createElement("select");
+  ["নতুন","কাজ চলছে","সম্পন্ন"].forEach(s=>{const o=document.createElement("option");o.value=s;o.textContent="স্ট্যাটাস: "+s;sel.appendChild(o);});
+  sel.value=["নতুন","কাজ চলছে","সম্পন্ন"].includes(item.status)?item.status:"নতুন";
+  const save=document.createElement("button");save.type="button";save.textContent="স্ট্যাটাস সংরক্ষণ";
+  save.addEventListener("click",()=>{save.disabled=true;callServer("setSubmissionStatus",[adminPin,item.id,sel.value],res=>{setStatus(dashboardStatus,res.message||"স্ট্যাটাস আপডেট হয়েছে।",false);save.disabled=false;},err=>{setStatus(dashboardStatus,err,true);save.disabled=false;});});
+  row.appendChild(sel);row.appendChild(save);card.appendChild(row);records.appendChild(card);
+ });
+}
+document.getElementById("refreshBtn").addEventListener("click",loadRecords);
+document.getElementById("logoutBtn").addEventListener("click",()=>{adminPin="";dashboard.classList.add("hidden");loginCard.classList.remove("hidden");setStatus(loginStatus,"লগআউট হয়েছে।",false);records.innerHTML="";});
+pinInput.addEventListener("keydown",e=>{if(e.key==="Enter")loginBtn.click();});
+})();
+</script>
+</body>
+</html>
