@@ -1,123 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#102b59">
-<title>Rubel Telecom — Admin Panel</title>
-<script src="https://cdn.jsdelivr.net/npm/appwrite@28.1.0"></script>
+<title>Rubel Telecom — মালিকের নির্দেশনা</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#07111f;color:#fff;font-family:Arial,sans-serif}
-header{padding:20px 16px;text-align:center;background:linear-gradient(135deg,#102b59,#087ca7)}
-.brand-logo{width:72px;height:72px;object-fit:contain;border-radius:16px;background:#fff;padding:4px;margin-bottom:8px;box-shadow:0 4px 18px #00152e66}
-header h1{margin:0 0 6px}main{max-width:760px;margin:20px auto;padding:0 14px}
-.card{background:#111f33;border:1px solid #263d59;border-radius:15px;padding:18px;margin-bottom:15px}
-h2{color:#69d5ff;margin-top:0}label{display:block;margin:12px 0 6px}
-input,button{width:100%;padding:12px;border-radius:9px;font-size:16px}
-input{background:#07111f;border:1px solid #45607d;color:white}button{border:0;background:#08a4d6;color:#fff;font-weight:bold;margin-top:14px}
-button:disabled{opacity:.6}a{color:#69d5ff}#status{white-space:pre-wrap;overflow-wrap:anywhere;margin-top:12px}
-.row{border-top:1px solid #263d59;padding:14px 0;display:grid;grid-template-columns:100px 1fr;gap:14px}
-.row img{width:100px;height:100px;object-fit:cover;border-radius:9px;background:#07111f}
-.muted{color:#aabbd0;font-size:13px}.hidden{display:none}.actions{display:flex;gap:10px}.actions button{flex:1}
-@media(max-width:420px){.row{grid-template-columns:78px 1fr}.row img{width:78px;height:78px}}
+*{box-sizing:border-box}body{margin:0;background:#f1f5fa;color:#17243a;font-family:system-ui,-apple-system,"Noto Sans Bengali",Arial,sans-serif;line-height:1.65}
+header{background:linear-gradient(135deg,#102b59,#087ca7);color:white;text-align:center;padding:25px 15px}
+main{max-width:650px;margin:18px auto;padding:0 14px 28px}.card{background:white;border:1px solid #dbe4ef;border-radius:16px;padding:20px;margin-bottom:14px;box-shadow:0 6px 20px #102b590d}
+h1{margin:0;font-size:26px}h2{margin:0 0 10px;color:#102b59;font-size:20px}
+a.btn{display:block;text-align:center;text-decoration:none;background:#087ca7;color:white;padding:13px;border-radius:10px;font-weight:800;margin-top:12px}
+.note{font-size:14px;color:#526174}.warn{border-left:4px solid #d97706;padding:10px 12px;background:#fff8eb}
+li{margin:8px 0}footer{text-align:center;color:#526174;font-size:13px;padding:8px}
 </style>
 </head>
 <body>
-<header><img class="brand-logo" src="./file_000000008f7c8210abe65a5d06837183.png" alt="Rubel Telecom লোগো"><h1>Rubel Telecom</h1><p>Admin Panel — কাস্টমার জমা ও ছবি</p></header>
+<header><h1>Rubel Telecom</h1><p>মালিকের জন্য কাস্টমার জমা দেখার নির্দেশনা</p></header>
 <main>
-<section class="card" id="loginCard">
-<h2>অ্যাডমিন লগইন</h2>
-<p class="muted">আপনার Appwrite অ্যাডমিন অ্যাকাউন্টের ইমেইল ও পাসওয়ার্ড ব্যবহার করুন।</p>
-<form id="loginForm">
-<label for="email">ইমেইল</label><input id="email" type="email" autocomplete="username" required>
-<label for="password">পাসওয়ার্ড</label><input id="password" type="password" autocomplete="current-password" required>
-<button id="loginBtn" type="submit">লগইন করুন</button>
-</form><div id="loginStatus" role="status"></div>
+<section class="card"><h2>📥 কাস্টমারের জমা দেখবেন যেভাবে</h2>
+<ol>
+<li>নিজের Google অ্যাকাউন্টে সাইন ইন করুন।</li>
+<li>নিচের Google Forms বোতাম চাপুন।</li>
+<li>আপনার <strong>Rubel Telecom Customers</strong> ফর্মটি খুলুন।</li>
+<li><strong>Responses / প্রতিক্রিয়া</strong> ট্যাবে গেলে জমা দেওয়া তথ্য দেখতে পাবেন।</li>
+<li>ফর্মে Google Sheets সংযুক্ত করা থাকলে সব রেকর্ড দেখতে সবুজ Sheets আইকন চাপুন।</li>
+<li>ছবি আপলোড হয়ে থাকলে ফর্মের মালিকের Google Drive-এ ফর্মের ফাইল-আপলোড ফোল্ডারটিও দেখুন।</li>
+</ol>
+<a class="btn" href="https://forms.google.com/" target="_blank" rel="noopener">Google Forms খুলুন ↗</a>
+<p class="note">এই পেজে কোনো কাস্টমারের ব্যক্তিগত তথ্য দেখানো হয় না। রেকর্ড দেখার জন্য নিজের Google অ্যাকাউন্ট ব্যবহার করুন।</p>
 </section>
-<section class="card hidden" id="dashboard">
-<div class="actions"><h2 style="flex:1;margin-bottom:0">কাস্টমার জমা</h2><button id="logoutBtn" style="width:auto;margin-top:0;padding:10px">লগআউট</button></div>
-<p class="muted">এখানে Appwrite-এ সংরক্ষিত কাস্টমারের তথ্য ও ছবি দেখা যাবে।</p>
-<button id="refreshBtn">তথ্য রিফ্রেশ করুন</button>
-<div id="listStatus" role="status"></div><div id="rows"></div>
-<hr style="border:0;border-top:1px solid #263d59;margin:22px 0">
-<h2>📲 APK প্রকাশ ও ডাউনলোড</h2>
-<p class="muted">Free Appwrite প্ল্যানে নতুন Storage Bucket তৈরি করা যাচ্ছে না। তাই APK GitHub Releases-এ প্রকাশ করুন। Release-এর শিরোনামে অ্যাপের নাম এবং বিবরণে ছোট পরিচিতি লিখে APK ফাইল যুক্ত করুন। প্রকাশের পর কাস্টমার মূল ওয়েবসাইট থেকে সর্বশেষ APK ডাউনলোড করতে পারবে।</p>
-<a href="https://github.com/viralsadmix-sudo/rubel-telecom-/releases/new" target="_blank" rel="noopener" style="display:block;text-align:center;text-decoration:none;background:#087ca7;color:white;padding:13px;border-radius:9px;font-weight:bold">GitHub-এ APK প্রকাশ করুন ↗</a>
-<p class="muted">প্রকাশিত APK: <a href="https://github.com/viralsadmix-sudo/rubel-telecom-/releases" target="_blank" rel="noopener">সব Releases দেখুন</a></p>
-</section>
-<section class="card"><a href="./index.html">← মূল Rubel Telecom অ্যাপে ফিরে যান</a></section>
-</main>
-<script>
-window.addEventListener("error",function(event){
- const status=document.getElementById("loginStatus");
- if(status){status.textContent="অ্যাডমিন প্যানেলে প্রযুক্তিগত সমস্যা: "+(event.message||"স্ক্রিপ্ট চালু হয়নি")+". পেজটি রিফ্রেশ করুন।";}
-});
-window.addEventListener("unhandledrejection",function(event){
- const status=document.getElementById("loginStatus");
- if(status){const reason=event.reason;status.textContent="অ্যাডমিন প্যানেলে সমস্যা: "+(reason&&reason.message?reason.message:String(reason||"অজানা সমস্যা"));}
-});
-if(!window.Appwrite){
- document.getElementById("loginStatus").textContent="Appwrite সংযোগের স্ক্রিপ্ট লোড হয়নি। ইন্টারনেট চালু করে পেজটি আবার খুলুন।";
- throw new Error("Appwrite SDK missing");
-}
-const CONFIG={endpoint:"https://nyc.cloud.appwrite.io/v1",projectId:"6aceec5b0017856576f7",databaseId:"6acef39300396782af9e",tableId:"6acf947a00083e1db975",bucketId:"6aceef430035c78dd682"};
-const {Client,Account,Storage,TablesDB,Query,ID,Permission,Role}=Appwrite;
-const client=new Client().setEndpoint(CONFIG.endpoint).setProject(CONFIG.projectId);
-const account=new Account(client),storage=new Storage(client),tablesDB=new TablesDB(client);
-const loginCard=document.getElementById("loginCard"),dashboard=document.getElementById("dashboard");
-const loginStatus=document.getElementById("loginStatus"),listStatus=document.getElementById("listStatus"),rowsBox=document.getElementById("rows");
-function showDashboard(){loginCard.classList.add("hidden");dashboard.classList.remove("hidden");loadRows();}
-function showLogin(){dashboard.classList.add("hidden");loginCard.classList.remove("hidden");}
-async function loadRows(){
- rowsBox.replaceChildren();listStatus.textContent="কাস্টমারের তথ্য লোড হচ্ছে...";
- try{
-  const result=await tablesDB.listRows({databaseId:CONFIG.databaseId,tableId:CONFIG.tableId,queries:[Query.orderDesc("$createdAt"),Query.limit(100)]});
-  if(!result.rows||result.rows.length===0){listStatus.textContent="এখনো কোনো জমা পাওয়া যায়নি।";return;}
-  listStatus.textContent="মোট "+result.rows.length+"টি জমা পাওয়া গেছে।";
-  for(const item of result.rows){
-   const card=document.createElement("div");card.className="row";
-   const img=document.createElement("img");img.alt="কাস্টমারের ছবির প্রিভিউ";img.loading="lazy";img.decoding="async";
-   const fullImageUrl=item.photo_file_id?storage.getFileView({bucketId:CONFIG.bucketId,fileId:item.photo_file_id}).toString():"";
-   if(item.photo_file_id){
-    try{img.src=storage.getFilePreview({bucketId:CONFIG.bucketId,fileId:item.photo_file_id,width:360,height:360,quality:65}).toString();}
-    catch(previewError){img.src=fullImageUrl;}
-    img.onerror=()=>{if(img.src!==fullImageUrl)img.src=fullImageUrl;};
-   }
-   const details=document.createElement("div");
-   const name=document.createElement("strong");name.textContent=item.customer_name||"নাম দেওয়া হয়নি";
-   const phone=document.createElement("p");phone.textContent="মোবাইল: "+(item.phone||"—");
-   const date=document.createElement("p");date.className="muted";date.textContent="জমার সময়: "+(item.$createdAt?new Date(item.$createdAt).toLocaleString("bn-BD"):"—");
-   details.append(name,phone,date);
-   if(item.photo_file_id){const link=document.createElement("a");link.href=fullImageUrl;link.target="_blank";link.rel="noopener";link.textContent="পূর্ণ ছবি খুলুন";details.append(link);}
-   card.append(img,details);rowsBox.append(card);
-  }
- }catch(error){
-  console.error(error);
-  listStatus.textContent="তথ্য লোড হয়নি। Appwrite-এর Table/Row Read permission এবং টেবিলের কলাম পরীক্ষা করুন।\n"+(error.message||"অজানা সমস্যা");
- }
-}
-document.getElementById("loginForm").addEventListener("submit",async e=>{
- e.preventDefault();const btn=document.getElementById("loginBtn");btn.disabled=true;loginStatus.textContent="লগইন হচ্ছে...";
- try{await account.createEmailPasswordSession({email:document.getElementById("email").value.trim(),password:document.getElementById("password").value});loginStatus.textContent="";showDashboard();}
- catch(error){
-  // আগেই Appwrite session চালু থাকলে নতুন session বানানোর চেষ্টা না করে সেটি ব্যবহার করি।
-  try{
-   await account.get();
-   loginStatus.textContent="";
-   showDashboard();
-  }catch(sessionError){
-   loginStatus.textContent="লগইন হয়নি: "+(error.message||"ইমেইল/পাসওয়ার্ড পরীক্ষা করুন");
-  }
- }
- finally{btn.disabled=false;}
-});
-document.getElementById("logoutBtn").addEventListener("click",async()=>{try{await account.deleteSession({sessionId:"current"});}catch(e){console.error(e);}showLogin();loginStatus.textContent="আপনি লগআউট করেছেন।";});
-document.getElementById("refreshBtn").addEventListener("click",loadRows);
-
-// আগে থেকে session থাকলে সেটি ব্যবহার করি; না থাকলেই শুধু login form দেখাই।
-account.get()
- .then(()=>{loginStatus.textContent="";showDashboard();})
- .catch(()=>showLogin());
-</script>
+<section class="card"><h2>🔐 নিরাপত্তা</h2><div class="warn">Google Form, response Sheet এবং Drive-এর ফাইলগুলো সবার জন্য public করবেন না। শুধু আপনার নিজের অ্যাকাউন্টে প্রবেশাধিকার রাখুন।</div></section>
+<section class="card"><a href="./index.html">← Rubel Telecom মূল পেজে ফিরে যান</a></section>
+</main><footer>© Rubel Telecom</footer>
 </body>
 </html>
