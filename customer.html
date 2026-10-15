@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#102b59"><title>Rubel Telecom — ছবি ও তথ্য জমা</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f1f5fa;color:#152238;font-family:system-ui,-apple-system,"Noto Sans Bengali",Arial,sans-serif;line-height:1.6}header{background:linear-gradient(135deg,#0b1e42,#102b59,#087ca7);color:#fff;text-align:center;padding:25px 16px}header h1{margin:0;font-size:28px}header p{margin:6px 0 0;color:#e6f5ff}main{max-width:650px;margin:18px auto;padding:0 14px 30px}.card{background:white;border:1px solid #dbe4ef;border-radius:18px;padding:20px;margin-bottom:14px;box-shadow:0 7px 25px #102b590b}h2{color:#102b59;font-size:21px;margin:0 0 10px}label{display:block;font-weight:750;margin:14px 0 6px}input,textarea,button{font:inherit;width:100%;padding:13px;border:1px solid #cbd6e2;border-radius:10px}input[type=file]{background:#f8fbff}button{background:#087ca7;color:white;border:0;font-weight:800;margin-top:16px;cursor:pointer}button:disabled{opacity:.6}.muted{font-size:14px;color:#596a80}#status{white-space:pre-wrap;margin-top:12px;font-weight:650}.back{color:#087ca7;font-weight:750;text-decoration:none}
+</style></head><body>
+<header><h1>Rubel Telecom</h1><p>আপনার বিশ্বস্ত ডিজিটাল সেবা কেন্দ্র</p></header>
+<main><section class="card"><h2>📤 কাস্টমারের ছবি ও তথ্য জমা</h2><p>আপনার নাম, মোবাইল নম্বর এবং ছবি বা ডকুমেন্ট দিন। জমা দেওয়া তথ্য দোকানের মালিকের অ্যাডমিন প্যানেলে যাবে।</p>
+<form id="form"><label for="name">আপনার নাম *</label><input id="name" maxlength="100" autocomplete="name" required>
+<label for="phone">মোবাইল নম্বর *</label><input id="phone" type="tel" maxlength="25" autocomplete="tel" required>
+<label for="photo">ছবি বা ডকুমেন্ট (JPG, PNG, WEBP, PDF; সর্বোচ্চ ৫ MB) *</label><input id="photo" type="file" accept="image/jpeg,image/png,image/webp,application/pdf" required>
+<button id="submit" type="submit">তথ্য ও ছবি জমা দিন</button><div id="status" role="status" aria-live="polite"></div>
+</form><p class="muted">জমা সফল হওয়ার বার্তা না দেখা পর্যন্ত পেজ বন্ধ করবেন না।</p></section>
+<section class="card"><a class="back" href="./index.html">← Rubel Telecom মূল পেজে ফিরে যান</a></section></main>
+<script type="module">
+import {Client,ID,Storage,TablesDB,Permission,Role} from 'https://cdn.jsdelivr.net/npm/appwrite@17.0.0/+esm';
+const client=new Client().setEndpoint('https://nyc.cloud.appwrite.io/v1').setProject('6aceec5b0017856576f7');
+const storage=new Storage(client);const tables=new TablesDB(client);
+const form=document.getElementById('form'),btn=document.getElementById('submit'),status=document.getElementById('status');
+form.addEventListener('submit',async e=>{
+ e.preventDefault();const name=document.getElementById('name').value.trim(),phone=document.getElementById('phone').value.trim(),file=document.getElementById('photo').files[0];
+ if(!name||!phone||!file){status.textContent='নাম, মোবাইল নম্বর ও ছবি/ডকুমেন্ট দিন।';status.style.color='#b42318';return;}
+ if(file.size>5*1024*1024){status.textContent='ফাইল ৫ MB-এর বেশি। ছোট ফাইল নির্বাচন করুন।';status.style.color='#b42318';return;}
+ if(!['image/jpeg','image/png','image/webp','application/pdf'].includes(file.type)){status.textContent='শুধু JPG, PNG, WEBP অথবা PDF ফাইল দিন।';status.style.color='#b42318';return;}
+ btn.disabled=true;status.style.color='#152238';status.textContent='জমা হচ্ছে… অনুগ্রহ করে অপেক্ষা করুন।';
+ let uploaded=null;
+ try{
+   uploaded=await storage.createFile('6aceef430035c78dd682',ID.unique(),file,[Permission.read(Role.users())]);
+   await tables.createRow('6acef39300396782af9e','6acef7960018db31017f',ID.unique(),{customer_name:name,phone:phone,photo_file_id:uploaded.$id});
+   status.style.color='#087a3e';status.textContent='✅ আপনার তথ্য ও ছবি সফলভাবে জমা হয়েছে।';form.reset();
+ }catch(err){
+   if(uploaded){try{await storage.deleteFile('6aceef430035c78dd682',uploaded.$id);}catch(cleanup){}}
+   status.style.color='#b42318';
+   let msg=err&&err.message?err.message:'অজানা সংযোগ সমস্যা';
+   if(msg.includes('Missing')||msg.includes('permission'))msg='জমা হয়নি: Appwrite-এ টেবিল/স্টোরেজের Create permission বা কলামের নাম মিলছে না।';
+   if(msg.includes('Failed to fetch'))msg='সংযোগ হচ্ছে না। Appwrite Endpoint এবং Web Platform domain পরীক্ষা করতে হবে।';
+   status.textContent='❌ জমা হয়নি। '+msg;
+ }finally{btn.disabled=false;}
+});
+</script></body></html>
