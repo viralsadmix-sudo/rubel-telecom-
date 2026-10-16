@@ -25,8 +25,7 @@ function niceError(e){
 async function openOwnerDashboard(){
  const user=await account.get();
  if(user.$id!==OWNER_ID){
-  try{await account.deleteSession({sessionId:'current'});}catch(e){}
-  throw new Error('এই অ্যাকাউন্টটি Rubel Telecom-এর নির্ধারিত মালিকের অ্যাকাউন্ট নয়। মালিকের Appwrite অ্যাকাউন্ট দিয়ে লগইন করুন।');
+  throw new Error('মালিকের অ্যাকাউন্ট মেলেনি। বর্তমানে লগইন করা Appwrite User ID: '+user.$id+' । নির্ধারিত মালিকের ID: '+OWNER_ID+' । এই ID মিলিয়ে নিতে হবে।');
  }
  login.classList.add('hidden');dash.classList.remove('hidden');await loadRows();
 }
@@ -59,7 +58,7 @@ loginForm.addEventListener('submit',async e=>{
  try{
   await account.createEmailPasswordSession({email:document.getElementById('email').value.trim(),password:document.getElementById('password').value});
   await openOwnerDashboard();
- }catch(err){msg(loginStatus,'লগইন হয়নি: '+niceError(err),true);}
+ }catch(err){msg(loginStatus,'লগইন হয়নি: '+niceError(err)+(err&&err.code?' (কোড: '+err.code+')':'')+(err&&err.type?' (ধরন: '+err.type+')':''),true);}
  finally{loginBtn.disabled=false;}
 });
 document.getElementById('refresh').addEventListener('click',loadRows);
