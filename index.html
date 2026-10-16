@@ -41,7 +41,7 @@ input,textarea,select{background:linear-gradient(135deg,#06142b,#0a1c36);border-
 <section id="home" class="panel active">
 <div class="card"><h2>সব সেবা এক জায়গায়</h2><p>ছবি ও কাজের তথ্য জমা দিন, AI ছবি এডিটিং প্রম্পট কপি করুন, অথবা দোকানের সঙ্গে যোগাযোগ করুন।</p><div class="btnrow"><button class="btn" data-goto="submit">ছবি/তথ্য জমা দিন</button><button class="btn secondary" data-goto="ai">AI প্রম্পট দেখুন</button></div></div>
 <div class="card"><h2>🧰 আমাদের সেবাসমূহ</h2><div class="grid"><div class="service"><span>📄</span>ফটোকপি ও প্রিন্টিং</div><div class="service"><span>🖼️</span>ছবি ও ডকুমেন্ট</div><div class="service"><span>📱</span>মোবাইল সার্ভিসিং</div><div class="service"><span>📶</span>SIM-সংক্রান্ত সেবা</div><div class="service"><span>🛠️</span>জরুরি ও সাধারণ সেবা</div><div class="service"><span>✨</span>AI ছবি এডিটিং সহায়তা</div></div></div>
-<div class="card"><h2>📲 Android অ্যাপ</h2><p id="apkDescription">সর্বশেষ Rubel Telecom APK ডাউনলোড করুন।</p><a id="apkDownloadLink" class="btn secondary" href="https://github.com/viralsadmix-sudo/rubel-telecom-/releases/latest" target="_blank" rel="noopener">সর্বশেষ APK ডাউনলোড করুন ↗</a></div>
+<div class="card"><h2>📲 Android অ্যাপ</h2><p id="apkDescription">সর্বশেষ Rubel Telecom APK ডাউনলোড করুন।</p><a id="apkDownloadLink" class="btn secondary" href="#apk-link-not-set">APK ডাউনলোড লিংক সেট করা হয়নি</a></div>
 </section>
 <section id="submit" class="panel">
 <div class="card"><h2>📤 কাস্টমারের ছবি ও তথ্য</h2><p class="muted">নাম, ফোন নম্বর ও ছবি নির্বাচন করুন।</p>
@@ -118,4 +118,10 @@ $('clearSubmissions').onclick=()=>{if(confirm('এই ব্রাউজার�
 renderPublic();
 async function loadApkDownload(){try{const res=await rtTables.listRows({databaseId:RT_DATABASE_ID,tableId:RT_PROMPT_TABLE_ID,queries:[Query.equal('title',[RT_APK_SETTING_TITLE]),Query.limit(1)]});const row=(res.rows||[])[0];if(!row)return;const cfg=JSON.parse(row.prompt_text||'{}');if(cfg.url&&/^https:\/\//i.test(cfg.url)){const link=$('apkDownloadLink');link.href=cfg.url;link.textContent=(cfg.name||'Rubel Telecom APK')+' ডাউনলোড করুন ↗';link.target='_blank';link.rel='noopener';$('apkDescription').textContent='অ্যাডমিনের দেওয়া সর্বশেষ APK লিংক থেকে ডাউনলোড করুন।';}}catch(e){console.warn('APK link load failed',e)}}
 loadApkDownload();
+$('apkDownloadLink').addEventListener('click',function(e){
+ if(this.getAttribute('href')==='#apk-link-not-set'){
+  e.preventDefault();
+  alert('APK ডাউনলোড লিংক এখনো সেট করা হয়নি। দোকানের মালিক অ্যাডমিন প্যানেল থেকে APK নাম ও ডাউনলোড লিংক সংরক্ষণ করুন।');
+ }
+});
 </script></body></html>
