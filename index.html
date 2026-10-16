@@ -50,7 +50,7 @@ input,textarea,select{background:linear-gradient(135deg,#06142b,#0a1c36);border-
 <div class="field"><label for="workDescription">কাজের বিবরণ (ঐচ্ছিক)</label><textarea id="workDescription" maxlength="1000" placeholder="কী কাজ করাতে চান লিখুন"></textarea></div>
 <div class="field"><label for="customerPhoto">ছবি/ডকুমেন্ট *</label><input id="customerPhoto" type="file" accept="image/*,.pdf" required><img id="photoPreview" class="preview" alt="নির্বাচিত ছবির প্রিভিউ"></div>
 <button class="btn full" type="submit">তথ্য প্রস্তুত করুন</button><p id="submitMessage" aria-live="polite" class="muted"></p></form>
-<div class="notice">এটি আপাতত একত্রিত ওয়েবসাইটের প্রাথমিক সংস্করণ। এখন ফর্মের তথ্য এই ব্রাউজারেই অস্থায়ীভাবে রাখা হয়; তোমার অ্যাডমিনের কাছে অনলাইনে পাঠানো হয় না। পরে নিরাপদ অনলাইন স্টোরেজ যুক্ত করব। বড় ছবি/ফাইল এই প্রোটোটাইপে সংরক্ষণ করা হয় না।</div>
+<div class="notice">ছবি ও তথ্য Appwrite-এ অনলাইনে জমা হবে। সর্বোচ্চ ফাইল সাইজ ১০ MB। জমা দিতে সমস্যা হলে Appwrite-এর Platform, Bucket এবং Table permission ঠিক করতে হবে।</div>
 </div></section>
 <section id="ai" class="panel">
 <div class="card"><h2>✨ AI ছবি এডিটিং প্রম্পট</h2><p>পছন্দের প্রম্পট কপি করুন, তারপর AI সাইট খুলে প্রম্পট পেস্ট করে নিজের ছবি আপলোড করুন।</p><div class="btnrow"><a class="btn" href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT খুলুন ↗</a><a class="btn secondary" href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini খুলুন ↗</a></div><div id="publicPrompts"></div><p class="muted">অ্যাডমিন প্যানেল থেকে এই ব্রাউজারে নতুন প্রম্পট যোগ করলে এখানে দেখা যাবে। অন্য ডিভাইসেও দেখাতে পরে অনলাইন ডেটাবেস যুক্ত করতে হবে।</p></div>
@@ -64,7 +64,14 @@ input,textarea,select{background:linear-gradient(135deg,#06142b,#0a1c36);border-
 <div class="card contact"><h2>📍 দোকানের ঠিকানা ও যোগাযোগ</h2><p><strong>Rubel Telecom</strong></p><p>নন্দিনা খন্দকার বাজার, গাইবান্ধা সদর, গাইবান্ধা</p><p>ফোন: <strong>01784904304</strong></p><div class="btnrow"><a class="btn" href="tel:01784904304">📞 ফোন করুন</a><a class="btn secondary" href="https://wa.me/8801784904304" target="_blank" rel="noopener">💬 WhatsApp</a></div></div>
 </section>
 </main><footer>© Rubel Telecom — সর্বস্বত্ব সংরক্ষিত</footer>
+<script src="https://cdn.jsdelivr.net/npm/appwrite@28.3.0"></script>
 <script>
+const {Client,Storage,TablesDB,ID}=window.Appwrite;
+const rtClient=new Client().setEndpoint('https://nyc.cloud.appwrite.io/v1').setProject('6aceec5b0017856576f7');
+const rtStorage=new Storage(rtClient),rtTables=new TablesDB(rtClient);
+const RT_DATABASE_ID='6acef39300396782af9e';
+const RT_TABLE_ID='6acef7960018db31017f';
+const RT_BUCKET_ID='6aceef430035c78dd682';
 const $=id=>document.getElementById(id);
 const safeRead=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key))||fallback}catch(e){return fallback}};
 const safeWrite=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value));return true}catch(e){return false}};
@@ -73,7 +80,7 @@ let prompts=safeRead('rt_demo_prompts',[
 {id:'p2',title:'প্রফেশনাল ছবি',text:'Make this photo look professionally photographed with a DSLR. Keep the face and identity exactly the same. Use natural realistic skin texture, balanced exposure, clean details, subtle contrast, and authentic colors. Avoid AI-looking skin, face changes, exaggerated sharpening, or changing clothes and background unless requested.'}
 ]);
 let submissions=safeRead('rt_demo_submissions',[]);
-function switchTab(id){document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id===id));document.querySelectorAll('nav button[data-tab]').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));if(id==='ai')renderPublic();if(id==='admin')renderAdmin();window.scrollTo({top:0,behavior:'smooth'})}
+function switchTab(id){if(id==='admin'){window.location.href='./admin.html';return}document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id===id));document.querySelectorAll('nav button[data-tab]').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));if(id==='ai')renderPublic();if(id==='admin')renderAdmin();window.scrollTo({top:0,behavior:'smooth'})}
 document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
 document.querySelectorAll('[data-goto]').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.goto)));
 function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
@@ -84,7 +91,27 @@ $('promptForm').addEventListener('submit',e=>{e.preventDefault();const id=$('edi
 );
 $('cancelEdit').onclick=()=>{$('promptForm').reset();$('editId').value='';$('cancelEdit').hidden=true};
 $('customerPhoto').addEventListener('change',()=>{const f=$('customerPhoto').files[0],img=$('photoPreview');if(f&&f.type.startsWith('image/')){img.src=URL.createObjectURL(f);img.style.display='block'}else{img.style.display='none';img.removeAttribute('src')}});
-$('customerForm').addEventListener('submit',e=>{e.preventDefault();const f=$('customerPhoto').files[0];const entry={name:$('customerName').value.trim(),phone:$('customerPhone').value.trim(),work:$('workDescription').value.trim(),fileName:f?f.name:'',date:new Date().toLocaleString('bn-BD')};submissions.unshift(entry);if(!safeWrite('rt_demo_submissions',submissions)){submissions.shift();$('submitMessage').textContent='এই ব্রাউজারে সংরক্ষণ করা যায়নি।';return}$('submitMessage').innerHTML='<span class="success">পরীক্ষামূলক তথ্য এই ফোনের ব্রাউজারে রাখা হয়েছে। এটি দোকানে পাঠানো হয়নি।</span>';renderAdmin()});
+$('customerForm').addEventListener('submit',async e=>{
+ e.preventDefault();
+ const file=$('customerPhoto').files[0],name=$('customerName').value.trim(),phone=$('customerPhone').value.trim(),work=$('workDescription').value.trim(),button=$('customerForm').querySelector('button[type="submit"]'),status=$('submitMessage');
+ if(!file){status.textContent='আগে ছবি বা ডকুমেন্ট নির্বাচন করুন।';return}
+ if(file.size>10*1024*1024){status.textContent='ফাইলটি ১০ MB-এর বেশি। ছোট ছবি বা PDF দিন।';return}
+ button.disabled=true;status.className='muted';status.textContent='ছবি অনলাইনে আপলোড হচ্ছে… অনুগ্রহ করে অপেক্ষা করুন।';
+ let uploadedFileId=null;
+ try{
+  const uploaded=await rtStorage.createFile({bucketId:RT_BUCKET_ID,fileId:ID.unique(),file});
+  uploadedFileId=uploaded.$id;
+  status.textContent='ছবি সংরক্ষিত। এখন আপনার তথ্য জমা হচ্ছে…';
+  await rtTables.createRow({databaseId:RT_DATABASE_ID,tableId:RT_TABLE_ID,rowId:ID.unique(),data:{customer_name:name,phone:phone,work_description:work,photo_file_id:uploadedFileId}});
+  status.innerHTML='<span class="success">✅ ছবি ও তথ্য অনলাইনে জমা হয়েছে। Rubel Telecom অ্যাডমিন প্যানেল থেকে দেখা যাবে।</span>';
+  $('customerForm').reset();$('photoPreview').style.display='none';$('photoPreview').removeAttribute('src');
+ }catch(err){
+  let reason=String(err&&err.message?err.message:err);
+  if(reason.includes('Failed to fetch'))reason='Appwrite সংযোগ ব্যর্থ। Appwrite Console → Settings → Platforms-এ https://viralsadmix-sudo.github.io যোগ করুন।';
+  else if(/permission|authorized/i.test(reason))reason='Appwrite Permission নেই। Bucket-এ Create permission এবং Table-এ Create permission Role: Any দিতে হবে; Read শুধু মালিকের জন্য রাখুন।';
+  status.className='error';status.textContent='জমা হয়নি: '+reason+(uploadedFileId?' (ছবি আপলোড হয়েছে, কিন্তু তথ্য জমা হয়নি। অ্যাডমিন থেকে ফাইলটি পরে পরিষ্কার করা যাবে।':'');
+ }finally{button.disabled=false}
+});
 $('clearSubmissions').onclick=()=>{if(confirm('এই ব্রাউজারের পরীক্ষামূলক তথ্য মুছবেন?')){submissions=[];safeWrite('rt_demo_submissions',submissions);renderAdmin()}};
 renderPublic();
 </script></body></html>
