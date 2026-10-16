@@ -64,5 +64,5 @@ loginForm.addEventListener('submit',async e=>{
 });
 document.getElementById('refresh').addEventListener('click',loadRows);
 document.getElementById('logout').addEventListener('click',async()=>{try{await account.deleteSession({sessionId:'current'});}catch(e){}dash.classList.add('hidden');login.classList.remove('hidden');loginForm.reset();records.innerHTML='';msg(loginStatus,'লগআউট হয়েছে।');});
-try{await openOwnerDashboard();}catch(e){if(e&&e.message&&e.message.includes('নির্ধারিত মালিকের'))msg(loginStatus,e.message,true);}
+(async()=>{try{await openOwnerDashboard();}catch(e){if(e&&e.message&&e.message.includes('নির্ধারিত মালিকের'))msg(loginStatus,e.message,true);}})();
 </script></body></html>
