@@ -40,6 +40,7 @@ async function loadRows(){
    const card=document.createElement('article');card.className='record';
    const h=document.createElement('h3');h.textContent=row.customer_name||'নাম নেই';card.appendChild(h);
    const p=document.createElement('p');p.textContent='ফোন: '+(row.phone||'—');card.appendChild(p);
+   const work=document.createElement('p');work.textContent='কাজের বিবরণ: '+(row.work_description||'উল্লেখ নেই');card.appendChild(work);
    const date=document.createElement('p');date.className='muted';date.textContent='জমা: '+(row.$createdAt?new Date(row.$createdAt).toLocaleString('bn-BD'):'—');card.appendChild(date);
    const id=row.photo_file_id;
    if(id){
