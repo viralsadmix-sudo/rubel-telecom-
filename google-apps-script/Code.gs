@@ -5,8 +5,8 @@ const MAX_FILE_BYTES = 5 * 1024 * 1024;
 
 function doGet(e) {
   const page = e && e.parameter ? String(e.parameter.page || "") : "";
-  const file = page === "admin" ? "Admin" : "Index";
-  const title = page === "admin" ? APP_TITLE + " — মালিকের অ্যাডমিন প্যানেল" : APP_TITLE + " — ছবি জমা দিন";
+  const file = page === "admin" ? "Admin" : (page === "ai" ? "AI" : (page === "prompts" ? "PromptAdmin" : "Index"));
+  const title = page === "admin" ? APP_TITLE + " — মালিকের অ্যাডমিন প্যানেল" : (page === "ai" ? APP_TITLE + " — AI ছবি এডিট" : (page === "prompts" ? APP_TITLE + " — প্রম্পট পরিচালনা" : APP_TITLE + " — ছবি জমা দিন"));
   return HtmlService.createHtmlOutputFromFile(file)
     .setTitle(title)
     .addMetaTag("viewport", "width=device-width, initial-scale=1");
@@ -154,4 +154,51 @@ function setSubmissionStatus(pin, submissionId, status) {
 function requireAdminPin_(pin) {
   const expected = PropertiesService.getScriptProperties().getProperty("RUBEL_TELECOM_ADMIN_PIN");
   if (!expected || String(pin || "") !== expected) throw new Error("অ্যাডমিন PIN সঠিক নয়।");
+}
+
+
+function getSavedPrompts(pin) {
+  requireAdminPin_(pin);
+  return getPromptRows_();
+}
+function getPublicPrompts() {
+  return getPromptRows_().map(function(p) { return {id:p.id,title:p.title,prompt:p.prompt}; });
+}
+function savePrompt(pin, promptData) {
+  requireAdminPin_(pin);
+  const title = cleanText_(promptData && promptData.title, 120);
+  const prompt = String(promptData && promptData.prompt || "").trim().slice(0, 12000);
+  const id = cleanText_(promptData && promptData.id, 80) || Utilities.getUuid();
+  if (!title || !prompt) throw new Error("প্রম্পটের নাম ও সম্পূর্ণ লেখা দিন।");
+  const sheet = getPromptSheet_();
+  const rows = sheet.getDataRange().getValues();
+  for (let i = 1; i < rows.length; i++) {
+    if (String(rows[i][0]) === id) {
+      sheet.getRange(i + 1, 2, 1, 3).setValues([[title, prompt, new Date()]]);
+      return {ok:true,message:"প্রম্পট আপডেট হয়েছে।"};
+    }
+  }
+  sheet.appendRow([id,title,prompt,new Date()]);
+  return {ok:true,message:"নতুন প্রম্পট যোগ হয়েছে।"};
+}
+function deletePrompt(pin, id) {
+  requireAdminPin_(pin);
+  const sheet = getPromptSheet_(), rows = sheet.getDataRange().getValues();
+  for (let i = 1; i < rows.length; i++) {
+    if (String(rows[i][0]) === String(id)) { sheet.deleteRow(i + 1); return {ok:true,message:"প্রম্পট মুছে ফেলা হয়েছে।"}; }
+  }
+  throw new Error("প্রম্পটটি পাওয়া যায়নি।");
+}
+function getPromptSheet_() {
+  const id = PropertiesService.getScriptProperties().getProperty(PROP_SHEET_ID);
+  if (!id) throw new Error("সিস্টেম সেটআপ করা হয়নি।");
+  const ss = SpreadsheetApp.openById(id);
+  let sheet = ss.getSheetByName("AI Prompts");
+  if (!sheet) { sheet = ss.insertSheet("AI Prompts"); sheet.appendRow(["Prompt ID","Title","Prompt Text","Updated At"]); sheet.setFrozenRows(1); sheet.getRange(1,1,1,4).setFontWeight("bold"); }
+  return sheet;
+}
+function getPromptRows_() {
+  const sheet = getPromptSheet_(), rows = sheet.getDataRange().getValues();
+  if (rows.length < 2) return [];
+  return rows.slice(1).filter(function(r){return r[0] && r[1] && r[2];}).map(function(r){return {id:String(r[0]),title:String(r[1]),prompt:String(r[2]),updatedAt:r[3] instanceof Date?r[3].toISOString():String(r[3]||"")};}).reverse();
 }
