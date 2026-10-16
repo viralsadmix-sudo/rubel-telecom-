@@ -11,6 +11,7 @@
 <button id="submit" type="submit">তথ্য ও ছবি জমা দিন</button><div id="status" role="status" aria-live="polite"></div>
 </form><p class="muted">জমা সফল হওয়ার বার্তা না দেখা পর্যন্ত পেজ বন্ধ করবেন না।</p></section>
 <section class="card"><a class="back" href="./index.html">← Rubel Telecom মূল পেজে ফিরে যান</a></section></main>
+<script src="https://cdn.jsdelivr.net/npm/appwrite@28.3.0"></script>
 <script>
 const status=document.getElementById('status');
 const submitButton=document.getElementById('submit');
@@ -21,7 +22,7 @@ window.addEventListener('error',e=>{status.textContent='❌ পেজে JavaScr
 window.addEventListener('unhandledrejection',e=>{status.textContent='❌ সংযোগ/স্ক্রিপ্ট সমস্যা: '+(e.reason&&e.reason.message?e.reason.message:String(e.reason||'অজানা ত্রুটি'));status.style.color='#b42318';});
 (async()=>{
 try{
- const {Client,ID,Storage,TablesDB,Permission,Role}=await import('https://cdn.jsdelivr.net/npm/appwrite@28.3.0/+esm');
+ const {Client,ID,Storage,TablesDB,Permission,Role}=window.Appwrite;
  const client=new Client().setEndpoint('https://nyc.cloud.appwrite.io/v1').setProject('6aceec5b0017856576f7');
  const storage=new Storage(client),tables=new TablesDB(client);
  const form=document.getElementById('form'),btn=document.getElementById('submit');
