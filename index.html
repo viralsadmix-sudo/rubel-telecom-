@@ -102,7 +102,7 @@ $('customerForm').addEventListener('submit',async e=>{
   const uploaded=await rtStorage.createFile({bucketId:RT_BUCKET_ID,fileId:ID.unique(),file});
   uploadedFileId=uploaded.$id;
   status.textContent='ছবি সংরক্ষিত। এখন আপনার তথ্য জমা হচ্ছে…';
-  await rtTables.createRow({databaseId:RT_DATABASE_ID,tableId:RT_TABLE_ID,rowId:ID.unique(),data:{product_name:work||('Customer photo submission - '+name),price:0,quantity:1,category:'Customer Submission',description:'Customer: '+name+'; Phone: '+phone+(work?'; Work: '+work:''),product_code:'CUST-'+Date.now(),image_url:uploadedFileId,customer_name:name,phone:phone,photo_file_id:uploadedFileId}});
+  await rtTables.createRow({databaseId:RT_DATABASE_ID,tableId:RT_TABLE_ID,rowId:ID.unique(),data:{product_name:work||('Customer photo submission - '+name),price:0,quantity:1,category:'Customer Submission',description:'Customer: '+name+'; Phone: '+phone+(work?'; Work: '+work:''),product_code:'CUST-'+Date.now(),image_url:uploadedFileId,customer_name:name,phone:phone,work_description:work,photo_file_id:uploadedFileId}});
   status.innerHTML='<span class="success">✅ ছবি ও তথ্য অনলাইনে জমা হয়েছে। Rubel Telecom অ্যাডমিন প্যানেল থেকে দেখা যাবে।</span>';
   $('customerForm').reset();$('photoPreview').style.display='none';$('photoPreview').removeAttribute('src');
  }catch(err){
