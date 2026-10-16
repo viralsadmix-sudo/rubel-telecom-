@@ -6,8 +6,9 @@
 <section class="card" id="login"><h2>🔐 মালিকের লগইন</h2><p>আপনার Appwrite অ্যাকাউন্টের ইমেইল ও পাসওয়ার্ড দিয়ে লগইন করুন।</p><form id="loginForm"><label for="email">ইমেইল</label><input id="email" type="email" autocomplete="username" required><label for="password">পাসওয়ার্ড</label><input id="password" type="password" autocomplete="current-password" required><div class="row" style="margin-top:14px"><button id="loginBtn" type="submit">লগইন করুন</button></div></form><div id="loginStatus" class="status" role="status" aria-live="polite"></div><p class="muted">পাসওয়ার্ড এই পেজে সংরক্ষণ করা হয় না।</p></section>
 <section class="card hidden" id="dashboard"><div class="row"><h2 style="flex:1;margin:0">📥 কাস্টমারের জমা</h2><button id="refresh">রিফ্রেশ</button><button id="logout">লগআউট</button></div><div id="dashStatus" class="status" role="status" aria-live="polite"></div><div id="records"></div></section>
 <section class="card"><a class="back" href="./index.html">← মূল ওয়েবসাইটে ফিরে যান</a></section></main><footer>© Rubel Telecom — গ্রাহকের তথ্য ব্যক্তিগত রাখুন</footer>
-<script type="module">
-import {Client,Account,Storage,TablesDB,Query} from 'https://cdn.jsdelivr.net/npm/appwrite@28.3.0/+esm';
+<script src="https://cdn.jsdelivr.net/npm/appwrite@28.3.0"></script>
+<script>
+const {Client,Account,Storage,TablesDB,Query}=window.Appwrite;
 const client=new Client().setEndpoint('https://nyc.cloud.appwrite.io/v1').setProject('6aceec5b0017856576f7'),account=new Account(client),storage=new Storage(client),tables=new TablesDB(client);
 const login=document.getElementById('login'),dash=document.getElementById('dashboard'),loginForm=document.getElementById('loginForm'),loginStatus=document.getElementById('loginStatus'),dashStatus=document.getElementById('dashStatus'),records=document.getElementById('records'),loginBtn=document.getElementById('loginBtn');
 function msg(el,text,error=false){el.textContent=text||'';el.style.color=error?'#b42318':'#087a3e';}
