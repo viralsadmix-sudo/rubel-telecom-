@@ -32,7 +32,7 @@ async function openOwnerDashboard(){
 async function loadRows(){
  msg(dashStatus,'কাস্টমারের জমা লোড হচ্ছে…');records.innerHTML='';
  try{
-  const result=await tables.listRows({databaseId:'6acef39300396782af9e',tableId:'6acef7960018db31017f',queries:[Query.orderDesc('$createdAt'),Query.limit(100)]});
+  const result=await tables.listRows({databaseId:'6acef39300396782af9e',tableId:'6acf947a00083e1db975',queries:[Query.orderDesc('$createdAt'),Query.limit(100)]});
   const rows=result.rows||[];msg(dashStatus,rows.length?'মোট '+rows.length+'টি জমা দেখা যাচ্ছে।':'এখনো কোনো জমা নেই।');
   if(!rows.length){records.innerHTML='<p class="muted">কাস্টমারের জমা এখানে দেখা যাবে।</p>';return;}
   for(const row of rows){
@@ -63,5 +63,5 @@ loginForm.addEventListener('submit',async e=>{
 });
 document.getElementById('refresh').addEventListener('click',loadRows);
 document.getElementById('logout').addEventListener('click',async()=>{try{await account.deleteSession({sessionId:'current'});}catch(e){}dash.classList.add('hidden');login.classList.remove('hidden');loginForm.reset();records.innerHTML='';msg(loginStatus,'লগআউট হয়েছে।');});
-(async()=>{try{await openOwnerDashboard();}catch(e){if(e&&e.message&&e.message.includes('নির্ধারিত মালিকের'))msg(loginStatus,e.message,true);}})();
+(async()=>{try{await openOwnerDashboard();}catch(e){if(e&&e.message)msg(loginStatus,'লগইন/সেশন পরীক্ষা: '+niceError(e),true);}})();
 </script></body></html>
