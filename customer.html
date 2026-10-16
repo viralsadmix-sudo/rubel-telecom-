@@ -13,7 +13,9 @@
 <section class="card"><a class="back" href="./index.html">← Rubel Telecom মূল পেজে ফিরে যান</a></section></main>
 <script>
 const status=document.getElementById('status');
-status.textContent='ফর্ম প্রস্তুত হচ্ছে…';
+const submitButton=document.getElementById('submit');
+submitButton.disabled=true;
+status.textContent='ফর্মের সংযোগ চালু হচ্ছে… অনুগ্রহ করে অপেক্ষা করুন।';
 status.style.color='#152238';
 window.addEventListener('error',e=>{status.textContent='❌ পেজে JavaScript সমস্যা হয়েছে: '+(e.message||'অজানা ত্রুটি');status.style.color='#b42318';});
 window.addEventListener('unhandledrejection',e=>{status.textContent='❌ সংযোগ/স্ক্রিপ্ট সমস্যা: '+(e.reason&&e.reason.message?e.reason.message:String(e.reason||'অজানা ত্রুটি'));status.style.color='#b42318';});
@@ -44,8 +46,10 @@ try{
    else status.textContent='❌ জমা হয়নি: '+raw;
   }finally{btn.disabled=false;}
  });
+ submitButton.disabled=false;
  status.textContent='ফর্ম প্রস্তুত। নাম, ফোন ও ছবি দিয়ে জমা দিতে পারো।';
 }catch(err){
+ submitButton.disabled=true;
  status.style.color='#b42318';
  status.textContent='❌ ফর্মের সংযোগ চালু হয়নি: '+(err&&err.message?err.message:'Appwrite স্ক্রিপ্ট লোড হয়নি')+'. ইন্টারনেট চালু রেখে পেজটি আবার খোলো।';
 }
