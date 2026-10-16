@@ -70,7 +70,7 @@ const {Client,Storage,TablesDB,ID}=window.Appwrite;
 const rtClient=new Client().setEndpoint('https://nyc.cloud.appwrite.io/v1').setProject('6aceec5b0017856576f7');
 const rtStorage=new Storage(rtClient),rtTables=new TablesDB(rtClient);
 const RT_DATABASE_ID='6acef39300396782af9e';
-const RT_TABLE_ID='6acf947a00083e1db975';
+const RT_TABLE_ID='6acef7960018db31017f';
 const RT_BUCKET_ID='6aceef430035c78dd682';
 const $=id=>document.getElementById(id);
 const safeRead=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key))||fallback}catch(e){return fallback}};
@@ -102,7 +102,7 @@ $('customerForm').addEventListener('submit',async e=>{
   const uploaded=await rtStorage.createFile({bucketId:RT_BUCKET_ID,fileId:ID.unique(),file});
   uploadedFileId=uploaded.$id;
   status.textContent='ছবি সংরক্ষিত। এখন আপনার তথ্য জমা হচ্ছে…';
-  await rtTables.createRow({databaseId:RT_DATABASE_ID,tableId:RT_TABLE_ID,rowId:ID.unique(),data:{customer_name:name,phone:phone,photo_file_id:uploadedFileId}});
+  await rtTables.createRow({databaseId:RT_DATABASE_ID,tableId:RT_TABLE_ID,rowId:ID.unique(),data:{customer_name:name,phone:phone,work_description:work,photo_file_id:uploadedFileId}});
   status.innerHTML='<span class="success">✅ ছবি ও তথ্য অনলাইনে জমা হয়েছে। Rubel Telecom অ্যাডমিন প্যানেল থেকে দেখা যাবে।</span>';
   $('customerForm').reset();$('photoPreview').style.display='none';$('photoPreview').removeAttribute('src');
  }catch(err){
