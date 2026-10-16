@@ -70,7 +70,7 @@ const {Client,Storage,TablesDB,ID}=window.Appwrite;
 const rtClient=new Client().setEndpoint('https://nyc.cloud.appwrite.io/v1').setProject('6aceec5b0017856576f7');
 const rtStorage=new Storage(rtClient),rtTables=new TablesDB(rtClient);
 const RT_DATABASE_ID='6acef39300396782af9e';
-const RT_TABLE_ID='6acef7960018db31017f';
+const RT_TABLE_ID='6acf947a00083e1db975';
 const RT_BUCKET_ID='6aceef430035c78dd682';
 const $=id=>document.getElementById(id);
 const safeRead=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key))||fallback}catch(e){return fallback}};
