@@ -88,7 +88,7 @@ promptForm.addEventListener('submit',async e=>{
   if(id)await tables.updateRow({databaseId:'6acef39300396782af9e',tableId:PROMPT_TABLE_ID,rowId:id,data:{title,prompt_text}});
   else await tables.createRow({databaseId:'6acef39300396782af9e',tableId:PROMPT_TABLE_ID,rowId:ID.unique(),data:{title,prompt_text}});
   promptForm.reset();document.getElementById('promptRowId').value='';btn.textContent='প্রম্পট সংরক্ষণ';msg(promptStatus,'প্রম্পট অনলাইনে সংরক্ষিত হয়েছে।');await loadPrompts();
- }catch(e){msg(promptStatus,'সংরক্ষণ হয়নি। prompts টেবিলের কলাম ও মালিকের Create/Update permission পরীক্ষা করুন। '+niceError(e),true)}
+ }catch(e){const detail=[e&&e.message?e.message:'অজানা সমস্যা',e&&e.type?'ধরন: '+e.type:'',e&&e.code?'কোড: '+e.code:''].filter(Boolean).join('\n');msg(promptStatus,'প্রম্পট সংরক্ষণ হয়নি। Appwrite-এর বিস্তারিত ত্রুটি:\n'+detail,true)}
  finally{btn.disabled=false}
 });
 
