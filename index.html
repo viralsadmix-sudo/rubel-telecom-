@@ -1,49 +1,71 @@
 <!doctype html>
 <html lang="bn">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#102b59">
-<meta name="description" content="Rubel Telecom — ফটোকপি, প্রিন্টিং, ছবি ও ডকুমেন্ট, মোবাইল সার্ভিসিং এবং SIM সেবা।">
-<title>Rubel Telecom | ডিজিটাল সেবা কেন্দ্র</title>
+<meta name="description" content="Rubel Telecom — ছবি ও তথ্য জমা, AI ছবি এডিটিং প্রম্পট, দোকানের সেবা ও যোগাযোগ।">
+<title>Rubel Telecom | এক জায়গায় সব সেবা</title>
 <style>
-:root{--navy:#102b59;--blue:#087ca7;--ink:#152238;--muted:#596a80;--line:#dbe4ef;--paper:#fff;--bg:#f1f5fa}
+:root{--navy:#102b59;--blue:#087ca7;--ink:#152238;--muted:#596a80;--line:#dbe4ef;--paper:#fff;--bg:#f1f5fa;--green:#147d54;--red:#b42318}
 *{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Noto Sans Bengali",Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
-header{background:linear-gradient(135deg,#0b1e42,var(--navy),var(--blue));color:#fff;padding:28px 16px 34px;text-align:center}
-.brand{width:70px;height:70px;margin:0 auto 10px;border-radius:22px;background:#fff;color:var(--navy);display:grid;place-items:center;font-weight:900;font-size:25px;box-shadow:0 8px 25px #0002}
-h1{font-size:clamp(28px,7vw,40px);margin:0;letter-spacing:.2px}header p{margin:8px 0 0;color:#e6f5ff}
-main{max-width:760px;margin:-16px auto 0;padding:0 14px 28px;position:relative}
-.card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:20px;margin:0 0 15px;box-shadow:0 7px 25px #102b590b}
-h2{font-size:21px;margin:0 0 10px;color:var(--navy)}p{margin:7px 0}.muted{color:var(--muted);font-size:14px}
-.primary,.secondary{display:block;text-align:center;text-decoration:none;border-radius:12px;padding:14px 16px;font-weight:800;margin-top:12px}
-.primary{background:var(--blue);color:white}.secondary{border:1px solid var(--line);color:var(--navy);background:#f8fbff}
-.services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.service{padding:12px;border:1px solid var(--line);border-radius:12px;background:#fbfdff}
-.service span{display:block;font-size:22px}.contact{overflow-wrap:anywhere}
-footer{text-align:center;padding:10px 16px 25px;color:var(--muted);font-size:13px}
-@media(min-width:560px){.card{padding:24px}.services{grid-template-columns:repeat(3,minmax(0,1fr))}}
-</style>
-</head>
+header{background:linear-gradient(135deg,#0b1e42,var(--navy),var(--blue));color:#fff;padding:26px 15px 24px;text-align:center}.brand{width:64px;height:64px;margin:0 auto 8px;border-radius:20px;background:#fff;color:var(--navy);display:grid;place-items:center;font-weight:900;font-size:24px}h1{font-size:clamp(27px,7vw,39px);margin:0}header p{margin:5px 0;color:#e6f5ff}
+nav{display:flex;gap:8px;overflow:auto;padding:12px max(12px,calc((100% - 780px)/2));background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}nav button{white-space:nowrap;border:1px solid var(--line);background:#f8fbff;color:var(--navy);padding:10px 13px;border-radius:11px;font-weight:750}nav button.active{background:var(--navy);color:white}
+main{max-width:780px;margin:16px auto;padding:0 13px 25px}.panel{display:none}.panel.active{display:block}.card{background:var(--paper);border:1px solid var(--line);border-radius:17px;padding:18px;margin-bottom:14px;box-shadow:0 7px 25px #102b590b}h2{font-size:21px;color:var(--navy);margin:0 0 10px}h3{margin:0 0 6px;font-size:17px}.muted{color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.service,.prompt{border:1px solid var(--line);border-radius:13px;padding:13px;background:#fbfdff}.service span{display:block;font-size:23px}.field{margin:12px 0}label{display:block;font-weight:700;margin-bottom:5px}input,textarea,select{width:100%;font:inherit;padding:12px;border:1px solid #cbd7e6;border-radius:10px;background:#fff;color:var(--ink)}textarea{min-height:110px;resize:vertical}.btn{display:inline-flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;border:0;border-radius:11px;padding:12px 15px;background:var(--blue);color:white;font-weight:800;font:inherit;cursor:pointer}.btn.secondary{background:#f0f6fb;color:var(--navy);border:1px solid var(--line)}.btn.danger{background:#fff0ef;color:var(--red);border:1px solid #ffd3cf}.btnrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.full{width:100%}.notice{padding:12px;border-radius:11px;background:#fff8e6;border:1px solid #f4d58a;color:#684b00;font-size:13px}.success{color:var(--green);font-weight:700}.error{color:var(--red);font-weight:700}.prompt{margin:10px 0}.prompt p{white-space:pre-wrap;overflow-wrap:anywhere}.preview{max-width:100%;max-height:260px;border-radius:12px;display:none;margin-top:10px}.contact{overflow-wrap:anywhere}footer{text-align:center;padding:5px 14px 25px;color:var(--muted);font-size:13px}
+@media(min-width:560px){.card{padding:23px}.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+</style></head>
 <body>
-<header><div class="brand" aria-label="Rubel Telecom">RT</div><h1>Rubel Telecom</h1><p>আপনার বিশ্বস্ত ডিজিটাল সেবা কেন্দ্র</p></header>
+<header><div class="brand">RT</div><h1>Rubel Telecom</h1><p>আপনার বিশ্বস্ত ডিজিটাল সেবা কেন্দ্র</p></header>
+<nav aria-label="প্রধান মেনু">
+<button class="active" data-tab="home">🏠 হোম</button><button data-tab="submit">📤 ছবি জমা</button><button data-tab="ai">✨ AI ছবি এডিট</button><button data-tab="admin">🔐 অ্যাডমিন</button><button data-tab="contact">📍 যোগাযোগ</button>
+</nav>
 <main>
-<section class="card">
-<h2>📤 কাস্টমারের ছবি ও তথ্য জমা</h2>
-<p>আপনার নাম, মোবাইল নম্বর এবং ছবি বা ডকুমেন্ট পাঠাতে নিচের বোতামে চাপ দিন। ফর্মে তথ্য ঠিকভাবে পূরণ করে শেষে জমা দিন।</p>
-<a class="primary" href="./customer.html">ছবি ও তথ্য জমা দিন ↗</a>
-<p class="muted">নোট: ছবি ও তথ্য সরাসরি Rubel Telecom-এর জমা সিস্টেমে পাঠানো হবে। জমা সফল হয়েছে—এমন বার্তা না দেখা পর্যন্ত পেজ বন্ধ করবেন না।</p>
+<section id="home" class="panel active">
+<div class="card"><h2>সব সেবা এক জায়গায়</h2><p>ছবি ও কাজের তথ্য জমা দিন, AI ছবি এডিটিং প্রম্পট কপি করুন, অথবা দোকানের সঙ্গে যোগাযোগ করুন।</p><div class="btnrow"><button class="btn" data-goto="submit">ছবি/তথ্য জমা দিন</button><button class="btn secondary" data-goto="ai">AI প্রম্পট দেখুন</button></div></div>
+<div class="card"><h2>🧰 আমাদের সেবাসমূহ</h2><div class="grid"><div class="service"><span>📄</span>ফটোকপি ও প্রিন্টিং</div><div class="service"><span>🖼️</span>ছবি ও ডকুমেন্ট</div><div class="service"><span>📱</span>মোবাইল সার্ভিসিং</div><div class="service"><span>📶</span>SIM-সংক্রান্ত সেবা</div><div class="service"><span>🛠️</span>জরুরি ও সাধারণ সেবা</div><div class="service"><span>✨</span>AI ছবি এডিটিং সহায়তা</div></div></div>
+<div class="card"><h2>📲 Android অ্যাপ</h2><p>APK প্রকাশিত থাকলে GitHub Releases থেকে দেখতে পারবেন।</p><a class="btn secondary" href="https://github.com/viralsadmix-sudo/rubel-telecom-/releases/latest" target="_blank" rel="noopener">সর্বশেষ APK দেখুন ↗</a></div>
 </section>
-<section class="card"><h2>📲 Android অ্যাপ</h2><p>Rubel Telecom-এর Android APK প্রকাশিত হলে এখান থেকে ডাউনলোড করতে পারবেন।</p><a class="secondary" href="https://github.com/viralsadmix-sudo/rubel-telecom-/releases/latest" target="_blank" rel="noopener">সর্বশেষ APK দেখুন ↗</a></section>
-<section class="card"><h2>🧰 আমাদের সেবাসমূহ</h2><div class="services">
-<div class="service"><span>📄</span>ফটোকপি ও প্রিন্টিং</div>
-<div class="service"><span>🖼️</span>ছবি ও ডকুমেন্ট সেবা</div>
-<div class="service"><span>📱</span>মোবাইল সার্ভিসিং</div>
-<div class="service"><span>📶</span>SIM-সংক্রান্ত সেবা</div>
-<div class="service"><span>🛠️</span>জরুরি ও সাধারণ সেবা</div>
+<section id="submit" class="panel">
+<div class="card"><h2>📤 কাস্টমারের ছবি ও তথ্য</h2><p class="muted">নাম, ফোন নম্বর ও ছবি নির্বাচন করুন।</p>
+<form id="customerForm"><div class="field"><label for="customerName">আপনার নাম *</label><input id="customerName" required maxlength="100" placeholder="আপনার নাম লিখুন"></div>
+<div class="field"><label for="customerPhone">মোবাইল নম্বর *</label><input id="customerPhone" required inputmode="tel" maxlength="20" placeholder="01XXXXXXXXX"></div>
+<div class="field"><label for="workDescription">কাজের বিবরণ (ঐচ্ছিক)</label><textarea id="workDescription" maxlength="1000" placeholder="কী কাজ করাতে চান লিখুন"></textarea></div>
+<div class="field"><label for="customerPhoto">ছবি/ডকুমেন্ট *</label><input id="customerPhoto" type="file" accept="image/*,.pdf" required><img id="photoPreview" class="preview" alt="নির্বাচিত ছবির প্রিভিউ"></div>
+<button class="btn full" type="submit">তথ্য প্রস্তুত করুন</button><p id="submitMessage" aria-live="polite" class="muted"></p></form>
+<div class="notice">এটি আপাতত একত্রিত ওয়েবসাইটের প্রাথমিক সংস্করণ। এখন ফর্মের তথ্য এই ব্রাউজারেই অস্থায়ীভাবে রাখা হয়; তোমার অ্যাডমিনের কাছে অনলাইনে পাঠানো হয় না। পরে নিরাপদ অনলাইন স্টোরেজ যুক্ত করব। বড় ছবি/ফাইল এই প্রোটোটাইপে সংরক্ষণ করা হয় না।</div>
 </div></section>
-<section class="card contact"><h2>📍 দোকানের ঠিকানা ও যোগাযোগ</h2><p><strong>Rubel Telecom</strong></p><p>নন্দিনা খন্দকার বাজার, গাইবান্ধা সদর, গাইবান্ধা</p><p>ফোন: <strong>01784904304</strong></p><a class="primary" href="tel:01784904304">📞 ফোন করুন</a><a class="secondary" href="https://wa.me/8801784904304" target="_blank" rel="noopener">💬 WhatsApp-এ যোগাযোগ</a></section>
-<section class="card"><h2>🔒 আপনার তথ্য</h2><p class="muted">আপনার দেওয়া তথ্য Rubel Telecom-এর কাজ সম্পন্ন করার জন্য ব্যবহার করা হবে। সংবেদনশীল তথ্য জমা দেবেন না।</p></section>
-</main>
-<footer>© Rubel Telecom — সর্বস্বত্ব সংরক্ষিত</footer>
-</body>
-</html>
+<section id="ai" class="panel">
+<div class="card"><h2>✨ AI ছবি এডিটিং প্রম্পট</h2><p>পছন্দের প্রম্পট কপি করুন, তারপর AI সাইট খুলে প্রম্পট পেস্ট করে নিজের ছবি আপলোড করুন।</p><div class="btnrow"><a class="btn" href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT খুলুন ↗</a><a class="btn secondary" href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini খুলুন ↗</a></div><div id="publicPrompts"></div><p class="muted">অ্যাডমিন প্যানেল থেকে এই ব্রাউজারে নতুন প্রম্পট যোগ করলে এখানে দেখা যাবে। অন্য ডিভাইসেও দেখাতে পরে অনলাইন ডেটাবেস যুক্ত করতে হবে।</p></div>
+</section>
+<section id="admin" class="panel">
+<div class="card"><h2>🔐 অ্যাডমিন প্যানেল</h2><div class="notice">এটি এখন ডিজাইন/প্রোটোটাইপ। কোনো পাসওয়ার্ড-ভিত্তিক নিরাপত্তা বা অনলাইন ডেটা সংযোগ সক্রিয় নেই। বাস্তব গ্রাহকের তথ্য এখানে জমা রাখবেন না।</div>
+<h3 style="margin-top:18px">AI প্রম্পট পরিচালনা</h3><form id="promptForm"><div class="field"><label for="promptTitle">প্রম্পটের নাম</label><input id="promptTitle" required maxlength="100" placeholder="যেমন: ন্যাচারাল HD ছবি"></div><div class="field"><label for="promptText">প্রম্পট লিখুন</label><textarea id="promptText" required maxlength="5000" placeholder="এখানে AI prompt লিখুন"></textarea></div><div class="btnrow"><button class="btn" type="submit">প্রম্পট যোগ করুন</button><button class="btn secondary" id="cancelEdit" type="button" hidden>এডিট বাতিল</button></div><input type="hidden" id="editId"></form><div id="adminPrompts"></div>
+<h3 style="margin-top:22px">এই ব্রাউজারের পরীক্ষামূলক জমা</h3><div id="localSubmissions"></div><button id="clearSubmissions" class="btn danger" type="button">এই ব্রাউজারের পরীক্ষামূলক তথ্য মুছুন</button>
+</div></section>
+<section id="contact" class="panel">
+<div class="card contact"><h2>📍 দোকানের ঠিকানা ও যোগাযোগ</h2><p><strong>Rubel Telecom</strong></p><p>নন্দিনা খন্দকার বাজার, গাইবান্ধা সদর, গাইবান্ধা</p><p>ফোন: <strong>01784904304</strong></p><div class="btnrow"><a class="btn" href="tel:01784904304">📞 ফোন করুন</a><a class="btn secondary" href="https://wa.me/8801784904304" target="_blank" rel="noopener">💬 WhatsApp</a></div></div>
+</section>
+</main><footer>© Rubel Telecom — সর্বস্বত্ব সংরক্ষিত</footer>
+<script>
+const $=id=>document.getElementById(id);
+const safeRead=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key))||fallback}catch(e){return fallback}};
+const safeWrite=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value));return true}catch(e){return false}};
+let prompts=safeRead('rt_demo_prompts',[
+{id:'p1',title:'ফেস অপরিবর্তিত রেখে HD ছবি',text:'Enhance this photo to premium, ultra-realistic DSLR quality. Preserve the person’s exact identity, face shape, facial features, skin texture, hairstyle, body proportions, clothing, pose, and original composition. Improve lighting, exposure, natural colors, clarity, and noise gently. Do not redesign the face, do not make skin plastic, and do not add or remove objects.'},
+{id:'p2',title:'প্রফেশনাল ছবি',text:'Make this photo look professionally photographed with a DSLR. Keep the face and identity exactly the same. Use natural realistic skin texture, balanced exposure, clean details, subtle contrast, and authentic colors. Avoid AI-looking skin, face changes, exaggerated sharpening, or changing clothes and background unless requested.'}
+]);
+let submissions=safeRead('rt_demo_submissions',[]);
+function switchTab(id){document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id===id));document.querySelectorAll('nav button[data-tab]').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));if(id==='ai')renderPublic();if(id==='admin')renderAdmin();window.scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
+document.querySelectorAll('[data-goto]').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.goto)));
+function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function renderPublic(){const box=$('publicPrompts');box.innerHTML=prompts.length?'':'<p class="muted">এখনও কোনো প্রম্পট নেই। অ্যাডমিন প্যানেল থেকে যোগ করুন।</p>';prompts.forEach(p=>{const d=document.createElement('div');d.className='prompt';d.innerHTML='<h3>'+escapeHTML(p.title)+'</h3><p>'+escapeHTML(p.text)+'</p><button class="btn" type="button">📋 প্রম্পট কপি করুন</button>';d.querySelector('button').onclick=()=>copyPrompt(p.text,d.querySelector('button'));box.appendChild(d)})}
+async function copyPrompt(text,button){try{await navigator.clipboard.writeText(text);button.textContent='✓ কপি হয়েছে'}catch(e){const t=document.createElement('textarea');t.value=text;document.body.appendChild(t);t.select();try{document.execCommand('copy');button.textContent='✓ কপি হয়েছে'}catch(err){alert('প্রম্পটটি সিলেক্ট করে কপি করুন।')}t.remove()}setTimeout(()=>button.textContent='📋 প্রম্পট কপি করুন',1800)}
+function renderAdmin(){const box=$('adminPrompts');box.innerHTML='';prompts.forEach(p=>{const d=document.createElement('div');d.className='prompt';d.innerHTML='<h3>'+escapeHTML(p.title)+'</h3><p>'+escapeHTML(p.text)+'</p><div class="btnrow"><button class="btn secondary" type="button">এডিট</button><button class="btn danger" type="button">মুছুন</button></div>';const [edit,del]=d.querySelectorAll('button');edit.onclick=()=>{$('promptTitle').value=p.title;$('promptText').value=p.text;$('editId').value=p.id;$('cancelEdit').hidden=false;window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'})};del.onclick=()=>{if(confirm('এই প্রম্পটটি মুছবেন?')){prompts=prompts.filter(x=>x.id!==p.id);safeWrite('rt_demo_prompts',prompts);renderAdmin();renderPublic()}};box.appendChild(d)});const s=$('localSubmissions');s.innerHTML=submissions.length?'':'<p class="muted">এই ব্রাউজারে কোনো পরীক্ষামূলক জমা নেই।</p>';submissions.forEach(x=>{const d=document.createElement('div');d.className='prompt';d.innerHTML='<strong>'+escapeHTML(x.name)+'</strong><p>ফোন: '+escapeHTML(x.phone)+'</p><p>কাজ: '+escapeHTML(x.work||'উল্লেখ নেই')+'</p><p>ফাইলের নাম: '+escapeHTML(x.fileName||'সংরক্ষিত নয়')+'</p><p class="muted">'+escapeHTML(x.date)+'</p>';s.appendChild(d)})}
+$('promptForm').addEventListener('submit',e=>{e.preventDefault();const id=$('editId').value;const item={id:id||('p'+Date.now()),title:$('promptTitle').value.trim(),text:$('promptText').value.trim()};if(id)prompts=prompts.map(p=>p.id===id?item:p);else prompts.unshift(item);if(!safeWrite('rt_demo_prompts',prompts)){alert('এই ব্রাউজারে সংরক্ষণ করা যায়নি।');return}$('promptForm').reset();$('editId').value='';$('cancelEdit').hidden=true;renderAdmin();renderPublic();alert('এই ব্রাউজারে প্রম্পট সংরক্ষণ হয়েছে।')}
+);
+$('cancelEdit').onclick=()=>{$('promptForm').reset();$('editId').value='';$('cancelEdit').hidden=true};
+$('customerPhoto').addEventListener('change',()=>{const f=$('customerPhoto').files[0],img=$('photoPreview');if(f&&f.type.startsWith('image/')){img.src=URL.createObjectURL(f);img.style.display='block'}else{img.style.display='none';img.removeAttribute('src')}});
+$('customerForm').addEventListener('submit',e=>{e.preventDefault();const f=$('customerPhoto').files[0];const entry={name:$('customerName').value.trim(),phone:$('customerPhone').value.trim(),work:$('workDescription').value.trim(),fileName:f?f.name:'',date:new Date().toLocaleString('bn-BD')};submissions.unshift(entry);if(!safeWrite('rt_demo_submissions',submissions)){submissions.shift();$('submitMessage').textContent='এই ব্রাউজারে সংরক্ষণ করা যায়নি।';return}$('submitMessage').innerHTML='<span class="success">পরীক্ষামূলক তথ্য এই ফোনের ব্রাউজারে রাখা হয়েছে। এটি দোকানে পাঠানো হয়নি।</span>';renderAdmin()});
+$('clearSubmissions').onclick=()=>{if(confirm('এই ব্রাউজারের পরীক্ষামূলক তথ্য মুছবেন?')){submissions=[];safeWrite('rt_demo_submissions',submissions);renderAdmin()}};
+renderPublic();
+</script></body></html>
