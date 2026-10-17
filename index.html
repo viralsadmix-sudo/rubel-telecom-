@@ -55,11 +55,11 @@ input,textarea,select{background:linear-gradient(135deg,#06142b,#0a1c36);border-
 <section id="enhance" class="panel">
 <div class="card"><h2>✨ Remini</h2><p>গ্যালারি থেকে ছবি বাছাই করলেই এই ওয়েবসাইটের ভেতরে ছবির আলো, রং, কনট্রাস্ট ও ডিটেইল উন্নত করার প্রক্রিয়া শুরু হবে। কাজ চলার সময় অগ্রগতি দেখাবে; শেষ হলে উন্নত ছবি দেখে সেভ করুন। এই সংস্করণে প্রসেসিং ফোনের ব্রাউজারেই হয়—এটি জেনারেটিভ AI দিয়ে মুখ পুনর্গঠন করে না।</p>
 <div class="field"><label for="enhancePhoto">গ্যালারি থেকে ছবি নির্বাচন করুন</label><input id="enhancePhoto" type="file" accept="image/*"><img id="enhancePreview" class="preview" alt="উন্নত ছবির প্রিভিউ" style="display:none;max-height:420px"><div id="enhanceProgressBox" hidden style="margin-top:12px"><div style="display:flex;justify-content:space-between;gap:10px;font-size:13px;margin-bottom:6px"><span id="enhanceProgressText">ছবি উন্নত হচ্ছে…</span><span id="enhanceProgressPercent">0%</span></div><div style="height:9px;background:#06142b;border:1px solid #315987;border-radius:99px;overflow:hidden"><div id="enhanceProgressBar" style="height:100%;width:0%;background:linear-gradient(90deg,#087cf0,#00d9ff);transition:width .2s;border-radius:99px"></div></div><p id="enhanceElapsed" class="muted">সময়: 0 সেকেন্ড</p></div></div>
-<div id="enhanceControls" hidden>
+<div id="enhanceControls">
 <div class="field"><label for="enhanceBrightness">উজ্জ্বলতা: <span id="brightnessValue">108%</span></label><input id="enhanceBrightness" type="range" min="70" max="140" value="108"></div>
 <div class="field"><label for="enhanceContrast">কনট্রাস্ট: <span id="contrastValue">112%</span></label><input id="enhanceContrast" type="range" min="70" max="150" value="112"></div>
 <div class="field"><label for="enhanceSharpness">শার্পনেস: <span id="sharpnessValue">1</span></label><input id="enhanceSharpness" type="range" min="0" max="3" value="1"></div>
-<div class="btnrow"><button class="btn" id="enhanceApply" type="button">✨ ছবি উন্নত করুন</button><button class="btn secondary" id="enhanceDownload" type="button" disabled>⬇️ ছবি ডাউনলোড</button><button class="btn secondary" id="enhanceReset" type="button">রিসেট</button></div>
+<div class="btnrow"><button class="btn" id="enhanceApply" type="button" disabled>✨ ছবি ক্লিয়ার করুন</button><button class="btn secondary" id="enhanceDownload" type="button" disabled>⬇️ ছবি ডাউনলোড</button><button class="btn secondary" id="enhanceReset" type="button">রিসেট</button></div>
 <p id="enhanceMessage" class="muted" aria-live="polite">ছবি নির্বাচন করলে এডিট করার অপশন আসবে।</p>
 </div><canvas id="enhanceCanvas" hidden></canvas>
 </div></section>
@@ -194,7 +194,7 @@ function enhanceDraw(){
  },60);
 }
 enhancePhoto.addEventListener('change',()=>{const file=enhancePhoto.files&&enhancePhoto.files[0];if(!file)return;if(!file.type.startsWith('image/')){$('enhanceMessage').textContent='দয়া করে ছবির ফাইল নির্বাচন করুন।';return;}if(file.size>20*1024*1024){$('enhanceMessage').textContent='ছবিটি ২০ MB-এর বেশি। ছোট ছবি নির্বাচন করুন।';enhancePhoto.value='';return;}
- const img=new Image();img.onload=()=>{enhanceOriginal=img;enhanceFileName=(file.name.replace(/\.[^.]+$/,'')||'rubel-telecom')+'-enhanced';$('enhanceControls').hidden=false;$('enhanceMessage').textContent='ছবি প্রস্তুত করা হচ্ছে…';enhanceDraw();};img.onerror=()=>{$('enhanceMessage').textContent='ছবিটি খোলা যায়নি। অন্য ছবি চেষ্টা করুন।'};img.src=URL.createObjectURL(file);});
+ const img=new Image();img.onload=()=>{enhanceOriginal=img;$('enhanceApply').disabled=false;enhanceFileName=(file.name.replace(/\.[^.]+$/,'')||'rubel-telecom')+'-enhanced';$('enhanceControls').hidden=false;$('enhanceMessage').textContent='ছবি প্রস্তুত করা হচ্ছে…';enhanceDraw();};img.onerror=()=>{$('enhanceMessage').textContent='ছবিটি খোলা যায়নি। অন্য ছবি চেষ্টা করুন।'};img.src=URL.createObjectURL(file);});
 ['enhanceBrightness','enhanceContrast','enhanceSharpness'].forEach(id=>$(id).addEventListener('input',()=>{const value=$(id).value;$(id==='enhanceBrightness'?'brightnessValue':id==='enhanceContrast'?'contrastValue':'sharpnessValue').textContent=value+(id==='enhanceSharpness'?'':'%');}));
 $('enhanceApply').addEventListener('click',()=>{enhanceDraw();$('enhanceMessage').textContent='ছবি উন্নত করা হচ্ছে…';});
 $('enhanceDownload').addEventListener('click',()=>{if(!enhanceOriginal)return;const a=document.createElement('a');a.href=enhanceCanvas.toDataURL('image/jpeg',.94);a.download=enhanceFileName+'.jpg';document.body.appendChild(a);a.click();a.remove();$('enhanceMessage').textContent='ডাউনলোড শুরু হয়েছে। গ্যালারি/Downloads-এ দেখুন।';});
