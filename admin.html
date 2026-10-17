@@ -105,7 +105,12 @@ loginForm.addEventListener('submit',async e=>{
  try{
   await account.createEmailPasswordSession({email:document.getElementById('email').value.trim(),password:document.getElementById('password').value});
   await openOwnerDashboard();
- }catch(err){msg(loginStatus,'লগইন হয়নি: '+niceError(err)+(err&&err.code?' (কোড: '+err.code+')':'')+(err&&err.type?' (ধরন: '+err.type+')':''),true);}
+ }catch(err){
+  if(err&&err.type==='user_session_already_exists'){
+   try{await openOwnerDashboard();msg(loginStatus,'আগের লগইন সেশন পাওয়া গেছে—সেটি ব্যবহার করা হচ্ছে।');}
+   catch(sessionErr){msg(loginStatus,'আগের সেশন আছে, কিন্তু অ্যাডমিন প্যানেল খোলা যায়নি: '+niceError(sessionErr),true);}
+  }else{msg(loginStatus,'লগইন হয়নি: '+niceError(err)+(err&&err.code?' (কোড: '+err.code+')':'')+(err&&err.type?' (ধরন: '+err.type+')':''),true);}
+ }
  finally{loginBtn.disabled=false;}
 });
 document.getElementById('refresh').addEventListener('click',loadRows);
