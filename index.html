@@ -119,6 +119,7 @@ $('customerForm').addEventListener('submit',async e=>{
 });
 $('clearSubmissions').onclick=()=>{if(confirm('এই ব্রাউজারের পরীক্ষামূলক তথ্য মুছবেন?')){submissions=[];safeWrite('rt_demo_submissions',submissions);renderAdmin()}};
 renderPublic();
+renderMovieLinks();
 async function loadApkDownload(){try{const res=await rtTables.listRows({databaseId:RT_DATABASE_ID,tableId:RT_PROMPT_TABLE_ID,queries:[Query.equal('title',[RT_APK_SETTING_TITLE]),Query.limit(1)]});const row=(res.rows||[])[0];if(!row)return;const cfg=JSON.parse(row.prompt_text||'{}');if(cfg.url&&/^https:\/\//i.test(cfg.url)){const link=$('apkDownloadLink');link.href=cfg.url;link.textContent=(cfg.name||'Rubel Telecom APK')+(cfg.version?' ('+cfg.version+')':'')+' ডাউনলোড করুন ↗';link.target='_blank';link.rel='noopener';$('apkDescription').textContent=cfg.version?'সর্বশেষ ভার্সন: '+cfg.version+' — অ্যাডমিনের দেওয়া লিংক থেকে ডাউনলোড করুন।':'অ্যাডমিনের দেওয়া সর্বশেষ APK লিংক থেকে ডাউনলোড করুন।';}}catch(e){console.warn('APK link load failed',e)}}
 loadApkDownload();
 $('apkDownloadLink').addEventListener('click',function(e){
