@@ -1,0 +1,7 @@
+{
+  "name": "rubel-telecom-ai",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "description": "Secure Appwrite function for Rubel Telecom Gemini photo enhancement"
+}
