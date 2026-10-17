@@ -35,12 +35,13 @@ input,textarea,select{background:linear-gradient(135deg,#06142b,#0a1c36);border-
 <body>
 <header><img class="brand" src="./logo.svg" alt="Rubel Telecom লোগো"><h1>Rubel Telecom</h1><p>আপনার বিশ্বস্ত ডিজিটাল সেবা কেন্দ্র</p></header>
 <nav aria-label="প্রধান মেনু">
-<button class="active" data-tab="home">🏠 হোম</button><button data-tab="submit">📤 ছবি জমা</button><button data-tab="ai">✨ AI ছবি এডিট</button><button data-tab="movies">🎬 মুভি ও ওয়েব সিরিজ</button><button data-tab="admin">🔐 অ্যাডমিন</button><button data-tab="contact">📍 যোগাযোগ</button>
+<button class="active" data-tab="home">🏠 হোম</button><button data-tab="submit">📤 ছবি জমা</button><button data-tab="enhance">✨ Remini</button><button data-tab="ai">✨ AI ছবি এডিট</button><button data-tab="movies">🎬 মুভি ও ওয়েব সিরিজ</button><button data-tab="admin">🔐 অ্যাডমিন</button><button data-tab="contact">📍 যোগাযোগ</button>
 </nav>
 <main>
 <section id="home" class="panel active">
 <div class="card"><h2>সব সেবা এক জায়গায়</h2><p>ছবি ও কাজের তথ্য জমা দিন, AI ছবি এডিটিং প্রম্পট কপি করুন, অথবা দোকানের সঙ্গে যোগাযোগ করুন।</p><div class="btnrow"><button class="btn" data-goto="submit">ছবি/তথ্য জমা দিন</button><button class="btn secondary" data-goto="ai">AI প্রম্পট দেখুন</button></div></div>
-<div class="card"><h2>🧰 আমাদের সেবাসমূহ</h2><div class="grid"><div class="service"><span>📄</span>ফটোকপি ও প্রিন্টিং</div><div class="service"><span>🖼️</span>ছবি ও ডকুমেন্ট</div><div class="service"><span>📱</span>মোবাইল সার্ভিসিং</div><div class="service"><span>📶</span>SIM-সংক্রান্ত সেবা</div><div class="service"><span>🛠️</span>জরুরি ও সাধারণ সেবা</div><div class="service"><span>✨</span>AI ছবি এডিটিং সহায়তা</div></div></div>
+<div class="card"><h2>🧰 আমাদের সেবাসমূহ</h2><div class="grid"><div class="service"><span>📄</span>ফটোকপি ও প্রিন্টিং</div><div class="service"><span>🖼️</span>ছবি ও ডকুমেন্ট</div><div class="service"><span>📱</span>মোবাইল সার্ভিসিং</div><div class="service"><span>📶</span>SIM-সংক্রান্ত সেবা</div><div class="service"><span>🛠️</span>জরুরি ও সাধারণ সেবা</div><button class="service" id="rtOpenEnhancer" type="button" style="cursor:pointer;width:100%;color:inherit;font:inherit;text-align:left"><span>✨</span>Remini</button></div></div>
+
 <div class="card"><h2>🎬 মুভি, ওয়েব সিরিজ ও নাটকের লিংক</h2><p>অ্যাডমিনের যোগ করা ওয়েবসাইটগুলো দেখুন।</p><div id="homeMovieLinks" class="grid"><p class="muted">লিংক লোড হচ্ছে…</p></div><button class="btn secondary" type="button" data-goto="movies">সব লিংক দেখুন</button></div><div class="card"><h2>📲 Android অ্যাপ</h2><p id="apkDescription">সর্বশেষ Rubel Telecom APK ডাউনলোড করুন।</p><a id="apkDownloadLink" class="btn secondary" href="#apk-link-not-set">APK ডাউনলোড লিংক সেট করা হয়নি</a></div>
 </section>
 <section id="submit" class="panel">
@@ -52,6 +53,18 @@ input,textarea,select{background:linear-gradient(135deg,#06142b,#0a1c36);border-
 <button class="btn full" type="submit">তথ্য প্রস্তুত করুন</button><p id="submitMessage" aria-live="polite" class="muted"></p></form>
 <div class="notice">ছবি ও তথ্য Appwrite-এ অনলাইনে জমা হবে। সর্বোচ্চ ফাইল সাইজ ১০ MB। জমা দিতে সমস্যা হলে Appwrite-এর Platform, Bucket এবং Table permission ঠিক করতে হবে।</div>
 </div></section>
+ <section id="enhance" class="panel">
+<div class="card" id="rtPhotoEnhanceCard" hidden>
+<h2>✨ Remini</h2>
+<p>ছবি নির্বাচন করে আলো, উজ্জ্বলতা, রং ও শার্পনেস উন্নত করুন। ছবি আপনার ফোনেই প্রসেস হবে; কোনো সার্ভারে আপলোড হবে না।</p>
+<div class="field"><label for="rtEnhanceInput">আপনার ছবি নির্বাচন করুন</label><input id="rtEnhanceInput" type="file" accept="image/*"></div>
+<img id="rtEnhancePreview" class="preview" alt="উন্নত ছবির প্রিভিউ">
+<p id="rtEnhanceStatus" class="muted" aria-live="polite">প্রথমে একটি ছবি নির্বাচন করুন।</p>
+<div class="btnrow"><button class="btn full" id="rtEnhanceButton" type="button" disabled>✨ এক ট্যাপে ছবি পরিষ্কার করুন</button><a class="btn secondary" id="rtEnhanceDownload" hidden download="rubel-telecom-enhanced.jpg">⬇️ উন্নত ছবি ডাউনলোড</a></div>
+<p class="muted">নোট: এটি ফোনের ব্রাউজারে আলো/কনট্রাস্ট/শার্পনেস উন্নত করে; এখনো আসল AI মুখ পুনর্গঠন বা Remini-এর মতো AI upscaling নয়।</p>
+</div>
+ </section>
+ 
 <section id="ai" class="panel">
 <div class="card"><h2>✨ AI ছবি এডিটিং প্রম্পট</h2><p>পছন্দের প্রম্পট কপি করুন, তারপর AI সাইট খুলে প্রম্পট পেস্ট করে নিজের ছবি আপলোড করুন।</p><div class="btnrow"><a class="btn" href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT খুলুন ↗</a><a class="btn secondary" href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini খুলুন ↗</a></div><div id="publicPrompts"></div><p class="muted">অ্যাডমিন প্যানেল থেকে অনলাইনে যোগ করা প্রম্পট এখানে দেখা যাবে।</p></div>
 </section>
@@ -121,6 +134,59 @@ $('clearSubmissions').onclick=()=>{if(confirm('এই ব্রাউজার�
 renderPublic();
 renderMovieLinks();
 async function loadApkDownload(){try{const res=await rtTables.listRows({databaseId:RT_DATABASE_ID,tableId:RT_PROMPT_TABLE_ID,queries:[Query.equal('title',[RT_APK_SETTING_TITLE]),Query.limit(1)]});const row=(res.rows||[])[0];if(!row)return;const cfg=JSON.parse(row.prompt_text||'{}');if(cfg.url&&/^https:\/\//i.test(cfg.url)){const link=$('apkDownloadLink');link.href=cfg.url;link.textContent=(cfg.name||'Rubel Telecom APK')+(cfg.version?' ('+cfg.version+')':'')+' ডাউনলোড করুন ↗';link.target='_blank';link.rel='noopener';$('apkDescription').textContent=cfg.version?'সর্বশেষ ভার্সন: '+cfg.version+' — অ্যাডমিনের দেওয়া লিংক থেকে ডাউনলোড করুন।':'অ্যাডমিনের দেওয়া সর্বশেষ APK লিংক থেকে ডাউনলোড করুন।';}}catch(e){console.warn('APK link load failed',e)}}
+
+/* Homepage service tile opens the dedicated photo-enhancement tab. */
+$('rtOpenEnhancer').addEventListener('click',()=>{
+ document.querySelector('nav [data-tab="enhance"]').click();
+});
+/* Homepage-only local photo enhancement: no upload, no external AI service. */
+(()=>{
+ const input=$('rtEnhanceInput'),preview=$('rtEnhancePreview'),button=$('rtEnhanceButton'),download=$('rtEnhanceDownload'),status=$('rtEnhanceStatus');
+ if(!input||!preview||!button||!download||!status)return;
+ let sourceImage=null,sourceName='photo';
+ input.addEventListener('change',()=>{
+  const file=input.files&&input.files[0];sourceImage=null;download.hidden=true;download.removeAttribute('href');
+  if(!file){button.disabled=true;preview.style.display='none';status.textContent='প্রথমে একটি ছবি নির্বাচন করুন।';return}
+  if(!file.type.startsWith('image/')){button.disabled=true;preview.style.display='none';status.textContent='দয়া করে JPG, PNG বা অন্য একটি ছবি নির্বাচন করুন।';return}
+  if(file.size>20*1024*1024){button.disabled=true;preview.style.display='none';status.textContent='ছবিটি ২০ MB-এর বেশি। ছোট ছবি নির্বাচন করুন।';return}
+  const url=URL.createObjectURL(file),img=new Image();
+  img.onload=()=>{sourceImage=img;sourceName=(file.name||'photo').replace(/\.[^.]+$/,'');preview.src=url;preview.style.display='block';button.disabled=false;status.textContent='ছবি প্রস্তুত। এখন Enhance বোতামে চাপ দিন।'};
+  img.onerror=()=>{URL.revokeObjectURL(url);button.disabled=true;status.textContent='ছবিটি খোলা যায়নি। অন্য ছবি চেষ্টা করুন।'};
+  img.src=url;
+ });
+ button.addEventListener('click',()=>{
+  if(!sourceImage)return;
+  button.disabled=true;download.hidden=true;status.textContent='ছবি উন্নত করা হচ্ছে…';
+  try{
+   const maxSide=2400,scale=Math.min(1,maxSide/Math.max(sourceImage.naturalWidth,sourceImage.naturalHeight));
+   const w=Math.max(1,Math.round(sourceImage.naturalWidth*scale)),h=Math.max(1,Math.round(sourceImage.naturalHeight*scale));
+   const canvas=document.createElement('canvas');canvas.width=w;canvas.height=h;
+   const ctx=canvas.getContext('2d',{willReadFrequently:true});if(!ctx)throw new Error('Canvas চালু করা যায়নি');
+   ctx.filter='brightness(1.07) contrast(1.10) saturate(1.04)';
+   ctx.drawImage(sourceImage,0,0,w,h);ctx.filter='none';
+   const imageData=ctx.getImageData(0,0,w,h),src=imageData.data,out=new Uint8ClampedArray(src.length);
+   const strength=0.22;
+   for(let y=0;y<h;y++)for(let x=0;x<w;x++){
+    const i=(y*w+x)*4;
+    for(let c=0;c<3;c++){
+     const center=src[i+c];
+     const left=x>0?src[i-4+c]:center,right=x<w-1?src[i+4+c]:center;
+     const up=y>0?src[i-w*4+c]:center,down=y<h-1?src[i+w*4+c]:center;
+     out[i+c]=Math.max(0,Math.min(255,center+strength*(4*center-left-right-up-down)));
+    }
+    out[i+3]=src[i+3];
+   }
+   imageData.data.set(out);ctx.putImageData(imageData,0,0);
+   canvas.toBlob(blob=>{
+    if(!blob){status.textContent='ছবি তৈরি করা যায়নি। আবার চেষ্টা করুন।';button.disabled=false;return}
+    if(download.dataset.url)URL.revokeObjectURL(download.dataset.url);
+    const url=URL.createObjectURL(blob);download.dataset.url=url;download.href=url;download.download=(sourceName||'photo')+'-rubel-telecom-enhanced.jpg';download.hidden=false;
+    preview.src=url;preview.style.display='block';status.textContent='✅ ছবি উন্নত হয়েছে। নিচের ডাউনলোড বোতামে চাপ দিয়ে সেভ করুন।';button.disabled=false;
+   },'image/jpeg',0.94);
+  }catch(err){status.textContent='ছবি উন্নত করা যায়নি। ছোট ছবি দিয়ে আবার চেষ্টা করুন।';button.disabled=false}
+ });
+})();
+
 loadApkDownload();
 $('apkDownloadLink').addEventListener('click',function(e){
  if(this.getAttribute('href')==='#apk-link-not-set'){
