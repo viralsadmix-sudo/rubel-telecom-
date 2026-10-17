@@ -88,10 +88,10 @@ async function loadPrompts(){
 document.getElementById('showPrompts').addEventListener('click',()=>promptPanel.scrollIntoView({behavior:'smooth'}));
 document.getElementById('cancelPrompt').addEventListener('click',()=>{promptForm.reset();document.getElementById('promptRowId').value='';document.getElementById('savePrompt').textContent='প্রম্পট সংরক্ষণ';});
 promptForm.addEventListener('submit',async e=>{
- e.preventDefault();const title=document.getElementById('promptTitle').value.trim(),prompt_text=document.getElementById('promptText').value.trim(),id=document.getElementById('promptRowId').value,btn=document.getElementById('savePrompt');
- if(!title||!prompt_text)return;btn.disabled=true;msg(promptStatus,'সংরক্ষণ হচ্ছে…');
+ e.preventDefault();const title=document.getElementById('promptTitle').value.trim(),promptBody=document.getElementById('promptText').value.trim(),id=document.getElementById('promptRowId').value,btn=document.getElementById('savePrompt');
+ if(!title||!promptBody)return;btn.disabled=true;msg(promptStatus,'সংরক্ষণ হচ্ছে…');
  try{
-  const rowData={title:title,'prompt_text.':prompt_text,prompt_content:prompt_text};
+  const rowData={title:title,'prompt_text.':promptBody,prompt_content:promptBody};
   if(!rowData.prompt_content)throw new Error('প্রম্পটের লেখা ফাঁকা।');
   if(id)await tables.updateRow({databaseId:'6acef39300396782af9e',tableId:PROMPT_TABLE_ID,rowId:id,data:rowData});
   else await tables.createRow({databaseId:'6acef39300396782af9e',tableId:PROMPT_TABLE_ID,rowId:ID.unique(),data:rowData});
