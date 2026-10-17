@@ -35,12 +35,12 @@ input,textarea,select{background:linear-gradient(135deg,#06142b,#0a1c36);border-
 <body>
 <header><img class="brand" src="./logo.svg" alt="Rubel Telecom লোগো"><h1>Rubel Telecom</h1><p>আপনার বিশ্বস্ত ডিজিটাল সেবা কেন্দ্র</p></header>
 <nav aria-label="প্রধান মেনু">
-<button class="active" data-tab="home">🏠 হোম</button><button data-tab="submit">📤 ছবি জমা</button><button data-tab="enhance">✨ ছবি পরিষ্কার</button><button data-tab="ai">✨ AI ছবি এডিট</button><button data-tab="movies">🎬 মুভি ও ওয়েব সিরিজ</button><button data-tab="admin">🔐 অ্যাডমিন</button><button data-tab="contact">📍 যোগাযোগ</button>
+<button class="active" data-tab="home">🏠 হোম</button><button data-tab="submit">📤 ছবি জমা</button><button data-tab="enhance">✨ Gemini</button><button data-tab="ai">✨ AI ছবি এডিট</button><button data-tab="movies">🎬 মুভি ও ওয়েব সিরিজ</button><button data-tab="admin">🔐 অ্যাডমিন</button><button data-tab="contact">📍 যোগাযোগ</button>
 </nav>
 <main>
 <section id="home" class="panel active">
 <div class="card"><h2>সব সেবা এক জায়গায়</h2><p>ছবি ও কাজের তথ্য জমা দিন, AI ছবি এডিটিং প্রম্পট কপি করুন, অথবা দোকানের সঙ্গে যোগাযোগ করুন।</p><div class="btnrow"><button class="btn" data-goto="submit">ছবি/তথ্য জমা দিন</button><button class="btn secondary" data-goto="ai">AI প্রম্পট দেখুন</button></div></div>
-<div class="card"><h2>🧰 আমাদের সেবাসমূহ</h2><div class="grid"><div class="service"><span>📄</span>ফটোকপি ও প্রিন্টিং</div><div class="service"><span>🖼️</span>ছবি ও ডকুমেন্ট</div><div class="service"><span>📱</span>মোবাইল সার্ভিসিং</div><div class="service"><span>📶</span>SIM-সংক্রান্ত সেবা</div><div class="service"><span>🛠️</span>জরুরি ও সাধারণ সেবা</div><button class="service" id="rtOpenEnhancer" type="button" style="cursor:pointer;width:100%;color:inherit;font:inherit;text-align:left"><span>✨</span>এক ট্যাপে ছবি পরিষ্কার করুন</button></div></div>
+<div class="card"><h2>🧰 আমাদের সেবাসমূহ</h2><div class="grid"><div class="service"><span>📄</span>ফটোকপি ও প্রিন্টিং</div><div class="service"><span>🖼️</span>ছবি ও ডকুমেন্ট</div><div class="service"><span>📱</span>মোবাইল সার্ভিসিং</div><div class="service"><span>📶</span>SIM-সংক্রান্ত সেবা</div><div class="service"><span>🛠️</span>জরুরি ও সাধারণ সেবা</div><button class="service" id="rtOpenEnhancer" type="button" style="cursor:pointer;width:100%;color:inherit;font:inherit;text-align:left"><span>✨</span>Gemini</button></div></div>
 
 <div class="card"><h2>🎬 মুভি, ওয়েব সিরিজ ও নাটকের লিংক</h2><p>অ্যাডমিনের যোগ করা ওয়েবসাইটগুলো দেখুন।</p><div id="homeMovieLinks" class="grid"><p class="muted">লিংক লোড হচ্ছে…</p></div><button class="btn secondary" type="button" data-goto="movies">সব লিংক দেখুন</button></div><div class="card"><h2>📲 Android অ্যাপ</h2><p id="apkDescription">সর্বশেষ Rubel Telecom APK ডাউনলোড করুন।</p><a id="apkDownloadLink" class="btn secondary" href="#apk-link-not-set">APK ডাউনলোড লিংক সেট করা হয়নি</a></div>
 </section>
@@ -55,7 +55,7 @@ input,textarea,select{background:linear-gradient(135deg,#06142b,#0a1c36);border-
 </div></section>
  <section id="enhance" class="panel">
 <div class="card" id="rtPhotoEnhanceCard" hidden>
-<h2>✨ এক ট্যাপে ছবি পরিষ্কার করুন</h2>
+<h2>✨ Gemini</h2>
 <p>ছবি নির্বাচন করে আলো, উজ্জ্বলতা, রং ও শার্পনেস উন্নত করুন। ছবি আপনার ফোনেই প্রসেস হবে; কোনো সার্ভারে আপলোড হবে না।</p>
 <div class="field"><label for="rtEnhanceInput">আপনার ছবি নির্বাচন করুন</label><input id="rtEnhanceInput" type="file" accept="image/*"></div>
 <img id="rtEnhancePreview" class="preview" alt="উন্নত ছবির প্রিভিউ">
