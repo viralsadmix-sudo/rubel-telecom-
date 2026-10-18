@@ -229,7 +229,7 @@ $('enhanceAiApply').addEventListener('click',async()=>{
   link.id='enhanceAiFallback';link.type='button';link.className='btn secondary full';
   link.textContent='⬇️ ফ্রি ছবি উন্নত করার বিকল্পে যান';
   link.style.marginTop='10px';
-  link.addEventListener('click',()=>{$('enhancePickButton').scrollIntoView({behavior:'smooth',block:'center'});});
+  link.addEventListener('click',()=>{try{const aiFile=$('enhanceAiPhoto').files&&$('enhanceAiPhoto').files[0];if(aiFile&&typeof DataTransfer!=='undefined'){const transfer=new DataTransfer();transfer.items.add(aiFile);$('enhancePhoto').files=transfer.files;$('enhancePhoto').dispatchEvent(new Event('change',{bubbles:true}));}}catch(e){} $('enhancePickButton').scrollIntoView({behavior:'smooth',block:'center'});$('enhanceMessage').textContent='AI বিকল্পে আপনার বাছাই করা ছবিটি নেওয়া হয়েছে। ছবি প্রস্তুত হলে “ছবি ক্লিয়ার করুন” চাপুন।';});
   $('enhanceAiMessage').insertAdjacentElement('afterend',link);
  }
  finally{button.disabled=false;}
