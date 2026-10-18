@@ -55,7 +55,7 @@ export default async ({ req, res, log, error }) => {
     ].join(" ");
 
     const upstream = await fetch(
-      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-image:generateContent",
       {
         method: "POST",
         headers: {
