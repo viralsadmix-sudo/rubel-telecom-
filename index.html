@@ -31,6 +31,22 @@ input,textarea,select{background:linear-gradient(135deg,#06142b,#0a1c36);border-
 .notice{background:linear-gradient(120deg,#302b1b,#241f16);border-color:#8b7135;color:#ffe9a7}
 .preview{border:1px solid #2a82b9;box-shadow:0 0 20px #008cff22}
 ::selection{background:#00bde9;color:#031022}
+
+/* Homepage hero polish only; existing feature panels and form logic remain unchanged */
+.home-hero{padding:24px 19px 18px;background:radial-gradient(ellipse at 100% 0%,#087cc044 0,transparent 42%),linear-gradient(145deg,#102e58 0%,#0a1b36 58%,#07152c 100%);border:1px solid #2c82b5;box-shadow:0 18px 42px #0005,0 0 28px #008cff12}
+.home-hero:before{height:3px;opacity:1}
+.home-hero .hero-chip{display:inline-flex;align-items:center;gap:8px;border:1px solid #3c81ad;background:#07172bbd;border-radius:99px;padding:6px 10px;color:#bceeff;font-size:10px;letter-spacing:1.2px;font-weight:800;margin-bottom:13px}
+.hero-dot{width:7px;height:7px;border-radius:50%;background:#39e6c0;box-shadow:0 0 10px #39e6c0}
+.home-hero h2{font-size:clamp(25px,6vw,35px);line-height:1.35;max-width:520px;margin:0 0 10px;color:#f3fbff;text-shadow:0 3px 20px #008cff35}
+.home-hero h2 span{color:#69e8ff}
+.home-hero .hero-lead{color:#c5d9f3;max-width:570px;font-size:15px;margin:0 0 16px}
+.home-hero .hero-actions{gap:10px}
+.home-hero .hero-actions .btn{flex:1 1 190px;min-height:48px}
+.hero-highlights{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:19px;padding-top:14px;border-top:1px solid #ffffff16}
+.hero-highlights div{display:flex;align-items:center;gap:7px;color:#b8d5ee;font-size:11px;font-weight:700}
+.hero-highlights b{display:grid;place-items:center;width:30px;height:30px;flex:0 0 30px;border-radius:10px;background:#0c3761;border:1px solid #2a6996;font-size:15px}
+@media(max-width:390px){.home-hero{padding:20px 15px 15px}.hero-highlights{gap:5px}.hero-highlights div{font-size:10px;gap:4px}.hero-highlights b{width:26px;height:26px;flex-basis:26px}}
+@media(min-width:560px){.home-hero{padding:30px}.home-hero .hero-lead{font-size:16px}}
 </style></head>
 <body>
 <header><img class="brand" src="./logo.svg" alt="Rubel Telecom লোগো"><h1>Rubel Telecom</h1><p>আপনার বিশ্বস্ত ডিজিটাল সেবা কেন্দ্র</p></header>
@@ -39,8 +55,7 @@ input,textarea,select{background:linear-gradient(135deg,#06142b,#0a1c36);border-
 </nav>
 <main>
 <section id="home" class="panel active">
-<div class="card"><h2>সব সেবা এক জায়গায়</h2><p>ছবি ও কাজের তথ্য জমা দিন, AI ছবি এডিটিং প্রম্পট কপি করুন, অথবা দোকানের সঙ্গে যোগাযোগ করুন।</p><div class="btnrow"><button class="btn" data-goto="submit">ছবি/তথ্য জমা দিন</button><button class="btn secondary" data-goto="ai">AI প্রম্পট দেখুন</button></div>
-</div>
+<div class="card home-hero"><div class="hero-chip"><span class="hero-dot"></span> RUBEL TELECOM · DIGITAL SERVICE</div><h2>আপনার ডিজিটাল কাজ, <span>এক জায়গায়</span></h2><p class="hero-lead">ছবি ও ডকুমেন্ট জমা দিন, ছবি পরিষ্কার করুন, AI প্রম্পট ব্যবহার করুন—সহজেই, আপনার ফোন থেকে।</p><div class="btnrow hero-actions"><button class="btn" data-goto="submit">📤 ছবি/তথ্য জমা দিন</button><button class="btn secondary" data-goto="ai">✨ AI প্রম্পট দেখুন</button></div><div class="hero-highlights"><div><b>📷</b><span>ছবি ও ডকুমেন্ট</span></div><div><b>✨</b><span>AI টুলস</span></div><div><b>📲</b><span>অ্যাপ ও লিংক</span></div></div></div>
 <div class="card"><h2>🤖 Gemini AI দিয়ে ছবি উন্নত করুন</h2><p>ছবি বেছে Gemini AI দিয়ে উন্নত করার চেষ্টা করুন। এই সুবিধা কাজ করার জন্য Appwrite Function ও Gemini API সংযোগ সচল থাকতে হবে।</p><div class="btnrow"><button class="btn full" type="button" data-goto="enhance">✨ Gemini AI ছবি উন্নত করুন</button></div><p class="muted">AI সংযোগ কাজ না করলে নিচের ফ্রি ছবি পরিষ্কারের অপশন ব্যবহার করুন।</p></div>
 <div class="card"><h2>📷 ফ্রি ছবি পরিষ্কার করুন</h2><p>ফোনেই ছবির আলো, রং, কনট্রাস্ট ও শার্পনেস সামঞ্জস্য করুন এবং ডাউনলোড করুন। আলাদা AI সার্ভিস বা পেমেন্ট লাগে না।</p><button class="btn full" type="button" data-goto="enhance">✨ ফ্রি ছবি পরিষ্কার করুন</button><p class="muted">এটি সাধারণ ছবি প্রসেসিং—আসল জেনারেটিভ AI নয়।</p></div>
 
