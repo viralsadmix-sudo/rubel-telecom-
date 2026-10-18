@@ -54,32 +54,50 @@ export default async ({ req, res, log, error }) => {
       "Return the edited photograph as an image, not a description."
     ].join(" ");
 
-    const upstream = await fetch(
-      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-goog-api-key": apiKey
-        },
-        body: JSON.stringify({
-          contents: [{
-            role: "user",
-            parts: [
-              { text: prompt },
-              { inlineData: { mimeType, data: imageBase64 } }
-            ]
-          }],
-          generationConfig: { responseModalities: ["IMAGE", "TEXT"] }
-        })
-      }
-    );
+    const requestBody = JSON.stringify({
+      contents: [{
+        role: "user",
+        parts: [
+          { text: prompt },
+          { inlineData: { mimeType, data: imageBase64 } }
+        ]
+      }],
+      generationConfig: { responseModalities: ["IMAGE", "TEXT"] }
+    });
 
-    const data = await upstream.json().catch(() => ({}));
+    // Retry only temporary rate-limit/server responses. A persistent quota limit
+    // cannot be bypassed by retrying, so stop after two short retries.
+    let upstream;
+    let data = {};
+    for (let attempt = 0; attempt < 3; attempt++) {
+      upstream = await fetch(
+        "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-goog-api-key": apiKey
+          },
+          body: requestBody
+        }
+      );
+      data = await upstream.json().catch(() => ({}));
+      if (upstream.ok || ![429, 500, 502, 503, 504].includes(upstream.status) || attempt === 2) break;
+      const retryMs = 1000 * (attempt + 1);
+      log("Gemini temporary response " + upstream.status + "; retrying in " + retryMs + "ms (attempt " + (attempt + 1) + "/2).");
+      await new Promise(resolve => setTimeout(resolve, retryMs));
+    }
+
     if (!upstream.ok) {
-      error("Gemini request failed: " + upstream.status);
       const msg = data?.error?.message || "Gemini API request failed.";
-      return res.json({ error: msg, status: upstream.status }, 502, corsHeaders);
+      error("Gemini request failed: HTTP " + upstream.status + " — " + msg);
+      const status = upstream.status === 429 ? 429 : 502;
+      return res.json({
+        error: upstream.status === 429
+          ? "Gemini API-এর ব্যবহারসীমা/কোটা সাময়িকভাবে অতিক্রম হয়েছে। কিছুক্ষণ পরে চেষ্টা করুন। বিস্তারিত: " + msg
+          : "Gemini API অনুরোধ ব্যর্থ হয়েছে (HTTP " + upstream.status + "): " + msg,
+        status: upstream.status
+      }, status, corsHeaders);
     }
 
     const parts = data?.candidates?.[0]?.content?.parts || [];
