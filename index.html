@@ -47,6 +47,38 @@ input,textarea,select{background:linear-gradient(135deg,#06142b,#0a1c36);border-
 .hero-highlights b{display:grid;place-items:center;width:30px;height:30px;flex:0 0 30px;border-radius:10px;background:#0c3761;border:1px solid #2a6996;font-size:15px}
 @media(max-width:390px){.home-hero{padding:20px 15px 15px}.hero-highlights{gap:5px}.hero-highlights div{font-size:10px;gap:4px}.hero-highlights b{width:26px;height:26px;flex-basis:26px}}
 @media(min-width:560px){.home-hero{padding:30px}.home-hero .hero-lead{font-size:16px}}
+
+/* Final premium finish: restrained glow, clearer hierarchy, and accessible focus states */
+.home-hero{isolation:isolate;min-height:270px;padding:clamp(23px,4vw,34px);border-radius:23px;background:radial-gradient(ellipse at 88% 12%,#00d9ff20 0,transparent 34%),linear-gradient(135deg,#102d56 0%,#0a1b36 58%,#071329 100%);box-shadow:0 22px 48px #0005,0 0 0 1px #50dfff0c inset}
+.home-hero:after{content:"";position:absolute;z-index:0;pointer-events:none;width:220px;height:220px;right:-78px;top:48px;border:1px solid #59dfff20;border-radius:50%;box-shadow:0 0 0 22px #43cfff08,0 0 0 46px #43cfff06,0 0 55px #008cff12}
+.home-hero>*{position:relative;z-index:1}
+.home-hero h2{max-width:540px;letter-spacing:-.45px}
+.home-hero .hero-lead{line-height:1.85}
+.home-hero .hero-chip{box-shadow:0 5px 16px #0002}
+.home-hero .hero-actions .btn{border-radius:13px}
+.hero-highlights{gap:10px}
+.hero-highlights div{min-width:0;line-height:1.4}
+.hero-highlights b{box-shadow:0 5px 14px #0002}
+main{padding-top:20px}
+.panel>.card{margin-bottom:17px}
+.service{min-height:94px;display:flex;flex-direction:column;justify-content:center;gap:5px;line-height:1.45}
+.service span{margin-bottom:1px}
+button,a,input,textarea,select{ -webkit-tap-highlight-color:transparent}
+button:focus-visible,a:focus-visible,label.btn:focus-visible{outline:3px solid #8cecff;outline-offset:3px}
+.btn:active{transform:translateY(0) scale(.99)}
+nav button{transition:background .2s,border-color .2s,transform .2s}
+nav button:active{transform:scale(.98)}
+@media(max-width:420px){
+ .home-hero{min-height:0;border-radius:19px}
+ .home-hero:after{width:150px;height:150px;right:-70px;top:75px}
+ .hero-highlights{grid-template-columns:1fr;gap:9px}
+ .hero-highlights div{font-size:12px}
+ .hero-highlights b{width:29px;height:29px;flex-basis:29px}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+}
+
 </style></head>
 <body>
 <header><img class="brand" src="./logo.svg" alt="Rubel Telecom লোগো"><h1>Rubel Telecom</h1><p>আপনার বিশ্বস্ত ডিজিটাল সেবা কেন্দ্র</p></header>
