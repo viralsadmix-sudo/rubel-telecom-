@@ -11,6 +11,17 @@ export default async ({ req, res, log, error }) => {
   if (req.method === "OPTIONS") {
     return res.text("", 204, corsHeaders);
   }
+  // Safe health check: confirms deployment and whether the secret exists without exposing it.
+  if (req.method === "GET") {
+    return res.json({
+      service: "Rubel Telecom AI",
+      status: "online",
+      apiKeyConfigured: Boolean(process.env.GEMINI_API_KEY),
+      message: process.env.GEMINI_API_KEY
+        ? "AI function is online and the Gemini key is configured."
+        : "AI function is online, but GEMINI_API_KEY is missing in Appwrite Variables."
+    }, 200, corsHeaders);
+  }
   if (req.method !== "POST") {
     return res.json({ error: "POST method required." }, 405, corsHeaders);
   }
