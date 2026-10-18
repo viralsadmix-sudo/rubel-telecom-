@@ -211,7 +211,30 @@ $('enhanceAiApply').addEventListener('click',async()=>{
  if(file.size>6*1024*1024){$('enhanceAiMessage').textContent='AI-এর জন্য ৬ MB-এর কম ছবি ব্যবহার করুন।';return;}
  const button=$('enhanceAiApply');button.disabled=true;$('enhanceAiDownload').disabled=true;$('enhanceAiMessage').textContent='AI ছবি উন্নত করছে। ইন্টারনেটের গতির ওপর নির্ভর করে কিছু সময় লাগতে পারে…';
  try{
-  const base64=await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(String(reader.result).split(',')[1]||'');reader.onerror=()=>reject(new Error('ছবি পড়া যায়নি।'));reader.readAsDataURL(file)});
+  // Read selected image with multiple browser-compatible methods (Android gallery/cloud providers can vary).
+  let base64='';
+  try{
+   if(typeof file.arrayBuffer==='function'){
+    const buffer=await file.arrayBuffer();
+    const bytes=new Uint8Array(buffer);
+    let binary='';
+    const chunkSize=0x8000;
+    for(let offset=0;offset<bytes.length;offset+=chunkSize){
+     binary+=String.fromCharCode.apply(null,bytes.subarray(offset,Math.min(offset+chunkSize,bytes.length)));
+    }
+    base64=btoa(binary);
+   }
+  }catch(readBufferError){base64='';}
+  if(!base64){
+   base64=await new Promise((resolve,reject)=>{
+    const reader=new FileReader();
+    reader.onload=()=>{const result=String(reader.result||'');const comma=result.indexOf(',');resolve(comma>=0?result.slice(comma+1):'');};
+    reader.onerror=()=>reject(new Error('ফোনের গ্যালারি থেকে ছবিটি পড়া যায়নি। ছবিটি আগে ফোনে ডাউনলোড/সংরক্ষণ করে আবার নির্বাচন করুন।'));
+    reader.onabort=()=>reject(new Error('ছবি পড়া বাতিল হয়েছে। আবার চেষ্টা করুন।'));
+    reader.readAsDataURL(file);
+   });
+  }
+  if(!base64)throw new Error('ছবির ডেটা খালি পাওয়া গেছে। ছবিটি ফোনে সংরক্ষণ করে আবার নির্বাচন করুন.');
   const response=await fetch('https://starter-function-bs1o.nyc.appwrite.run',{method:'POST',headers:{'Content-Type':'text/plain;charset=UTF-8'},body:JSON.stringify({imageBase64:base64,mimeType:file.type})});
   const result=await response.json().catch(()=>({}));
   if(!response.ok||!result.imageBase64)throw new Error(result.error||'AI Function এখনো প্রস্তুত নয়। Function-এর কোড deploy করতে হবে।');
