@@ -24,7 +24,15 @@ export default async ({ req, res, log, error }) => {
       return res.json({ error: "Server is missing GEMINI_API_KEY." }, 500, corsHeaders);
     }
 
-    const body = req.bodyJson || {};
+    let body = req.bodyJson || {};
+    if (!body || typeof body !== "object" || !Object.keys(body).length) {
+      try {
+        const rawBody = req.bodyText || req.body || "";
+        body = typeof rawBody === "string" ? JSON.parse(rawBody) : rawBody;
+      } catch {
+        return res.json({ error: "অনুরোধের তথ্য পড়া যায়নি। আবার চেষ্টা করুন।" }, 400, corsHeaders);
+      }
+    }
     const imageBase64 = body.imageBase64;
     const mimeType = body.mimeType;
     if (typeof imageBase64 !== "string" || !imageBase64.length) {
