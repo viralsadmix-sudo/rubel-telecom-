@@ -217,7 +217,24 @@ $('enhanceAiApply').addEventListener('click',async()=>{
   if(!response.ok||!result.imageBase64)throw new Error(result.error||'AI Function এখনো প্রস্তুত নয়। Function-এর কোড deploy করতে হবে।');
   enhanceAiBlob=await (await fetch('data:'+((result.mimeType||'image/png'))+';base64,'+result.imageBase64)).blob();
   $('enhanceAiPreview').src=URL.createObjectURL(enhanceAiBlob);$('enhanceAiPreview').style.display='block';$('enhanceAiDownload').disabled=false;$('enhanceAiMessage').textContent='✅ AI ছবি তৈরি হয়েছে। দেখে ভালো লাগলে ডাউনলোড করুন।';
- }catch(err){$('enhanceAiMessage').textContent='AI কাজ করেনি: '+String(err.message||err)+ '। Function deploy এবং API quota পরীক্ষা করুন।';}
+ }catch(err){
+  const reason=String(err&&err.message?err.message:err);
+  if(/429|quota|rate.?limit|resource.?exhausted/i.test(reason)){
+   $('enhanceAiMessage').textContent='Gemini AI-এর API কোটা/ব্যবহারের সীমা শেষ বা এই মডেলের Free tier কোটা ০। নতুন API Key বানালেই সমাধান নাও হতে পারে। নিচের “ফ্রি AI ছবি ক্লিয়ার করুন” অথবা “Remini — সাধারণ ছবি উন্নত” বিকল্প ব্যবহার করুন।';
+  }else if(/Failed to fetch|networkerror|load failed/i.test(reason)){
+   $('enhanceAiMessage').textContent='Gemini API-তে সংযোগ করা যায়নি। API কোটা/অ্যাক্সেসের সমস্যা থাকতে পারে। আপাতত নিচের “ফ্রি AI ছবি ক্লিয়ার করুন” অথবা “Remini — সাধারণ ছবি উন্নত” বিকল্প ব্যবহার করুন।';
+  }else{
+   $('enhanceAiMessage').textContent='Gemini AI কাজ করেনি: '+reason+'। আপাতত নিচের ফ্রি ছবি উন্নত করার বিকল্প ব্যবহার করতে পারেন।';
+  }
+  const fallback=$('enhanceAiFallback');
+  if(fallback)fallback.remove();
+  const link=document.createElement('button');
+  link.id='enhanceAiFallback';link.type='button';link.className='btn secondary full';
+  link.textContent='⬇️ ফ্রি ছবি উন্নত করার বিকল্পে যান';
+  link.style.marginTop='10px';
+  link.addEventListener('click',()=>{$('enhancePickButton').scrollIntoView({behavior:'smooth',block:'center'});});
+  $('enhanceAiMessage').insertAdjacentElement('afterend',link);
+ }
  finally{button.disabled=false;}
 });
 $('enhanceAiDownload').addEventListener('click',()=>{if(!enhanceAiBlob)return;const url=URL.createObjectURL(enhanceAiBlob),a=document.createElement('a');a.href=url;a.download=enhanceFileName+'-ai.png';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);});
