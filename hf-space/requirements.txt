@@ -1,0 +1,9 @@
+gradio==5.23.1
+Pillow>=10.0.0
+numpy<2
+torch
+torchvision
+realesrgan
+basicsr
+facexlib
+gfpgan
