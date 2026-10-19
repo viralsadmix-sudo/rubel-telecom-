@@ -79,11 +79,50 @@ nav button:active{transform:scale(.98)}
  *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
 }
 
+
+/* Mobile-first app layout inspired by the supplied reference; existing colors/features retained */
+header{display:flex;align-items:center;justify-content:center;gap:13px;text-align:left;padding:18px 15px 17px}
+header .brand{width:64px;height:64px;flex:0 0 64px;margin:0;border-radius:17px}
+header h1{font-size:clamp(22px,5.5vw,32px);line-height:1.2}
+header p{margin:5px 0 0;font-size:13px}
+nav{gap:7px;padding:10px 12px;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav button,nav .nav-about{flex:0 0 auto;white-space:nowrap;text-decoration:none;border:1px solid #2a4770;background:#0d2040;color:#d9eaff;padding:9px 12px;border-radius:12px;font-size:13px;font-weight:750}
+nav .nav-about{display:inline-flex;align-items:center}
+main{width:100%;max-width:780px;margin:13px auto;padding:0 12px 25px}
+.card{border-radius:20px;padding:17px}
+.home-hero{border-radius:22px}
+.mobile-dock{display:none}
+footer a{color:#8cecff;text-decoration:none}
+@media(max-width:560px){
+ body{padding-bottom:88px}
+ header{justify-content:flex-start;padding:15px 15px 14px}
+ header .brand{width:56px;height:56px;flex-basis:56px;border-radius:15px}
+ header h1{font-size:24px}
+ header p{font-size:12px}
+ nav{position:sticky;top:0;padding:9px 10px;gap:7px}
+ nav button,nav .nav-about{padding:9px 11px;font-size:12px}
+ main{padding:12px 11px 18px;margin-top:0}
+ .card{padding:15px;border-radius:18px;margin-bottom:12px}
+ .home-hero{padding:20px 15px}
+ .home-hero h2{font-size:25px}
+ .home-hero .hero-lead{font-size:14px}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .service{min-height:88px}
+ .mobile-dock{position:fixed;z-index:20;left:10px;right:10px;bottom:calc(8px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:2px;padding:8px 5px 7px;border:1px solid #34567d;border-radius:20px;background:rgba(5,17,38,.97);backdrop-filter:blur(16px);box-shadow:0 12px 35px #0008}
+ .mobile-dock button,.mobile-dock a{min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;border:0;border-radius:12px;background:transparent;color:#b4c5df;text-decoration:none;padding:4px 1px;font:inherit}
+ .mobile-dock button span,.mobile-dock a span{font-size:22px;line-height:1.1}
+ .mobile-dock button small,.mobile-dock a small{font-size:10px;line-height:1.3;white-space:nowrap}
+ .mobile-dock button.active{background:linear-gradient(135deg,#087cf0,#00a9d6);color:white}
+ footer{padding-bottom:18px}
+}
+@media(min-width:561px){header{padding:22px 18px}header .brand{width:74px;height:74px;flex-basis:74px} }
+
 </style></head>
 <body>
 <header><img class="brand" src="./logo.svg" alt="Rubel Telecom লোগো"><h1>Rubel Telecom</h1><p>আপনার বিশ্বস্ত ডিজিটাল সেবা কেন্দ্র</p></header>
 <nav aria-label="প্রধান মেনু">
-<button class="active" data-tab="home">🏠 হোম</button><button data-tab="submit">📤 ছবি জমা</button><button data-tab="enhance">✨ Remini</button><button data-tab="ai">✨ AI ছবি এডিট</button><button data-tab="movies">🎬 মুভি ও ওয়েব সিরিজ</button><button data-tab="admin">🔐 অ্যাডমিন</button><button data-tab="contact">📍 যোগাযোগ</button>
+<button class="active" data-tab="home">🏠 হোম</button><button data-tab="submit">📤 ছবি জমা</button><button data-tab="enhance">✨ Remini</button><button data-tab="ai">✨ AI ছবি এডিট</button><button data-tab="movies">🎬 মুভি ও ওয়েব সিরিজ</button><button data-tab="admin">🔐 অ্যাডমিন</button><button data-tab="contact">📍 যোগাযোগ</button><a class="nav-about" href="./about.html">ℹ️ আমাদের পরিচয়</a>
 </nav>
 <main>
 <section id="home" class="panel active">
@@ -130,7 +169,7 @@ nav button:active{transform:scale(.98)}
 <section id="contact" class="panel">
 <div class="card contact"><h2>📍 দোকানের ঠিকানা ও যোগাযোগ</h2><p><strong>Rubel Telecom</strong></p><p>নন্দিনা খন্দকার বাজার, গাইবান্ধা সদর, গাইবান্ধা</p><p>ফোন: <strong>01784904304</strong></p><div class="btnrow"><a class="btn" href="tel:01784904304">📞 ফোন করুন</a><a class="btn secondary" href="https://wa.me/8801784904304" target="_blank" rel="noopener">💬 WhatsApp</a></div></div>
 </section>
-</main><footer>© Rubel Telecom — সর্বস্বত্ব সংরক্ষিত</footer>
+</main><div class="mobile-dock" aria-label="দ্রুত মেনু"><button data-tab="home" class="active"><span>⌂</span><small>হোম</small></button><button data-tab="submit"><span>▧</span><small>ছবি জমা</small></button><button data-tab="enhance"><span>✦</span><small>Remini</small></button><button data-tab="ai"><span>✧</span><small>AI প্রম্পট</small></button><a href="./about.html"><span>ⓘ</span><small>পরিচয়</small></a></div><footer>© Rubel Telecom — সর্বস্বত্ব সংরক্ষিত · <a href="./about.html">আমাদের পরিচয়</a> · <a href="./admin.html">অ্যাডমিন</a></footer>
 <script src="https://cdn.jsdelivr.net/npm/appwrite@28.3.0"></script>
 <script>
 const {Client,Storage,TablesDB,ID,Query}=window.Appwrite;
@@ -149,7 +188,7 @@ let prompts=safeRead('rt_demo_prompts',[
 {id:'p2',title:'প্রফেশনাল ছবি',text:'Make this photo look professionally photographed with a DSLR. Keep the face and identity exactly the same. Use natural realistic skin texture, balanced exposure, clean details, subtle contrast, and authentic colors. Avoid AI-looking skin, face changes, exaggerated sharpening, or changing clothes and background unless requested.'}
 ]);
 let submissions=safeRead('rt_demo_submissions',[]);
-function switchTab(id){if(id==='admin'){window.location.href='./admin.html';return}document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id===id));document.querySelectorAll('nav button[data-tab]').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));if(id==='ai')renderPublic();renderMovieLinks();if(id==='admin')renderAdmin();window.scrollTo({top:0,behavior:'smooth'})}
+function switchTab(id){if(id==='admin'){window.location.href='./admin.html';return}document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id===id));document.querySelectorAll('[data-tab]').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));if(id==='ai')renderPublic();renderMovieLinks();if(id==='admin')renderAdmin();window.scrollTo({top:0,behavior:'smooth'})}
 document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
 document.querySelectorAll('[data-goto]').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.goto)));
 function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
