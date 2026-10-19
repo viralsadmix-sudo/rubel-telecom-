@@ -184,6 +184,24 @@ nav.site-menu button,nav.site-menu .menu-link{width:100%;display:flex;align-item
 nav.site-menu button.active{background:linear-gradient(110deg,#0866ed,#00aebf);border-color:#45dfff;color:#fff}
 nav.site-menu button:focus-visible,nav.site-menu .menu-link:focus-visible,.menu-toggle:focus-visible{outline:2px solid #7cecff;outline-offset:2px}
 @media(min-width:560px){.menu-bar{padding-top:12px;padding-bottom:12px}nav.site-menu{padding:12px 15px 15px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}nav.site-menu button,nav.site-menu .menu-link{min-height:48px}}
+
+/* Compact account bar: keep Create/Login visible; reveal extra account options on demand */
+.rt-account-wrap{max-width:780px;margin:6px auto 4px;padding:0 12px}
+.rt-account-card{padding:8px 10px;border-radius:14px}
+.rt-account-heading{gap:8px}
+.rt-account-heading>div{display:none}
+.rt-account-mark{display:none}
+.rt-account-actions{margin-top:0;gap:6px;align-items:center}
+.rt-account-actions .btn{flex:0 1 auto;min-height:34px;padding:6px 11px;font-size:12px;border-radius:9px}
+#rtContinueGuest{display:none}
+.rt-account-card.rt-account-expanded .rt-account-heading>div{display:block}
+.rt-account-card.rt-account-expanded .rt-account-mark{display:grid}
+.rt-account-card.rt-account-expanded #rtContinueGuest{display:inline-flex}
+.rt-account-card.rt-account-expanded .rt-account-heading{margin-bottom:8px}
+.rt-account-card .rt-auth-form{margin-top:10px;padding-top:10px}
+#rtAccountExpand{margin-left:auto;min-width:34px;min-height:34px;padding:4px 10px;border:1px solid #315a88;border-radius:9px;background:#10284a;color:#d9f4ff;font-weight:800;cursor:pointer}
+@media(max-width:560px){.rt-account-wrap{padding:0 11px;margin:5px auto 3px}.rt-account-card{padding:7px 8px}.rt-account-actions .btn{font-size:12px;padding:6px 9px;min-height:32px}}
+
 </style> <link rel="manifest" href="./manifest.json">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -528,4 +546,25 @@ if ("serviceWorker" in navigator) {
   });
 }
 </script>
+
+<script>
+/* Expand/collapse the compact account bar without changing login, registration, or guest handlers. */
+(function(){
+ const card=document.querySelector('#rtAccountPanel .rt-account-card');
+ const heading=card&&card.querySelector('.rt-account-heading');
+ const actions=document.getElementById('rtAccountActions');
+ if(!card||!heading||!actions)return;
+ const toggle=document.createElement('button');
+ toggle.type='button';toggle.id='rtAccountExpand';toggle.setAttribute('aria-expanded','false');
+ toggle.setAttribute('aria-label','অ্যাকাউন্টের সব অপশন দেখুন');toggle.textContent='⌄';
+ heading.appendChild(toggle);
+ toggle.addEventListener('click',function(){
+  const open=card.classList.toggle('rt-account-expanded');
+  toggle.setAttribute('aria-expanded',String(open));
+  toggle.textContent=open?'⌃':'⌄';
+  toggle.setAttribute('aria-label',open?'অ্যাকাউন্টের অপশন বন্ধ করুন':'অ্যাকাউন্টের সব অপশন দেখুন');
+ });
+})();
+</script>
+
 </body></html>
