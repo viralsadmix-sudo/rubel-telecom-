@@ -168,6 +168,22 @@ header .brand-copy p{margin:6px 0 0;line-height:1.5}
  #home>.card{padding:25px}
 }
 
+
+/* Compact three-line menu for mobile and desktop */
+.menu-bar{max-width:780px;margin:0 auto;padding:10px 15px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.menu-home{text-decoration:none;color:#f3fbff;font-size:18px;font-weight:900;letter-spacing:.2px}
+.menu-home span{color:#67e8ff}
+.menu-toggle{width:46px;height:44px;flex:0 0 46px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;border:1px solid #3c8ec0;border-radius:13px;background:linear-gradient(135deg,#102b50,#0759a9);box-shadow:0 5px 18px #008cff25;cursor:pointer}
+.menu-toggle span{display:block;width:21px;height:2px;border-radius:2px;background:#e8fbff;transition:transform .18s,opacity .18s}
+.menu-toggle[aria-expanded="true"] span:first-child{transform:translateY(7px) rotate(45deg)}
+.menu-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-toggle[aria-expanded="true"] span:last-child{transform:translateY(-7px) rotate(-45deg)}
+nav.site-menu{position:sticky;top:0;z-index:20;display:flex;flex-direction:column;gap:6px;max-width:780px;margin:0 auto;padding:10px 13px 13px;background:rgba(4,15,34,.98);border:1px solid #1c5a8c;border-radius:0 0 17px 17px;box-shadow:0 16px 32px #0006;backdrop-filter:blur(14px)}
+nav.site-menu[hidden]{display:none}
+nav.site-menu button,nav.site-menu .menu-link{width:100%;display:flex;align-items:center;gap:11px;text-align:left;white-space:normal;text-decoration:none;border:1px solid #244b76;border-radius:11px;background:linear-gradient(120deg,#0c2242,#0a1a33);color:#e4f4ff;padding:11px 13px;font:inherit;font-weight:700;line-height:1.45;cursor:pointer}
+nav.site-menu button.active{background:linear-gradient(110deg,#0866ed,#00aebf);border-color:#45dfff;color:#fff}
+nav.site-menu button:focus-visible,nav.site-menu .menu-link:focus-visible,.menu-toggle:focus-visible{outline:2px solid #7cecff;outline-offset:2px}
+@media(min-width:560px){.menu-bar{padding-top:12px;padding-bottom:12px}nav.site-menu{padding:12px 15px 15px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}nav.site-menu button,nav.site-menu .menu-link{min-height:48px}}
 </style></head>
 <body>
 <header><img class="brand" src="./logo.svg" alt="Rubel Telecom লোগো"><div class="brand-copy"><h1>Rubel Telecom</h1><p>আপনার বিশ্বস্ত ডিজিটাল সেবা কেন্দ্র</p></div></header>
@@ -192,9 +208,19 @@ header .brand-copy p{margin:6px 0 0;line-height:1.5}
   <div id="rtSignedInActions" class="rt-account-actions" hidden><button type="button" class="btn secondary" id="rtLogout">লগআউট</button><button type="button" class="btn guest" id="rtUseSite">ওয়েবসাইট ব্যবহার করুন</button></div>
  </div>
 </section>
-<nav aria-label="প্রধান মেনু">
-<button class="active" data-tab="home">🏠 হোম</button><button data-tab="submit">📤 ছবি জমা</button><button data-tab="enhance">✨ Remini</button><button data-tab="ai">✨ AI ছবি এডিট</button><button data-tab="movies">🎬 মুভি ও ওয়েব সিরিজ</button><button data-tab="admin">🔐 অ্যাডমিন</button><button data-tab="contact">📍 যোগাযোগ</button><a class="nav-about" href="./about.html">ℹ️ আমাদের পরিচয়</a>
-<a class="nav-about" href="./contact.html">📞 যোগাযোগ পেজ</a>
+<div class="menu-bar"><a class="menu-home" href="./index.html" aria-label="Rubel Telecom হোম">Rubel <span>Telecom</span></a><button id="menuToggle" class="menu-toggle" type="button" aria-label="মেনু খুলুন" aria-expanded="false" aria-controls="siteMenu"><span></span><span></span><span></span></button></div>
+<nav id="siteMenu" class="site-menu" aria-label="প্রধান মেনু" hidden>
+<button class="active" data-tab="home">🏠 <span>হোম</span></button>
+<button data-tab="submit">📤 <span>কাস্টমারের ছবি ও ডকুমেন্ট জমা</span></button>
+<button data-tab="enhance">✨ <span>Remini / ছবি ক্লিয়ার</span></button>
+<button data-tab="ai">🤖 <span>AI দিয়ে ছবি এডিট</span></button>
+<button data-tab="movies">🎬 <span>মুভি ও ওয়েব সিরিজ লিংক</span></button>
+<a href="#app-download" class="menu-link">📱 <span>Android অ্যাপ ডাউনলোড</span></a>
+<a href="#shop-services" class="menu-link">🛍️ <span>দোকানের সব সেবা</span></a>
+<a href="./about.html" class="menu-link">ℹ️ <span>আমাদের পরিচয়</span></a>
+<a href="./contact.html" class="menu-link">📞 <span>যোগাযোগ</span></a>
+<a href="./privacy-policy.html" class="menu-link">🔒 <span>গোপনীয়তা নীতি</span></a>
+<button data-tab="admin">🔑 <span>অ্যাডমিন প্যানেল</span></button>
 </nav>
 <main>
 <section id="home" class="panel active">
@@ -468,4 +494,24 @@ $('apkDownloadLink').addEventListener('click',function(e){
   alert('APK ডাউনলোড লিংক এখনো সেট করা হয়নি। দোকানের মালিক অ্যাডমিন প্যানেল থেকে APK নাম ও ডাউনলোড লিংক সংরক্ষণ করুন।');
  }
 });
-</script></body></html>
+</script><script>
+(function(){
+  const toggle=document.getElementById('menuToggle');
+  const menu=document.getElementById('siteMenu');
+  if(!toggle||!menu)return;
+  function setMenu(open){menu.hidden=!open;toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'মেনু বন্ধ করুন':'মেনু খুলুন');}
+  toggle.addEventListener('click',function(){setMenu(menu.hidden);});
+  menu.addEventListener('click',function(event){
+    const item=event.target.closest('button,a');
+    if(!item)return;
+    if(item.matches('button[data-tab]'))setMenu(false);
+    if(item.matches('a[href^="#"]')){
+      setMenu(false);
+      const target=document.querySelector(item.getAttribute('href'));
+      if(target){event.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});}
+    }
+  });
+  document.addEventListener('keydown',function(event){if(event.key==='Escape'&&!menu.hidden){setMenu(false);toggle.focus();}});
+})();
+</script>
+</body></html>
