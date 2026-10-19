@@ -316,6 +316,38 @@ footer a:hover{text-decoration:underline}
  .card,.service,.prompt,.btn,nav.site-menu button,nav.site-menu .menu-link{transition:none}
 }
 
+
+
+/* Final tidy layout pass: spacing and alignment only; no feature or form logic changes */
+#home.panel.active{align-items:stretch}
+#home>.card{display:flex;flex-direction:column;gap:2px;min-width:0}
+#home>.card h2{display:flex;align-items:center;gap:8px;margin:0 0 9px;padding-bottom:10px;border-bottom:1px solid rgba(114,210,255,.13)}
+#home>.card>p{margin-top:5px;margin-bottom:12px}
+#home>.card>.btnrow{margin-top:auto;padding-top:8px}
+#home>.card>.btn{margin-top:auto}
+#home>.card .grid{align-content:start}
+#home>.card .grid .service{height:100%}
+#home>.home-hero{justify-content:center}
+#shop-services .grid{gap:11px}
+#shop-services .service{border-radius:15px;min-height:100px}
+.panel:not(#home)>.card{box-shadow:0 16px 35px rgba(0,0,0,.24),inset 0 1px rgba(255,255,255,.03)}
+.panel:not(#home)>.card h2{padding-bottom:9px;border-bottom:1px solid rgba(114,210,255,.14)}
+.field{margin:14px 0}
+label{color:#e0efff}
+footer{margin-top:12px}
+@media(min-width:900px){
+ #home.panel.active{grid-auto-rows:minmax(0,auto)}
+ #home>.card{padding:25px}
+ #home>.card p{font-size:14px}
+ #home>.card .btnrow .btn{flex:1 1 100%}
+}
+@media(max-width:560px){
+ #home>.card h2{font-size:19px;line-height:1.45}
+ #home>.card>.btnrow{padding-top:5px}
+ #shop-services .grid{gap:8px}
+ #shop-services .service{min-height:92px}
+}
+
 </style> <link rel="manifest" href="./manifest.json">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
