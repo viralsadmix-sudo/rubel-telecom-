@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07152f">
+<meta name="description" content="Rubel Telecom বিনামূল্যের পাসপোর্ট সাইজ ছবি মেকার। ফোনেই ছবি ক্রপ, ব্যাকগ্রাউন্ড রং পরিবর্তন ও ডাউনলোড করুন।">
+<title>পাসপোর্ট সাইজ ছবি মেকার | Rubel Telecom</title>
+<style>
+:root{--navy:#07152f;--blue:#087cf0;--cyan:#00b8d5;--ink:#eaf2ff;--muted:#b4c5df;--line:#285586}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:system-ui,-apple-system,"Noto Sans Bengali",Arial,sans-serif;color:var(--ink);background:radial-gradient(ellipse at 10% 5%,#123e7d 0,transparent 32%),linear-gradient(160deg,#07162f,#050d1d 65%,#020710);line-height:1.6}
+header{padding:22px 14px;text-align:center;background:linear-gradient(120deg,#020713,#0759b5 65%,#00a9c7);border-bottom:1px solid #40dfff;box-shadow:0 12px 42px #008cff35}
+header h1{font-size:clamp(25px,6vw,36px);margin:0}header p{margin:5px 0;color:#d4f8ff}
+main{max-width:760px;margin:18px auto;padding:0 12px 30px}.card{padding:18px;margin:0 0 14px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,#102a50,#08152a);box-shadow:0 14px 32px #0005}
+h2{font-size:20px;color:#8cecff;margin:0 0 10px}p{margin:6px 0 12px}.muted{color:var(--muted);font-size:13px}
+label{display:block;font-weight:700;margin:12px 0 5px}input,select{width:100%;font:inherit;padding:11px;border:1px solid #31527d;border-radius:11px;background:#07152c;color:#f1f7ff}
+.row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.btn{display:inline-flex;align-items:center;justify-content:center;width:100%;text-align:center;text-decoration:none;border:1px solid #39d7ff;border-radius:12px;padding:12px;background:linear-gradient(110deg,#0868f4,#078de0,#00b8c9);color:white;font:inherit;font-weight:800;cursor:pointer;margin-top:12px}.btn.secondary{background:#10284a;border-color:#315a88}.btn:disabled{opacity:.5;cursor:not-allowed}
+#preview{display:block;max-width:100%;max-height:320px;margin:12px auto 0;border-radius:10px;background:#fff}#output{display:block;width:min(100%,360px);height:auto;max-height:520px;object-fit:contain;margin:14px auto;background:#fff;border:1px solid #4c719c;border-radius:8px}.status{font-size:14px;color:#8cecff;overflow-wrap:anywhere}.notice{font-size:13px;padding:11px;border:1px solid #7c6835;background:#2b2618;color:#ffe8a5;border-radius:12px}
+@media(max-width:460px){.row{grid-template-columns:1fr}.card{padding:15px}}
+</style>
+</head>
+<body>
+<header><h1>🪪 পাসপোর্ট সাইজ ছবি মেকার</h1><p>Rubel Telecom · ফ্রি ছবি ক্রপ ও প্রিন্টের জন্য তৈরি</p></header>
+<main>
+<div class="card"><h2>১. ছবি নির্বাচন করুন</h2><p class="muted">সামনের দিক থেকে তোলা পরিষ্কার ছবি নিন। ছবি আপনার ফোন/ব্রাউজারেই প্রসেস হবে—এখানে আপলোড করা হয় না।</p>
+<label for="photo">গ্যালারি থেকে ছবি</label><input id="photo" type="file" accept="image/*">
+<img id="preview" alt="নির্বাচিত ছবির প্রিভিউ" hidden>
+</div>
+<div class="card"><h2>২. সাইজ ও ব্যাকগ্রাউন্ড বাছুন</h2>
+<div class="row"><div><label for="size">ছবির সাইজ</label><select id="size"><option value="35x45">৩৫ × ৪৫ মিমি (সাধারণ পাসপোর্ট)</option><option value="33x48">৩৩ × ৪৮ মিমি</option><option value="2x2">২ × ২ ইঞ্চি</option><option value="custom">কাস্টম সাইজ</option></select></div>
+<div><label for="bg">ব্যাকগ্রাউন্ডের রং</label><select id="bg"><option value="#ffffff">সাদা</option><option value="#dceeff">হালকা নীল</option><option value="#d9f4e4">হালকা সবুজ</option><option value="#d7d7d7">ধূসর</option><option value="original">ছবির আসল ব্যাকগ্রাউন্ড</option></select></div></div>
+<div class="row" id="customSize" hidden><div><label for="widthMm">প্রস্থ (মিমি)</label><input id="widthMm" type="number" min="10" max="100" value="35"></div><div><label for="heightMm">উচ্চতা (মিমি)</label><input id="heightMm" type="number" min="10" max="150" value="45"></div></div>
+<label for="fit">ছবি ফিট করার পদ্ধতি</label><select id="fit"><option value="cover">ফ্রেম পূরণ করুন (ক্রপ হবে)</option><option value="contain">পুরো ছবি রাখুন (ফাঁকা অংশ থাকতে পারে)</option></select>
+<button class="btn" id="make" type="button" disabled>✨ পাসপোর্ট সাইজ ছবি তৈরি করুন</button>
+<p class="muted">আউটপুট ৩০০ DPI অনুযায়ী তৈরি হয়। সরকারি আবেদন জমা দেওয়ার আগে সংশ্লিষ্ট কর্তৃপক্ষের নির্ধারিত মাপ ও ব্যাকগ্রাউন্ড যাচাই করুন।</p>
+</div>
+<div class="card"><h2>৩. ফলাফল ও ডাউনলোড</h2><p id="status" class="status" aria-live="polite">প্রথমে একটি ছবি বেছে নিন।</p><canvas id="output" width="413" height="531" hidden></canvas>
+<div class="row"><button class="btn" id="download" type="button" disabled>⬇️ ছবি ডাউনলোড</button><button class="btn secondary" id="sheet" type="button" disabled>🖨️ ৪×২ প্রিন্ট শিট</button></div>
+<canvas id="printCanvas" hidden></canvas><button class="btn secondary" id="downloadSheet" type="button" disabled>⬇️ প্রিন্ট শিট ডাউনলোড</button>
+</div>
+<div class="card"><h2>ব্যাকগ্রাউন্ড রিমুভার সম্পর্কে</h2><p class="muted">এই বিনামূল্যের সংস্করণে ব্যাকগ্রাউন্ডের রং বসানো যায়, কিন্তু ছবির পেছনের জিনিস AI দিয়ে স্বয়ংক্রিয়ভাবে কাটে না। সেই সুবিধার জন্য পরে নিরাপদ AI সংযোগ যোগ করতে হবে।</p><a class="btn secondary" href="./index.html">← Rubel Telecom হোমে ফিরে যান</a></div>
+</main>
+<script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id);
+const photo=$('photo'),preview=$('preview'),out=$('output'),ctx=out.getContext('2d'),print=$('printCanvas'),pctx=print.getContext('2d');
+let source=null,fileName='passport-photo',ready=false,sizes={};
+function getSize(){const v=$('size').value;let mm=v==='35x45'?[35,45]:v==='33x48'?[33,48]:v==='2x2'?[50.8,50.8]:[Number($('widthMm').value),Number($('heightMm').value)];if(!mm.every(n=>Number.isFinite(n)&&n>=10&&n<=150))throw Error('কাস্টম সাইজ ১০–১৫০ মিমির মধ্যে দিন।');return {w:Math.round(mm[0]/25.4*300),h:Math.round(mm[1]/25.4*300),label:mm[0]+' × '+mm[1]+' মিমি'};}
+$('size').addEventListener('change',()=>{$('customSize').hidden=$('size').value!=='custom';ready=false;$('download').disabled=true;$('sheet').disabled=true;$('downloadSheet').disabled=true;});
+photo.addEventListener('change',()=>{const f=photo.files&&photo.files[0];if(!f)return;if(!f.type.startsWith('image/')){$('status').textContent='একটি ছবি নির্বাচন করুন।';return;}if(f.size>25*1024*1024){$('status').textContent='ছবিটি ২৫ MB-এর বেশি। ছোট ছবি ব্যবহার করুন।';photo.value='';return;}const url=URL.createObjectURL(f),img=new Image();img.onload=()=>{source=img;fileName=(f.name.replace(/\.[^.]+$/,'')||'passport-photo')+'-passport';preview.src=url;preview.hidden=false;$('make').disabled=false;$('status').textContent='ছবি নেওয়া হয়েছে। এবার সাইজ ও রং বেছে তৈরি করুন।';ready=false;};img.onerror=()=>{$('status').textContent='ছবিটি খোলা যায়নি। অন্য ছবি দিন।';URL.revokeObjectURL(url);};img.src=url;});
+function drawCover(target,im,w,h,fit,bg){target.canvas.width=w;target.canvas.height=h;target.clearRect(0,0,w,h);if(bg!=='original'){target.fillStyle=bg;target.fillRect(0,0,w,h);}const scale=fit==='cover'?Math.max(w/im.naturalWidth,h/im.naturalHeight):Math.min(w/im.naturalWidth,h/im.naturalHeight);const dw=im.naturalWidth*scale,dh=im.naturalHeight*scale;target.drawImage(im,(w-dw)/2,(h-dh)/2,dw,dh);}
+$('make').addEventListener('click',()=>{if(!source)return;try{const s=getSize();if(s.w*s.h>12000000)throw Error('এই কাস্টম সাইজ খুব বড়। ছোট সাইজ দিন।');out.width=s.w;out.height=s.h;drawCover(ctx,source,s.w,s.h,$('fit').value,$('bg').value);out.hidden=false;ready=true;$('download').disabled=false;$('sheet').disabled=false;$('status').textContent='ছবি তৈরি হয়েছে: '+s.label+' · ৩০০ DPI। পছন্দ হলে ডাউনলোড করুন।';}catch(e){$('status').textContent=e.message||'ছবি তৈরি করা যায়নি।';}});
+function downloadCanvas(canvas,name){canvas.toBlob(blob=>{if(!blob){$('status').textContent='ডাউনলোড ফাইল তৈরি করা যায়নি।';return;}const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name+'.jpg';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);},'image/jpeg',.95);}
+$('download').addEventListener('click',()=>{if(ready)downloadCanvas(out,fileName);});
+$('sheet').addEventListener('click',()=>{if(!ready)return;const margin=100,gap=60,cols=4,rows=2,w=out.width,h=out.height;print.width=cols*w+(cols+1)*margin;print.height=rows*h+(rows+1)*margin+90;pctx.fillStyle='#fff';pctx.fillRect(0,0,print.width,print.height);for(let y=0;y<rows;y++)for(let x=0;x<cols;x++)pctx.drawImage(out,margin+x*(w+gap),margin+y*(h+gap),w,h);pctx.fillStyle='#333';pctx.font='36px sans-serif';pctx.fillText('Rubel Telecom · Passport Photo',margin,print.height-25);print.hidden=false;$('downloadSheet').disabled=false;$('status').textContent='৮ কপি সাজানো প্রিন্ট শিট তৈরি হয়েছে।';});
+$('downloadSheet').addEventListener('click',()=>downloadCanvas(print,fileName+'-print-sheet'));
+})();
+</script>
+</body></html>
