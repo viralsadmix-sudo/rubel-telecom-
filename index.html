@@ -118,9 +118,49 @@ footer a{color:#8cecff;text-decoration:none}
 }
 @media(min-width:561px){header{padding:22px 18px}header .brand{width:74px;height:74px;flex-basis:74px} }
 
+/* Optional Appwrite email account + guest access */
+.rt-account-wrap{max-width:780px;margin:14px auto 8px;padding:0 12px}
+.rt-account-card{padding:16px;border:1px solid #2b5685;border-radius:20px;background:linear-gradient(140deg,#10294b,#08172e);box-shadow:0 10px 28px #0003}
+.rt-account-heading{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.rt-account-heading strong{font-size:18px;color:#eff8ff}
+.rt-account-heading p{margin:4px 0 0;color:#b4c5df;font-size:13px}
+.rt-account-mark{display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;border-radius:13px;background:linear-gradient(135deg,#087cf0,#00b7d8);font-weight:900;color:white}
+.rt-account-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}
+.rt-account-actions .btn{flex:1 1 130px;min-height:42px;cursor:pointer}
+.rt-account-actions .guest{background:#10213d;border-color:#47638a;color:#dbeaff}
+.rt-auth-form{margin-top:15px;padding-top:13px;border-top:1px solid #29466a}
+.rt-auth-form h3{margin:0 0 12px;color:#8cecff;font-size:17px}
+.rt-auth-form label{display:block;margin:10px 0 5px;color:#dcecff;font-size:13px}
+.rt-auth-form input{display:block;width:100%;min-height:43px;padding:10px 12px;border:1px solid #34577f;border-radius:11px;background:#061329;color:#fff;font:inherit}
+.rt-auth-form input:focus{outline:2px solid #0ea5e9;outline-offset:1px}
+.rt-auth-form[hidden],#rtSignedInActions[hidden]{display:none!important}
+.rt-auth-message{margin:10px 0 0;color:#a9e9ff;font-size:13px;overflow-wrap:anywhere}
+@media(max-width:560px){.rt-account-wrap{padding:0 11px;margin:10px auto 6px}.rt-account-card{padding:14px;border-radius:17px}.rt-account-heading strong{font-size:16px}.rt-account-actions .btn{font-size:13px;padding:10px 9px}}
+
 </style></head>
 <body>
 <header><img class="brand" src="./logo.svg" alt="Rubel Telecom লোগো"><h1>Rubel Telecom</h1><p>আপনার বিশ্বস্ত ডিজিটাল সেবা কেন্দ্র</p></header>
+<section id="rtAccountPanel" class="rt-account-wrap" aria-label="অ্যাকাউন্ট ও গেস্ট প্রবেশ">
+ <div class="rt-account-card">
+  <div class="rt-account-heading"><div><strong id="rtAccountTitle">Rubel Telecom-এ স্বাগতম</strong><p id="rtAccountSubtitle">অ্যাকাউন্ট খুলুন, লগইন করুন অথবা গেস্ট হিসেবে চালিয়ে যান।</p></div><span class="rt-account-mark">RT</span></div>
+  <div id="rtAccountActions" class="rt-account-actions"><button type="button" class="btn" id="rtShowRegister">অ্যাকাউন্ট তৈরি</button><button type="button" class="btn secondary" id="rtShowLogin">লগইন</button><button type="button" class="btn guest" id="rtContinueGuest">গেস্ট হিসেবে প্রবেশ →</button></div>
+  <form id="rtRegisterForm" class="rt-auth-form" hidden>
+   <h3>নতুন অ্যাকাউন্ট তৈরি করুন</h3>
+   <label for="rtRegisterName">আপনার নাম</label><input id="rtRegisterName" autocomplete="name" maxlength="100" required placeholder="আপনার নাম">
+   <label for="rtRegisterEmail">ইমেইল</label><input id="rtRegisterEmail" type="email" autocomplete="email" required placeholder="name@example.com">
+   <label for="rtRegisterPassword">পাসওয়ার্ড (কমপক্ষে ৮ অক্ষর)</label><input id="rtRegisterPassword" type="password" autocomplete="new-password" minlength="8" required placeholder="পাসওয়ার্ড দিন">
+   <div class="rt-account-actions"><button class="btn" type="submit">অ্যাকাউন্ট তৈরি করুন</button><button class="btn secondary" type="button" data-rt-cancel>ফিরে যান</button></div>
+  </form>
+  <form id="rtLoginForm" class="rt-auth-form" hidden>
+   <h3>আপনার অ্যাকাউন্টে লগইন</h3>
+   <label for="rtLoginEmail">ইমেইল</label><input id="rtLoginEmail" type="email" autocomplete="email" required placeholder="আপনার ইমেইল">
+   <label for="rtLoginPassword">পাসওয়ার্ড</label><input id="rtLoginPassword" type="password" autocomplete="current-password" required placeholder="পাসওয়ার্ড দিন">
+   <div class="rt-account-actions"><button class="btn" type="submit">লগইন করুন</button><button class="btn secondary" type="button" data-rt-cancel>ফিরে যান</button></div>
+  </form>
+  <p id="rtAuthMessage" class="rt-auth-message" aria-live="polite"></p>
+  <div id="rtSignedInActions" class="rt-account-actions" hidden><button type="button" class="btn secondary" id="rtLogout">লগআউট</button><button type="button" class="btn guest" id="rtUseSite">ওয়েবসাইট ব্যবহার করুন</button></div>
+ </div>
+</section>
 <nav aria-label="প্রধান মেনু">
 <button class="active" data-tab="home">🏠 হোম</button><button data-tab="submit">📤 ছবি জমা</button><button data-tab="enhance">✨ Remini</button><button data-tab="ai">✨ AI ছবি এডিট</button><button data-tab="movies">🎬 মুভি ও ওয়েব সিরিজ</button><button data-tab="admin">🔐 অ্যাডমিন</button><button data-tab="contact">📍 যোগাযোগ</button><a class="nav-about" href="./about.html">ℹ️ আমাদের পরিচয়</a>
 </nav>
@@ -172,9 +212,9 @@ footer a{color:#8cecff;text-decoration:none}
 </main><div class="mobile-dock" aria-label="দ্রুত মেনু"><button data-tab="home" class="active"><span>⌂</span><small>হোম</small></button><button data-tab="submit"><span>▧</span><small>ছবি জমা</small></button><button data-tab="enhance"><span>✦</span><small>Remini</small></button><button data-tab="ai"><span>✧</span><small>AI প্রম্পট</small></button><a href="./about.html"><span>ⓘ</span><small>পরিচয়</small></a></div><footer>© Rubel Telecom — সর্বস্বত্ব সংরক্ষিত · <a href="./about.html">আমাদের পরিচয়</a> · <a href="./admin.html">অ্যাডমিন</a></footer>
 <script src="https://cdn.jsdelivr.net/npm/appwrite@28.3.0"></script>
 <script>
-const {Client,Storage,TablesDB,ID,Query}=window.Appwrite;
+const {Client,Storage,TablesDB,ID,Query,Account}=window.Appwrite;
 const rtClient=new Client().setEndpoint('https://nyc.cloud.appwrite.io/v1').setProject('6aceec5b0017856576f7');
-const rtStorage=new Storage(rtClient),rtTables=new TablesDB(rtClient);
+const rtStorage=new Storage(rtClient),rtTables=new TablesDB(rtClient),rtAccount=new Account(rtClient);
 const RT_DATABASE_ID='6acef39300396782af9e';
 const RT_TABLE_ID='6acef7960018db31017f';
 const RT_PROMPT_TABLE_ID='6ad1fc8a0021938fb676';
@@ -188,6 +228,23 @@ let prompts=safeRead('rt_demo_prompts',[
 {id:'p2',title:'প্রফেশনাল ছবি',text:'Make this photo look professionally photographed with a DSLR. Keep the face and identity exactly the same. Use natural realistic skin texture, balanced exposure, clean details, subtle contrast, and authentic colors. Avoid AI-looking skin, face changes, exaggerated sharpening, or changing clothes and background unless requested.'}
 ]);
 let submissions=safeRead('rt_demo_submissions',[]);
+
+/* Account registration/login is optional: public guest use remains available. */
+const rtGuestKey='rubel_telecom_guest_mode';
+function rtAuthMessage(message,isError=false){const el=$('rtAuthMessage');if(el){el.textContent=message;el.style.color=isError?'#ffb4b4':'#a9e9ff';}}
+function rtShowAuthForm(which){$('rtRegisterForm').hidden=which!=='register';$('rtLoginForm').hidden=which!=='login';$('rtAccountActions').hidden=!!which;$('rtAuthMessage').textContent='';}
+function rtContinueAsGuest(){try{localStorage.setItem(rtGuestKey,'1')}catch(e){}$('rtAccountPanel').hidden=true;}
+function rtSetSignedIn(user){$('rtAccountPanel').hidden=false;$('rtAccountActions').hidden=true;$('rtRegisterForm').hidden=true;$('rtLoginForm').hidden=true;$('rtSignedInActions').hidden=false;$('rtAccountTitle').textContent='স্বাগতম, '+(user.name||user.email||'ব্যবহারকারী');$('rtAccountSubtitle').textContent='আপনি আপনার অ্যাকাউন্টে লগইন করেছেন।';rtAuthMessage('অ্যাকাউন্টে সফলভাবে প্রবেশ করা হয়েছে।');try{localStorage.removeItem(rtGuestKey)}catch(e){}}
+$('rtShowRegister').addEventListener('click',()=>rtShowAuthForm('register'));
+$('rtShowLogin').addEventListener('click',()=>rtShowAuthForm('login'));
+$('rtContinueGuest').addEventListener('click',rtContinueAsGuest);
+$('rtUseSite').addEventListener('click',()=>{$('rtAccountPanel').hidden=true;});
+document.querySelectorAll('[data-rt-cancel]').forEach(b=>b.addEventListener('click',()=>rtShowAuthForm('')));
+$('rtRegisterForm').addEventListener('submit',async e=>{e.preventDefault();const btn=e.submitter;btn.disabled=true;rtAuthMessage('অ্যাকাউন্ট তৈরি হচ্ছে…');try{const name=$('rtRegisterName').value.trim(),email=$('rtRegisterEmail').value.trim(),password=$('rtRegisterPassword').value;if(password.length<8)throw new Error('পাসওয়ার্ড কমপক্ষে ৮ অক্ষরের হতে হবে।');await rtAccount.create(ID.unique(),email,password,name);await rtAccount.createEmailPasswordSession(email,password);const user=await rtAccount.get();rtSetSignedIn(user);}catch(err){rtAuthMessage('অ্যাকাউন্ট তৈরি হয়নি: '+(err.message||'আবার চেষ্টা করুন।'),true);}finally{btn.disabled=false;}});
+$('rtLoginForm').addEventListener('submit',async e=>{e.preventDefault();const btn=e.submitter;btn.disabled=true;rtAuthMessage('লগইন হচ্ছে…');try{const email=$('rtLoginEmail').value.trim(),password=$('rtLoginPassword').value;await rtAccount.createEmailPasswordSession(email,password);const user=await rtAccount.get();rtSetSignedIn(user);}catch(err){rtAuthMessage('লগইন হয়নি: '+(err.message||'ইমেইল ও পাসওয়ার্ড পরীক্ষা করুন।'),true);}finally{btn.disabled=false;}});
+$('rtLogout').addEventListener('click',async()=>{try{await rtAccount.deleteSession('current');$('rtSignedInActions').hidden=true;$('rtAccountActions').hidden=false;$('rtAccountTitle').textContent='Rubel Telecom-এ স্বাগতম';$('rtAccountSubtitle').textContent='অ্যাকাউন্ট খুলুন, লগইন করুন অথবা গেস্ট হিসেবে চালিয়ে যান।';rtAuthMessage('আপনি লগআউট করেছেন।');}catch(err){rtAuthMessage('লগআউট হয়নি: '+(err.message||''),true);}});
+(async()=>{try{const user=await rtAccount.get();rtSetSignedIn(user);}catch(e){let guest=false;try{guest=localStorage.getItem(rtGuestKey)==='1'}catch(err){}if(guest)$('rtAccountPanel').hidden=true;}})();
+
 function switchTab(id){if(id==='admin'){window.location.href='./admin.html';return}document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id===id));document.querySelectorAll('[data-tab]').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));if(id==='ai')renderPublic();renderMovieLinks();if(id==='admin')renderAdmin();window.scrollTo({top:0,behavior:'smooth'})}
 document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
 document.querySelectorAll('[data-goto]').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.goto)));
