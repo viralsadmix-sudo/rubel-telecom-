@@ -46,9 +46,14 @@ async function loadRows(){
    const id=row.photo_file_id;
    if(id){
     try{
-      const meta=await storage.getFile({bucketId:'6aceef430035c78dd682',fileId:id}),view=storage.getFileView({bucketId:'6aceef430035c78dd682',fileId:id});
+      const bucketId='6aceef430035c78dd682';
+      const meta=await storage.getFile({bucketId,fileId:id}),view=storage.getFileView({bucketId,fileId:id});
       const a=document.createElement('a');a.href=view;a.target='_blank';a.rel='noopener';a.textContent='📎 '+(meta.name||'ছবি/ডকুমেন্ট খুলুন');card.appendChild(a);
       if(String(meta.mimeType||'').startsWith('image/')){const img=document.createElement('img');img.src=view;img.alt='কাস্টমারের জমা দেওয়া ছবি';img.loading='lazy';card.appendChild(img);}
+      const actions=document.createElement('div');actions.className='row';actions.style.marginTop='10px';
+      const download=document.createElement('a');download.href=storage.getFileDownload({bucketId,fileId:id});download.textContent='⬇️ ছবি/ফাইল ডাউনলোড';download.setAttribute('download',meta.name||'customer-file');download.style.cssText='display:inline-block;background:#087a3e;color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:800;text-align:center;flex:1';
+      const del=document.createElement('button');del.type='button';del.textContent='🗑️ জমা ও ছবি ডিলিট';del.style.background='#b42318';del.addEventListener('click',async()=>{if(!confirm('এই কাস্টমারের জমা এবং সংরক্ষিত ছবিটি স্থায়ীভাবে ডিলিট করবেন? এই কাজ ফিরিয়ে আনা যাবে না।'))return;del.disabled=true;download.style.pointerEvents='none';try{await storage.deleteFile({bucketId,fileId:id});await tables.deleteRow({databaseId:'6acef39300396782af9e',tableId:'6acef79600396782af9e',rowId:row.$id});msg(dashStatus,'কাস্টমারের জমা ও ছবি ডিলিট হয়েছে।');await loadRows();}catch(err){msg(dashStatus,'ডিলিট সম্পূর্ণ হয়নি: '+niceError(err)+'। Appwrite Storage এবং Table-এর Delete permission পরীক্ষা করুন।',true);del.disabled=false;download.style.pointerEvents='auto';}});
+      actions.append(download,del);card.appendChild(actions);
     }catch(e){const p2=document.createElement('p');p2.textContent='ফাইল দেখানো যায়নি: '+niceError(e);card.appendChild(p2);}
    }else{const p2=document.createElement('p');p2.textContent='এই জমার সঙ্গে ছবির File ID নেই।';card.appendChild(p2);}
    records.appendChild(card);
