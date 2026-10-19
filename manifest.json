@@ -1,19 +1,27 @@
-
 {
+  "id": "./",
   "name": "Rubel Telecom",
   "short_name": "Rubel Telecom",
   "description": "Rubel Telecom customer photo submission and owner admin panel",
+  "lang": "bn",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "background_color": "#050816",
   "theme_color": "#102b59",
   "orientation": "portrait",
+  "categories": [
+    "business",
+    "utilities",
+    "productivity"
+  ],
+  "prefer_related_applications": false,
   "icons": [
     {
       "src": "./file_000000008f7c8210abe65a5d06837183.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }
