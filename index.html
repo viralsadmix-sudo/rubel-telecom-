@@ -348,6 +348,104 @@ footer{margin-top:12px}
  #shop-services .service{min-height:92px}
 }
 
+
+
+/* Homepage redesign: clear visual hierarchy; all existing IDs, forms and scripts preserved */
+#home.panel.active{
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:18px;
+ align-items:stretch;
+}
+#home>.home-hero{
+ grid-column:1/-1;
+ min-height:350px;
+ padding:clamp(28px,5vw,52px);
+ display:flex;
+ flex-direction:column;
+ align-items:flex-start;
+ justify-content:center;
+ gap:13px;
+ position:relative;
+ isolation:isolate;
+ overflow:hidden;
+ background:
+  radial-gradient(circle at 84% 24%,rgba(0,221,255,.22),transparent 24%),
+  radial-gradient(circle at 100% 100%,rgba(0,107,255,.24),transparent 40%),
+  linear-gradient(125deg,#102f5d 0%,#0a1b38 58%,#061126 100%);
+ border:1px solid rgba(80,211,255,.55);
+ border-radius:28px;
+ box-shadow:0 24px 55px #0006,0 0 34px #008cff14,inset 0 1px #ffffff12;
+}
+#home>.home-hero:after{
+ content:"";
+ position:absolute;
+ z-index:-1;
+ width:280px;height:280px;
+ right:-75px;bottom:-145px;
+ border:1px solid #72e8ff42;border-radius:50%;
+ box-shadow:0 0 0 24px #72e8ff0c,0 0 0 52px #72e8ff08,0 0 0 80px #72e8ff05;
+}
+#home>.home-hero h2{font-size:clamp(31px,4.4vw,48px);max-width:720px;line-height:1.28;margin:3px 0;color:#f2fbff;text-shadow:0 3px 22px #00aaff32}
+#home>.home-hero h2 span{color:#63e9ff}
+#home>.home-hero .hero-lead{max-width:680px;font-size:clamp(15px,1.7vw,18px);color:#d3e9ff;line-height:1.9;margin:0}
+#home>.home-hero .hero-actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:5px}
+#home>.home-hero .hero-actions .btn{min-height:50px;padding:13px 20px}
+#home>.home-hero .hero-highlights{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+#home>.home-hero .hero-highlights div{display:flex;align-items:center;gap:8px;border:1px solid #4b82ac66;background:#06172cbf;border-radius:999px;padding:7px 13px;color:#d9f5ff}
+#home>.home-hero .hero-highlights b{display:grid;place-items:center;width:29px;height:29px;border-radius:50%;background:linear-gradient(145deg,#0e5c9a,#0b2a4b);border:1px solid #4bcaf0}
+#home>.card:not(.home-hero){
+ margin:0;
+ min-width:0;
+ padding:23px;
+ display:flex;
+ flex-direction:column;
+ gap:4px;
+ border-radius:22px;
+ background:linear-gradient(150deg,rgba(17,43,79,.97),rgba(7,19,38,.99));
+ box-shadow:0 15px 34px #0004,inset 0 1px #ffffff08;
+}
+#home>.card:not(.home-hero):hover{border-color:#398bc0;box-shadow:0 18px 38px #0005,0 0 18px #008cff12}
+#home>.card:not(.home-hero) h2{font-size:clamp(18px,2vw,22px);min-height:2.8em;display:flex;align-items:center;line-height:1.45;margin-bottom:8px}
+#home>.card:not(.home-hero)>p{font-size:14px;line-height:1.85;color:#c5d9f2}
+#home>.card:not(.home-hero) .btnrow{margin-top:auto;padding-top:10px}
+#home>.card:not(.home-hero)>.btn,#home>.card:not(.home-hero)>a.btn{margin-top:auto}
+#home>#shop-services{grid-column:1/-1;padding:clamp(20px,3vw,30px)}
+#home>#shop-services h2{min-height:0}
+#home>#shop-services>.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+#home>#shop-services .service{min-height:130px;padding:17px;border-radius:17px;background:linear-gradient(145deg,#14365f,#0a1d38);border-color:#2b5888}
+#home>#shop-services .service h3{font-size:15px;line-height:1.55;color:#eaf7ff}
+#home>#shop-services .service p{font-size:12px;line-height:1.75;margin-bottom:0}
+#home>#shop-services>p{font-size:14px}
+#homeMovieLinks{margin:5px 0 12px}
+#homeMovieLinks>*{min-width:0}
+#app-download #apkDownloadLink{width:100%;margin-top:auto}
+#home .card .muted{font-size:12px}
+@media(min-width:900px){
+ main{max-width:1160px;padding-left:20px;padding-right:20px;margin-top:24px}
+ #home.panel.active{gap:20px}
+ #home>.home-hero{min-height:360px}
+ #home>.card:not(.home-hero){padding:26px}
+}
+@media(max-width:700px){
+ #home.panel.active{grid-template-columns:1fr;gap:13px}
+ #home>.home-hero{grid-column:1;padding:27px 20px;min-height:0;border-radius:23px}
+ #home>.home-hero h2{font-size:30px}
+ #home>.home-hero .hero-actions{width:100%}
+ #home>.home-hero .hero-actions .btn{flex:1 1 100%}
+ #home>.home-hero .hero-highlights{display:grid;grid-template-columns:1fr;width:100%}
+ #home>.home-hero .hero-highlights div{border-radius:13px}
+ #home>.card:not(.home-hero){padding:19px;border-radius:19px}
+ #home>.card:not(.home-hero) h2{min-height:0}
+ #home>#shop-services{grid-column:1}
+ #home>#shop-services .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ #home>#shop-services .service{padding:13px;min-height:112px}
+}
+@media(max-width:390px){
+ #home>#shop-services .grid{grid-template-columns:1fr}
+ #home>.home-hero h2{font-size:27px}
+}
+
 </style> <link rel="manifest" href="./manifest.json">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
