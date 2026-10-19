@@ -137,9 +137,40 @@ footer a{color:#8cecff;text-decoration:none}
 .rt-auth-message{margin:10px 0 0;color:#a9e9ff;font-size:13px;overflow-wrap:anywhere}
 @media(max-width:560px){.rt-account-wrap{padding:0 11px;margin:10px auto 6px}.rt-account-card{padding:14px;border-radius:17px}.rt-account-heading strong{font-size:16px}.rt-account-actions .btn{font-size:13px;padding:10px 9px}}
 
+
+/* Desktop responsive tidy-up: preserve existing feature logic and mobile styling */
+.brand-copy{min-width:0}
+header .brand-copy h1{margin:0;line-height:1.2}
+header .brand-copy p{margin:6px 0 0;line-height:1.5}
+@media(min-width:900px){
+ header{justify-content:flex-start;text-align:left;padding:25px max(28px,calc((100% - 1120px)/2));gap:18px}
+ header .brand{width:82px;height:82px;flex:0 0 82px;border-radius:19px}
+ header .brand-copy{display:flex;flex-direction:column;justify-content:center}
+ header .brand-copy h1{font-size:35px}
+ header .brand-copy p{font-size:15px}
+ nav{justify-content:center;flex-wrap:wrap;overflow:visible;padding:12px 24px}
+ nav button,nav .nav-about{font-size:14px;padding:10px 15px}
+ main{max-width:1120px;margin:24px auto;padding:0 24px 38px}
+ #home.panel.active{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:stretch}
+ #home>.home-hero{grid-column:1/-1;margin:0;min-height:285px}
+ #home>.card{margin:0;min-width:0;padding:23px}
+ #home>.card h2{font-size:21px}
+ #home>.card .btn{max-width:100%}
+ #home>.card .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .panel:not(#home)>.card{max-width:900px;margin:0 auto 18px;padding:26px}
+ .rt-account-wrap{max-width:1120px;padding:0 24px;margin:18px auto}
+ .rt-account-card{padding:22px 25px}
+}
+@media(min-width:1200px){
+ #home.panel.active{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+ #home>.home-hero{grid-column:1/-1}
+ #home>.card:nth-of-type(2),#home>.card:nth-of-type(3){grid-column:span 1}
+ #home>.card{padding:25px}
+}
+
 </style></head>
 <body>
-<header><img class="brand" src="./logo.svg" alt="Rubel Telecom লোগো"><h1>Rubel Telecom</h1><p>আপনার বিশ্বস্ত ডিজিটাল সেবা কেন্দ্র</p></header>
+<header><img class="brand" src="./logo.svg" alt="Rubel Telecom লোগো"><div class="brand-copy"><h1>Rubel Telecom</h1><p>আপনার বিশ্বস্ত ডিজিটাল সেবা কেন্দ্র</p></div></header>
 <section id="rtAccountPanel" class="rt-account-wrap" aria-label="অ্যাকাউন্ট ও গেস্ট প্রবেশ">
  <div class="rt-account-card">
   <div class="rt-account-heading"><div><strong id="rtAccountTitle">Rubel Telecom-এ স্বাগতম</strong><p id="rtAccountSubtitle">অ্যাকাউন্ট খুলুন, লগইন করুন অথবা গেস্ট হিসেবে চালিয়ে যান।</p></div><span class="rt-account-mark">RT</span></div>
