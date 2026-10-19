@@ -184,7 +184,11 @@ nav.site-menu button,nav.site-menu .menu-link{width:100%;display:flex;align-item
 nav.site-menu button.active{background:linear-gradient(110deg,#0866ed,#00aebf);border-color:#45dfff;color:#fff}
 nav.site-menu button:focus-visible,nav.site-menu .menu-link:focus-visible,.menu-toggle:focus-visible{outline:2px solid #7cecff;outline-offset:2px}
 @media(min-width:560px){.menu-bar{padding-top:12px;padding-bottom:12px}nav.site-menu{padding:12px 15px 15px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}nav.site-menu button,nav.site-menu .menu-link{min-height:48px}}
-</style></head>
+</style> <link rel="manifest" href="./manifest.json">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
 <body>
 <header><img class="brand" src="./logo.svg" alt="Rubel Telecom লোগো"><div class="brand-copy"><h1>Rubel Telecom</h1><p>আপনার বিশ্বস্ত ডিজিটাল সেবা কেন্দ্র</p></div></header>
 <section id="rtAccountPanel" class="rt-account-wrap" aria-label="অ্যাকাউন্ট ও গেস্ট প্রবেশ">
@@ -513,5 +517,15 @@ $('apkDownloadLink').addEventListener('click',function(e){
   });
   document.addEventListener('keydown',function(event){if(event.key==='Escape'&&!menu.hidden){setMenu(false);toggle.focus();}});
 })();
+</script>
+<script>
+// PWA support only: this does not change customer upload or AI Prompt handlers.
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("./service-worker.js").catch(function (error) {
+      console.warn("Rubel Telecom offline support could not start:", error);
+    });
+  });
+}
 </script>
 </body></html>
