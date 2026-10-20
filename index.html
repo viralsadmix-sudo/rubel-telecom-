@@ -515,6 +515,157 @@ footer{max-width:1120px;margin:10px auto 0;border-top:1px solid #2b4e70;color:#9
 @media(max-width:390px){#home>#shop-services .grid{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}#home>.card:not(.home-hero),#home>#shop-services .service{transition:none}}
 
+
+
+/* RUBEL TELECOM — refreshed professional visual theme only.
+   Existing HTML structure, forms, upload logic, AI tools and Appwrite handlers are preserved. */
+:root{
+ --navy:#0a1c3b;--blue:#1769e8;--ink:#142746;--muted:#61738d;
+ --line:#dce6f2;--paper:#ffffff;--bg:#f3f7fc;
+ --rt-cyan:#28c8e7;--rt-blue:#1769e8;
+}
+html{scroll-behavior:smooth}
+body{
+ color:#182b49;
+ background:
+  radial-gradient(ellipse at 8% 0%,rgba(28,120,238,.10),transparent 30%),
+  radial-gradient(ellipse at 100% 18%,rgba(38,200,231,.10),transparent 26%),
+  #f3f7fc;
+ line-height:1.7;
+}
+header{
+ position:relative;isolation:isolate;overflow:hidden;
+ justify-content:flex-start;text-align:left;
+ padding:22px max(16px,calc((100% - 1120px)/2));
+ gap:16px;
+ color:#fff;
+ background:linear-gradient(120deg,#07152e 0%,#103d82 54%,#087fb9 100%);
+ border-bottom:3px solid #2dd4e8;
+ box-shadow:0 12px 35px rgba(11,45,91,.18);
+}
+header:before{
+ content:"";position:absolute;z-index:-1;right:-90px;top:-150px;
+ width:340px;height:340px;border:1px solid #9befff44;border-radius:50%;
+ box-shadow:0 0 0 28px #9befff0c,0 0 0 60px #9befff09,0 0 0 94px #9befff06;
+}
+header:after{pointer-events:none}
+header .brand{width:72px;height:72px;flex:0 0 72px;margin:0;border-radius:18px;border:2px solid #8beaff;box-shadow:0 0 0 5px #ffffff12,0 8px 24px #00102c55}
+header h1{font-size:clamp(25px,4vw,36px);letter-spacing:-.4px;text-shadow:none}
+header p{color:#dceeff;font-size:14px;margin-top:5px}
+.menu-bar{max-width:1120px;padding:12px 18px}
+.menu-home{font-size:19px;letter-spacing:-.2px}
+.menu-home span{color:#087cf0}
+.menu-toggle{background:linear-gradient(135deg,#1769e8,#10a7c7);border-color:#55d8ee;box-shadow:0 5px 15px #1769e822}
+nav.site-menu{
+ max-width:1120px;border:1px solid #dce6f2;border-top:0;border-radius:0 0 18px 18px;
+ background:rgba(255,255,255,.98);box-shadow:0 15px 35px rgba(19,49,88,.12);
+}
+nav.site-menu button,nav.site-menu .menu-link{
+ background:#f6f9fe;color:#203957;border-color:#e0e9f4;border-radius:12px;
+ transition:background .18s,border-color .18s,transform .18s;
+}
+nav.site-menu button:hover,nav.site-menu .menu-link:hover{background:#eaf4ff;border-color:#9cc9ff}
+nav.site-menu button.active{background:linear-gradient(110deg,#1769e8,#0a9dc7);border-color:#5cd5ed;color:#fff}
+main{max-width:1120px;padding:20px 18px 40px;margin:0 auto}
+.card{
+ color:#20324c;background:#fff;border:1px solid #e0e9f4;border-radius:20px;
+ padding:22px;margin-bottom:18px;
+ box-shadow:0 8px 26px rgba(20,50,90,.065);
+}
+.card:before{height:3px;opacity:.8;background:linear-gradient(90deg,#1769e8,#27c7e5,transparent)}
+.card h2{color:#122d54;font-size:clamp(20px,2.5vw,25px);letter-spacing:-.25px;text-shadow:none}
+.card h3{color:#17385f}
+h2{color:#122d54}
+.muted{color:#667b95}
+a{color:#1769e8}
+.service,.prompt{
+ color:#203957;background:linear-gradient(145deg,#fff,#f6faff);
+ border:1px solid #dfe9f5;border-radius:16px;
+ box-shadow:0 4px 14px rgba(24,68,120,.045);
+}
+.service{min-height:105px;padding:16px}
+.service span{filter:none;display:block;font-size:27px}
+.service:hover,.prompt:hover{transform:translateY(-3px);border-color:#85bfff;box-shadow:0 12px 25px rgba(23,105,232,.10)}
+.field label,label{color:#233b5b}
+input,textarea,select,.rt-auth-form input{
+ color:#172d4b;background:#fbfdff;border:1px solid #cddbed;border-radius:12px;
+}
+input::placeholder,textarea::placeholder{color:#8798ad}
+input:focus,textarea:focus,select:focus,.rt-auth-form input:focus{
+ outline:3px solid #1769e81a;outline-offset:1px;border-color:#3988f2;
+}
+.btn{
+ color:#fff;background:linear-gradient(115deg,#1769e8,#078dbf);
+ border:1px solid #218fe3;border-radius:12px;box-shadow:0 6px 16px #1769e824;
+ font-weight:750;min-height:44px;
+}
+.btn.secondary{color:#17416c;background:#edf5ff;border-color:#c9ddf7;box-shadow:none}
+.btn.danger{color:#a52238;background:#fff0f2;border-color:#f2c5cd;box-shadow:none}
+.notice{color:#77540a;background:#fff8e7;border-color:#f2d88f}
+.preview{border:1px solid #c9dced;box-shadow:0 8px 22px #163b6512}
+.home-hero{
+ position:relative;isolation:isolate;overflow:hidden;
+ padding:clamp(24px,4vw,42px);border-radius:24px;
+ background:radial-gradient(ellipse at 90% 10%,#1dd5f22a,transparent 33%),linear-gradient(125deg,#081832 0%,#10458e 62%,#087fae 100%);
+ border:1px solid #247fc1;box-shadow:0 18px 42px rgba(8,40,85,.18);
+}
+.home-hero:before{background:linear-gradient(90deg,transparent,#3ee2f5,#5aa5ff,transparent)}
+.home-hero:after{border-color:#a5f0ff28;box-shadow:0 0 0 22px #43cfff08,0 0 0 46px #43cfff06,0 0 55px #008cff12}
+.home-hero h2{color:#fff;text-shadow:none;line-height:1.35;letter-spacing:-.5px}
+.home-hero h2 span{color:#79efff}
+.home-hero .hero-lead{color:#e0edff;line-height:1.85}
+.home-hero .hero-chip{color:#c8f6ff;background:#061a32a8;border-color:#4a8fbd}
+.hero-highlights{border-top-color:#ffffff28}
+.hero-highlights div{color:#e0efff}
+.hero-highlights b{background:#ffffff13;border-color:#ffffff2c;box-shadow:none}
+.home-hero .btn.secondary{color:#eaf8ff;background:#ffffff10;border-color:#ffffff50}
+.rt-account-wrap{max-width:1120px;padding:0 18px;margin:12px auto}
+.rt-account-card{
+ color:#203957;background:#fff;border:1px solid #dce7f4;border-radius:17px;
+ box-shadow:0 7px 22px rgba(20,50,90,.06);
+}
+.rt-account-heading strong{color:#18365c}
+.rt-account-heading p{color:#687d97}
+.rt-account-mark{background:linear-gradient(135deg,#1769e8,#11a9c9)}
+.rt-account-actions .guest,#rtAccountExpand{background:#edf5ff;border-color:#c9ddf7;color:#17416c}
+.rt-auth-form{border-top-color:#e1eaf5}
+.rt-auth-form h3{color:#1769e8}
+.rt-auth-form label{color:#274363}
+.rt-auth-form input{background:#fbfdff;color:#172d4b}
+.rt-auth-message{color:#1769a6}
+footer{color:#647893}
+footer a{color:#1769e8}
+.mobile-dock{
+ border:1px solid #d6e3f2;background:rgba(255,255,255,.97);
+ box-shadow:0 10px 30px rgba(17,45,83,.16);
+}
+.mobile-dock button,.mobile-dock a{color:#637793}
+.mobile-dock button.active{color:#fff;background:linear-gradient(135deg,#1769e8,#079ec2)}
+@media(min-width:900px){
+ header{padding:24px max(24px,calc((100% - 1120px)/2))}
+ .menu-bar{padding-left:24px;padding-right:24px}
+ nav.site-menu{padding:14px 18px 18px}
+ main{padding:24px 24px 46px}
+ #home.panel.active{gap:20px}
+ #home>.card{padding:25px}
+ .panel:not(#home)>.card{box-shadow:0 12px 32px rgba(20,50,90,.07)}
+}
+@media(max-width:560px){
+ body{padding-bottom:88px}
+ header{padding:15px 14px;gap:12px}
+ header .brand{width:55px;height:55px;flex-basis:55px;border-radius:15px}
+ header h1{font-size:24px}
+ header p{font-size:12px}
+ .menu-bar{padding:10px 13px}
+ main{padding:12px 11px 22px}
+ .card{padding:16px;border-radius:18px;margin-bottom:13px}
+ .home-hero{padding:22px 16px;border-radius:20px}
+ .home-hero h2{font-size:25px}
+ .service{min-height:90px;padding:13px}
+ .rt-account-wrap{padding:0 11px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
 </style> <link rel="manifest" href="./manifest.json">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
