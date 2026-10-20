@@ -14,7 +14,7 @@ OUT = Path("jobs-feed.json")
 HEADERS = {"User-Agent": "RubelTelecomJobsFeed/1.0 (public government-job link index)"}
 
 def clean(text):
-    return re.sub(r"\\s+", " ", text or "").strip()
+    return re.sub(r"\s+", " ", text or "").strip()
 
 def main():
     response = requests.get(SOURCE, headers=HEADERS, timeout=35)
@@ -32,7 +32,6 @@ def main():
         if parsed.scheme != "https" or not parsed.netloc.endswith("teletalk.com.bd"):
             continue
 
-        # Search the nearest compact card/container for the employer name and opening count.
         container = a
         best_text = clean(a.parent.get_text(" ", strip=True)) if a.parent else ""
         for _ in range(5):
@@ -57,7 +56,7 @@ def main():
         if not heading or len(heading) < 3:
             continue
 
-        count_match = re.search(r"(?:openings?)\\s*:?\\s*(\\d+)", best_text, re.I)
+        count_match = re.search(r"(?:openings?)\s*:?\s*(\d+)", best_text, re.I)
         count = int(count_match.group(1)) if count_match else None
         key = (heading.casefold(), href)
         if key in seen:
@@ -70,17 +69,16 @@ def main():
             "source": SOURCE
         })
 
-    # Do not replace a good feed with an empty result if the source changes its layout.
     if not records:
         raise SystemExit("No openings parsed from official Alljobs page; keeping existing feed unchanged.")
-    records.sort(key=lambda item: (item["organization"].casefold()))
+    records.sort(key=lambda item: item["organization"].casefold())
     payload = {
         "source": SOURCE,
         "updatedAt": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "note": "Organization/opening links from official Teletalk Alljobs. Check each linked official portal for exact post, eligibility, fees and deadline.",
         "jobs": records
     }
-    OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")
+    OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Wrote {len(records)} official employer/opening links to {OUT}")
 
 if __name__ == "__main__":
