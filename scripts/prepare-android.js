@@ -20,6 +20,7 @@ const allowedExtensions = new Set([
   ".woff", ".woff2", ".ttf", ".otf", ".mp4", ".webm", ".mp3", ".wav"
 ]);
 const blockedName = /(^\.env($|\.)|secret|credential|private[-_]?key|\.pem$|\.p12$|\.keystore$|\.jks$)/i;
+const blockedFiles = new Set(["package.json", "package-lock.json", "capacitor.config.json", "README.md", "LICENSE"]);
 
 function copyWebFiles(sourceDir, relativeDir = "") {
   for (const entry of fs.readdirSync(sourceDir, { withFileTypes: true })) {
@@ -34,7 +35,7 @@ function copyWebFiles(sourceDir, relativeDir = "") {
       continue;
     }
 
-    if (!entry.isFile() || blockedName.test(name)) continue;
+    if (!entry.isFile() || blockedName.test(name) || blockedFiles.has(name)) continue;
     if (!allowedExtensions.has(path.extname(name).toLowerCase())) continue;
 
     const destinationPath = path.join(out, relativePath);
