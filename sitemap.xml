@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://viralsadmix-sudo.github.io/rubel-telecom-/</loc></url>
-  <url><loc>https://viralsadmix-sudo.github.io/rubel-telecom-/about.html</loc></url>
-  <url><loc>https://viralsadmix-sudo.github.io/rubel-telecom-/contact.html</loc></url>
-  <url><loc>https://viralsadmix-sudo.github.io/rubel-telecom-/privacy-policy.html</loc></url>
-  <url><loc>https://viralsadmix-sudo.github.io/rubel-telecom-/passport.html</loc></url>
+  <url>
+    <loc>https://viralsadmix-sudo.github.io/rubel-telecom-/</loc>
+  </url>
+  <url>
+    <loc>https://viralsadmix-sudo.github.io/rubel-telecom-/about.html</loc>
+  </url>
+  <url>
+    <loc>https://viralsadmix-sudo.github.io/rubel-telecom-/contact.html</loc>
+  </url>
+  <url>
+    <loc>https://viralsadmix-sudo.github.io/rubel-telecom-/privacy-policy.html</loc>
+  </url>
+  <url>
+    <loc>https://viralsadmix-sudo.github.io/rubel-telecom-/passport.html</loc>
+  </url>
 </urlset>
