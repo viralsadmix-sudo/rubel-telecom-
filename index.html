@@ -693,12 +693,12 @@ footer a{color:#1769e8}
 @media(max-width:440px){#shop-services .rt-service-grid{gap:9px}#shop-services .rt-service-card{padding:12px;min-height:150px}#shop-services .rt-service-card h3{font-size:13px}#shop-services .rt-service-card p{font-size:11px}.rt-job-card{padding:13px}}
 
 
-/* Site-wide contrast fix: replace plain white cards with pale blue and bold dark text */
+/* Restore the original Rubel Telecom navy-blue/cyan theme across ALL homepage cards */
 .card:not(.rt-live-jobs):not(.rt-job-help){
- background:#e6f0ff!important;
- color:#07152f!important;
- border:1px solid #8eb8e8!important;
- box-shadow:0 8px 24px #00000025!important;
+ background:linear-gradient(145deg,#102d55 0%,#0a1d39 58%,#07152f 100%)!important;
+ color:#f2f7ff!important;
+ border:1px solid #285486!important;
+ box-shadow:0 8px 26px #00000030!important;
 }
 .card:not(.rt-live-jobs):not(.rt-job-help) h1,
 .card:not(.rt-live-jobs):not(.rt-job-help) h2,
@@ -709,18 +709,24 @@ footer a{color:#1769e8}
 .card:not(.rt-live-jobs):not(.rt-job-help) .muted,
 .card:not(.rt-live-jobs):not(.rt-job-help) small,
 .card:not(.rt-live-jobs):not(.rt-job-help) .rt-account-heading p{
- color:#07152f!important;
+ color:#eaf4ff!important;
 }
+.card:not(.rt-live-jobs):not(.rt-job-help) h2,
+.card:not(.rt-live-jobs):not(.rt-job-help) h3{color:#ffffff!important}
 .card:not(.rt-live-jobs):not(.rt-job-help) input,
 .card:not(.rt-live-jobs):not(.rt-job-help) textarea,
 .card:not(.rt-live-jobs):not(.rt-job-help) select{
- background:#ffffff!important;color:#050b16!important;border:2px solid #557ba8!important;
+ background:#07152f!important;
+ color:#ffffff!important;
+ border:1px solid #4b86c4!important;
  font-weight:600;
 }
 .card:not(.rt-live-jobs):not(.rt-job-help) input::placeholder,
-.card:not(.rt-live-jobs):not(.rt-job-help) textarea::placeholder{color:#40536d!important;opacity:1}
-.card:not(.rt-live-jobs):not(.rt-job-help) .notice{background:#fff1c7!important;color:#3f2b00!important;border-color:#d9a72c!important}
-.card:not(.rt-live-jobs):not(.rt-job-help) a:not(.btn){color:#003f91!important;font-weight:750;text-decoration:underline}
+.card:not(.rt-live-jobs):not(.rt-job-help) textarea::placeholder{color:#b8cde8!important;opacity:1}
+.card:not(.rt-live-jobs):not(.rt-job-help) .notice{
+ background:#17365c!important;color:#fff2c6!important;border-color:#b58b36!important;
+}
+.card:not(.rt-live-jobs):not(.rt-job-help) a:not(.btn){color:#69dcff!important;font-weight:750}
 /* Improve readability and contrast in government job cards */
 .rt-live-jobs,.rt-job-help{background:#07152f!important;color:#f4f8ff!important}
 .rt-live-jobs h2,.rt-job-help h2,.rt-live-jobs p,.rt-job-help p,.rt-live-jobs li{color:#f4f8ff}
