@@ -693,6 +693,8 @@ footer a{color:#1769e8}
 @media(max-width:440px){#shop-services .rt-service-grid{gap:9px}#shop-services .rt-service-card{padding:12px;min-height:150px}#shop-services .rt-service-card h3{font-size:13px}#shop-services .rt-service-card p{font-size:11px}.rt-job-card{padding:13px}}
 
 
+/* Ensure expired job cards stay hidden even when card CSS sets display:flex */
+.rt-job-card[hidden]{display:none!important}
 /* Apply navy-blue/cyan theme to every tab opened after clicking a service option */
 .panel:not(#home)>.card,
 .panel:not(#home) .card,
@@ -874,14 +876,14 @@ footer a{color:#1769e8}
   <h2>🪖 চলমান সরকারি চাকরি — পদ, যোগ্যতা ও আবেদন</h2>
   <p class="rt-job-intro">নিচে বর্তমানে আবেদন চলমান বলে সরকারি/নিয়োগ পোর্টালে পাওয়া চাকরিগুলো দেখানো হলো। পদের বিবরণ, যোগ্যতা ও আবেদন করতে প্রতিটি কার্ডের বোতাম চাপ দিন।</p>
   <div class="rt-job-list">
-   <article class="rt-job-card" data-job-search="বাংলাদেশ নৌবাহিনী officer cadet 2027B অফিসার ক্যাডেট">
+   <article class="rt-job-card" data-deadline="2026-11-06T23:59:00+06:00" data-job-search="বাংলাদেশ নৌবাহিনী officer cadet 2027B অফিসার ক্যাডেট">
     <div class="rt-job-top"><span class="rt-job-status">আবেদন চলছে</span><span class="rt-job-organization">বাংলাদেশ নৌবাহিনী</span></div>
     <h3>অফিসার ক্যাডেট — ২০২৭বি ব্যাচ</h3>
     <p><strong>আবেদনের শেষ তারিখ:</strong> ৬ নভেম্বর ২০২৬</p>
     <p><strong>যোগ্যতা:</strong> এইচএসসি/সমমান উত্তীর্ণ এবং বিজ্ঞপ্তিতে উল্লেখিত শিক্ষাগত ও শারীরিক যোগ্যতা। বয়স, GPA, বিভাগ ও অন্যান্য শর্ত মূল বিজ্ঞপ্তিতে যাচাই করুন।</p>
     <div class="btnrow"><a class="btn" href="https://joinnavy.navy.mil.bd/" target="_blank" rel="noopener noreferrer">আবেদন ও বিস্তারিত দেখুন ↗</a></div>
    </article>
-   <article class="rt-job-card" data-job-search="বাংলাদেশ পর্যটন করপোরেশন programmer assistant programmer maintenance engineer steno typist medical officer">
+   <article class="rt-job-card" data-deadline="2026-10-27T11:00:00+06:00" data-job-search="বাংলাদেশ পর্যটন করপোরেশন programmer assistant programmer maintenance engineer steno typist medical officer">
     <div class="rt-job-top"><span class="rt-job-status">আবেদন চলছে</span><span class="rt-job-organization">বাংলাদেশ পর্যটন করপোরেশন</span></div>
     <h3>৫ ধরনের পদে নিয়োগ — মোট ৫টি পদ</h3>
     <p><strong>শেষ তারিখ:</strong> ২৭ অক্টোবর ২০২৬, সকাল ১১টা</p>
@@ -895,21 +897,21 @@ footer a{color:#1769e8}
     <p class="muted">বয়স, ফি, পূর্ণ যোগ্যতা ও পদের শর্ত সরকারি বিজ্ঞপ্তির সঙ্গে মিলিয়ে নিন।</p>
     <div class="btnrow"><a class="btn" href="https://parjatan.teletalk.com.bd/" target="_blank" rel="noopener noreferrer">অনলাইনে আবেদন করুন ↗</a><a class="btn secondary" href="https://alljobs.teletalk.com.bd/jobs/government/882?jobId=14846" target="_blank" rel="noopener noreferrer">পদের বিস্তারিত ↗</a></div>
    </article>
-   <article class="rt-job-card" data-job-search="বাংলাদেশ সরকারি কর্ম কমিশন bpsc 51st special bcs ৫১তম বিশেষ বিসিএস">
+   <article class="rt-job-card" data-deadline="2026-10-25T23:59:00+06:00" data-job-search="বাংলাদেশ সরকারি কর্ম কমিশন bpsc 51st special bcs ৫১তম বিশেষ বিসিএস">
     <div class="rt-job-top"><span class="rt-job-status">আবেদন চলছে</span><span class="rt-job-organization">বাংলাদেশ সরকারি কর্ম কমিশন (BPSC)</span></div>
     <h3>৫১তম বিশেষ বিসিএস পরীক্ষা ২০২৬</h3>
     <p><strong>আবেদনের শেষ তারিখ:</strong> ২৫ অক্টোবর ২০২৬</p>
     <p><strong>আবেদনের ধরন:</strong> সাধারণ, কারিগরি/পেশাগত অথবা উভয় ক্যাডার—বিজ্ঞপ্তি অনুযায়ী উপযুক্ত ফর্ম বেছে নিন।</p>
     <div class="btnrow"><a class="btn" href="https://bpsc.teletalk.com.bd/bcs51/home.php" target="_blank" rel="noopener noreferrer">আবেদন করুন ↗</a><a class="btn secondary" href="https://bpsc.gov.bd/" target="_blank" rel="noopener noreferrer">বিজ্ঞপ্তি দেখুন ↗</a></div>
    </article>
-   <article class="rt-job-card" data-job-search="বাংলাদেশ বিমান বাহিনী officer cadet 96 bafa course অফিসার ক্যাডেট">
+   <article class="rt-job-card" data-deadline="2027-04-06T23:59:00+06:00" data-job-search="বাংলাদেশ বিমান বাহিনী officer cadet 96 bafa course অফিসার ক্যাডেট">
     <div class="rt-job-top"><span class="rt-job-status">আবেদন চলছে</span><span class="rt-job-organization">বাংলাদেশ বিমান বাহিনী</span></div>
     <h3>অফিসার ক্যাডেট — ৯৬তম বিএএফএ কোর্স</h3>
     <p><strong>আবেদনের শেষ তারিখ:</strong> ৬ এপ্রিল ২০২৭ (তারিখটি মূল পোর্টালে মিলিয়ে নিন)</p>
     <p><strong>যোগ্যতা:</strong> কোর্সভিত্তিক শিক্ষাগত, বয়স ও শারীরিক শর্ত প্রযোজ্য; সম্পূর্ণ যোগ্যতা সরকারি বিজ্ঞপ্তিতে দেখুন।</p>
     <div class="btnrow"><a class="btn" href="https://joinairforce.baf.mil.bd/job-circular/officer" target="_blank" rel="noopener noreferrer">আবেদন ও বিস্তারিত ↗</a></div>
    </article>
-   <article class="rt-job-card" data-job-search="কর অঞ্চল ৪ ঢাকা taxes zone 4 recruitment 2026 কর বিভাগ">
+   <article class="rt-job-card" data-deadline="2026-10-25T17:00:00+06:00" data-job-search="কর অঞ্চল ৪ ঢাকা taxes zone 4 recruitment 2026 কর বিভাগ">
     <div class="rt-job-top"><span class="rt-job-status">আবেদন চলছে</span><span class="rt-job-organization">কর কমিশনারের কার্যালয়, কর অঞ্চল-৪, ঢাকা</span></div>
     <h3>কর অঞ্চল-৪, ঢাকা — নিয়োগ ২০২৬</h3>
     <p><strong>আবেদনের শেষ তারিখ:</strong> ২৫ অক্টোবর ২০২৬, বিকেল ৫টা</p>
@@ -1241,29 +1243,27 @@ if ("serviceWorker" in navigator) {
 
 
 <script>
-/* Job deadline status and search: automatically hide expired items from the active list. */
+/* Job deadline status: expire cards across BOTH job sections and filter all active listings. */
 (function(){
- const list=document.getElementById('jobListings');
- if(!list)return;
- const cards=Array.from(list.querySelectorAll('[data-deadline]'));
- const today=new Date();
+ const cards=Array.from(document.querySelectorAll('.rt-job-list .rt-job-card[data-deadline]'));
+ if(!cards.length)return;
+ const now=new Date();
  let active=0;
  cards.forEach(function(card){
   const deadline=new Date(card.dataset.deadline);
   const countdown=card.querySelector('.rt-job-countdown');
   const status=card.querySelector('.rt-job-status');
-  if(!Number.isFinite(deadline.getTime())||deadline<today){
+  if(!Number.isFinite(deadline.getTime())||deadline<now){
    card.hidden=true;
    if(status){status.textContent='আবেদন শেষ';status.classList.add('rt-job-expired');}
    return;
   }
   active++;
-  const ms=deadline.getTime()-today.getTime();
-  const days=Math.ceil(ms/86400000);
+  const days=Math.ceil((deadline.getTime()-now.getTime())/86400000);
   if(countdown)countdown.textContent=days===0?'আজই আবেদনের শেষ সময়!':'আবেদনের শেষ হতে আর '+days+' দিন বাকি';
  });
  const summary=document.getElementById('jobActiveSummary');
- if(summary)summary.textContent='এই তালিকায় এখন '+active+'টি যাচাইকৃত সক্রিয় বিজ্ঞপ্তি আছে।';
+ if(summary)summary.textContent='এই তালিকায় এখন '+active+'টি সক্রিয় বিজ্ঞপ্তি আছে।';
  const search=document.getElementById('jobSearch');
  const noResults=document.getElementById('jobNoResults');
  function filterJobs(){
