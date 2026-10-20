@@ -693,6 +693,37 @@ footer a{color:#1769e8}
 @media(max-width:440px){#shop-services .rt-service-grid{gap:9px}#shop-services .rt-service-card{padding:12px;min-height:150px}#shop-services .rt-service-card h3{font-size:13px}#shop-services .rt-service-card p{font-size:11px}.rt-job-card{padding:13px}}
 
 
+/* Apply navy-blue/cyan theme to every tab opened after clicking a service option */
+.panel:not(#home)>.card,
+.panel:not(#home) .card,
+#rtAccountPanel,
+.rt-account-card,
+.rt-account-wrap .card{
+ background:linear-gradient(145deg,#102d55 0%,#0a1d39 58%,#07152f 100%)!important;
+ color:#eaf4ff!important;
+ border-color:#285486!important;
+ box-shadow:0 8px 26px #00000030!important;
+}
+.panel:not(#home)>.card h1,.panel:not(#home)>.card h2,
+.panel:not(#home)>.card h3,.panel:not(#home)>.card p,
+.panel:not(#home)>.card label,.panel:not(#home)>.card li,
+.panel:not(#home)>.card .muted,.panel:not(#home)>.card small,
+.panel:not(#home) .card h1,.panel:not(#home) .card h2,
+.panel:not(#home) .card h3,.panel:not(#home) .card p,
+.panel:not(#home) .card label,.panel:not(#home) .card li,
+.panel:not(#home) .card .muted,.panel:not(#home) .card small{
+ color:#eaf4ff!important;
+}
+.panel:not(#home)>.card h2,.panel:not(#home)>.card h3,
+.panel:not(#home) .card h2,.panel:not(#home) .card h3{color:#ffffff!important}
+.panel:not(#home) input,.panel:not(#home) textarea,.panel:not(#home) select{
+ background:#07152f!important;color:#ffffff!important;border:1px solid #4b86c4!important;
+}
+.panel:not(#home) input::placeholder,.panel:not(#home) textarea::placeholder{color:#b8cde8!important;opacity:1}
+.panel:not(#home) a:not(.btn){color:#69dcff!important;font-weight:750}
+.panel:not(#home) .notice{background:#17365c!important;color:#fff2c6!important;border-color:#b58b36!important}
+.panel:not(#home) .rt-job-card{background:linear-gradient(145deg,#122e55,#0a1b35)!important;color:#f7fbff!important}
+.panel:not(#home) .rt-job-card p,.panel:not(#home) .rt-job-card li{color:#e8f1ff!important}
 /* Restore the original Rubel Telecom navy-blue/cyan theme across ALL homepage cards */
 .card:not(.rt-live-jobs):not(.rt-job-help){
  background:linear-gradient(145deg,#102d55 0%,#0a1d39 58%,#07152f 100%)!important;
