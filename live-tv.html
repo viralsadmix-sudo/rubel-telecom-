@@ -3,16 +3,32 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#07152f">
-<title>T Sports Live | Rubel Telecom</title>
+<title>T Sports Live Cricket | Rubel Telecom</title>
 <style>
 *{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Noto Sans Bengali",Arial,sans-serif;background:radial-gradient(ellipse at 50% -10%,#123c79 0%,#07152f 42%,#040b18 100%);color:#eaf2ff;line-height:1.6}
 header{text-align:center;padding:25px 14px;background:linear-gradient(125deg,#030916,#092653 40%,#075fc4 75%,#03b8d5);box-shadow:0 10px 35px #008cff30}header h1{margin:0;font-size:clamp(25px,5vw,35px)}header p{margin:5px 0 0;color:#e0efff}
-main{max-width:900px;margin:auto;padding:20px 14px 40px}.back{display:inline-block;color:#a8dcff;margin-bottom:14px;text-decoration:none}.panel{background:#0d1d3b;border:1px solid #203b65;border-radius:17px;padding:16px;margin-bottom:15px;box-shadow:0 8px 26px #0003}h2{font-size:20px;margin:0 0 8px}p{color:#b4c5df;margin:5px 0}.player{width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#020711}.btn{display:block;text-align:center;text-decoration:none;color:white;font-weight:750;background:linear-gradient(100deg,#087cf0,#03a9cf);padding:11px 14px;border-radius:11px;margin-top:12px}.note{font-size:13px;margin-top:15px}footer{text-align:center;color:#91a9ca;font-size:13px;padding:18px}
+main{max-width:900px;margin:auto;padding:20px 14px 40px}.back{display:inline-block;color:#a8dcff;margin-bottom:14px;text-decoration:none}.panel{background:#0d1d3b;border:1px solid #203b65;border-radius:17px;padding:16px;margin-bottom:15px;box-shadow:0 8px 26px #0003}h2{font-size:20px;margin:0 0 8px}p{color:#b4c5df;margin:5px 0}.player{display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#020711;margin-top:12px}.btn{display:inline-block;text-align:center;text-decoration:none;color:white;font-weight:750;background:linear-gradient(100deg,#087cf0,#03a9cf);padding:11px 14px;border-radius:11px;margin:8px 6px 0 0;border:0;cursor:pointer;font:inherit}.btn.secondary{background:#10284a;border:1px solid #315a88}.note{font-size:13px;margin-top:15px}footer{text-align:center;color:#91a9ca;font-size:13px;padding:18px}.status{margin:10px 0;padding:10px;border-radius:10px;background:#10284a;color:#d9eaff;font-size:14px}
 </style></head><body>
-<header><h1>Rubel Telecom</h1><p>🏏 T Sports — লাইভ স্পোর্টস</p></header>
+<header><h1>Rubel Telecom</h1><p>🏏 T Sports — লাইভ ক্রিকেট</p></header>
 <main><a class="back" href="./">← মূল ওয়েবসাইটে ফিরে যান</a>
-<section class="panel"><h2>T Sports Live</h2><p>অফিসিয়াল T Sports YouTube চ্যানেলের লাইভ প্লেয়ার</p>
-<iframe class="player" src="https://www.youtube-nocookie.com/embed/live_stream?channel=UC2t9imwIR7xlDfma3CmRKJQ" title="T Sports official live stream" loading="eager" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
-<a class="btn" href="https://www.tsports.com/live-tv" target="_blank" rel="noopener noreferrer">লাইভ না চললে T Sports-এর অফিসিয়াল লাইভ খুলুন ↗</a>
-<p class="note">T Sports-এর অফিসিয়াল চ্যানেলে বর্তমানে লাইভ সম্প্রচার না থাকলে ভিডিও প্লেয়ার চলবে না। কিছু ম্যাচ দেখার জন্য T Sports-এর সাইটে লগইন বা সাবস্ক্রিপশন লাগতে পারে।</p></section>
-</main><footer>© Rubel Telecom • T Sports</footer></body></html>
+<section class="panel"><h2>🏏 T Sports Live Cricket</h2>
+<p>নিচের দুটি অফিসিয়াল প্লেয়ারের মধ্যে যেটি চলে সেটি বেছে নিন।</p>
+<div>
+<button class="btn" type="button" id="youtubeBtn">YouTube Live</button>
+<button class="btn secondary" type="button" id="officialBtn">T Sports Official Player</button>
+</div>
+<div id="status" class="status">YouTube Live প্লেয়ার লোড হচ্ছে…</div>
+<iframe id="player" class="player" src="https://www.youtube-nocookie.com/embed/live_stream?channel=UC2t9imwIR7xlDfma3CmRKJQ" title="T Sports official live stream" loading="eager" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+<a class="btn" href="https://www.tsports.com/live-tv" target="_blank" rel="noopener noreferrer">T Sports-এর অফিসিয়াল লাইভ খুলুন ↗</a>
+<a class="btn secondary" href="https://www.youtube.com/@TSportsbd/streams" target="_blank" rel="noopener noreferrer">T Sports-এর লাইভ স্ট্রিম তালিকা ↗</a>
+<p class="note">গুরুত্বপূর্ণ: T Sports যখন YouTube-এ লাইভ সম্প্রচার চালু রাখে, তখনই YouTube প্লেয়ারে লাইভ দেখা যাবে। কিছু ম্যাচের জন্য অফিসিয়াল সাইটে লগইন বা সাবস্ক্রিপশন লাগতে পারে। কোনো অফিসিয়াল লাইভ ফিড না থাকলে এই পেজ জোর করে ভিডিও চালাতে পারবে না।</p>
+</section></main><footer>© Rubel Telecom • T Sports</footer>
+<script>
+(function(){
+const player=document.getElementById('player'), status=document.getElementById('status');
+const y='https://www.youtube-nocookie.com/embed/live_stream?channel=UC2t9imwIR7xlDfma3CmRKJQ';
+const official='https://www.tsports.com/live-tv';
+document.getElementById('youtubeBtn').addEventListener('click',function(){player.src=y;status.textContent='YouTube Live প্লেয়ার লোড হচ্ছে…';this.classList.remove('secondary');document.getElementById('officialBtn').classList.add('secondary');});
+document.getElementById('officialBtn').addEventListener('click',function(){player.src=official;status.textContent='T Sports-এর অফিসিয়াল প্লেয়ার লোড হচ্ছে… যদি ভিডিও না আসে, নিচের অফিসিয়াল লাইভ লিংক খুলুন।';this.classList.remove('secondary');document.getElementById('youtubeBtn').classList.add('secondary');});
+})();
+</script></body></html>
