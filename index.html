@@ -666,6 +666,32 @@ footer a{color:#1769e8}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
+
+/* Consolidated clickable service directory and government jobs */
+#shop-services .rt-service-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+#shop-services .rt-service-card{width:100%;box-sizing:border-box;text-align:left;text-decoration:none;color:inherit;cursor:pointer;align-items:flex-start;justify-content:flex-start;min-width:0;padding:15px;background:linear-gradient(145deg,#12345a,#091a32);border:1px solid #2b5885;border-radius:16px;display:flex;flex-direction:column;gap:7px;min-height:155px}
+#shop-services .rt-service-card h3{margin:0;color:#eaf7ff;font-size:15px;line-height:1.5}
+#shop-services .rt-service-card p{margin:0;font-size:12px;line-height:1.7}
+#shop-services .rt-service-card>span{font-size:27px;line-height:1.2}
+#shop-services .rt-service-card:hover,#shop-services .rt-service-card:focus-visible{transform:translateY(-2px);border-color:#42d8ff;box-shadow:0 8px 22px #007cff22;outline:none}
+#shop-services .rt-card-action{margin-top:auto;padding-top:5px;color:#67dfff;font-size:12px}
+#shop-services .rt-service-live .btn{margin-top:auto;font-size:12px;padding:10px}
+#shop-services .rt-mini-links{gap:5px;margin:3px 0 6px}
+#shop-services .rt-mini-links a{font-size:12px;overflow-wrap:anywhere}
+.rt-job-summary{font-weight:700;color:#8fe7ff}
+.rt-job-list{display:grid;gap:13px}
+.rt-job-card{background:linear-gradient(145deg,#122e55,#0a1b35);border:1px solid #2b5685;border-radius:16px;padding:16px;min-width:0}
+.rt-job-card h3{font-size:17px;line-height:1.55;margin:10px 0}
+.rt-job-card p{line-height:1.7;margin:7px 0}
+.rt-job-top{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.rt-job-status{background:#164b39;color:#a7ffd7;border:1px solid #287d5a;padding:4px 9px;border-radius:99px;font-size:11px;font-weight:700}
+.rt-job-organization{font-size:12px;color:#b9d9f6}
+.rt-job-countdown{color:#80e4ff;font-weight:700}
+.rt-job-source-list{display:grid;gap:9px}
+.rt-job-source-list a{display:block;border:1px solid #2b5685;border-radius:12px;padding:12px;color:#bfe9ff;text-decoration:none;background:#0b1d38}
+.rt-job-source-list a:hover{border-color:#4bdfff}
+@media(max-width:440px){#shop-services .rt-service-grid{gap:9px}#shop-services .rt-service-card{padding:12px;min-height:150px}#shop-services .rt-service-card h3{font-size:13px}#shop-services .rt-service-card p{font-size:11px}.rt-job-card{padding:13px}}
+
 </style> <link rel="manifest" href="./manifest.json">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -712,27 +738,60 @@ footer a{color:#1769e8}
 <section id="home" class="panel active">
 </div>
 <div class="card home-hero"><div class="hero-chip"><span class="hero-dot"></span> RUBEL TELECOM · DIGITAL SERVICE</div><h2>আপনার ডিজিটাল কাজ, <span>এক জায়গায়</span></h2><p class="hero-lead">ছবি ও ডকুমেন্ট জমা দিন, ছবি পরিষ্কার করুন, AI প্রম্পট ব্যবহার করুন—সহজেই, আপনার ফোন থেকে।</p><div class="btnrow hero-actions"><button class="btn" data-goto="submit">📤 ছবি/তথ্য জমা দিন</button><button class="btn secondary" data-goto="ai">✨ AI প্রম্পট দেখুন</button></div><div class="hero-highlights"><div><b>📷</b><span>ছবি ও ডকুমেন্ট</span></div><div><b>✨</b><span>AI টুলস</span></div><div><b>📲</b><span>অ্যাপ ও লিংক</span></div></div></div>
-<div class="card"><h2>🤖 Gemini AI দিয়ে ছবি উন্নত করুন</h2><p>ছবি বেছে Gemini AI দিয়ে উন্নত করার চেষ্টা করুন। এই সুবিধা কাজ করার জন্য Appwrite Function ও Gemini API সংযোগ সচল থাকতে হবে।</p><div class="btnrow"><button class="btn full" type="button" data-goto="enhance">✨ Gemini AI ছবি উন্নত করুন</button></div><p class="muted">AI সংযোগ কাজ না করলে নিচের ফ্রি ছবি পরিষ্কারের অপশন ব্যবহার করুন।</p></div>
-<div class="card"><h2>🪪 পাসপোর্ট সাইজ ছবি তৈরি</h2><p>গ্যালারি থেকে ছবি বেছে পাসপোর্ট সাইজে ক্রপ করুন, ব্যাকগ্রাউন্ডের রং দিন এবং প্রিন্ট/ডাউনলোডের জন্য তৈরি করুন।</p><a class="btn full" href="./passport.html">🪪 পাসপোর্ট সাইজ ছবি মেকার খুলুন</a><p class="muted">এটি আপনার ফোনেই কাজ করে; ছবি সার্ভারে আপলোড হয় না। AI ব্যাকগ্রাউন্ড রিমুভার পরে যোগ করা যাবে।</p></div>
-  <div class="card"><h2>📷 ফ্রি ছবি পরিষ্কার করুন</h2><p>ফোনেই ছবির আলো, রং, কনট্রাস্ট ও শার্পনেস সামঞ্জস্য করুন এবং ডাউনলোড করুন। আলাদা AI সার্ভিস বা পেমেন্ট লাগে না।</p><button class="btn full" type="button" data-goto="enhance">✨ ফ্রি ছবি পরিষ্কার করুন</button><p class="muted">এটি সাধারণ ছবি প্রসেসিং—আসল জেনারেটিভ AI নয়।</p></div>
-
-
-<div class="card"><h2>🎬 মুভি, ওয়েব সিরিজ ও নাটকের লিংক</h2><p>অ্যাডমিনের যোগ করা ওয়েবসাইটগুলো দেখুন।</p><div id="homeMovieLinks" class="grid"><p class="muted">লিংক লোড হচ্ছে…</p></div><button class="btn secondary" type="button" data-goto="movies">সব লিংক দেখুন</button></div><div class="card" id="app-download"><h2>📲 Android অ্যাপ</h2><p id="apkDescription">সর্বশেষ Rubel Telecom APK ডাউনলোড করুন।</p><a id="apkDownloadLink" class="btn secondary" href="#apk-link-not-set">APK ডাউনলোড লিংক সেট করা হয়নি</a></div>
-
 <div class="card" id="shop-services">
-<h2>🛍️ আমাদের দোকানের সেবাসমূহ</h2>
-<p>Rubel Telecom-এ আপনার দৈনন্দিন ডিজিটাল কাজ ও মোবাইল-সংক্রান্ত সেবা এক জায়গায়।</p>
-<div class="grid">
-<div class="service"><span>📱</span><h3>সিম বিক্রয় ও রিপ্লেসমেন্ট</h3><p class="muted">নতুন সিম বিক্রয় এবং প্রযোজ্য নিয়ম অনুযায়ী সিম রিপ্লেসমেন্ট সেবা।</p></div>
-<div class="service"><span>📝</span><h3>অনলাইন আবেদন ও ফরম পূরণ</h3><p class="muted">বিভিন্ন অনলাইন আবেদন, ফরম পূরণ ও রেজিস্ট্রেশনে সহায়তা।</p></div>
-<div class="service"><span>💼</span><h3>চাকরির আবেদন</h3><p class="muted">সরকারি ও বেসরকারি চাকরির অনলাইন আবেদন এবং প্রয়োজনীয় তথ্য আপলোডে সহায়তা।</p></div>
-<div class="service"><span>🖨️</span><h3>প্রিন্ট ও ফটোকপি</h3><p class="muted">প্রয়োজনীয় কাগজপত্র প্রিন্ট, ফটোকপি ও স্ক্যান।</p></div>
-<div class="service"><span>🖼️</span><h3>ছবি ও ডকুমেন্ট</h3><p class="muted">ছবি প্রস্তুত, ডকুমেন্টের কাজ এবং পাসপোর্ট সাইজ ছবি তৈরি।</p></div>
-<div class="service"><span>🔧</span><h3>মোবাইল সার্ভিসিং</h3><p class="muted">মোবাইল ফোনের সাধারণ সমস্যা পরীক্ষা ও সার্ভিসিং।</p></div>
-<div class="service"><span>🌐</span><h3>অন্যান্য অনলাইন সেবা</h3><p class="muted">বিভিন্ন অনলাইন ফরম, নিবন্ধন ও ডিজিটাল কাজে সহায়তা।</p></div>
+<h2>🛍️ আমাদের সেবা</h2>
+<p>Rubel Telecom-এর সব ডিজিটাল ও দোকানের সেবা এক জায়গায়। যে সেবাটি দরকার, সেই ঘরে চাপ দিন।</p>
+<div class="grid rt-service-grid">
+<button type="button" class="service rt-service-card" data-goto="jobs"><span>💼</span><h3>সরকারি চাকরির খবর ও আবেদন</h3><p class="muted">চলমান নিয়োগ, শেষ তারিখ, কত দিন বাকি এবং সরকারি আবেদন লিংক।</p><b class="rt-card-action">চাকরি দেখুন →</b></button>
+<button type="button" class="service rt-service-card" data-goto="submit"><span>📤</span><h3>ছবি ও ডকুমেন্ট জমা</h3><p class="muted">নাম, মোবাইল নম্বর ও ছবি/ডকুমেন্ট জমা দিন।</p><b class="rt-card-action">জমা দিন →</b></button>
+<button type="button" class="service rt-service-card" data-goto="ai"><span>🤖</span><h3>AI প্রম্পট ও ছবি এডিট</h3><p class="muted">AI প্রম্পট দেখুন এবং উপলভ্য AI ছবির সুবিধা ব্যবহার করুন।</p><b class="rt-card-action">AI সেবা খুলুন →</b></button>
+<button type="button" class="service rt-service-card" data-goto="enhance"><span>✨</span><h3>Remini / ছবি পরিষ্কার</h3><p class="muted">ছবির আলো, রং, কনট্রাস্ট ও শার্পনেস উন্নত করুন।</p><b class="rt-card-action">ছবি উন্নত করুন →</b></button>
+<a class="service rt-service-card" href="./passport.html"><span>🪪</span><h3>পাসপোর্ট সাইজ ছবি</h3><p class="muted">ছবি ক্রপ করুন, ব্যাকগ্রাউন্ডের রং দিন এবং ডাউনলোড করুন।</p><b class="rt-card-action">ছবি মেকার খুলুন →</b></a>
+<div class="service rt-service-card rt-service-live"><span>🎬</span><h3>মুভি ও ওয়েব সিরিজ লিংক</h3><p class="muted">সাইটে সংরক্ষিত লিংক দেখুন।</p><div id="homeMovieLinks" class="grid rt-mini-links"><p class="muted">লিংক লোড হচ্ছে…</p></div><button class="btn secondary full" type="button" data-goto="movies">সব লিংক দেখুন →</button></div>
+<div class="service rt-service-card rt-service-live" id="app-download"><span>📲</span><h3>Android অ্যাপ ডাউনলোড</h3><p id="apkDescription" class="muted">সর্বশেষ Rubel Telecom APK ডাউনলোড করুন।</p><a id="apkDownloadLink" class="btn secondary full" href="#apk-link-not-set">APK ডাউনলোড লিংক সেট করা হয়নি</a></div>
+<button type="button" class="service rt-service-card" data-goto="contact"><span>📝</span><h3>অনলাইন ফর্ম ও আবেদন সহায়তা</h3><p class="muted">অনলাইন আবেদন, রেজিস্ট্রেশন ও ফর্ম পূরণে সহায়তার জন্য যোগাযোগ করুন।</p><b class="rt-card-action">যোগাযোগ করুন →</b></button>
+<button type="button" class="service rt-service-card" data-goto="contact"><span>🖨️</span><h3>প্রিন্ট, ফটোকপি ও স্ক্যান</h3><p class="muted">প্রয়োজনীয় কাগজপত্র প্রিন্ট, ফটোকপি ও স্ক্যানের সেবা।</p><b class="rt-card-action">সেবা নিন →</b></button>
+<button type="button" class="service rt-service-card" data-goto="contact"><span>📱</span><h3>সিম ও মোবাইল সার্ভিসিং</h3><p class="muted">সিম বিক্রয়/রিপ্লেসমেন্ট এবং মোবাইলের সাধারণ সার্ভিসিং।</p><b class="rt-card-action">যোগাযোগ করুন →</b></button>
+<button type="button" class="service rt-service-card" data-goto="contact"><span>🌐</span><h3>অন্যান্য ডিজিটাল সেবা</h3><p class="muted">অন্যান্য অনলাইন কাজ ও ডিজিটাল সেবার জন্য যোগাযোগ করুন।</p><b class="rt-card-action">যোগাযোগ করুন →</b></button>
 </div>
-<p class="muted">নোট: আমরা আবেদন প্রক্রিয়ায় সহায়তা করি; চাকরি বা আবেদন অনুমোদনের নিশ্চয়তা দিই না।</p>
+<p class="muted">নোট: আবেদন করার আগে সংশ্লিষ্ট বিজ্ঞপ্তির শর্ত ও সরকারি ওয়েবসাইট যাচাই করুন। আমরা আবেদন প্রক্রিয়ায় সহায়তা করি; চাকরি বা আবেদন অনুমোদনের নিশ্চয়তা দিই না।</p>
 </div>
+</section>
+<section id="jobs" class="panel">
+ <div class="card">
+  <h2>💼 সরকারি চাকরির খবর ও অনলাইন আবেদন</h2>
+  <p>যাচাই করা সক্রিয় বিজ্ঞপ্তি, আবেদনের শেষ তারিখ এবং সরকারি আবেদন লিংক এখানে দেখুন। আবেদন করার আগে মূল বিজ্ঞপ্তি পড়ে নিন।</p>
+  <div class="field"><label for="jobSearch">চাকরি বা প্রতিষ্ঠানের নাম খুঁজুন</label><input id="jobSearch" type="search" placeholder="যেমন: BPSC, বিমান বাহিনী"></div>
+  <p id="jobActiveSummary" class="rt-job-summary" aria-live="polite">সক্রিয় বিজ্ঞপ্তি যাচাই হচ্ছে…</p>
+  <div id="jobListings" class="rt-job-list">
+   <article class="rt-job-card" data-job-search="বাংলাদেশ সরকারি কর্ম কমিশন bpsc 51st special bcs ৫১তম বিশেষ বিসিএস">
+    <div class="rt-job-top"><span class="rt-job-status">সক্রিয় বিজ্ঞপ্তি</span><span class="rt-job-organization">বাংলাদেশ সরকারি কর্ম কমিশন (BPSC)</span></div>
+    <h3>৫১তম বিশেষ বিসিএস পরীক্ষা ২০২৬</h3>
+    <p>আবেদনের শেষ তারিখ: <strong>২৫ অক্টোবর ২০২৬</strong></p>
+    <p class="rt-job-countdown" data-deadline="2026-10-25T23:59:00+06:00">শেষ তারিখ গণনা হচ্ছে…</p>
+    <div class="btnrow"><a class="btn" href="https://bpsc.teletalk.com.bd/bcs51/home.php" target="_blank" rel="noopener noreferrer">অনলাইনে আবেদন করুন ↗</a><a class="btn secondary" href="https://bpsc.gov.bd/" target="_blank" rel="noopener noreferrer">BPSC বিজ্ঞপ্তি ↗</a></div>
+   </article>
+   <article class="rt-job-card" data-job-search="বাংলাদেশ বিমান বাহিনী officer cadet 96 bafa course অফিসার ক্যাডেট">
+    <div class="rt-job-top"><span class="rt-job-status">সক্রিয় বিজ্ঞপ্তি</span><span class="rt-job-organization">বাংলাদেশ বিমান বাহিনী</span></div>
+    <h3>অফিসার ক্যাডেট — ৯৬তম বিএএফএ কোর্স</h3>
+    <p>আবেদনের শেষ তারিখ: <strong>৬ এপ্রিল ২০২৭</strong></p>
+    <p class="rt-job-countdown" data-deadline="2027-04-06T23:59:00+06:00">শেষ তারিখ গণনা হচ্ছে…</p>
+    <div class="btnrow"><a class="btn" href="https://joinairforce.baf.mil.bd/job-circular/officer" target="_blank" rel="noopener noreferrer">অনলাইনে আবেদন করুন ↗</a><a class="btn secondary" href="https://bangladesh.gov.bd/views/mixed/" target="_blank" rel="noopener noreferrer">সরকারি বিজ্ঞপ্তি ↗</a></div>
+   </article>
+  </div>
+  <p id="jobNoResults" class="muted" hidden>এই নামে কোনো সক্রিয় বিজ্ঞপ্তি পাওয়া যায়নি। নিচের সরকারি উৎসগুলো দেখুন।</p>
+ </div>
+ <div class="card">
+  <h2>🔎 আরও সরকারি নিয়োগ খুঁজুন</h2>
+  <p>সরকারি উৎসগুলোর তালিকা খুলে অন্যান্য দপ্তর ও প্রতিষ্ঠানের বিজ্ঞপ্তি যাচাই করুন। প্রতিটি উৎসের আবেদন-তারিখ আলাদা হতে পারে।</p>
+  <div class="rt-job-source-list">
+   <a href="https://bangladesh.gov.bd/views/mixed/" target="_blank" rel="noopener noreferrer">🇧🇩 জাতীয় তথ্য বাতায়ন — সরকারি নিয়োগ ↗</a>
+   <a href="https://alljobs.teletalk.com.bd/" target="_blank" rel="noopener noreferrer">📋 Teletalk — সরকারি নিয়োগ তালিকা ↗</a>
+   <a href="https://bpsc.gov.bd/" target="_blank" rel="noopener noreferrer">🏛️ বাংলাদেশ সরকারি কর্ম কমিশন (BPSC) ↗</a>
+   <a href="https://sqtc.jobs.gov.bd/" target="_blank" rel="noopener noreferrer">🔎 জাতীয় চাকরি পোর্টাল ↗</a>
+  </div>
+  <p class="muted">গুরুত্বপূর্ণ: সব সরকারি প্রতিষ্ঠানের তথ্য একই ফিডে পাওয়া যায় না। এই পেজে দেখানো সক্রিয় বিজ্ঞপ্তি ও উৎস-লিংক ব্যবহার করুন এবং আবেদন করার আগে মূল সরকারি বিজ্ঞপ্তিতে তারিখ/যোগ্যতা যাচাই করুন।</p>
+ </div>
 </section>
 <section id="submit" class="panel">
 <div class="card"><h2>📤 কাস্টমারের ছবি ও তথ্য</h2><p class="muted">নাম, ফোন নম্বর ও ছবি নির্বাচন করুন।</p>
@@ -1028,6 +1087,49 @@ if ("serviceWorker" in navigator) {
   toggle.textContent=open?'⌃':'⌄';
   toggle.setAttribute('aria-label',open?'অ্যাকাউন্টের অপশন বন্ধ করুন':'অ্যাকাউন্টের সব অপশন দেখুন');
  });
+})();
+</script>
+
+
+<script>
+/* Job deadline status and search: automatically hide expired items from the active list. */
+(function(){
+ const list=document.getElementById('jobListings');
+ if(!list)return;
+ const cards=Array.from(list.querySelectorAll('[data-deadline]'));
+ const today=new Date();
+ let active=0;
+ cards.forEach(function(card){
+  const deadline=new Date(card.dataset.deadline);
+  const countdown=card.querySelector('.rt-job-countdown');
+  const status=card.querySelector('.rt-job-status');
+  if(!Number.isFinite(deadline.getTime())||deadline<today){
+   card.hidden=true;
+   if(status){status.textContent='আবেদন শেষ';status.classList.add('rt-job-expired');}
+   return;
+  }
+  active++;
+  const ms=deadline.getTime()-today.getTime();
+  const days=Math.ceil(ms/86400000);
+  if(countdown)countdown.textContent=days===0?'আজই আবেদনের শেষ সময়!':'আবেদনের শেষ হতে আর '+days+' দিন বাকি';
+ });
+ const summary=document.getElementById('jobActiveSummary');
+ if(summary)summary.textContent='এই তালিকায় এখন '+active+'টি যাচাইকৃত সক্রিয় বিজ্ঞপ্তি আছে।';
+ const search=document.getElementById('jobSearch');
+ const noResults=document.getElementById('jobNoResults');
+ function filterJobs(){
+  const q=(search&&search.value||'').trim().toLocaleLowerCase('bn');
+  let visible=0;
+  cards.forEach(function(card){
+   const deadline=new Date(card.dataset.deadline);
+   const isActive=Number.isFinite(deadline.getTime())&&deadline>=new Date();
+   const match=!q||(card.dataset.jobSearch||card.textContent).toLocaleLowerCase('bn').includes(q);
+   card.hidden=!(isActive&&match);
+   if(!card.hidden)visible++;
+  });
+  if(noResults)noResults.hidden=visible>0;
+ }
+ if(search)search.addEventListener('input',filterJobs);
 })();
 </script>
 
