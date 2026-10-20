@@ -29,6 +29,6 @@ const player=document.getElementById('player'), status=document.getElementById('
 const y='https://www.youtube-nocookie.com/embed/live_stream?channel=UC2t9imwIR7xlDfma3CmRKJQ';
 const official='https://www.tsports.com/live-tv';
 document.getElementById('youtubeBtn').addEventListener('click',function(){player.src=y;status.textContent='YouTube Live প্লেয়ার লোড হচ্ছে…';this.classList.remove('secondary');document.getElementById('officialBtn').classList.add('secondary');});
-document.getElementById('officialBtn').addEventListener('click',function(){player.src=official;status.textContent='T Sports-এর অফিসিয়াল প্লেয়ার লোড হচ্ছে… যদি ভিডিও না আসে, নিচের অফিসিয়াল লাইভ লিংক খুলুন।';this.classList.remove('secondary');document.getElementById('youtubeBtn').classList.add('secondary');});
+document.getElementById('officialBtn').addEventListener('click',function(){status.textContent='অফিসিয়াল T Sports প্লেয়ার অন্য ওয়েবসাইটে এম্বেড করা নাও যেতে পারে। অফিসিয়াল লাইভ নতুন ট্যাবে খোলা হচ্ছে।';window.open(official,'_blank','noopener,noreferrer');this.classList.remove('secondary');document.getElementById('youtubeBtn').classList.add('secondary');});
 })();
 </script></body></html>
