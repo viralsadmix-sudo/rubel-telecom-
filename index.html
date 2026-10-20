@@ -883,6 +883,54 @@ input:focus,select:focus,textarea:focus{
 .mobile-dock button.active,.mobile-dock a.active{color:#2563eb!important}
 
 </style>
+
+<style id="rubel-readable-contrast-fix">
+/* Readability-only fix: preserve existing layout, scripts, uploads and AI features */
+html body { color: #111827 !important; }
+body p, body li, body label, body small, body .description, body .subtitle {
+  color: #1f2937 !important;
+}
+body h1, body h2, body h3, body h4, body h5, body h6 {
+  color: #0f172a !important;
+}
+/* White/light cards and form areas must always use dark readable text */
+body .service-card, body .service-card *,
+body .card, body .card *,
+body .feature-card, body .feature-card *,
+body .content-card, body .content-card *,
+body .prompt-card, body .prompt-card *,
+body .job-card, body .job-card *,
+body .link-card, body .link-card *,
+body .modal-content, body .modal-content *,
+body .upload-box, body .form-container,
+body .form-container *, body .section-card, body .section-card * {
+  color: #111827 !important;
+}
+body input, body textarea, body select {
+  color: #111827 !important;
+  background-color: #ffffff !important;
+  border-color: #94a3b8 !important;
+}
+body input::placeholder, body textarea::placeholder {
+  color: #64748b !important;
+  opacity: 1 !important;
+}
+body button, body .btn, body a.btn, body .button,
+body input[type="submit"], body input[type="button"] {
+  background-color: #2563eb;
+  color: #ffffff !important;
+}
+body button *, body .btn *, body .button * { color: #ffffff !important; }
+body header, body header *, body nav, body nav *,
+body .navbar, body .navbar *, body .topbar, body .topbar *,
+body .mobile-nav, body .mobile-nav *, body .bottom-nav, body .bottom-nav * {
+  color: #ffffff !important;
+}
+body a:not(.btn) { color: #1d4ed8; }
+body header a, body nav a, body .navbar a, body .topbar a,
+body .mobile-nav a, body .bottom-nav a { color: #ffffff !important; }
+</style>
+
 </head>
 <body>
 <header><img class="brand" src="./logo.svg" alt="Rubel Telecom লোগো"><div class="brand-copy"><h1>Rubel Telecom</h1><p>আপনার বিশ্বস্ত ডিজিটাল সেবা কেন্দ্র</p></div></header>
