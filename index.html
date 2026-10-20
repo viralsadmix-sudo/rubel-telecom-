@@ -446,6 +446,75 @@ footer{margin-top:12px}
  #home>.home-hero h2{font-size:27px}
 }
 
+
+/* RUBEL TELECOM — final professional visual pass; functionality and existing feature IDs are preserved */
+:root{--rt-cyan:#62eaff;--rt-line:rgba(105,190,255,.22);--rt-glass:rgba(7,22,44,.86)}
+html{scroll-behavior:smooth;scroll-padding-top:86px}
+body{background:radial-gradient(ellipse at 8% 0%,#123a70 0,transparent 34%),radial-gradient(ellipse at 100% 25%,#06394d 0,transparent 28%),linear-gradient(155deg,#07152d 0%,#040b18 62%,#02060e 100%);background-attachment:fixed}
+header{display:flex;align-items:center;justify-content:center;gap:18px;text-align:left;min-height:126px;padding:23px 18px;background:radial-gradient(circle at 85% 20%,#00d9ff1a,transparent 28%),linear-gradient(115deg,#020814 0%,#0a2b58 48%,#0878b8 100%);border-bottom:1px solid #4bdfff66;box-shadow:0 14px 42px #0005}
+header:after{right:calc(50% - 560px);top:-145px}
+header .brand{width:76px;height:76px;flex:0 0 76px;margin:0;border-radius:21px;border:1px solid #6deaff;box-shadow:0 0 0 5px #ffffff0a,0 8px 26px #00aaff38}
+header .brand-copy{min-width:0;position:relative;z-index:1}
+header h1{font-size:clamp(26px,4vw,38px);font-weight:850;letter-spacing:.2px;line-height:1.2}
+header p{font-size:14px;margin:7px 0 0;color:#d2efff;letter-spacing:.1px}
+#rtAccountPanel{max-width:1160px;margin:14px auto 0;padding:0 18px}
+.rt-account-card{border:1px solid #2b5884!important;border-radius:18px!important;background:linear-gradient(125deg,#0d2443f5,#07162cf5)!important;box-shadow:0 12px 28px #0003,inset 0 1px #ffffff08!important}
+.rt-account-heading{gap:12px}
+.rt-account-heading strong{font-size:15px;letter-spacing:.1px}
+.rt-account-heading p{color:#a9c4e2}
+.rt-account-mark{border:1px solid #47dfff!important;background:linear-gradient(140deg,#0b70d7,#00a9c5)!important;box-shadow:0 0 22px #00aaff25}
+.menu-bar{max-width:1160px;margin:14px auto 0;padding:10px 18px;border:1px solid #244b73;border-radius:16px;background:linear-gradient(120deg,#0b1d38f5,#071329f5);box-shadow:0 10px 28px #0003}
+.menu-home{font-weight:850;letter-spacing:.2px;color:#f2fbff;text-decoration:none}
+.menu-home span{color:#65e7ff}
+.menu-toggle{width:43px;height:40px;border:1px solid #35648d;border-radius:12px;background:#102b4c}
+nav.site-menu{max-width:1124px;margin:8px auto 0;padding:10px;gap:8px;border:1px solid #244b73;border-radius:16px;background:rgba(4,15,33,.97);box-shadow:0 16px 34px #0004}
+nav.site-menu button,nav.site-menu .menu-link{border-radius:11px;border:1px solid #284b70;background:linear-gradient(145deg,#10294a,#091a32);color:#dcefff;padding:11px 13px;text-decoration:none;font-size:13px;font-weight:750}
+nav.site-menu button.active,nav.site-menu button:hover,nav.site-menu .menu-link:hover{border-color:#43dfff;background:linear-gradient(110deg,#0869df,#079dbd);color:white}
+main{max-width:1160px;margin:22px auto;padding:0 20px 30px}
+#home.panel.active{gap:18px}
+#home>.home-hero{min-height:330px;padding:clamp(26px,4.5vw,48px);border-radius:26px;background:radial-gradient(ellipse at 88% 12%,#00d9ff24,transparent 31%),linear-gradient(125deg,#102e59 0%,#0a1b37 58%,#061126 100%);border-color:#3f8db9;box-shadow:0 24px 55px #0005,inset 0 1px #ffffff12}
+#home>.home-hero .hero-chip{font-size:10px;letter-spacing:1.15px;border-color:#3c81a9;background:#05172bd9}
+#home>.home-hero h2{font-weight:850;letter-spacing:-.65px}
+#home>.home-hero .hero-lead{max-width:650px;font-size:clamp(15px,1.6vw,17px);line-height:1.9}
+#home>.home-hero .hero-actions .btn{min-height:50px;border-radius:13px}
+#home>.home-hero .hero-highlights div{border-color:#4b82ac55;background:#06172cbf}
+#home>.card:not(.home-hero){border:1px solid #244c75;border-radius:21px;background:linear-gradient(150deg,rgba(16,40,74,.98),rgba(6,18,36,.99));box-shadow:0 14px 32px #0004,inset 0 1px #ffffff08;transition:transform .2s,border-color .2s,box-shadow .2s}
+#home>.card:not(.home-hero):hover{transform:translateY(-3px);border-color:#3c9cc7;box-shadow:0 20px 40px #0005,0 0 22px #008cff12}
+#home>.card:not(.home-hero) h2{min-height:0;color:#e7f7ff;border-bottom-color:#4ab9e21c}
+#home>.card:not(.home-hero)>p{line-height:1.85}
+#home>#shop-services .service{border-radius:16px;background:linear-gradient(145deg,#12345a,#091a32);border-color:#2b5885}
+#home>#shop-services .service:hover{transform:translateY(-3px);border-color:#4bdfff;box-shadow:0 12px 26px #0003,0 0 20px #00aaff12}
+#home>#shop-services .service span{filter:drop-shadow(0 0 8px #00bfff3b)}
+#homeMovieLinks>*{border-radius:13px}
+.btn{border-radius:13px;letter-spacing:.1px;font-weight:800}
+.btn:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid #8cecff;outline-offset:3px}
+footer{max-width:1120px;margin:10px auto 0;border-top:1px solid #2b4e70;color:#91adcf}
+.mobile-dock{border-top:1px solid #315b81!important;background:rgba(4,14,30,.97)!important;backdrop-filter:blur(18px);box-shadow:0 -10px 28px #0004}
+.mobile-dock button,.mobile-dock a{color:#a9c6e5}
+.mobile-dock button.active,.mobile-dock a:active{color:#6ceaff}
+@media(min-width:900px){header{min-height:136px}#home>.home-hero{min-height:350px}#home>.card:not(.home-hero){padding:25px}}
+@media(max-width:700px){
+ header{min-height:88px;justify-content:flex-start;gap:12px;padding:15px 16px}
+ header .brand{width:56px;height:56px;flex-basis:56px;border-radius:16px}
+ header h1{font-size:24px}
+ header p{font-size:11px;line-height:1.5;margin-top:4px}
+ #rtAccountPanel{margin-top:10px;padding:0 12px}
+ .menu-bar{margin:10px 12px 0;padding:9px 12px}
+ nav.site-menu{margin:8px 12px 0}
+ main{margin:15px auto;padding:0 12px 25px}
+ #home.panel.active{grid-template-columns:1fr;gap:13px}
+ #home>.home-hero{grid-column:1;min-height:0;padding:25px 19px;border-radius:21px}
+ #home>.home-hero h2{font-size:clamp(28px,8vw,36px)}
+ #home>.home-hero .hero-actions .btn{flex:1 1 100%}
+ #home>.home-hero .hero-highlights{display:grid;grid-template-columns:1fr;gap:8px}
+ #home>.home-hero .hero-highlights div{border-radius:12px}
+ #home>.card:not(.home-hero){padding:19px;border-radius:18px}
+ #home>#shop-services .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ #home>#shop-services .service{min-height:112px;padding:13px}
+}
+@media(max-width:390px){#home>#shop-services .grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}#home>.card:not(.home-hero),#home>#shop-services .service{transition:none}}
+
 </style> <link rel="manifest" href="./manifest.json">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
