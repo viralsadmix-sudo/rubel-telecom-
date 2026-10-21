@@ -879,7 +879,10 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 <p>মাইক্রোফোনে কথা বলে Rubel Telecom-এর কিছু সেবা খুলুন। প্রথমবার ব্যবহার করলে মাইক্রোফোনের অনুমতি দিন।</p>
 <div class="btnrow"><button type="button" class="btn full" id="sabbirVoiceStart">🎤 সাব্বিরের সঙ্গে কথা বলুন</button><button type="button" class="btn secondary full" id="sabbirVoiceStop" hidden>⏹️ শোনা বন্ধ করুন</button></div>
 <p class="muted" id="sabbirVoiceStatus" role="status" aria-live="polite">প্রস্তুত। বাটনে চাপ দিয়ে বাংলায় কথা বলুন।</p>
-<p class="muted">উদাহরণ: “ছবি জমা”, “AI প্রম্পট”, “দোকানে ফোন করো”, “সময় বলো”।</p>
+<p class="muted">উদাহরণ: “ছবি জমা”, “AI প্রম্পট”, “দোকানে ফোন করো”, “সময় বলো”। সাধারণ প্রশ্ন করলে সাব্বির AI-কে জিজ্ঞেস করবে।</p>
+<div class="field"><label for="sabbirChatInput">💬 সাব্বিরকে প্রশ্ন করুন</label><textarea id="sabbirChatInput" rows="2" placeholder="যা জানতে চান লিখুন, অথবা উপরের মাইক্রোফোনে বলে দিন…"></textarea></div>
+<div class="btnrow"><button type="button" class="btn full" id="sabbirChatSend">➤ সাব্বিরকে পাঠান</button></div>
+<div id="sabbirChatAnswer" class="prompt" role="status" aria-live="polite" hidden></div>
 </div>
 <div class="card rt-tsports-feature">
 <h2>🏏 T Sports Live — লাইভ ক্রিকেট</h2>
@@ -1424,7 +1427,7 @@ if ("serviceWorker" in navigator) {
   if(/হোম|হোমপেজ|শুরু/.test(text)){
    window.scrollTo({top:0,behavior:'smooth'});say('হোমপেজে ফিরে এসেছি।');return;
   }
-  say('আমি শুনেছি: '+raw+'। এই কমান্ডটি এখনো যোগ করা হয়নি।');
+  askSabbir(raw);
  }
  start.addEventListener('click',function(){
   if(!SpeechRecognition){
@@ -1440,6 +1443,33 @@ if ("serviceWorker" in navigator) {
   }catch(e){start.disabled=false;stop.hidden=true;say('ভয়েস চালু করা যায়নি। আবার চেষ্টা করুন।');}
  });
  stop.addEventListener('click',function(){if(recognition)recognition.stop();});
+})();
+</script>
+
+<script>
+/* Sabbir Gemini text conversation; API key remains server-side in Appwrite. */
+(function(){
+ const input=document.getElementById('sabbirChatInput');
+ const send=document.getElementById('sabbirChatSend');
+ const answer=document.getElementById('sabbirChatAnswer');
+ if(!input||!send||!answer)return;
+ const endpoint='https://starter-function-bs1o.nyc.appwrite.run';
+ const history=[];
+ window.askSabbir=async function(raw){
+  const question=String(raw||'').trim();if(!question)return;
+  input.value=question;answer.hidden=false;answer.textContent='সাব্বির ভাবছে…';send.disabled=true;
+  history.push({role:'user',text:question});
+  try{
+   const response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({mode:'chat',messages:history.slice(-12)})});
+   const data=await response.json().catch(()=>({}));
+   if(!response.ok||!data.answer)throw new Error(data.error||'AI উত্তর পাওয়া যায়নি।');
+   history.push({role:'model',text:data.answer});answer.textContent=data.answer;
+   if('speechSynthesis' in window){window.speechSynthesis.cancel();const utterance=new SpeechSynthesisUtterance(data.answer);utterance.lang='bn-BD';window.speechSynthesis.speak(utterance);}
+  }catch(e){history.pop();answer.textContent='সাব্বিরের AI উত্তর এখন পাওয়া যাচ্ছে না। Appwrite Function-এ নতুন কোড Deploy হয়েছে কি না এবং GEMINI_API_KEY আছে কি না পরীক্ষা করুন।';}
+  finally{send.disabled=false;}
+ };
+ send.addEventListener('click',function(){window.askSabbir(input.value);});
+ input.addEventListener('keydown',function(event){if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();window.askSabbir(input.value);}});
 })();
 </script>
 </body></html>
