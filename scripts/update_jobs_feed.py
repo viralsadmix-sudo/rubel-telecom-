@@ -14,7 +14,7 @@ OUT = Path("jobs-feed.json")
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; RubelTelecomJobsFeed/1.1)"}
 
 def clean(text):
-    return re.sub(r"\\s+", " ", text or "").strip()
+    return re.sub(r"\s+", " ", text or "").strip()
 
 def main():
     response = requests.get(SOURCE, headers=HEADERS, timeout=35)
@@ -56,7 +56,7 @@ def main():
         if not heading or len(heading) < 3:
             continue
 
-        count_match = re.search(r"(?:openings?)\\s*:?\\s*(\\d+)", best_text, re.I)
+        count_match = re.search(r"(?:openings?)\s*:?\s*(\d+)", best_text, re.I)
         count = int(count_match.group(1)) if count_match else None
         key = (heading.casefold(), href)
         if key in seen:
@@ -102,7 +102,7 @@ def main():
         "note": "Official Teletalk Alljobs links. Always open the official notice to confirm post details, eligibility, fees and deadline.",
         "jobs": records
     }
-    OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")
+    OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Wrote {len(records)} official job/listing links to {OUT}")
 
 if __name__ == "__main__":
