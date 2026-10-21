@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a public jobs feed from Teletalk's official Alljobs portal."""
+"""Build the public government jobs feed from Teletalk Alljobs."""
 import json
 import re
 from datetime import datetime, timezone
@@ -11,52 +11,46 @@ from bs4 import BeautifulSoup
 
 SOURCE = "https://alljobs.teletalk.com.bd/bn/"
 OUT = Path("jobs-feed.json")
-HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; RubelTelecomJobsFeed/1.1)"}
+HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; RubelTelecomJobsFeed/2.0)"}
 
 def clean(text):
     return re.sub(r"\s+", " ", text or "").strip()
 
-def main():
-    response = requests.get(SOURCE, headers=HEADERS, timeout=35)
-    response.raise_for_status()
-    soup = BeautifulSoup(response.text, "html.parser")
-    records = []
-    seen = set()
-
+def parse_page(html):
+    soup = BeautifulSoup(html, "html.parser")
+    records, seen = [], set()
     for a in soup.find_all("a", href=True):
         label = clean(a.get_text(" ", strip=True)).lower()
-        href = urljoin(SOURCE, a["href"])
-        parsed = urlparse(href)
         if not any(x in label for x in ("see openings", "view openings", "openings")):
             continue
+        href = urljoin(SOURCE, a["href"])
+        parsed = urlparse(href)
         if parsed.scheme != "https" or not parsed.netloc.endswith("teletalk.com.bd"):
             continue
 
-        container = a
-        best_text = clean(a.parent.get_text(" ", strip=True)) if a.parent else ""
-        for _ in range(5):
-            if container.parent is None:
+        heading, card_text = "", ""
+        node = a
+        # Pick the nearest reasonably-sized card that contains an organization heading.
+        for _ in range(8):
+            if node.parent is None:
                 break
-            container = container.parent
-            candidate = clean(container.get_text(" ", strip=True))
-            if candidate and len(candidate) <= 700:
-                best_text = candidate
-                if container.find(["h2", "h3", "h4", "h5", "strong"]):
+            node = node.parent
+            text = clean(node.get_text(" ", strip=True))
+            headings = node.find_all(["h2", "h3", "h4", "h5"], limit=4)
+            if headings and text and len(text) <= 1200:
+                candidate = clean(headings[0].get_text(" ", strip=True))
+                if candidate and candidate.lower() not in ("see openings", "view openings"):
+                    heading, card_text = candidate, text
                     break
 
-        heading = None
-        for node in container.find_all(["h2", "h3", "h4", "h5", "strong"], limit=8):
-            candidate = clean(node.get_text(" ", strip=True))
-            if candidate and candidate.lower() not in ("see openings", "view openings"):
-                heading = candidate
-                break
         if not heading:
-            heading = clean(a.parent.get_text(" ", strip=True)) if a.parent else ""
-            heading = re.sub(r"(?i)see openings|view openings", "", heading).strip(" :-")
-        if not heading or len(heading) < 3:
+            parent_text = clean(a.parent.get_text(" ", strip=True)) if a.parent else ""
+            heading = re.sub(r"(?i)see openings|view openings", "", parent_text).strip(" :-")
+            card_text = parent_text
+        if len(heading) < 3:
             continue
 
-        count_match = re.search(r"(?:openings?)\s*:?\s*(\d+)", best_text, re.I)
+        count_match = re.search(r"(?:openings?)\s*:?\s*(\d+)", card_text, re.I)
         count = int(count_match.group(1)) if count_match else None
         key = (heading.casefold(), href)
         if key in seen:
@@ -68,10 +62,33 @@ def main():
             "url": href,
             "source": SOURCE
         })
+    records.sort(key=lambda item: item["organization"].casefold())
+    return records
 
-    # The portal sometimes changes its page markup or serves a page without
-    # the opening-card links. Keep the scheduled update successful and provide
-    # official live listings/notice links instead of leaving the feed empty.
+def main():
+    html = ""
+    response = requests.get(SOURCE, headers=HEADERS, timeout=35)
+    response.raise_for_status()
+    html = response.text
+    records = parse_page(html)
+
+    # Alljobs may render the organization cards with client-side JavaScript.
+    # If the plain HTML has no cards, render it in Chromium and parse the DOM.
+    if not records:
+        try:
+            from playwright.sync_api import sync_playwright
+            with sync_playwright() as p:
+                browser = p.chromium.launch(headless=True)
+                page = browser.new_page(user_agent=HEADERS["User-Agent"])
+                page.goto(SOURCE, wait_until="networkidle", timeout=60000)
+                page.wait_for_timeout(2500)
+                html = page.content()
+                browser.close()
+            records = parse_page(html)
+        except Exception as exc:
+            print(f"Browser-render fallback failed: {exc}")
+
+    # If Teletalk changes its page again, keep the feed usable with official live links.
     if not records:
         records = [
             {
@@ -93,13 +110,14 @@ def main():
                 "source": SOURCE
             }
         ]
-        print("Warning: employer cards were not parsed; writing official live-list fallback links.")
+        print("Warning: no employer cards were found; writing official live-list fallback links.")
+    else:
+        print(f"Parsed {len(records)} employer/job links from the official portal.")
 
-    records.sort(key=lambda item: item["organization"].casefold())
     payload = {
         "source": SOURCE,
         "updatedAt": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "note": "Official Teletalk Alljobs links. Always open the official notice to confirm post details, eligibility, fees and deadline.",
+        "note": "Official Teletalk Alljobs links. Open each official listing/notice to confirm post details, eligibility, fees and deadline.",
         "jobs": records
     }
     OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
