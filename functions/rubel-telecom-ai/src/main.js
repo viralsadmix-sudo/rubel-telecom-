@@ -44,6 +44,41 @@ export default async ({ req, res, log, error }) => {
         return res.json({ error: "অনুরোধের তথ্য পড়া যায়নি। আবার চেষ্টা করুন।" }, 400, corsHeaders);
       }
     }
+    // Text-chat mode is additive: leave the existing image-enhancement path below unchanged.
+    if (body.mode === "chat") {
+      const messages = Array.isArray(body.messages) ? body.messages.slice(-12) : [];
+      const cleanMessages = messages
+        .filter(m => m && ["user", "model"].includes(m.role) && typeof m.text === "string")
+        .map(m => ({ role: m.role, parts: [{ text: m.text.slice(0, 4000) }] }));
+      if (!cleanMessages.length || cleanMessages[cleanMessages.length - 1].role !== "user") {
+        return res.json({ error: "সাব্বিরকে একটি প্রশ্ন লিখুন বা বলুন।" }, 400, corsHeaders);
+      }
+      const systemInstruction = {
+        parts: [{ text: "তোমার নাম সাব্বির। তুমি ব্যবহারকারীর ব্যক্তিগত বাংলা AI সহকারী। স্বাভাবিক, বন্ধুত্বপূর্ণ ও সহজ বাংলায় উত্তর দাও; প্রয়োজন হলে সংক্ষিপ্তভাবে ধাপে ধাপে বুঝিয়ে বলো। তুমি নিজে ফোনের সেটিংস বদলাতে, অন্য অ্যাপ নিয়ন্ত্রণ করতে, কল করতে বা ব্যাকগ্রাউন্ডে শুনতে পারো না—এমন দাবি করবে না। নিরাপত্তা, গোপনীয়তা এবং ব্যবহারকারীর স্পষ্ট সম্মতিকে গুরুত্ব দাও। Rubel Telecom-এর ছবি জমা, AI প্রম্পট ও ওয়েবসাইট সম্পর্কে নিশ্চিত না হলে অনুমান না করে বলো।" }]
+      };
+      const chatResponse = await fetch(
+        "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "x-goog-api-key": apiKey },
+          body: JSON.stringify({
+            systemInstruction,
+            contents: cleanMessages,
+            generationConfig: { temperature: 0.7, maxOutputTokens: 700 }
+          })
+        }
+      );
+      const chatData = await chatResponse.json().catch(() => ({}));
+      if (!chatResponse.ok) {
+        const msg = chatData?.error?.message || "Gemini chat request failed.";
+        error("Gemini chat failed: HTTP " + chatResponse.status + " — " + msg);
+        return res.json({ error: chatResponse.status === 429 ? "AI ব্যবহারের সীমা আপাতত শেষ। কিছুক্ষণ পরে আবার চেষ্টা করুন।" : "সাব্বিরের AI উত্তর পাওয়া যায়নি। Appwrite/Gemini সেটিংস পরীক্ষা করুন।" }, chatResponse.status === 429 ? 429 : 502, corsHeaders);
+      }
+      const answer = (chatData?.candidates?.[0]?.content?.parts || []).map(p => p.text || "").join("\\n").trim();
+      if (!answer) return res.json({ error: "AI থেকে উত্তর পাওয়া যায়নি। আবার চেষ্টা করুন।" }, 502, corsHeaders);
+      return res.json({ answer }, 200, corsHeaders);
+    }
+
     const imageBase64 = body.imageBase64;
     const mimeType = body.mimeType;
     if (typeof imageBase64 !== "string" || !imageBase64.length) {
