@@ -1,18 +1,19 @@
 export default async ({ req, res, log, error }) => {
   const allowedOrigin = "https://viralsadmix-sudo.github.io";
   const origin = req.headers?.origin || "";
+  const method = String(req.method || "").toUpperCase();
   const corsHeaders = {
-    "Access-Control-Allow-Origin": origin === allowedOrigin ? allowedOrigin : allowedOrigin,
-    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Origin": allowedOrigin,
+    "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
     "Vary": "Origin"
   };
 
-  if (req.method === "OPTIONS") {
+  if (method === "OPTIONS") {
     return res.text("", 204, corsHeaders);
   }
   // Safe health check: confirms deployment and whether the secret exists without exposing it.
-  if (req.method === "GET") {
+  if (method === "GET") {
     return res.json({
       service: "Rubel Telecom AI",
       status: "online",
@@ -22,7 +23,7 @@ export default async ({ req, res, log, error }) => {
         : "AI function is online, but GEMINI_API_KEY is missing in Appwrite Variables."
     }, 200, corsHeaders);
   }
-  if (req.method !== "POST") {
+  if (method !== "POST") {
     return res.json({ error: "POST method required." }, 405, corsHeaders);
   }
   if (origin && origin !== allowedOrigin) {
