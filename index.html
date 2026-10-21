@@ -874,6 +874,13 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 <section id="home" class="panel active">
 </div>
 <div class="card home-hero"><div class="hero-chip"><span class="hero-dot"></span> RUBEL TELECOM · DIGITAL SERVICE</div><h2>আপনার ডিজিটাল কাজ, <span>এক জায়গায়</span></h2><p class="hero-lead">ছবি ও ডকুমেন্ট জমা দিন, ছবি পরিষ্কার করুন, AI প্রম্পট ব্যবহার করুন—সহজেই, আপনার ফোন থেকে।</p><div class="btnrow hero-actions"><button class="btn" data-goto="submit">📤 ছবি/তথ্য জমা দিন</button><button class="btn secondary" data-goto="ai">✨ AI প্রম্পট দেখুন</button></div><div class="hero-highlights"><div><b>📷</b><span>ছবি ও ডকুমেন্ট</span></div><div><b>✨</b><span>AI টুলস</span></div><div><b>📲</b><span>অ্যাপ ও লিংক</span></div></div></div>
+<div class="card rt-sabbir-voice" id="sabbirVoiceCard">
+<h2>🎙️ সাব্বির — আপনার বাংলা ভয়েস সহকারী</h2>
+<p>মাইক্রোফোনে কথা বলে Rubel Telecom-এর কিছু সেবা খুলুন। প্রথমবার ব্যবহার করলে মাইক্রোফোনের অনুমতি দিন।</p>
+<div class="btnrow"><button type="button" class="btn full" id="sabbirVoiceStart">🎤 সাব্বিরের সঙ্গে কথা বলুন</button><button type="button" class="btn secondary full" id="sabbirVoiceStop" hidden>⏹️ শোনা বন্ধ করুন</button></div>
+<p class="muted" id="sabbirVoiceStatus" role="status" aria-live="polite">প্রস্তুত। বাটনে চাপ দিয়ে বাংলায় কথা বলুন।</p>
+<p class="muted">উদাহরণ: “ছবি জমা”, “AI প্রম্পট”, “দোকানে ফোন করো”, “সময় বলো”।</p>
+</div>
 <div class="card rt-tsports-feature">
 <h2>🏏 T Sports Live — লাইভ ক্রিকেট</h2>
 <p>Rubel Telecom হোমপেজ থেকেই T Sports-এর লাইভ সম্প্রচার দেখুন। অফিসিয়াল লাইভ উপলভ্য থাকলে ভিডিও চলবে; কিছু ম্যাচের জন্য সাবস্ক্রিপশন লাগতে পারে।</p>
@@ -1379,4 +1386,60 @@ if ("serviceWorker" in navigator) {
 })();
 </script>
 
+<script>
+/* Sabbir web voice shortcut; intentionally separate from existing upload and AI code. */
+(function(){
+ const start=document.getElementById('sabbirVoiceStart');
+ const stop=document.getElementById('sabbirVoiceStop');
+ const status=document.getElementById('sabbirVoiceStatus');
+ if(!start||!stop||!status)return;
+ const SpeechRecognition=window.SpeechRecognition||window.webkitSpeechRecognition;
+ let recognition=null;
+ function say(message){
+  status.textContent=message;
+  if('speechSynthesis' in window){
+   window.speechSynthesis.cancel();
+   const utterance=new SpeechSynthesisUtterance(message);
+   utterance.lang='bn-BD';
+   window.speechSynthesis.speak(utterance);
+  }
+ }
+ function runCommand(raw){
+  const text=String(raw||'').toLocaleLowerCase('bn-BD');
+  if(/ছবি|ডকুমেন্ট|তথ্য|জমা/.test(text)){
+   say('ছবি ও তথ্য জমা দেওয়ার বিভাগ খুলছি।');
+   const b=document.querySelector('[data-goto="submit"]');if(b)b.click();return;
+  }
+  if(/এআই|ai|প্রম্পট|prompt/.test(text)){
+   say('এ আই প্রম্পট বিভাগ খুলছি।');
+   const b=document.querySelector('[data-goto="ai"]');if(b)b.click();return;
+  }
+  if(/ফোন|কল|দোকানে যোগাযোগ/.test(text)){
+   say('দোকানে ফোন করার অপশন খুলছি।');
+   window.location.href='tel:01784904304';return;
+  }
+  if(/সময়|সময়|কটা বাজে|টাইম/.test(text)){
+   say('এখন সময় '+new Date().toLocaleTimeString('bn-BD',{hour:'numeric',minute:'2-digit'})+'.');return;
+  }
+  if(/হোম|হোমপেজ|শুরু/.test(text)){
+   window.scrollTo({top:0,behavior:'smooth'});say('হোমপেজে ফিরে এসেছি।');return;
+  }
+  say('আমি শুনেছি: '+raw+'। এই কমান্ডটি এখনো যোগ করা হয়নি।');
+ }
+ start.addEventListener('click',function(){
+  if(!SpeechRecognition){
+   say('আপনার ব্রাউজারে ভয়েস শনাক্তকরণ নেই। Android Chrome-এ ওয়েবসাইটটি খুলে আবার চেষ্টা করুন।');return;
+  }
+  try{
+   recognition=new SpeechRecognition();recognition.lang='bn-BD';recognition.interimResults=false;recognition.maxAlternatives=1;
+   recognition.onstart=function(){status.textContent='শুনছি… এখন বাংলায় বলুন।';start.disabled=true;stop.hidden=false;};
+   recognition.onresult=function(event){const heard=event.results&&event.results[0]&&event.results[0][0]?event.results[0][0].transcript:'';if(heard)runCommand(heard);else say('কথা বুঝতে পারিনি। আবার বলুন।');};
+   recognition.onerror=function(event){say(event.error==='not-allowed'?'মাইক্রোফোনের অনুমতি দিন, তারপর আবার চেষ্টা করুন।':'শোনা যায়নি। আবার বাটনে চাপ দিয়ে বলুন।');};
+   recognition.onend=function(){start.disabled=false;stop.hidden=true;recognition=null;};
+   recognition.start();
+  }catch(e){start.disabled=false;stop.hidden=true;say('ভয়েস চালু করা যায়নি। আবার চেষ্টা করুন।');}
+ });
+ stop.addEventListener('click',function(){if(recognition)recognition.stop();});
+})();
+</script>
 </body></html>
