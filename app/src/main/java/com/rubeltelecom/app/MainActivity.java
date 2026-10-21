@@ -53,6 +53,8 @@ public class MainActivity extends Activity {
         } else {
             showNativeHome();
         }
+        String requestedUrl = getIntent().getStringExtra("open_url");
+        if (requestedUrl != null && !requestedUrl.isEmpty()) openInApp(requestedUrl);
     }
 
     private void buildAppShell() {
@@ -204,6 +206,10 @@ public class MainActivity extends Activity {
             tile("🔐", "অ্যাডমিন প্যানেল", "মালিকের লগইন", BASE_URL + "admin.html"),
             tile("🌐", "ওয়েবসাইট খুলুন", "সম্পূর্ণ ওয়েবসাইট", BASE_URL + "#home"));
 
+        addTileRow(page,
+            tile("🎙️", "সাব্বির ভয়েস", "বাংলায় কথা বলুন", "sabbir://open"),
+            tile("🧭", "সেবা খুঁজুন", "ওয়েবসাইটের সেবা", BASE_URL + "#home"));
+
         LinearLayout footer = new LinearLayout(this);
         footer.setOrientation(LinearLayout.VERTICAL);
         footer.setGravity(Gravity.CENTER);
@@ -285,6 +291,10 @@ public class MainActivity extends Activity {
 
     private boolean routeUrl(Uri uri) {
         String scheme = uri.getScheme() == null ? "" : uri.getScheme();
+        if ("sabbir".equalsIgnoreCase(scheme)) {
+            startActivity(new Intent(this, SabbirVoiceActivity.class));
+            return true;
+        }
         if ("https".equalsIgnoreCase(scheme) && "viralsadmix-sudo.github.io".equalsIgnoreCase(uri.getHost())) {
             return false;
         }
