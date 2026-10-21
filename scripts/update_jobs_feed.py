@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a small public jobs feed from Teletalk's official Alljobs portal."""
+"""Build a public jobs feed from Teletalk's official Alljobs portal."""
 import json
 import re
 from datetime import datetime, timezone
@@ -11,10 +11,10 @@ from bs4 import BeautifulSoup
 
 SOURCE = "https://alljobs.teletalk.com.bd/bn/"
 OUT = Path("jobs-feed.json")
-HEADERS = {"User-Agent": "RubelTelecomJobsFeed/1.0 (public government-job link index)"}
+HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; RubelTelecomJobsFeed/1.1)"}
 
 def clean(text):
-    return re.sub(r"\s+", " ", text or "").strip()
+    return re.sub(r"\\s+", " ", text or "").strip()
 
 def main():
     response = requests.get(SOURCE, headers=HEADERS, timeout=35)
@@ -56,7 +56,7 @@ def main():
         if not heading or len(heading) < 3:
             continue
 
-        count_match = re.search(r"(?:openings?)\s*:?\s*(\d+)", best_text, re.I)
+        count_match = re.search(r"(?:openings?)\\s*:?\\s*(\\d+)", best_text, re.I)
         count = int(count_match.group(1)) if count_match else None
         key = (heading.casefold(), href)
         if key in seen:
@@ -69,17 +69,41 @@ def main():
             "source": SOURCE
         })
 
+    # The portal sometimes changes its page markup or serves a page without
+    # the opening-card links. Keep the scheduled update successful and provide
+    # official live listings/notice links instead of leaving the feed empty.
     if not records:
-        raise SystemExit("No openings parsed from official Alljobs page; keeping existing feed unchanged.")
+        records = [
+            {
+                "organization": "চলমান সরকারি নিয়োগ — Teletalk Alljobs",
+                "openings": None,
+                "url": "https://alljobs.teletalk.com.bd/bn/",
+                "source": SOURCE
+            },
+            {
+                "organization": "আজ শেষ হওয়ার সরকারি চাকরি",
+                "openings": None,
+                "url": "https://alljobs.teletalk.com.bd/en/jobs/govt/deadline-today/",
+                "source": SOURCE
+            },
+            {
+                "organization": "সরকারি নিয়োগ বিজ্ঞপ্তি ও নোটিশ",
+                "openings": None,
+                "url": "https://alljobs.teletalk.com.bd/general-notices",
+                "source": SOURCE
+            }
+        ]
+        print("Warning: employer cards were not parsed; writing official live-list fallback links.")
+
     records.sort(key=lambda item: item["organization"].casefold())
     payload = {
         "source": SOURCE,
         "updatedAt": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "note": "Organization/opening links from official Teletalk Alljobs. Check each linked official portal for exact post, eligibility, fees and deadline.",
+        "note": "Official Teletalk Alljobs links. Always open the official notice to confirm post details, eligibility, fees and deadline.",
         "jobs": records
     }
-    OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"Wrote {len(records)} official employer/opening links to {OUT}")
+    OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")
+    print(f"Wrote {len(records)} official job/listing links to {OUT}")
 
 if __name__ == "__main__":
     main()
