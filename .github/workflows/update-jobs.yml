@@ -24,7 +24,9 @@ jobs:
         with:
           python-version: "3.x"
       - name: Install scraper dependencies
-        run: pip install requests beautifulsoup4
+        run: pip install requests beautifulsoup4 playwright
+      - name: Install Chromium for dynamic job cards
+        run: python -m playwright install --with-deps chromium
       - name: Collect official Teletalk openings
         run: python scripts/update_jobs_feed.py
       - name: Save updated feed
