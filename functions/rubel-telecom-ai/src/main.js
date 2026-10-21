@@ -16,6 +16,8 @@ export default async ({ req, res, log, error }) => {
   if (method === "GET") {
     return res.json({
       service: "Rubel Telecom AI",
+      functionId: "6ad3b30f00177c07dd71",
+      build: "health-check-2026-10-21",
       status: "online",
       apiKeyConfigured: Boolean(process.env.GEMINI_API_KEY),
       message: process.env.GEMINI_API_KEY
