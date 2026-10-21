@@ -1,18 +1,18 @@
 {
   "source": "https://alljobs.teletalk.com.bd/bn/",
-  "updatedAt": "2026-10-21T04:01:12+00:00",
-  "note": "Official Teletalk Alljobs links. Always open the official notice to confirm post details, eligibility, fees and deadline.",
+  "updatedAt": "2026-10-21T04:03:49+00:00",
+  "note": "Official Teletalk Alljobs links. Open each official listing/notice to confirm post details, eligibility, fees and deadline.",
   "jobs": [
-    {
-      "organization": "আজ শেষ হওয়ার সরকারি চাকরি",
-      "openings": null,
-      "url": "https://alljobs.teletalk.com.bd/en/jobs/govt/deadline-today/",
-      "source": "https://alljobs.teletalk.com.bd/bn/"
-    },
     {
       "organization": "চলমান সরকারি নিয়োগ — Teletalk Alljobs",
       "openings": null,
       "url": "https://alljobs.teletalk.com.bd/bn/",
+      "source": "https://alljobs.teletalk.com.bd/bn/"
+    },
+    {
+      "organization": "আজ শেষ হওয়ার সরকারি চাকরি",
+      "openings": null,
+      "url": "https://alljobs.teletalk.com.bd/en/jobs/govt/deadline-today/",
       "source": "https://alljobs.teletalk.com.bd/bn/"
     },
     {
