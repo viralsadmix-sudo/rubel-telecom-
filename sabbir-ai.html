@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10254a">
+<title>Sabbir AI — Rubel Telecom</title>
+<style>
+:root{color-scheme:dark;--bg:#081326;--panel:#101f38;--panel2:#142947;--line:#29415f;--text:#f4f7ff;--muted:#a8b8d0;--blue:#4388ff;--cyan:#4dd6d0}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% 0,#183967 0,transparent 38%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Noto Sans Bengali",sans-serif;min-height:100vh}
+header{padding:18px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px;max-width:1050px;margin:auto}
+.logo{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--blue),var(--cyan));display:grid;place-items:center;color:#071326;font-weight:900;font-size:19px}
+h1{font-size:19px;margin:0}header p{margin:3px 0 0;color:var(--muted);font-size:12px}.pill{margin-left:auto;border:1px solid #526784;border-radius:999px;padding:6px 10px;font-size:11px;color:#ffdb92;white-space:nowrap}
+main{max-width:1050px;margin:20px auto;padding:0 14px;display:grid;grid-template-columns: minmax(0,1.5fr) minmax(260px,1fr);gap:16px}
+.panel{border:1px solid var(--line);background:rgba(16,31,56,.92);border-radius:20px;overflow:hidden;min-width:0}.panelhead{padding:15px 17px;border-bottom:1px solid var(--line);font-weight:700}.sub{color:var(--muted);font-size:12px;font-weight:400;margin-top:4px}
+.messages{height:390px;overflow:auto;padding:17px;display:flex;flex-direction:column;gap:12px}.bubble{max-width:92%;border:1px solid var(--line);background:var(--panel2);padding:12px 14px;border-radius:15px;line-height:1.55;font-size:14px}.bubble.me{align-self:flex-end;background:#193c70;border-color:#315d99}.bubble small{display:block;color:var(--muted);font-size:11px;margin-bottom:4px}
+.composer{padding:13px;border-top:1px solid var(--line)}textarea,input{width:100%;background:#09172b;border:1px solid var(--line);border-radius:12px;padding:12px;color:var(--text);font:inherit;resize:vertical}textarea:focus,input:focus{outline:2px solid #4388ff66;border-color:var(--blue)}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}.btn{border:1px solid var(--line);background:#142947;color:var(--text);padding:10px 13px;border-radius:11px;font-weight:650;cursor:pointer}.btn.primary{background:linear-gradient(110deg,#3677ee,#20aab4);border:0;color:white}.btn:disabled{opacity:.55;cursor:not-allowed}
+.tabs{display:flex;gap:7px;padding:12px}.tab{flex:1}.tab.active{border-color:var(--blue);background:#1b3a65}.photoarea{padding:15px}.drop{border:1px dashed #49658b;border-radius:15px;padding:20px 12px;text-align:center;color:var(--muted);cursor:pointer}.drop strong{display:block;color:var(--text);margin-bottom:5px}.preview{display:none;width:100%;max-height:240px;object-fit:contain;border-radius:12px;background:#07101e;margin-top:12px}.notice{margin:14px;padding:12px;border:1px solid #765d2e;background:#332a1b;color:#ffdfa1;border-radius:12px;font-size:12px;line-height:1.55}.fieldlabel{display:block;margin:14px 0 7px;font-size:13px;font-weight:650}.quick{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}.quick button{font-size:12px;padding:7px 9px}
+footer{max-width:1050px;margin:0 auto;padding:0 16px 24px;color:var(--muted);font-size:11px}
+@media(max-width:760px){main{grid-template-columns:1fr;margin-top:12px}.messages{height:330px}.pill{font-size:10px;padding:5px 7px}header{padding:13px}}
+</style>
+</head>
+<body>
+<header><div class="logo">S</div><div><h1>Sabbir AI</h1><p>Rubel Telecom · টেক্সট চ্যাট ও AI ছবি এডিট</p></div><span class="pill">সার্ভার সংযোগ বাকি</span></header>
+<main>
+<section class="panel">
+<div class="panelhead">💬 AI-এর সঙ্গে কথা বলুন<div class="sub">বাংলায় প্রশ্ন লিখুন। এই পেজের AI উত্তর দিতে নিরাপদ ব্যাকএন্ড সংযোগ লাগবে।</div></div>
+<div class="messages" id="messages" aria-live="polite"><div class="bubble"><small>Sabbir AI</small>স্বাগতম! আমি Sabbir AI। টেক্সট চ্যাট এবং ছবি এডিটের ইন্টারফেস প্রস্তুত করা হচ্ছে। AI সার্ভার সংযুক্ত না হওয়া পর্যন্ত আমি বাস্তব AI উত্তর দিতে পারব না।</div></div>
+<div class="composer"><textarea id="question" rows="2" placeholder="আপনার প্রশ্ন লিখুন…"></textarea><div class="actions"><button class="btn primary" id="send" type="button">পাঠান ↗</button><button class="btn" id="clear" type="button">চ্যাট পরিষ্কার</button></div></div>
+</section>
+<section class="panel">
+<div class="panelhead">🎨 AI ছবি এডিট<div class="sub">ছবি বাছুন, কী পরিবর্তন চান তা লিখুন।</div></div>
+<div class="tabs"><button class="btn tab active" id="tabEdit" type="button">প্রম্পট দিয়ে এডিট</button><button class="btn tab" id="tabEnhance" type="button">HD / ক্লিয়ার</button></div>
+<div class="photoarea">
+<label class="drop" for="photo"><strong>＋ ছবি নির্বাচন করুন</strong>JPG, PNG বা WEBP · সর্বোচ্চ 10 MB</label><input id="photo" type="file" accept="image/jpeg,image/png,image/webp" hidden>
+<img id="preview" class="preview" alt="আপলোডের জন্য নির্বাচিত ছবির প্রিভিউ">
+<label class="fieldlabel" for="prompt">ছবিতে কী করতে চান?</label><textarea id="prompt" rows="3" placeholder="যেমন: মুখের পরিচয় একই রেখে স্বাভাবিক DSLR লুক, আলো ও ডিটেইল উন্নত করো।"></textarea>
+<div class="quick"><button class="btn" data-prompt="মুখের পরিচয় অপরিবর্তিত রেখে ছবিকে স্বাভাবিক ও পরিষ্কার করো।">স্বাভাবিক ক্লিয়ার</button><button class="btn" data-prompt="ছবিতে প্রাকৃতিক আলো, DSLR depth of field এবং বাস্তবসম্মত রং দাও।">DSLR লুক</button><button class="btn" data-prompt="ছবির রেজোলিউশন ও সূক্ষ্ম ডিটেইল উন্নত করো, ত্বক প্লাস্টিকের মতো করো না।">HD উন্নত</button></div>
+<div class="actions"><button class="btn primary" id="edit" type="button">ছবি এডিট করুন</button></div>
+<div id="photoStatus" class="sub" role="status" style="margin-top:10px">এখনো AI ইমেজ API সংযুক্ত নয়। ছবি এই পেজে শুধু প্রিভিউ হবে; কোথাও আপলোড হবে না।</div>
+</div>
+</section>
+</main>
+<footer>গোপনীয়তা: এই প্রস্তুতিমূলক পেজ কথোপকথন বা ছবি সার্ভারে পাঠায় না। বাস্তব ব্যবহারের আগে নিরাপদ AI ব্যাকএন্ড, আলাদা কাস্টমার চ্যাট পারমিশন এবং Google Drive ব্যাকআপ সংযোগ স্থাপন করতে হবে।</footer>
+<script>
+const messages=document.getElementById('messages'),question=document.getElementById('question'),photo=document.getElementById('photo'),preview=document.getElementById('preview'),promptBox=document.getElementById('prompt'),photoStatus=document.getElementById('photoStatus');
+function bubble(text,who){const d=document.createElement('div');d.className='bubble'+(who==='me'?' me':'');const s=document.createElement('small');s.textContent=who==='me'?'আপনি':'Sabbir AI';d.append(s,document.createTextNode(text));messages.appendChild(d);messages.scrollTop=messages.scrollHeight}
+document.getElementById('send').addEventListener('click',()=>{const q=question.value.trim();if(!q)return;bubble(q,'me');bubble('AI সার্ভার এখনো সংযুক্ত নয়। Gemini বা অন্য AI API এবং নিরাপদ ব্যাকএন্ড সেটআপ হলে এখানে বাস্তব উত্তর আসবে।','ai');question.value=''});
+question.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();document.getElementById('send').click()}});
+document.getElementById('clear').addEventListener('click',()=>{messages.replaceChildren();bubble('নতুন চ্যাট শুরু হয়েছে। সার্ভার সংযুক্ত না হওয়া পর্যন্ত AI উত্তর পাওয়া যাবে না।','ai')});
+photo.addEventListener('change',()=>{const f=photo.files&&photo.files[0];if(!f)return;if(f.size>10*1024*1024){photo.value='';preview.style.display='none';photoStatus.textContent='ফাইল 10 MB-এর বেশি। ছোট ছবি বেছে নিন।';return}if(!f.type.startsWith('image/')){photo.value='';return}preview.src=URL.createObjectURL(f);preview.style.display='block';photoStatus.textContent='প্রিভিউ তৈরি হয়েছে। এখনো কোনো ফাইল আপলোড হয়নি।'});
+document.querySelectorAll('[data-prompt]').forEach(b=>b.addEventListener('click',()=>{promptBox.value=b.dataset.prompt}));
+document.getElementById('tabEnhance').addEventListener('click',()=>{document.getElementById('tabEnhance').classList.add('active');document.getElementById('tabEdit').classList.remove('active');promptBox.value='ছবির পরিচয় ও প্রাকৃতিক বৈশিষ্ট্য অক্ষুণ্ণ রেখে আলো, রং, শার্পনেস ও ডিটেইল স্বাভাবিকভাবে উন্নত করো।'});
+document.getElementById('tabEdit').addEventListener('click',()=>{document.getElementById('tabEdit').classList.add('active');document.getElementById('tabEnhance').classList.remove('active')});
+document.getElementById('edit').addEventListener('click',()=>{photoStatus.textContent=photo.files.length?'ছবি ও প্রম্পট প্রস্তুত। বাস্তব এডিটের জন্য Gemini-সমর্থিত ইমেজ মডেল/API এবং নিরাপদ সার্ভার সংযোগ লাগবে।':'আগে একটি ছবি নির্বাচন করুন।'});
+</script>
+</body>
+</html>
