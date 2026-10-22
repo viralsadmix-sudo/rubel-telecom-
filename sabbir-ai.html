@@ -21,11 +21,11 @@ footer{max-width:1050px;margin:0 auto;padding:0 16px 24px;color:var(--muted);fon
 </style>
 </head>
 <body>
-<header><div class="logo">S</div><div><h1>Sabbir AI</h1><p>Rubel Telecom · টেক্সট চ্যাট ও AI ছবি এডিট</p></div><span class="pill">সার্ভার সংযোগ বাকি</span></header>
+<header><div class="logo">S</div><div><h1>Sabbir AI</h1><p>Rubel Telecom · টেক্সট চ্যাট ও AI ছবি এডিট</p></div><span class="pill" id="serverStatus">AI সার্ভার</span></header>
 <main>
 <section class="panel">
-<div class="panelhead">💬 AI-এর সঙ্গে কথা বলুন<div class="sub">বাংলায় প্রশ্ন লিখুন। এই পেজের AI উত্তর দিতে নিরাপদ ব্যাকএন্ড সংযোগ লাগবে।</div></div>
-<div class="messages" id="messages" aria-live="polite"><div class="bubble"><small>Sabbir AI</small>স্বাগতম! আমি Sabbir AI। টেক্সট চ্যাট এবং ছবি এডিটের ইন্টারফেস প্রস্তুত করা হচ্ছে। AI সার্ভার সংযুক্ত না হওয়া পর্যন্ত আমি বাস্তব AI উত্তর দিতে পারব না।</div></div>
+<div class="panelhead">💬 AI-এর সঙ্গে কথা বলুন<div class="sub">বাংলায় প্রশ্ন লিখুন। উত্তর Appwrite-এর নিরাপদ AI ব্যাকএন্ড থেকে আসবে।</div></div>
+<div class="messages" id="messages" aria-live="polite"><div class="bubble"><small>Sabbir AI</small>স্বাগতম! আমি Sabbir AI। প্রশ্ন পাঠালে সংযুক্ত AI ব্যাকএন্ড থেকে উত্তর আনার চেষ্টা করব।</div></div>
 <div class="composer"><textarea id="question" rows="2" placeholder="আপনার প্রশ্ন লিখুন…"></textarea><div class="actions"><button class="btn primary" id="send" type="button">পাঠান ↗</button><button class="btn" id="clear" type="button">চ্যাট পরিষ্কার</button></div></div>
 </section>
 <section class="panel">
@@ -41,13 +41,16 @@ footer{max-width:1050px;margin:0 auto;padding:0 16px 24px;color:var(--muted);fon
 </div>
 </section>
 </main>
-<footer>গোপনীয়তা: এই প্রস্তুতিমূলক পেজ কথোপকথন বা ছবি সার্ভারে পাঠায় না। বাস্তব ব্যবহারের আগে নিরাপদ AI ব্যাকএন্ড, আলাদা কাস্টমার চ্যাট পারমিশন এবং Google Drive ব্যাকআপ সংযোগ স্থাপন করতে হবে।</footer>
+<footer>গোপনীয়তা: চ্যাটের প্রশ্ন AI ব্যাকএন্ডে পাঠানো হয়। এই পেজে চ্যাট স্থায়ীভাবে সংরক্ষণ করা হয় না। ছবি এডিটের জন্য আলাদা ইমেজ-এআই ব্যাকএন্ড এখনো সেটআপ করতে হবে।</footer>
 <script>
 const messages=document.getElementById('messages'),question=document.getElementById('question'),photo=document.getElementById('photo'),preview=document.getElementById('preview'),promptBox=document.getElementById('prompt'),photoStatus=document.getElementById('photoStatus');
-function bubble(text,who){const d=document.createElement('div');d.className='bubble'+(who==='me'?' me':'');const s=document.createElement('small');s.textContent=who==='me'?'আপনি':'Sabbir AI';d.append(s,document.createTextNode(text));messages.appendChild(d);messages.scrollTop=messages.scrollHeight}
-document.getElementById('send').addEventListener('click',()=>{const q=question.value.trim();if(!q)return;bubble(q,'me');bubble('AI সার্ভার এখনো সংযুক্ত নয়। Gemini বা অন্য AI API এবং নিরাপদ ব্যাকএন্ড সেটআপ হলে এখানে বাস্তব উত্তর আসবে।','ai');question.value=''});
-question.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();document.getElementById('send').click()}});
-document.getElementById('clear').addEventListener('click',()=>{messages.replaceChildren();bubble('নতুন চ্যাট শুরু হয়েছে। সার্ভার সংযুক্ত না হওয়া পর্যন্ত AI উত্তর পাওয়া যাবে না।','ai')});
+function bubble(text,who){const d=document.createElement('div');d.className='bubble'+(who==='me'?' me':'');const s=document.createElement('small');s.textContent=who==='me'?'আপনি':'Sabbir AI';d.append(s,document.createTextNode(text));messages.appendChild(d);messages.scrollTop=messages.scrollHeight;return d}
+const AI_FUNCTION_URL='https://starter-function-bs1o.nyc.appwrite.run';
+const chatHistory=[];
+const sendButton=document.getElementById('send');
+sendButton.addEventListener('click',async()=>{const q=question.value.trim();if(!q||sendButton.disabled)return;bubble(q,'me');question.value='';sendButton.disabled=true;sendButton.textContent='উত্তর আসছে…';const pending=bubble('Sabbir AI সার্ভারের সঙ্গে যোগাযোগ করছে…','ai');try{const response=await fetch(AI_FUNCTION_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:q,history:chatHistory.slice(-10)})});let data={};try{data=await response.json()}catch{}if(!response.ok)throw new Error(data.error||data.message||('সার্ভার ত্রুটি ('+response.status+')'));const answer=String(data.answer||data.reply||data.message||'AI থেকে খালি উত্তর এসেছে।');pending.replaceChildren();const label=document.createElement('small');label.textContent='Sabbir AI';pending.append(label,document.createTextNode(answer));chatHistory.push({role:'user',content:q},{role:'assistant',content:answer});}catch(err){pending.replaceChildren();const label=document.createElement('small');label.textContent='সংযোগ সমস্যা';pending.append(label,document.createTextNode('AI সার্ভারে সংযোগ করা যায়নি। Appwrite Function-এ নতুন ব্যাকএন্ড কোড ডিপ্লয় এবং OPENROUTER_API_KEY অথবা GEMINI_API_KEY সিক্রেট সেট করা আছে কি না পরীক্ষা করুন। বিস্তারিত: '+(err&&err.message?err.message:'নেটওয়ার্ক সমস্যা')));}finally{sendButton.disabled=false;sendButton.textContent='পাঠান ↗'}});
+question.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendButton.click()}});
+document.getElementById('clear').addEventListener('click',()=>{chatHistory.length=0;messages.replaceChildren();bubble('নতুন চ্যাট শুরু হয়েছে।','ai')});
 photo.addEventListener('change',()=>{const f=photo.files&&photo.files[0];if(!f)return;if(f.size>10*1024*1024){photo.value='';preview.style.display='none';photoStatus.textContent='ফাইল 10 MB-এর বেশি। ছোট ছবি বেছে নিন।';return}if(!f.type.startsWith('image/')){photo.value='';return}preview.src=URL.createObjectURL(f);preview.style.display='block';photoStatus.textContent='প্রিভিউ তৈরি হয়েছে। এখনো কোনো ফাইল আপলোড হয়নি।'});
 document.querySelectorAll('[data-prompt]').forEach(b=>b.addEventListener('click',()=>{promptBox.value=b.dataset.prompt}));
 document.getElementById('tabEnhance').addEventListener('click',()=>{document.getElementById('tabEnhance').classList.add('active');document.getElementById('tabEdit').classList.remove('active');promptBox.value='ছবির পরিচয় ও প্রাকৃতিক বৈশিষ্ট্য অক্ষুণ্ণ রেখে আলো, রং, শার্পনেস ও ডিটেইল স্বাভাবিকভাবে উন্নত করো।'});
