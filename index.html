@@ -861,6 +861,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 <button data-tab="submit">📤 <span>কাস্টমারের ছবি ও ডকুমেন্ট জমা</span></button>
 <button data-tab="enhance">✨ <span>Remini / ছবি ক্লিয়ার</span></button>
 <a href="./tsports.html" class="menu-link">🏏 <span>T Sports — লাইভ ক্রিকেট</span></a>
+<button data-tab="rumi">🎙️ <span>Rumi AI 2.0</span></button>
 <button data-tab="ai">🤖 <span>AI দিয়ে ছবি এডিট</span></button>
 <button data-tab="movies">🎬 <span>মুভি ও ওয়েব সিরিজ লিংক</span></button>
 <a href="#app-download" class="menu-link">📱 <span>Android অ্যাপ ডাউনলোড</span></a>
@@ -1027,6 +1028,20 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 <p id="enhanceMessage" class="muted" aria-live="polite">ছবি নির্বাচন করলে এডিট করার অপশন আসবে।</p>
 </div><canvas id="enhanceCanvas" hidden></canvas>
 </div></section>
+
+<section id="rumi" class="panel">
+ <div class="card" id="rumiAssistantPanel">
+  <h2>🎙️ RUMI AI 2.0</h2>
+  <p>আপনার ব্যক্তিগত বাংলা ভয়েস অ্যাসিস্ট্যান্ট। লিখে বা মাইক্রোফোনে প্রশ্ন করুন।</p>
+  <div class="field"><label for="rumiApiKey">Gemini API Key</label><input id="rumiApiKey" type="password" autocomplete="off" placeholder="Gemini API Key এখানে পেস্ট করুন"><div class="btnrow"><button class="btn" id="rumiSaveKey" type="button">🔐 Key সেভ করুন</button><a class="btn secondary" href="https://aistudio.google.com/apikey" target="_blank" rel="noopener noreferrer">API Key নিন ↗</a></div><p class="muted" id="rumiKeyStatus">Key শুধু এই ব্রাউজারের local storage-এ সেভ হবে।</p></div>
+  <div class="field"><label>রুমির উত্তর</label><div id="rumiReply" class="prompt" style="min-height:64px">আসসালামু আলাইকুম! আমি রুমি। বলুন, কীভাবে সাহায্য করতে পারি?</div></div>
+  <div class="field"><label for="rumiQuestion">আপনার প্রশ্ন</label><textarea id="rumiQuestion" placeholder="বাংলায় আপনার প্রশ্ন লিখুন..." rows="3"></textarea></div>
+  <div class="btnrow"><button class="btn" id="rumiAsk" type="button">✨ রুমিকে জিজ্ঞেস করুন</button><button class="btn secondary" id="rumiMic" type="button">🎤 কথা বলুন</button><button class="btn secondary" id="rumiSpeakReply" type="button">🔊 উত্তর শুনুন</button></div>
+  <div class="field"><label for="rumiVoiceChoice">ভয়েস</label><select id="rumiVoiceChoice"><option value="auto">বাংলা কণ্ঠ স্বয়ংক্রিয়ভাবে নির্বাচন</option></select><p class="muted">মেয়ে কণ্ঠের প্রাপ্যতা ফোনের Text-to-Speech ভয়েসের ওপর নির্ভর করে। প্রয়োজনে ফোনের Text-to-Speech সেটিংস থেকে বাংলা কণ্ঠ ইনস্টল করুন।</p><button class="btn secondary" id="rumiVoiceSettings" type="button">👩 কণ্ঠের সেটিংস খুলুন</button></div>
+  <p class="muted" id="rumiStatus" role="status">প্রস্তুত</p>
+ </div>
+</section>
+
 <section id="ai" class="panel">
 <div class="card"><h2>✨ AI ছবি এডিটিং প্রম্পট</h2><p>পছন্দের প্রম্পট কপি করুন, তারপর AI সাইট খুলে প্রম্পট পেস্ট করে নিজের ছবি আপলোড করুন।</p><div class="btnrow"><a class="btn" href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT খুলুন ↗</a><a class="btn secondary" href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini খুলুন ↗</a></div><div id="publicPrompts"></div><p class="muted">অ্যাডমিন প্যানেল থেকে অনলাইনে যোগ করা প্রম্পট এখানে দেখা যাবে।</p></div>
 </section>
@@ -1038,7 +1053,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 <section id="contact" class="panel">
 <div class="card contact"><h2>📍 দোকানের ঠিকানা ও যোগাযোগ</h2><p><strong>Rubel Telecom</strong></p><p>নন্দিনা খন্দকার বাজার, গাইবান্ধা সদর, গাইবান্ধা</p><p>ফোন: <strong>01784904304</strong></p><div class="btnrow"><a class="btn" href="tel:01784904304">📞 ফোন করুন</a><a class="btn secondary" href="https://wa.me/8801784904304" target="_blank" rel="noopener">💬 WhatsApp</a></div></div>
 </section>
-</main><div class="mobile-dock" aria-label="দ্রুত মেনু"><button data-tab="home" class="active"><span>⌂</span><small>হোম</small></button><button data-tab="submit"><span>▧</span><small>ছবি জমা</small></button><button data-tab="enhance"><span>✦</span><small>Remini</small></button><button data-tab="ai"><span>✧</span><small>AI প্রম্পট</small></button><a href="./about.html"><span>ⓘ</span><small>পরিচয়</small></a></div><footer>© Rubel Telecom — সর্বস্বত্ব সংরক্ষিত · <a href="./about.html">আমাদের পরিচয়</a> · <a href="./contact.html">যোগাযোগ</a> · <a href="./privacy-policy.html">গোপনীয়তা নীতি</a> · <a href="./admin.html">অ্যাডমিন</a></footer>
+</main><div class="mobile-dock" aria-label="দ্রুত মেনু"><button data-tab="home" class="active"><span>⌂</span><small>হোম</small></button><button data-tab="submit"><span>▧</span><small>ছবি জমা</small></button><button data-tab="enhance"><span>✦</span><small>Remini</small></button><button data-tab="rumi"><span>🎙</span><small>Rumi AI</small></button><button data-tab="ai"><span>✧</span><small>AI প্রম্পট</small></button><a href="./about.html"><span>ⓘ</span><small>পরিচয়</small></a></div><footer>© Rubel Telecom — সর্বস্বত্ব সংরক্ষিত · <a href="./about.html">আমাদের পরিচয়</a> · <a href="./contact.html">যোগাযোগ</a> · <a href="./privacy-policy.html">গোপনীয়তা নীতি</a> · <a href="./admin.html">অ্যাডমিন</a></footer>
 <script src="https://cdn.jsdelivr.net/npm/appwrite@28.3.0"></script>
 <script>
 const {Client,Storage,TablesDB,ID,Query,Account}=window.Appwrite;
@@ -1377,6 +1392,68 @@ if ("serviceWorker" in navigator) {
    status.textContent='স্বয়ংক্রিয় তালিকা এখন লোড হচ্ছে না। অফিসিয়াল তালিকা সরাসরি খুলুন।';
    list.innerHTML='<a class="btn" href="https://alljobs.teletalk.com.bd/bn/" target="_blank" rel="noopener noreferrer">Teletalk Alljobs খুলুন ↗</a>';
   });
+})();
+</script>
+
+
+<script>
+/* Rumi AI 2.0: added as a separate Rubel Telecom tab; existing customer upload code is untouched. */
+(function(){
+ const $=id=>document.getElementById(id);
+ const keyField=$('rumiApiKey'), keyStatus=$('rumiKeyStatus'), question=$('rumiQuestion'), reply=$('rumiReply'), status=$('rumiStatus');
+ if(!keyField||!question||!reply)return;
+ const stored=localStorage.getItem('rubelRumiGeminiKey');
+ if(stored){keyField.value=stored;keyStatus.textContent='Gemini Key এই ডিভাইসে সেভ করা আছে।';}
+ function loadVoices(){
+  const select=$('rumiVoiceChoice'); if(!select)return;
+  const old=select.value; select.replaceChildren(new Option('বাংলা কণ্ঠ স্বয়ংক্রিয়ভাবে নির্বাচন','auto'));
+  if(!('speechSynthesis' in window))return;
+  const voices=speechSynthesis.getVoices();
+  voices.filter(v=>/^bn([_-]|$)/i.test(v.lang)).forEach(v=>{
+   const o=new Option(v.name+' ('+v.lang+')',v.name);select.add(o);
+  });
+  if([...select.options].some(o=>o.value===old))select.value=old;
+ }
+ loadVoices(); if('speechSynthesis' in window)speechSynthesis.onvoiceschanged=loadVoices;
+ $('rumiSaveKey').addEventListener('click',()=>{
+  const key=keyField.value.trim();
+  if(!key){keyStatus.textContent='আগে Gemini API Key লিখুন।';return;}
+  localStorage.setItem('rubelRumiGeminiKey',key);keyStatus.textContent='Key এই ডিভাইসে সেভ হয়েছে।';status.textContent='API Key সেভ হয়েছে।';
+ });
+ function speak(text){
+  if(!('speechSynthesis' in window)){status.textContent='এই ব্রাউজারে কণ্ঠে উত্তর দেওয়া সমর্থিত নয়।';return;}
+  speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='bn-BD';u.pitch=1.25;u.rate=.94;
+  const voices=speechSynthesis.getVoices(), selected=$('rumiVoiceChoice').value;
+  if(selected!=='auto'){const v=voices.find(x=>x.name===selected);if(v)u.voice=v;}
+  else {const bn=voices.filter(v=>/^bn([_-]|$)/i.test(v.lang));const preferred=bn.find(v=>/female|woman|girl|sfg|female/i.test(v.name))||bn[0];if(preferred)u.voice=preferred;}
+  speechSynthesis.speak(u);
+ }
+ $('rumiSpeakReply').addEventListener('click',()=>speak(reply.textContent||'আমি রুমি।'));
+ $('rumiVoiceSettings').addEventListener('click',()=>{
+  status.textContent='ফোনের Settings → Text-to-speech output-এ গিয়ে বাংলা কণ্ঠ নির্বাচন করুন।';
+  try{if(window.Android&&typeof window.Android.openTtsSettings==='function')window.Android.openTtsSettings();else if(window.AndroidTTS&&typeof window.AndroidTTS.openSettings==='function')window.AndroidTTS.openSettings();else status.textContent='ফোনের Settings খুলুন → Accessibility বা Language & input → Text-to-speech output।';}catch(e){}
+ });
+ $('rumiAsk').addEventListener('click',askRumi);
+ async function askRumi(){
+  const q=question.value.trim();if(!q){status.textContent='আগে প্রশ্ন লিখুন বা মাইক্রোফোন ব্যবহার করুন।';return;}
+  const key=localStorage.getItem('rubelRumiGeminiKey');if(!key){status.textContent='আগে Gemini API Key সেভ করুন।';keyField.focus();return;}
+  status.textContent='রুমি উত্তর তৈরি করছে…';$('rumiAsk').disabled=true;
+  try{
+   const response=await fetch('https://generativelanguage.googleapis.com/v1beta/interactions',{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':key},body:JSON.stringify({model:'gemini-3.8-flash',input:q,system_instruction:'তুমি রুমি AI 2.0, একজন সহায়ক বাংলা ভয়েস অ্যাসিস্ট্যান্ট। ব্যবহারকারী বাংলায় কথা বললে পরিষ্কার, স্বাভাবিক বাংলায় উত্তর দেবে। সংক্ষিপ্ত ও সহায়ক উত্তর দেবে।'})});
+   const data=await response.json();if(!response.ok)throw new Error(data.error?.message||data.message||'Gemini API-তে সমস্যা হয়েছে');
+   const answer=data.output_text||((data.steps||[]).filter(s=>s.type==='model_output').flatMap(s=>s.content||[]).map(x=>x.text||'').join('\n'))||'উত্তর পাওয়া যায়নি।';
+   reply.textContent=answer;status.textContent='উত্তর প্রস্তুত।';speak(answer);
+  }catch(e){reply.textContent='সমস্যা: '+e.message;status.textContent='AI সংযোগে সমস্যা হয়েছে। Gemini API Key ও ইন্টারনেট পরীক্ষা করুন।';}
+  finally{$('rumiAsk').disabled=false;}
+ }
+ $('rumiMic').addEventListener('click',()=>{
+  const Recognition=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!Recognition){status.textContent='এই ব্রাউজারে voice input নেই। প্রশ্ন লিখে দিন।';return;}
+  const rec=new Recognition();rec.lang='bn-BD';rec.interimResults=false;rec.maxAlternatives=1;
+  rec.onstart=()=>status.textContent='রুমি শুনছে…';rec.onerror=e=>status.textContent='মাইক্রোফোন সমস্যা: '+e.error;
+  rec.onresult=e=>{question.value=e.results[0][0].transcript;askRumi();};rec.onend=()=>{if(status.textContent==='রুমি শুনছে…')status.textContent='প্রস্তুত';};
+  try{rec.start();}catch(e){status.textContent='মাইক্রোফোন চালু করা যায়নি।';}
+ });
 })();
 </script>
 
