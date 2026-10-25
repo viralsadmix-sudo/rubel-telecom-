@@ -1,6 +1,6 @@
 {
   "source": "https://alljobs.teletalk.com.bd/bn/",
-  "updatedAt": "2026-10-25T00:49:24+00:00",
+  "updatedAt": "2026-10-25T06:48:57+00:00",
   "note": "Active government jobs from the official Teletalk Alljobs API. Open the official listing to verify details, eligibility, fees and deadline.",
   "jobs": [
     {
@@ -20,24 +20,6 @@
       "url": "https://tax13.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "14925"
-    },
-    {
-      "organization": "কর কমিশনারের কার্যালয় কর অঞ্চল-৩, ঢাকা",
-      "title": "অফিস সহায়ক",
-      "openings": "10",
-      "deadline": "2026-11-01T11:00:00.000Z",
-      "url": "https://tax3.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "14920"
-    },
-    {
-      "organization": "কর কমিশনারের কার্যালয় কর অঞ্চল-৩, ঢাকা",
-      "title": "অফিস সহকারী কাম-কম্পিউটার মুদ্রাক্ষরিক",
-      "openings": "09",
-      "deadline": "2026-11-01T11:00:00.000Z",
-      "url": "https://tax3.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "14919"
     },
     {
       "organization": "কর অঞ্চল ২১ ঢাকা",
@@ -67,15 +49,6 @@
       "jobId": "14978"
     },
     {
-      "organization": "Sherpur District (DCSHERPUR)",
-      "title": "কম্পিউটার অপারেটর",
-      "openings": "01",
-      "deadline": "2026-11-04T11:00:00.000Z",
-      "url": "https://alljobs.teletalk.com.bd/jobs/government/14977",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "14977"
-    },
-    {
       "organization": "উৎসে কর ব্যবস্থাপনা ইউনিট",
       "title": "অফিস সহায়ক",
       "openings": "03",
@@ -92,15 +65,6 @@
       "url": "https://wtmu.teletalk.com.bd/wtmu_2026/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "14975"
-    },
-    {
-      "organization": "উৎসে কর ব্যবস্থাপনা ইউনিট",
-      "title": "কম্পিউটার অপারেটর",
-      "openings": "01",
-      "deadline": "2026-11-04T11:00:00.000Z",
-      "url": "https://wtmu.teletalk.com.bd/wtmu_2026/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "14973"
     },
     {
       "organization": "TAXESZONE CUMILLA (TZC)",
@@ -137,15 +101,6 @@
       "url": "https://tz3ctg.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "14963"
-    },
-    {
-      "organization": "Bangladesh Chemical Industries Corporation (BCIC)",
-      "title": "উপ-সহকারী প্রকৌশলী (যান্ত্রিক)",
-      "openings": "03",
-      "deadline": "2026-11-12T11:00:00.000Z",
-      "url": "https://alljobs.teletalk.com.bd/jobs/government/14954",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "14954"
     },
     {
       "organization": "Bangladesh Chemical Industries Corporation (BCIC)",
@@ -220,13 +175,85 @@
       "jobId": "15024"
     },
     {
-      "organization": "Housing & Building Research Institute(HBRI)",
-      "title": "উপ-সহকারী প্রকৌশলী",
+      "organization": "Taxes Zone-9, Dhaka (TAX9)",
+      "title": "নিরাপত্তা প্রহরী",
       "openings": "01",
-      "deadline": "2026-11-15T11:00:00.000Z",
-      "url": "https://alljobs.teletalk.com.bd/jobs/government/14966",
+      "deadline": "2026-11-14T11:00:00.000Z",
+      "url": "https://tax9.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "14966"
+      "jobId": "15043"
+    },
+    {
+      "organization": "Taxes Zone-9, Dhaka (TAX9)",
+      "title": "অফিস সহায়ক",
+      "openings": "05",
+      "deadline": "2026-11-14T11:00:00.000Z",
+      "url": "https://tax9.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15042"
+    },
+    {
+      "organization": "Taxes Zone-9, Dhaka (TAX9)",
+      "title": "নোটিশ সার্ভার",
+      "openings": "02",
+      "deadline": "2026-11-14T11:00:00.000Z",
+      "url": "https://tax9.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15041"
+    },
+    {
+      "organization": "Taxes Zone-9, Dhaka (TAX9)",
+      "title": "মেশিন অপারেটর",
+      "openings": "01",
+      "deadline": "2026-11-14T11:00:00.000Z",
+      "url": "https://tax9.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15040"
+    },
+    {
+      "organization": "Taxes Zone-9, Dhaka (TAX9)",
+      "title": "গাড়ি চালক",
+      "openings": "01",
+      "deadline": "2026-11-14T11:00:00.000Z",
+      "url": "https://tax9.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15039"
+    },
+    {
+      "organization": "Taxes Zone-9, Dhaka (TAX9)",
+      "title": "অফিস সহকারী-কাম-কম্পিউটার মুদ্রাক্ষরিক",
+      "openings": "09",
+      "deadline": "2026-11-14T11:00:00.000Z",
+      "url": "https://tax9.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15038"
+    },
+    {
+      "organization": "Taxes Zone-9, Dhaka (TAX9)",
+      "title": "সাঁটমুদ্রাক্ষরিক-কাম-কম্পিউটার অপারেটর",
+      "openings": "11",
+      "deadline": "2026-11-14T11:00:00.000Z",
+      "url": "https://tax9.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15037"
+    },
+    {
+      "organization": "Taxes Zone-9, Dhaka (TAX9)",
+      "title": "উচ্চমান সহকারী",
+      "openings": "04",
+      "deadline": "2026-11-14T11:00:00.000Z",
+      "url": "https://tax9.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15036"
+    },
+    {
+      "organization": "Taxes Zone-9, Dhaka (TAX9)",
+      "title": "সাঁট লিপিকার-কাম-কম্পিউটার অপারেটর",
+      "openings": "04",
+      "deadline": "2026-11-14T11:00:00.000Z",
+      "url": "https://tax9.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15035"
     },
     {
       "organization": "Housing & Building Research Institute(HBRI)",
@@ -257,15 +284,6 @@
     },
     {
       "organization": "Bangladesh Oil, Gas & Mineral Corporation (Petrobangla) BOGMC",
-      "title": "ট্রেইনী ড্রিলার",
-      "openings": "04",
-      "deadline": "2026-11-17T11:00:00.000Z",
-      "url": "https://alljobs.teletalk.com.bd/jobs/government/15022",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15022"
-    },
-    {
-      "organization": "Bangladesh Oil, Gas & Mineral Corporation (Petrobangla) BOGMC",
       "title": "উপ-সহকারী প্রকৌশলী (টেলিকম)",
       "openings": "01",
       "deadline": "2026-11-17T11:00:00.000Z",
@@ -284,15 +302,6 @@
     },
     {
       "organization": "Bangladesh Oil, Gas & Mineral Corporation (Petrobangla) BOGMC",
-      "title": "সহকারী কারিগরি কর্মকর্তা (কেমিক্যাল)",
-      "openings": "05",
-      "deadline": "2026-11-17T11:00:00.000Z",
-      "url": "https://alljobs.teletalk.com.bd/jobs/government/15019",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15019"
-    },
-    {
-      "organization": "Bangladesh Oil, Gas & Mineral Corporation (Petrobangla) BOGMC",
       "title": "উপ-সহকারী প্রকৌশলী (অটোমোবাইল)",
       "openings": "09",
       "deadline": "2026-11-17T11:00:00.000Z",
@@ -308,6 +317,15 @@
       "url": "https://alljobs.teletalk.com.bd/jobs/government/15017",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15017"
+    },
+    {
+      "organization": "Bangladesh Oil, Gas & Mineral Corporation (Petrobangla) BOGMC",
+      "title": "সহকারী কারিগরি কর্মকর্তা (কেমিক্যাল)",
+      "openings": "05",
+      "deadline": "2026-11-17T11:00:00.000Z",
+      "url": "https://alljobs.teletalk.com.bd/jobs/government/15019",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15019"
     },
     {
       "organization": "Bangladesh Oil, Gas & Mineral Corporation (Petrobangla) BOGMC",
@@ -338,33 +356,6 @@
     },
     {
       "organization": "Bangladesh Oil, Gas & Mineral Corporation (Petrobangla) BOGMC",
-      "title": "উপ-সহকারী প্রকৌশলী/সহকারী কারিগরি কর্মকর্তা(শুধুমাত্র বিজিএফসিএল এর জন্য) (মেকানিক্যাল)",
-      "openings": "56",
-      "deadline": "2026-11-17T11:00:00.000Z",
-      "url": "https://alljobs.teletalk.com.bd/jobs/government/15013",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15013"
-    },
-    {
-      "organization": "Bangladesh Oil, Gas & Mineral Corporation (Petrobangla) BOGMC",
-      "title": "সহকারী ব্যবস্থাপক(অটোমোবাইল)",
-      "openings": "01",
-      "deadline": "2026-11-17T11:00:00.000Z",
-      "url": "https://alljobs.teletalk.com.bd/jobs/government/15000",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15000"
-    },
-    {
-      "organization": "Bangladesh Oil, Gas & Mineral Corporation (Petrobangla) BOGMC",
-      "title": "সহকারী ব্যবস্থাপক(মেটালার্জি/এমএমই)",
-      "openings": "07",
-      "deadline": "2026-11-17T11:00:00.000Z",
-      "url": "https://alljobs.teletalk.com.bd/jobs/government/14998",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "14998"
-    },
-    {
-      "organization": "Bangladesh Oil, Gas & Mineral Corporation (Petrobangla) BOGMC",
       "title": "সহকারী কর্মকর্তা(অর্থ)",
       "openings": "53",
       "deadline": "2026-11-17T11:00:00.000Z",
@@ -383,48 +374,12 @@
     },
     {
       "organization": "Bangladesh Oil, Gas & Mineral Corporation (Petrobangla) BOGMC",
-      "title": "সহকারী কর্মকর্তা(আইন)",
-      "openings": "04",
-      "deadline": "2026-11-17T11:00:00.000Z",
-      "url": "https://alljobs.teletalk.com.bd/jobs/government/15010",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15010"
-    },
-    {
-      "organization": "Bangladesh Oil, Gas & Mineral Corporation (Petrobangla) BOGMC",
-      "title": "সহকারী কর্মকর্তা(প্রশাসন)",
-      "openings": "73",
-      "deadline": "2026-11-17T11:00:00.000Z",
-      "url": "https://alljobs.teletalk.com.bd/jobs/government/15009",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15009"
-    },
-    {
-      "organization": "Bangladesh Oil, Gas & Mineral Corporation (Petrobangla) BOGMC",
-      "title": "সহকারী ব্যবস্থাপক(এনভায়রনমেন্ট)",
+      "title": "সহকারী ব্যবস্থাপক(অটোমোবাইল)",
       "openings": "01",
       "deadline": "2026-11-17T11:00:00.000Z",
-      "url": "https://alljobs.teletalk.com.bd/jobs/government/15005",
+      "url": "https://alljobs.teletalk.com.bd/jobs/government/15000",
       "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15005"
-    },
-    {
-      "organization": "Bangladesh Oil, Gas & Mineral Corporation (Petrobangla) BOGMC",
-      "title": "সহকারী ব্যবস্থাপক(কারিগরি)",
-      "openings": "11",
-      "deadline": "2026-11-17T11:00:00.000Z",
-      "url": "https://alljobs.teletalk.com.bd/jobs/government/15008",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15008"
-    },
-    {
-      "organization": "Bangladesh Oil, Gas & Mineral Corporation (Petrobangla) BOGMC",
-      "title": "সহকারী ব্যবস্থাপক(চিকিৎসা)",
-      "openings": "15",
-      "deadline": "2026-11-17T11:00:00.000Z",
-      "url": "https://alljobs.teletalk.com.bd/jobs/government/15006",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15006"
+      "jobId": "15000"
     },
     {
       "organization": "Bangladesh Oil, Gas & Mineral Corporation (Petrobangla) BOGMC",
@@ -437,12 +392,48 @@
     },
     {
       "organization": "Bangladesh Oil, Gas & Mineral Corporation (Petrobangla) BOGMC",
+      "title": "উপ-সহকারী প্রকৌশলী/সহকারী কারিগরি কর্মকর্তা(শুধুমাত্র বিজিএফসিএল এর জন্য) (মেকানিক্যাল)",
+      "openings": "56",
+      "deadline": "2026-11-17T11:00:00.000Z",
+      "url": "https://alljobs.teletalk.com.bd/jobs/government/15013",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15013"
+    },
+    {
+      "organization": "Bangladesh Oil, Gas & Mineral Corporation (Petrobangla) BOGMC",
+      "title": "সহকারী কর্মকর্তা(প্রশাসন)",
+      "openings": "73",
+      "deadline": "2026-11-17T11:00:00.000Z",
+      "url": "https://alljobs.teletalk.com.bd/jobs/government/15009",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15009"
+    },
+    {
+      "organization": "Bangladesh Oil, Gas & Mineral Corporation (Petrobangla) BOGMC",
       "title": "সহকারী ব্যবস্থাপক(প্রশাসন)",
       "openings": "97",
       "deadline": "2026-11-17T11:00:00.000Z",
       "url": "https://alljobs.teletalk.com.bd/jobs/government/14988",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "14988"
+    },
+    {
+      "organization": "Bangladesh Oil, Gas & Mineral Corporation (Petrobangla) BOGMC",
+      "title": "সহকারী কর্মকর্তা(আইন)",
+      "openings": "04",
+      "deadline": "2026-11-17T11:00:00.000Z",
+      "url": "https://alljobs.teletalk.com.bd/jobs/government/15010",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15010"
+    },
+    {
+      "organization": "Bangladesh Oil, Gas & Mineral Corporation (Petrobangla) BOGMC",
+      "title": "সহকারী ব্যবস্থাপক(কারিগরি)",
+      "openings": "11",
+      "deadline": "2026-11-17T11:00:00.000Z",
+      "url": "https://alljobs.teletalk.com.bd/jobs/government/15008",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15008"
     },
     {
       "organization": "Bangladesh Oil, Gas & Mineral Corporation (Petrobangla) BOGMC",
@@ -455,12 +446,12 @@
     },
     {
       "organization": "Bangladesh Oil, Gas & Mineral Corporation (Petrobangla) BOGMC",
-      "title": "সহকারী ব্যবস্থাপক(কেমিস্ট্রি)",
-      "openings": "01",
+      "title": "সহকারী ব্যবস্থাপক(চিকিৎসা)",
+      "openings": "15",
       "deadline": "2026-11-17T11:00:00.000Z",
-      "url": "https://alljobs.teletalk.com.bd/jobs/government/15004",
+      "url": "https://alljobs.teletalk.com.bd/jobs/government/15006",
       "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15004"
+      "jobId": "15006"
     },
     {
       "organization": "পুলিশ সুপারের কার্যালয়, দিনাজপুর",
