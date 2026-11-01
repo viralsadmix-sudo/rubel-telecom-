@@ -1,44 +1,8 @@
 {
   "source": "https://alljobs.teletalk.com.bd/bn/",
-  "updatedAt": "2026-11-01T01:15:19+00:00",
+  "updatedAt": "2026-11-01T07:04:49+00:00",
   "note": "Active government jobs from the official Teletalk Alljobs API. Open the official listing to verify details, eligibility, fees and deadline.",
   "jobs": [
-    {
-      "organization": "Sherpur District (DCSHERPUR)",
-      "title": "অফিস সহকারী কাম-কম্পিউটার মুদ্রাক্ষরিক",
-      "openings": "09",
-      "deadline": "2026-11-04T11:00:00.000Z",
-      "url": "https://alljobs.teletalk.com.bd/jobs/government/14978",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "14978"
-    },
-    {
-      "organization": "উৎসে কর ব্যবস্থাপনা ইউনিট",
-      "title": "অফিস সহায়ক",
-      "openings": "03",
-      "deadline": "2026-11-04T11:00:00.000Z",
-      "url": "https://wtmu.teletalk.com.bd/wtmu_2026/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "14976"
-    },
-    {
-      "organization": "উৎসে কর ব্যবস্থাপনা ইউনিট",
-      "title": "অফিস সহকারী কাম-কম্পিউটার মুদ্রাক্ষরিক",
-      "openings": "05",
-      "deadline": "2026-11-04T11:00:00.000Z",
-      "url": "https://wtmu.teletalk.com.bd/wtmu_2026/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "14975"
-    },
-    {
-      "organization": "কর অঞ্চল-৩ চট্টগ্রাম",
-      "title": "(অফিস সহায়ক)",
-      "openings": "07",
-      "deadline": "2026-11-05T11:00:00.000Z",
-      "url": "https://tz3ctg.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "14965"
-    },
     {
       "organization": "কর কমিশনারের কার্যালয় কর অঞ্চল-৬, ঢাকা",
       "title": "অফিস সহায়ক",
@@ -76,22 +40,13 @@
       "jobId": "15027"
     },
     {
-      "organization": "কর কমিশনারের কার্যালয় কর অঞ্চল-৬, ঢাকা",
-      "title": "সাঁটলিপিকার কাম-কম্পিউটার অপারেটর",
+      "organization": "Taxes Zone-9, Dhaka (TAX9)",
+      "title": "নোটিশ সার্ভার",
       "openings": "02",
-      "deadline": "2026-11-14T10:00:00.000Z",
-      "url": "https://tax6.teletalk.com.bd/",
+      "deadline": "2026-11-14T11:00:00.000Z",
+      "url": "https://tax9.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15026"
-    },
-    {
-      "organization": "কর কমিশনারের কার্যালয় কর অঞ্চল-৬, ঢাকা",
-      "title": "প্রধান সহকারী",
-      "openings": "08",
-      "deadline": "2026-11-14T10:00:00.000Z",
-      "url": "https://tax6.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15025"
+      "jobId": "15041"
     },
     {
       "organization": "Taxes Zone-9, Dhaka (TAX9)",
@@ -104,24 +59,6 @@
     },
     {
       "organization": "Taxes Zone-9, Dhaka (TAX9)",
-      "title": "অফিস সহকারী-কাম-কম্পিউটার মুদ্রাক্ষরিক",
-      "openings": "09",
-      "deadline": "2026-11-14T11:00:00.000Z",
-      "url": "https://tax9.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15038"
-    },
-    {
-      "organization": "Taxes Zone-9, Dhaka (TAX9)",
-      "title": "নোটিশ সার্ভার",
-      "openings": "02",
-      "deadline": "2026-11-14T11:00:00.000Z",
-      "url": "https://tax9.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15041"
-    },
-    {
-      "organization": "Taxes Zone-9, Dhaka (TAX9)",
       "title": "অফিস সহায়ক",
       "openings": "05",
       "deadline": "2026-11-14T11:00:00.000Z",
@@ -131,21 +68,21 @@
     },
     {
       "organization": "Taxes Zone-9, Dhaka (TAX9)",
+      "title": "অফিস সহকারী-কাম-কম্পিউটার মুদ্রাক্ষরিক",
+      "openings": "09",
+      "deadline": "2026-11-14T11:00:00.000Z",
+      "url": "https://tax9.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15038"
+    },
+    {
+      "organization": "Taxes Zone-9, Dhaka (TAX9)",
       "title": "উচ্চমান সহকারী",
       "openings": "04",
       "deadline": "2026-11-14T11:00:00.000Z",
       "url": "https://tax9.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15036"
-    },
-    {
-      "organization": "Housing & Building Research Institute(HBRI)",
-      "title": "অফিস সহায়ক",
-      "openings": "07",
-      "deadline": "2026-11-15T11:00:00.000Z",
-      "url": "https://alljobs.teletalk.com.bd/jobs/government/14970",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "14970"
     },
     {
       "organization": "DC Office Patuakhali (DCPATUAKHALI)",
@@ -211,42 +148,6 @@
       "jobId": "15054"
     },
     {
-      "organization": "Bangladesh Oil, Gas & Mineral Corporation (Petrobangla) BOGMC",
-      "title": "সহকারী কর্মকর্তা (কারিগরি)/উপ-সহকারী কারিগরি কর্মকর্তা",
-      "openings": "11",
-      "deadline": "2026-11-17T11:00:00.000Z",
-      "url": "https://alljobs.teletalk.com.bd/jobs/government/15023",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15023"
-    },
-    {
-      "organization": "Bangladesh Oil, Gas & Mineral Corporation (Petrobangla) BOGMC",
-      "title": "উপ-সহকারী প্রকৌশলী (টেলিকম)",
-      "openings": "01",
-      "deadline": "2026-11-17T11:00:00.000Z",
-      "url": "https://alljobs.teletalk.com.bd/jobs/government/15021",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15021"
-    },
-    {
-      "organization": "Bangladesh Oil, Gas & Mineral Corporation (Petrobangla) BOGMC",
-      "title": "উপ-সহকারী প্রকৌশলী (পাওয়ার)",
-      "openings": "05",
-      "deadline": "2026-11-17T11:00:00.000Z",
-      "url": "https://alljobs.teletalk.com.bd/jobs/government/15020",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15020"
-    },
-    {
-      "organization": "Bangladesh Oil, Gas & Mineral Corporation (Petrobangla) BOGMC",
-      "title": "সহকারী কারিগরি কর্মকর্তা (কেমিক্যাল)",
-      "openings": "05",
-      "deadline": "2026-11-17T11:00:00.000Z",
-      "url": "https://alljobs.teletalk.com.bd/jobs/government/15019",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15019"
-    },
-    {
       "organization": "পুলিশ সুপারের কার্যালয়, দিনাজপুর",
       "title": "অফিস সহায়ক",
       "openings": "01",
@@ -256,22 +157,67 @@
       "jobId": "14987"
     },
     {
-      "organization": "DC Office Chuadanga (DCCHUADANGA)",
-      "title": "নিরাপত্তা প্রহরী",
-      "openings": "01",
-      "deadline": "2026-11-21T11:00:00.000Z",
-      "url": "https://alljobs.teletalk.com.bd/jobs/government/15053",
+      "organization": "কর অঞ্চল 19",
+      "title": "অফিস সহায়ক",
+      "openings": "13",
+      "deadline": "2026-11-21T10:00:00.000Z",
+      "url": "https://tax19.teletalk.com.bd/tax19_2026/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15053"
+      "jobId": "15081"
     },
     {
-      "organization": "DC Office Chuadanga (DCCHUADANGA)",
-      "title": "অফিস সহায়ক",
-      "openings": "15",
-      "deadline": "2026-11-21T11:00:00.000Z",
-      "url": "https://alljobs.teletalk.com.bd/jobs/government/15052",
+      "organization": "কর অঞ্চল 19",
+      "title": "অফিস সহকারী কাম-কম্পিউটার মুদ্রাক্ষরিক",
+      "openings": "12",
+      "deadline": "2026-11-21T10:00:00.000Z",
+      "url": "https://tax19.teletalk.com.bd/tax19_2026/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15052"
+      "jobId": "15080"
+    },
+    {
+      "organization": "কর অঞ্চল 19",
+      "title": "সাঁটমুদ্রাক্ষরিক কাম-কম্পিউটার অপারেটর",
+      "openings": "12",
+      "deadline": "2026-11-21T10:00:00.000Z",
+      "url": "https://tax19.teletalk.com.bd/tax19_2026/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15079"
+    },
+    {
+      "organization": "কর অঞ্চল 19",
+      "title": "উচ্চমান সহকারী",
+      "openings": "10",
+      "deadline": "2026-11-21T10:00:00.000Z",
+      "url": "https://tax19.teletalk.com.bd/tax19_2026/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15078"
+    },
+    {
+      "organization": "কর অঞ্চল 19",
+      "title": "প্রধান সহকারী",
+      "openings": "09",
+      "deadline": "2026-11-21T10:00:00.000Z",
+      "url": "https://tax19.teletalk.com.bd/tax19_2026/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15077"
+    },
+    {
+      "organization": "কর অঞ্চল 19",
+      "title": "ব্যক্তিগত সহকারী",
+      "openings": "03",
+      "deadline": "2026-11-21T10:00:00.000Z",
+      "url": "https://tax19.teletalk.com.bd/tax19_2026/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15076"
+    },
+    {
+      "organization": "কর অঞ্চল 19",
+      "title": "কম্পিউটার অপারেটর",
+      "openings": "01",
+      "deadline": "2026-11-21T10:00:00.000Z",
+      "url": "https://tax19.teletalk.com.bd/tax19_2026/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15075"
     },
     {
       "organization": "DC Office Chuadanga (DCCHUADANGA)",
@@ -311,12 +257,30 @@
     },
     {
       "organization": "DC Office Chuadanga (DCCHUADANGA)",
+      "title": "অফিস সহায়ক",
+      "openings": "15",
+      "deadline": "2026-11-21T11:00:00.000Z",
+      "url": "https://alljobs.teletalk.com.bd/jobs/government/15052",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15052"
+    },
+    {
+      "organization": "DC Office Chuadanga (DCCHUADANGA)",
       "title": "সার্টিফিকেট সহকারী",
       "openings": "03",
       "deadline": "2026-11-21T11:00:00.000Z",
       "url": "https://alljobs.teletalk.com.bd/jobs/government/15049",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15049"
+    },
+    {
+      "organization": "বাংলাদেশ সশস্ত্র বাহিনী বোর্ড",
+      "title": "ভেরিফিকেশন/ ইনভেস্টিগেশন অফিসার",
+      "openings": "02",
+      "deadline": "2026-11-21T11:00:00.000Z",
+      "url": "https://basb.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15085"
     },
     {
       "organization": "Narail Distric (DCNARAIL)",
@@ -382,6 +346,33 @@
       "jobId": "15068"
     },
     {
+      "organization": "আয়কর গোয়েন্দা ও তদন্ত ইউনিট",
+      "title": "অফিস সহায়ক",
+      "openings": "13",
+      "deadline": "2026-11-23T11:00:00.000Z",
+      "url": "https://itiiu.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15084"
+    },
+    {
+      "organization": "আয়কর গোয়েন্দা ও তদন্ত ইউনিট",
+      "title": "অফিস সহকারী-কাম-কম্পিউটার মুদ্রাক্ষরিক",
+      "openings": "12",
+      "deadline": "2026-11-23T11:00:00.000Z",
+      "url": "https://itiiu.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15083"
+    },
+    {
+      "organization": "আয়কর গোয়েন্দা ও তদন্ত ইউনিট",
+      "title": "ব্যক্তিগত সহকারী",
+      "openings": "10",
+      "deadline": "2026-11-23T11:00:00.000Z",
+      "url": "https://itiiu.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15082"
+    },
+    {
       "organization": "জাতীয় সঞ্চয় অধিদপ্তর",
       "title": "অফিস সহায়ক",
       "openings": "33",
@@ -407,15 +398,6 @@
       "url": "https://nsd.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15065"
-    },
-    {
-      "organization": "জাতীয় সঞ্চয় অধিদপ্তর",
-      "title": "গাড়ী চালক",
-      "openings": "01",
-      "deadline": "2026-11-26T10:00:00.000Z",
-      "url": "https://nsd.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15064"
     },
     {
       "organization": "জাতীয় সঞ্চয় অধিদপ্তর",
@@ -452,6 +434,15 @@
       "url": "https://nsd.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15060"
+    },
+    {
+      "organization": "জাতীয় সঞ্চয় অধিদপ্তর",
+      "title": "গাড়ী চালক",
+      "openings": "01",
+      "deadline": "2026-11-26T10:00:00.000Z",
+      "url": "https://nsd.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15064"
     },
     {
       "organization": "পুলিশ সুপারের কার্যালয় শেরপুর",
