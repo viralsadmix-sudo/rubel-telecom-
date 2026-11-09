@@ -1,26 +1,8 @@
 {
   "source": "https://alljobs.teletalk.com.bd/bn/",
-  "updatedAt": "2026-11-09T01:15:51+00:00",
+  "updatedAt": "2026-11-09T07:34:33+00:00",
   "note": "Active government jobs from the official Teletalk Alljobs API. Open the official listing to verify details, eligibility, fees and deadline.",
   "jobs": [
-    {
-      "organization": "কর কমিশনারের কার্যালয় কর অঞ্চল নারায়ণগঞ্জ",
-      "title": "অফিস সহায়ক",
-      "openings": "06",
-      "deadline": "2026-11-17T10:00:00.000Z",
-      "url": "https://taxnar.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15059"
-    },
-    {
-      "organization": "কর কমিশনারের কার্যালয় কর অঞ্চল নারায়ণগঞ্জ",
-      "title": "অফিস সহকারী-কাম-কম্পিউটার মুদ্রাক্ষরিক",
-      "openings": "10",
-      "deadline": "2026-11-17T10:00:00.000Z",
-      "url": "https://taxnar.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15057"
-    },
     {
       "organization": "কর অঞ্চল 19",
       "title": "অফিস সহায়ক",
@@ -56,15 +38,6 @@
       "url": "https://alljobs.teletalk.com.bd/jobs/government/15129",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15129"
-    },
-    {
-      "organization": "Directorate General of Medical Service (DGMS)",
-      "title": "সহকারী বাবুর্চি",
-      "openings": "01",
-      "deadline": "2026-11-21T11:00:00.000Z",
-      "url": "https://alljobs.teletalk.com.bd/jobs/government/15134",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15134"
     },
     {
       "organization": "বাংলাদেশ সশস্ত্র বাহিনী বোর্ড",
@@ -157,51 +130,6 @@
       "jobId": "15137"
     },
     {
-      "organization": "DC OFFICE JAMALPUR (DCJAMALPUR)",
-      "title": "হিসাব সহকারী",
-      "openings": "05",
-      "deadline": "2026-11-25T10:00:00.000Z",
-      "url": "https://dcjamalpur.teletalk.com.bd/dcjamalpur202610/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15142"
-    },
-    {
-      "organization": "DC OFFICE JAMALPUR (DCJAMALPUR)",
-      "title": "সার্টিফিকেট সহকারী",
-      "openings": "05",
-      "deadline": "2026-11-25T10:00:00.000Z",
-      "url": "https://dcjamalpur.teletalk.com.bd/dcjamalpur202610/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15141"
-    },
-    {
-      "organization": "DC OFFICE JAMALPUR (DCJAMALPUR)",
-      "title": "বেঞ্চ সহকারী",
-      "openings": "01",
-      "deadline": "2026-11-25T10:00:00.000Z",
-      "url": "https://dcjamalpur.teletalk.com.bd/dcjamalpur202610/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15139"
-    },
-    {
-      "organization": "DC OFFICE JAMALPUR (DCJAMALPUR)",
-      "title": "লাইব্রেরী সহকারী",
-      "openings": "01",
-      "deadline": "2026-11-25T10:00:00.000Z",
-      "url": "https://dcjamalpur.teletalk.com.bd/dcjamalpur202610/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15138"
-    },
-    {
-      "organization": "বাংলাদেশের কম্পট্রোলার অ্যান্ড অডিটর জেনারেল",
-      "title": "গাড়ী চালক",
-      "openings": "06",
-      "deadline": "2026-11-25T10:00:00.000Z",
-      "url": "https://cag.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15125"
-    },
-    {
       "organization": "বাংলাদেশের কম্পট্রোলার অ্যান্ড অডিটর জেনারেল",
       "title": "অফিস সহায়ক",
       "openings": "209",
@@ -209,60 +137,6 @@
       "url": "https://cag.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15124"
-    },
-    {
-      "organization": "বাংলাদেশের কম্পট্রোলার অ্যান্ড অডিটর জেনারেল",
-      "title": "কম্পিউটার মুদ্রাক্ষরিক",
-      "openings": "62",
-      "deadline": "2026-11-25T10:00:00.000Z",
-      "url": "https://cag.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15123"
-    },
-    {
-      "organization": "বাংলাদেশের কম্পট্রোলার অ্যান্ড অডিটর জেনারেল",
-      "title": "জুনিয়র অডিটর",
-      "openings": "70",
-      "deadline": "2026-11-25T10:00:00.000Z",
-      "url": "https://cag.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15122"
-    },
-    {
-      "organization": "জাতীয় সঞ্চয় অধিদপ্তর",
-      "title": "অফিস সহায়ক",
-      "openings": "33",
-      "deadline": "2026-11-26T10:00:00.000Z",
-      "url": "https://nsd.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15067"
-    },
-    {
-      "organization": "জাতীয় সঞ্চয় অধিদপ্তর",
-      "title": "অফিস সহকারী-কাম-কম্পিউটার মুদ্রাক্ষরিক",
-      "openings": "40",
-      "deadline": "2026-11-26T10:00:00.000Z",
-      "url": "https://nsd.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15065"
-    },
-    {
-      "organization": "Bangladesh Cable Shilpa Limited (BCSL)",
-      "title": "সহকারী বাবুর্চি",
-      "openings": "01",
-      "deadline": "2026-11-26T11:00:00.000Z",
-      "url": "https://bcsl.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15174"
-    },
-    {
-      "organization": "Bangladesh Cable Shilpa Limited (BCSL)",
-      "title": "গাড়ীচালক(ঢাকা সিটি অফিসের জন্য)",
-      "openings": "01",
-      "deadline": "2026-11-26T11:00:00.000Z",
-      "url": "https://bcsl.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15173"
     },
     {
       "organization": "Bangladesh Cable Shilpa Limited (BCSL)",
@@ -284,21 +158,12 @@
     },
     {
       "organization": "Bangladesh Cable Shilpa Limited (BCSL)",
-      "title": "ফিটার",
-      "openings": "01",
+      "title": "প্রকর্মী (ল্যাব)",
+      "openings": "02",
       "deadline": "2026-11-26T11:00:00.000Z",
       "url": "https://bcsl.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15170"
-    },
-    {
-      "organization": "Bangladesh Cable Shilpa Limited (BCSL)",
-      "title": "মেশিন চালক",
-      "openings": "05",
-      "deadline": "2026-11-26T11:00:00.000Z",
-      "url": "https://bcsl.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15169"
+      "jobId": "15168"
     },
     {
       "organization": "Bangladesh Cable Shilpa Limited (BCSL)",
@@ -320,6 +185,33 @@
     },
     {
       "organization": "Bangladesh Cable Shilpa Limited (BCSL)",
+      "title": "গাড়ীচালক(ঢাকা সিটি অফিসের জন্য)",
+      "openings": "01",
+      "deadline": "2026-11-26T11:00:00.000Z",
+      "url": "https://bcsl.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15173"
+    },
+    {
+      "organization": "Bangladesh Cable Shilpa Limited (BCSL)",
+      "title": "অর্থ সহকারী/ মূল্যায়ন সহকারী",
+      "openings": "02",
+      "deadline": "2026-11-26T11:00:00.000Z",
+      "url": "https://bcsl.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15165"
+    },
+    {
+      "organization": "Bangladesh Cable Shilpa Limited (BCSL)",
+      "title": "মেশিন চালক",
+      "openings": "05",
+      "deadline": "2026-11-26T11:00:00.000Z",
+      "url": "https://bcsl.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15169"
+    },
+    {
+      "organization": "Bangladesh Cable Shilpa Limited (BCSL)",
       "title": "উপসহকারী প্রকৌশলী (উৎপাদন)",
       "openings": "01",
       "deadline": "2026-11-26T11:00:00.000Z",
@@ -338,39 +230,30 @@
     },
     {
       "organization": "Bangladesh Cable Shilpa Limited (BCSL)",
-      "title": "সহকারী ব্যবস্থাপক ( নিরাপত্তা )",
-      "openings": "01",
-      "deadline": "2026-11-26T11:00:00.000Z",
-      "url": "https://bcsl.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15161"
-    },
-    {
-      "organization": "Bangladesh Cable Shilpa Limited (BCSL)",
-      "title": "প্রকর্মী (ল্যাব)",
-      "openings": "02",
-      "deadline": "2026-11-26T11:00:00.000Z",
-      "url": "https://bcsl.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15168"
-    },
-    {
-      "organization": "Bangladesh Cable Shilpa Limited (BCSL)",
-      "title": "অর্থ সহকারী/ মূল্যায়ন সহকারী",
-      "openings": "02",
-      "deadline": "2026-11-26T11:00:00.000Z",
-      "url": "https://bcsl.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15165"
-    },
-    {
-      "organization": "Bangladesh Cable Shilpa Limited (BCSL)",
       "title": "প্রশাসনিক কর্মকর্তা",
       "openings": "01",
       "deadline": "2026-11-26T11:00:00.000Z",
       "url": "https://bcsl.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15162"
+    },
+    {
+      "organization": "Bangladesh Cable Shilpa Limited (BCSL)",
+      "title": "সহকারী বাবুর্চি",
+      "openings": "01",
+      "deadline": "2026-11-26T11:00:00.000Z",
+      "url": "https://bcsl.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15174"
+    },
+    {
+      "organization": "Bangladesh Cable Shilpa Limited (BCSL)",
+      "title": "সহকারী ব্যবস্থাপক ( নিরাপত্তা )",
+      "openings": "01",
+      "deadline": "2026-11-26T11:00:00.000Z",
+      "url": "https://bcsl.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15161"
     },
     {
       "organization": "Bangladesh Cable Shilpa Limited (BCSL)",
@@ -391,15 +274,6 @@
       "jobId": "15159"
     },
     {
-      "organization": "আশুগঞ্জ পাওয়ার স্টেশন কোম্পানী লিঃ",
-      "title": "জুনিয়র এসিস্ট্যান্ট কাম কম্পিউটার অপারেটর",
-      "openings": "08",
-      "deadline": "2026-11-30T11:00:00.000Z",
-      "url": "https://apscl.teletalk.com.bd/apscl2026/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15097"
-    },
-    {
       "organization": "বাংলাদেশ হাই টেক পার্ক কর্তৃপক্ষ",
       "title": "কম্পিউটার মুদ্রাক্ষরিক-কাম-অফিস সহকারী",
       "openings": "09",
@@ -416,6 +290,69 @@
       "url": "https://bhtpa.teletalk.com.bd/bhtpa2026V1/index.php",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15150"
+    },
+    {
+      "organization": "কৃষি তথ্য সার্ভিস (এআইএস)",
+      "title": "অফিস সহায়ক",
+      "openings": "04",
+      "deadline": "2026-12-03T11:00:00.000Z",
+      "url": "https://ais.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15201"
+    },
+    {
+      "organization": "কৃষি তথ্য সার্ভিস (এআইএস)",
+      "title": "অফসেট প্রিন্টার",
+      "openings": "01",
+      "deadline": "2026-12-03T11:00:00.000Z",
+      "url": "https://ais.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15200"
+    },
+    {
+      "organization": "কৃষি তথ্য সার্ভিস (এআইএস)",
+      "title": "ক্যালিগ্রাফিস্ট",
+      "openings": "01",
+      "deadline": "2026-12-03T11:00:00.000Z",
+      "url": "https://ais.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15199"
+    },
+    {
+      "organization": "কৃষি তথ্য সার্ভিস (এআইএস)",
+      "title": "অফিস সহকারী কাম কম্পিউটার মুদ্রাক্ষরিক",
+      "openings": "04",
+      "deadline": "2026-12-03T11:00:00.000Z",
+      "url": "https://ais.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15198"
+    },
+    {
+      "organization": "কৃষি তথ্য সার্ভিস (এআইএস)",
+      "title": "অডিও ভিস্যুয়েল ইউনিট অপারেটর",
+      "openings": "04",
+      "deadline": "2026-12-03T11:00:00.000Z",
+      "url": "https://ais.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15197"
+    },
+    {
+      "organization": "কৃষি তথ্য সার্ভিস (এআইএস)",
+      "title": "সহকারী প্রদর্শনী বিশেষজ্ঞ",
+      "openings": "01",
+      "deadline": "2026-12-03T11:00:00.000Z",
+      "url": "https://ais.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15196"
+    },
+    {
+      "organization": "জেলা প্রশাসকের কার্যালয়, বাগেরহাট",
+      "title": "অফিস সহকারী কাম-কম্পিউটার মুদ্রাক্ষরিক",
+      "openings": "17",
+      "deadline": "2026-12-04T11:00:00.000Z",
+      "url": "https://dcbagerhat.teletalk.com.bd/dcbagerhat202609/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15152"
     },
     {
       "organization": "জেলা প্রশাসকের কার্যালয়, বাগেরহাট",
@@ -454,13 +391,103 @@
       "jobId": "15155"
     },
     {
-      "organization": "জেলা প্রশাসকের কার্যালয়, বাগেরহাট",
-      "title": "অফিস সহকারী কাম-কম্পিউটার মুদ্রাক্ষরিক",
-      "openings": "17",
-      "deadline": "2026-12-04T11:00:00.000Z",
-      "url": "https://dcbagerhat.teletalk.com.bd/dcbagerhat202609/",
+      "organization": "Magura District (DCMAGURA)",
+      "title": "ক্রেডিট চেকিং কাম সায়রাত সহকারী",
+      "openings": "01",
+      "deadline": "2026-12-07T11:00:00.000Z",
+      "url": "https://dcmagura.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15152"
+      "jobId": "15195"
+    },
+    {
+      "organization": "Magura District (DCMAGURA)",
+      "title": "সার্টিফিকেট সহকারী",
+      "openings": "01",
+      "deadline": "2026-12-07T11:00:00.000Z",
+      "url": "https://dcmagura.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15194"
+    },
+    {
+      "organization": "Magura District (DCMAGURA)",
+      "title": "সার্টিফিকেট পেশকার",
+      "openings": "02",
+      "deadline": "2026-12-07T11:00:00.000Z",
+      "url": "https://dcmagura.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15193"
+    },
+    {
+      "organization": "Magura District (DCMAGURA)",
+      "title": "অফিস সহকারী কাম কম্পিউটার মুদ্রাক্ষরিক",
+      "openings": "04",
+      "deadline": "2026-12-07T11:00:00.000Z",
+      "url": "https://dcmagura.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15192"
+    },
+    {
+      "organization": "Magura District (DCMAGURA)",
+      "title": "ট্রেসার",
+      "openings": "01",
+      "deadline": "2026-12-07T11:00:00.000Z",
+      "url": "https://dcmagura.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15191"
+    },
+    {
+      "organization": "Magura District (DCMAGURA)",
+      "title": "নাজির কাম-ক্যাশিয়ার",
+      "openings": "03",
+      "deadline": "2026-12-07T11:00:00.000Z",
+      "url": "https://dcmagura.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15190"
+    },
+    {
+      "organization": "Magura District (DCMAGURA)",
+      "title": "ড্রাফটসম্যান",
+      "openings": "01",
+      "deadline": "2026-12-07T11:00:00.000Z",
+      "url": "https://dcmagura.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15189"
+    },
+    {
+      "organization": "DC Office Chandpur ( DCCHANDPUR )",
+      "title": "পরিচ্ছন্নতাকর্মী",
+      "openings": "01",
+      "deadline": "2026-12-09T11:00:00.000Z",
+      "url": "https://dcchandpur.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15205"
+    },
+    {
+      "organization": "DC Office Chandpur ( DCCHANDPUR )",
+      "title": "নিরাপত্তা প্রহরী(সার্কিট হাউস)",
+      "openings": "01",
+      "deadline": "2026-12-09T11:00:00.000Z",
+      "url": "https://dcchandpur.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15204"
+    },
+    {
+      "organization": "DC Office Chandpur ( DCCHANDPUR )",
+      "title": "নিরাপত্তা প্রহরী",
+      "openings": "05",
+      "deadline": "2026-12-09T11:00:00.000Z",
+      "url": "https://dcchandpur.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15203"
+    },
+    {
+      "organization": "DC Office Chandpur ( DCCHANDPUR )",
+      "title": "অফিস সহায়ক",
+      "openings": "07",
+      "deadline": "2026-12-09T11:00:00.000Z",
+      "url": "https://dcchandpur.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15202"
     },
     {
       "organization": "বাংলাদেশ মৎস্য গবেষণা ইনস্টিটিউট",
