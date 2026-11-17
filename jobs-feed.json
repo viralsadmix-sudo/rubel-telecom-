@@ -1,35 +1,8 @@
 {
   "source": "https://alljobs.teletalk.com.bd/bn/",
-  "updatedAt": "2026-11-16T21:59:29+00:00",
+  "updatedAt": "2026-11-17T07:53:03+00:00",
   "note": "Active government jobs from the official Teletalk Alljobs API. Open the official listing to verify details, eligibility, fees and deadline.",
   "jobs": [
-    {
-      "organization": "Dhaka Metropolitan Police (DMP)",
-      "title": "অফিস সহকারী কাম-কম্পিউটার মুদ্রাক্ষরিক",
-      "openings": "08",
-      "deadline": "2026-11-30T11:00:00.000Z",
-      "url": "https://dmp.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15297"
-    },
-    {
-      "organization": "Dhaka Metropolitan Police (DMP)",
-      "title": "সাঁট-মুদ্রাক্ষরিক কাম-কম্পিউটার অপারেটর",
-      "openings": "03",
-      "deadline": "2026-11-30T11:00:00.000Z",
-      "url": "https://dmp.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15296"
-    },
-    {
-      "organization": "Dhaka Metropolitan Police (DMP)",
-      "title": "কম্পিউটার অপারেটর",
-      "openings": "06",
-      "deadline": "2026-11-30T11:00:00.000Z",
-      "url": "https://dmp.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15295"
-    },
     {
       "organization": "Dhaka Metropolitan Police (DMP)",
       "title": "অফিস সহায়ক",
@@ -38,6 +11,15 @@
       "url": "https://dmp.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15298"
+    },
+    {
+      "organization": "Dhaka Metropolitan Police (DMP)",
+      "title": "অফিস সহকারী কাম-কম্পিউটার মুদ্রাক্ষরিক",
+      "openings": "08",
+      "deadline": "2026-11-30T11:00:00.000Z",
+      "url": "https://dmp.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15297"
     },
     {
       "organization": "প্রতিরক্ষা মন্ত্রণালয়",
@@ -50,84 +32,12 @@
     },
     {
       "organization": "বাংলাদেশ জাতীয় সংসদ সচিবালয়",
-      "title": "ক্লীনার/হেল্পার",
-      "openings": "02",
-      "deadline": "2026-12-02T06:00:00.000Z",
-      "url": "https://bps.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15285"
-    },
-    {
-      "organization": "বাংলাদেশ জাতীয় সংসদ সচিবালয়",
-      "title": "পরিচ্ছন্নতাকর্মী (পূর্বনাম ঝাড়ুদার)",
-      "openings": "04",
-      "deadline": "2026-12-02T06:00:00.000Z",
-      "url": "https://bps.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15284"
-    },
-    {
-      "organization": "বাংলাদেশ জাতীয় সংসদ সচিবালয়",
-      "title": "নিরাপত্তাপ্রহরী",
-      "openings": "10",
-      "deadline": "2026-12-02T06:00:00.000Z",
-      "url": "https://bps.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15283"
-    },
-    {
-      "organization": "বাংলাদেশ জাতীয় সংসদ সচিবালয়",
-      "title": "কামরা পরিচারক/পরিচারিকা",
-      "openings": "14",
-      "deadline": "2026-12-02T06:00:00.000Z",
-      "url": "https://bps.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15282"
-    },
-    {
-      "organization": "বাংলাদেশ জাতীয় সংসদ সচিবালয়",
-      "title": "সহকারী ডেসপাচ রাইডার",
-      "openings": "03",
-      "deadline": "2026-12-02T06:00:00.000Z",
-      "url": "https://bps.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15281"
-    },
-    {
-      "organization": "বাংলাদেশ জাতীয় সংসদ সচিবালয়",
       "title": "অফিস সহায়ক কাম পরিচ্ছন্নতা কর্মী",
       "openings": "03",
       "deadline": "2026-12-02T06:00:00.000Z",
       "url": "https://bps.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15280"
-    },
-    {
-      "organization": "বাংলাদেশ জাতীয় সংসদ সচিবালয়",
-      "title": "মেকানিক গ্রেড-সি",
-      "openings": "01",
-      "deadline": "2026-12-02T06:00:00.000Z",
-      "url": "https://bps.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15279"
-    },
-    {
-      "organization": "বাংলাদেশ জাতীয় সংসদ সচিবালয়",
-      "title": "মোয়াজ্জিন",
-      "openings": "01",
-      "deadline": "2026-12-02T06:00:00.000Z",
-      "url": "https://bps.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15278"
-    },
-    {
-      "organization": "বাংলাদেশ জাতীয় সংসদ সচিবালয়",
-      "title": "সিকিউরিটি অ্যাসিস্ট্যান্ট",
-      "openings": "24",
-      "deadline": "2026-12-02T06:00:00.000Z",
-      "url": "https://bps.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15277"
     },
     {
       "organization": "বাংলাদেশ জাতীয় সংসদ সচিবালয়",
@@ -140,39 +50,12 @@
     },
     {
       "organization": "DC Office khagrachhari ( DCKC )",
-      "title": "নাজির কাম-ক্যাশিয়ার",
-      "openings": "03",
-      "deadline": "2026-12-02T10:00:00.000Z",
-      "url": "https://alljobs.teletalk.com.bd/jobs/government/15292",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15292"
-    },
-    {
-      "organization": "DC Office khagrachhari ( DCKC )",
-      "title": "সার্টিফিকেট পেশকার",
-      "openings": "03",
-      "deadline": "2026-12-02T10:00:00.000Z",
-      "url": "https://alljobs.teletalk.com.bd/jobs/government/15289",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15289"
-    },
-    {
-      "organization": "DC Office khagrachhari ( DCKC )",
       "title": "অফিস সহকারী কাম-কম্পিউটার মুদ্রাক্ষরিক",
       "openings": "04",
       "deadline": "2026-12-02T10:00:00.000Z",
       "url": "https://alljobs.teletalk.com.bd/jobs/government/15293",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15293"
-    },
-    {
-      "organization": "DC Office khagrachhari ( DCKC )",
-      "title": "ক্রেডিট চেকিং কাম সায়রাত সহকারী",
-      "openings": "03",
-      "deadline": "2026-12-02T10:00:00.000Z",
-      "url": "https://alljobs.teletalk.com.bd/jobs/government/15291",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15291"
     },
     {
       "organization": "Dhaka South City Corporation (DSCC)",
@@ -191,33 +74,6 @@
       "url": "https://dscc.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15253"
-    },
-    {
-      "organization": "Dhaka South City Corporation (DSCC)",
-      "title": "মেডিকেল অফিসার (বহি: বিভাগ ও ইনডোর-৬)",
-      "openings": "06",
-      "deadline": "2026-12-02T11:00:00.000Z",
-      "url": "https://dscc.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15252"
-    },
-    {
-      "organization": "Dhaka South City Corporation (DSCC)",
-      "title": "মেডিকেল অফিসার (চর্ম ও যৌন-২)",
-      "openings": "02",
-      "deadline": "2026-12-02T11:00:00.000Z",
-      "url": "https://dscc.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15251"
-    },
-    {
-      "organization": "Dhaka South City Corporation (DSCC)",
-      "title": "মেডিকেল অফিসার (ব্লাড ব্যাংক-১)",
-      "openings": "01",
-      "deadline": "2026-12-02T11:00:00.000Z",
-      "url": "https://dscc.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15250"
     },
     {
       "organization": "Ministry of Defence (MOD)",
@@ -284,30 +140,12 @@
     },
     {
       "organization": "National Academy for Computer Training and Research (NACTAR)",
-      "title": "(সহকারী প্রশিক্ষক(গবেষণা))",
-      "openings": "02",
-      "deadline": "2026-12-06T10:00:00.000Z",
-      "url": "https://nactar.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15323"
-    },
-    {
-      "organization": "National Academy for Computer Training and Research (NACTAR)",
       "title": "(সহকারী প্রশিক্ষক(কম্পিউটার))",
       "openings": "01",
       "deadline": "2026-12-06T10:00:00.000Z",
       "url": "https://nactar.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15322"
-    },
-    {
-      "organization": "National Academy for Computer Training and Research (NACTAR)",
-      "title": "(সহকারী ইন্সট্রাক্টর)",
-      "openings": "06",
-      "deadline": "2026-12-06T10:00:00.000Z",
-      "url": "https://nactar.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15321"
     },
     {
       "organization": "National Academy for Computer Training and Research (NACTAR)",
@@ -319,13 +157,22 @@
       "jobId": "15320"
     },
     {
-      "organization": "কর অঞ্চল দিনাজপুর",
-      "title": "[অফিস সহায়ক]",
-      "openings": "03",
-      "deadline": "2026-12-06T11:00:00.000Z",
-      "url": "https://taxdin.teletalk.com.bd/",
+      "organization": "National Academy for Computer Training and Research (NACTAR)",
+      "title": "(সহকারী প্রশিক্ষক(গবেষণা))",
+      "openings": "02",
+      "deadline": "2026-12-06T10:00:00.000Z",
+      "url": "https://nactar.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15319"
+      "jobId": "15323"
+    },
+    {
+      "organization": "National Academy for Computer Training and Research (NACTAR)",
+      "title": "(সহকারী ইন্সট্রাক্টর)",
+      "openings": "06",
+      "deadline": "2026-12-06T10:00:00.000Z",
+      "url": "https://nactar.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15321"
     },
     {
       "organization": "কর অঞ্চল দিনাজপুর",
@@ -344,6 +191,15 @@
       "url": "https://taxdin.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15317"
+    },
+    {
+      "organization": "কর অঞ্চল দিনাজপুর",
+      "title": "[অফিস সহায়ক]",
+      "openings": "03",
+      "deadline": "2026-12-06T11:00:00.000Z",
+      "url": "https://taxdin.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15319"
     },
     {
       "organization": "কর অঞ্চল দিনাজপুর",
@@ -374,21 +230,21 @@
     },
     {
       "organization": "কর অঞ্চল-১৮, ঢাকা",
+      "title": "অফিস সহায়ক",
+      "openings": "10",
+      "deadline": "2026-12-06T11:00:00.000Z",
+      "url": "https://tax18.teletalk.com.bd/tax18_2026/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15305"
+    },
+    {
+      "organization": "কর অঞ্চল-১৮, ঢাকা",
       "title": "অফিস সহকারী কাম-কম্পিউটার মুদ্রাক্ষরিক",
       "openings": "13",
       "deadline": "2026-12-06T11:00:00.000Z",
       "url": "https://tax18.teletalk.com.bd/tax18_2026/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15304"
-    },
-    {
-      "organization": "কর অঞ্চল-১৮, ঢাকা",
-      "title": "সাঁট-মুদ্রাক্ষরিক কাম-কম্পিউটার অপারেটর",
-      "openings": "12",
-      "deadline": "2026-12-06T11:00:00.000Z",
-      "url": "https://tax18.teletalk.com.bd/tax18_2026/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15303"
     },
     {
       "organization": "কর অঞ্চল-১৮, ঢাকা",
@@ -401,30 +257,75 @@
     },
     {
       "organization": "কর অঞ্চল-১৮, ঢাকা",
-      "title": "কম্পিউটার অপারেটর",
-      "openings": "01",
-      "deadline": "2026-12-06T11:00:00.000Z",
-      "url": "https://tax18.teletalk.com.bd/tax18_2026/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15299"
-    },
-    {
-      "organization": "কর অঞ্চল-১৮, ঢাকা",
-      "title": "অফিস সহায়ক",
-      "openings": "10",
-      "deadline": "2026-12-06T11:00:00.000Z",
-      "url": "https://tax18.teletalk.com.bd/tax18_2026/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15305"
-    },
-    {
-      "organization": "কর অঞ্চল-১৮, ঢাকা",
       "title": "ব্যক্তিগত সহকারী",
       "openings": "05",
       "deadline": "2026-12-06T11:00:00.000Z",
       "url": "https://tax18.teletalk.com.bd/tax18_2026/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15300"
+    },
+    {
+      "organization": "কারিগরি ও মাদ্রাসা শিক্ষা বিভাগ",
+      "title": "অফিস সহায়ক",
+      "openings": "03",
+      "deadline": "2026-12-07T10:00:00.000Z",
+      "url": "https://nactar.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15340"
+    },
+    {
+      "organization": "কারিগরি ও মাদ্রাসা শিক্ষা বিভাগ",
+      "title": "ফটোকপি অপারেটর",
+      "openings": "01",
+      "deadline": "2026-12-07T10:00:00.000Z",
+      "url": "https://nactar.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15339"
+    },
+    {
+      "organization": "কারিগরি ও মাদ্রাসা শিক্ষা বিভাগ",
+      "title": "ক্যাফেটারিয়া ম্যানেজার",
+      "openings": "01",
+      "deadline": "2026-12-07T10:00:00.000Z",
+      "url": "https://nactar.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15338"
+    },
+    {
+      "organization": "কারিগরি ও মাদ্রাসা শিক্ষা বিভাগ",
+      "title": "হিসাব সহকারী",
+      "openings": "01",
+      "deadline": "2026-12-07T10:00:00.000Z",
+      "url": "https://nactar.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15337"
+    },
+    {
+      "organization": "কারিগরি ও মাদ্রাসা শিক্ষা বিভাগ",
+      "title": "মেকানিক",
+      "openings": "01",
+      "deadline": "2026-12-07T10:00:00.000Z",
+      "url": "https://nactar.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15336"
+    },
+    {
+      "organization": "কারিগরি ও মাদ্রাসা শিক্ষা বিভাগ",
+      "title": "ক্যাশিয়ার",
+      "openings": "01",
+      "deadline": "2026-12-07T10:00:00.000Z",
+      "url": "https://nactar.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15335"
+    },
+    {
+      "organization": "কারিগরি ও মাদ্রাসা শিক্ষা বিভাগ",
+      "title": "ভেহিক্যাল সুপারভাইজার",
+      "openings": "01",
+      "deadline": "2026-12-07T10:00:00.000Z",
+      "url": "https://nactar.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15334"
     },
     {
       "organization": "Trading Corporation of Bangladesh (TCB)",
@@ -482,15 +383,6 @@
     },
     {
       "organization": "Department of Agricultural Marketing (DAM)",
-      "title": "ক্যাশিয়ার",
-      "openings": "01",
-      "deadline": "2026-12-10T10:00:00.000Z",
-      "url": "https://dam.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15312"
-    },
-    {
-      "organization": "Department of Agricultural Marketing (DAM)",
       "title": "অফিস সহকারী-কাম-কম্পিউটার মুদ্রাক্ষরিক",
       "openings": "39",
       "deadline": "2026-12-10T10:00:00.000Z",
@@ -518,12 +410,57 @@
     },
     {
       "organization": "Department of Agricultural Marketing (DAM)",
-      "title": "মাঠ ও বাজার পরিদর্শক",
-      "openings": "05",
+      "title": "ক্যাশিয়ার",
+      "openings": "01",
       "deadline": "2026-12-10T10:00:00.000Z",
       "url": "https://dam.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15306"
+      "jobId": "15312"
+    },
+    {
+      "organization": "পুলিশ সুপারের কার্যালয় লালমনিরহাট",
+      "title": "অফিস সহকারী- কাম-কম্পিউটার মুদ্রাক্ষরিক",
+      "openings": "02",
+      "deadline": "2026-12-17T11:00:00.000Z",
+      "url": "https://splalmonirhat.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15343"
+    },
+    {
+      "organization": "পুলিশ সুপারের কার্যালয় লালমনিরহাট",
+      "title": "সাঁটমুদ্রাক্ষরিক-কাম-কম্পিউটার অপারেটর",
+      "openings": "02",
+      "deadline": "2026-12-17T11:00:00.000Z",
+      "url": "https://splalmonirhat.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15342"
+    },
+    {
+      "organization": "পুলিশ সুপারের কার্যালয় লালমনিরহাট",
+      "title": "সাঁটলিপিকার-কাম-কম্পিউটার অপারেটর",
+      "openings": "01",
+      "deadline": "2026-12-17T11:00:00.000Z",
+      "url": "https://splalmonirhat.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15341"
+    },
+    {
+      "organization": "বিভাগীয় কমিশনারের কার্যালয় খুলনা",
+      "title": "মালি",
+      "openings": "02",
+      "deadline": "2026-12-17T11:00:00.000Z",
+      "url": "https://divcomkhul.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15345"
+    },
+    {
+      "organization": "বিভাগীয় কমিশনারের কার্যালয় খুলনা",
+      "title": "অফিস সহকারী কাম কম্পিউটার মুদ্রাক্ষরিক",
+      "openings": "06",
+      "deadline": "2026-12-17T11:00:00.000Z",
+      "url": "https://divcomkhul.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15344"
     }
   ]
 }
