@@ -1,6 +1,6 @@
 {
   "source": "https://alljobs.teletalk.com.bd/bn/",
-  "updatedAt": "2026-11-17T07:53:03+00:00",
+  "updatedAt": "2026-11-17T20:54:08+00:00",
   "note": "Active government jobs from the official Teletalk Alljobs API. Open the official listing to verify details, eligibility, fees and deadline.",
   "jobs": [
     {
@@ -67,15 +67,6 @@
       "jobId": "15254"
     },
     {
-      "organization": "Dhaka South City Corporation (DSCC)",
-      "title": "মেডিকেল অফিসার (জরুরী বিভাগ-২)",
-      "openings": "02",
-      "deadline": "2026-12-02T11:00:00.000Z",
-      "url": "https://dscc.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15253"
-    },
-    {
       "organization": "Ministry of Defence (MOD)",
       "title": "অফিস সহায়ক",
       "openings": "05",
@@ -94,15 +85,6 @@
       "jobId": "15287"
     },
     {
-      "organization": "কর অঞ্চল-১৮, ঢাকা",
-      "title": "প্রধান সহকারী",
-      "openings": "12",
-      "deadline": "2026-12-05T18:00:00.000Z",
-      "url": "https://tax18.teletalk.com.bd/tax18_2026/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15301"
-    },
-    {
       "organization": "National Academy for Computer Training and Research (NACTAR)",
       "title": "(সহকারী প্রকৌশলী(কম্পিউটার))",
       "openings": "01",
@@ -110,15 +92,6 @@
       "url": "https://nactar.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15327"
-    },
-    {
-      "organization": "National Academy for Computer Training and Research (NACTAR)",
-      "title": "(সহকারী প্রশিক্ষক(আইসিটি))",
-      "openings": "01",
-      "deadline": "2026-12-06T10:00:00.000Z",
-      "url": "https://nactar.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15326"
     },
     {
       "organization": "National Academy for Computer Training and Research (NACTAR)",
@@ -131,30 +104,21 @@
     },
     {
       "organization": "National Academy for Computer Training and Research (NACTAR)",
+      "title": "(সহকারী প্রশিক্ষক(আইসিটি))",
+      "openings": "01",
+      "deadline": "2026-12-06T10:00:00.000Z",
+      "url": "https://nactar.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15326"
+    },
+    {
+      "organization": "National Academy for Computer Training and Research (NACTAR)",
       "title": "(সহকারী প্রশিক্ষক(ইংরেজি))",
       "openings": "01",
       "deadline": "2026-12-06T10:00:00.000Z",
       "url": "https://nactar.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15324"
-    },
-    {
-      "organization": "National Academy for Computer Training and Research (NACTAR)",
-      "title": "(সহকারী প্রশিক্ষক(কম্পিউটার))",
-      "openings": "01",
-      "deadline": "2026-12-06T10:00:00.000Z",
-      "url": "https://nactar.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15322"
-    },
-    {
-      "organization": "National Academy for Computer Training and Research (NACTAR)",
-      "title": "(প্রশিক্ষক(গবেষণা সমন্বয়কারী))",
-      "openings": "01",
-      "deadline": "2026-12-06T10:00:00.000Z",
-      "url": "https://nactar.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15320"
     },
     {
       "organization": "National Academy for Computer Training and Research (NACTAR)",
@@ -167,12 +131,30 @@
     },
     {
       "organization": "National Academy for Computer Training and Research (NACTAR)",
+      "title": "(সহকারী প্রশিক্ষক(কম্পিউটার))",
+      "openings": "01",
+      "deadline": "2026-12-06T10:00:00.000Z",
+      "url": "https://nactar.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15322"
+    },
+    {
+      "organization": "National Academy for Computer Training and Research (NACTAR)",
       "title": "(সহকারী ইন্সট্রাক্টর)",
       "openings": "06",
       "deadline": "2026-12-06T10:00:00.000Z",
       "url": "https://nactar.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15321"
+    },
+    {
+      "organization": "কর অঞ্চল দিনাজপুর",
+      "title": "[অফিস সহায়ক]",
+      "openings": "03",
+      "deadline": "2026-12-06T11:00:00.000Z",
+      "url": "https://taxdin.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15319"
     },
     {
       "organization": "কর অঞ্চল দিনাজপুর",
@@ -191,15 +173,6 @@
       "url": "https://taxdin.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15317"
-    },
-    {
-      "organization": "কর অঞ্চল দিনাজপুর",
-      "title": "[অফিস সহায়ক]",
-      "openings": "03",
-      "deadline": "2026-12-06T11:00:00.000Z",
-      "url": "https://taxdin.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15319"
     },
     {
       "organization": "কর অঞ্চল দিনাজপুর",
@@ -245,24 +218,6 @@
       "url": "https://tax18.teletalk.com.bd/tax18_2026/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15304"
-    },
-    {
-      "organization": "কর অঞ্চল-১৮, ঢাকা",
-      "title": "উচ্চমান সহকারী",
-      "openings": "12",
-      "deadline": "2026-12-06T11:00:00.000Z",
-      "url": "https://tax18.teletalk.com.bd/tax18_2026/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15302"
-    },
-    {
-      "organization": "কর অঞ্চল-১৮, ঢাকা",
-      "title": "ব্যক্তিগত সহকারী",
-      "openings": "05",
-      "deadline": "2026-12-06T11:00:00.000Z",
-      "url": "https://tax18.teletalk.com.bd/tax18_2026/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15300"
     },
     {
       "organization": "কারিগরি ও মাদ্রাসা শিক্ষা বিভাগ",
@@ -347,15 +302,6 @@
     },
     {
       "organization": "Trading Corporation of Bangladesh (TCB)",
-      "title": "সংরক্ষণ ও বিক্রয় সহকারী",
-      "openings": "01",
-      "deadline": "2026-12-08T10:00:00.000Z",
-      "url": "https://tcb.teletalk.com.bd/tcb_2026/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15330"
-    },
-    {
-      "organization": "Trading Corporation of Bangladesh (TCB)",
       "title": "সাঁটমুদ্রাক্ষরিক-কাম কম্পিউটার অপারেটর",
       "openings": "03",
       "deadline": "2026-12-08T10:00:00.000Z",
@@ -371,6 +317,15 @@
       "url": "https://tcb.teletalk.com.bd/tcb_2026/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15328"
+    },
+    {
+      "organization": "Trading Corporation of Bangladesh (TCB)",
+      "title": "সংরক্ষণ ও বিক্রয় সহকারী",
+      "openings": "01",
+      "deadline": "2026-12-08T10:00:00.000Z",
+      "url": "https://tcb.teletalk.com.bd/tcb_2026/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15330"
     },
     {
       "organization": "Department of Agricultural Marketing (DAM)",
@@ -400,22 +355,49 @@
       "jobId": "15308"
     },
     {
-      "organization": "Department of Agricultural Marketing (DAM)",
-      "title": "সাঁটলিপিকার-কাম-কম্পিউটার অপারেটর",
-      "openings": "09",
-      "deadline": "2026-12-10T10:00:00.000Z",
-      "url": "https://dam.teletalk.com.bd/",
+      "organization": "জেলা প্রশাসকের কার্যালয় যশোর",
+      "title": "মিউটেশন-কাম- সার্টিফিকেট সহকারী",
+      "openings": "03",
+      "deadline": "2026-12-17T11:00:00.000Z",
+      "url": "https://dcjashore.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15307"
+      "jobId": "15350"
     },
     {
-      "organization": "Department of Agricultural Marketing (DAM)",
-      "title": "ক্যাশিয়ার",
-      "openings": "01",
-      "deadline": "2026-12-10T10:00:00.000Z",
-      "url": "https://dam.teletalk.com.bd/",
+      "organization": "জেলা প্রশাসকের কার্যালয় যশোর",
+      "title": "ক্রেডিট চেকিং- কাম-সায়রাত সহকারী",
+      "openings": "02",
+      "deadline": "2026-12-17T11:00:00.000Z",
+      "url": "https://dcjashore.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15312"
+      "jobId": "15349"
+    },
+    {
+      "organization": "জেলা প্রশাসকের কার্যালয় যশোর",
+      "title": "সার্টিফিকেট সহকারী",
+      "openings": "02",
+      "deadline": "2026-12-17T11:00:00.000Z",
+      "url": "https://dcjashore.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15348"
+    },
+    {
+      "organization": "জেলা প্রশাসকের কার্যালয় যশোর",
+      "title": "অফিস সহকারী-কাম-কম্পিউটার মুদ্রাক্ষরিক",
+      "openings": "13",
+      "deadline": "2026-12-17T11:00:00.000Z",
+      "url": "https://dcjashore.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15347"
+    },
+    {
+      "organization": "জেলা প্রশাসকের কার্যালয় যশোর",
+      "title": "নাজির-কাম-ক্যাশিয়ার",
+      "openings": "03",
+      "deadline": "2026-12-17T11:00:00.000Z",
+      "url": "https://dcjashore.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15346"
     },
     {
       "organization": "পুলিশ সুপারের কার্যালয় লালমনিরহাট",
