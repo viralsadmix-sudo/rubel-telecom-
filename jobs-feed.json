@@ -1,6 +1,6 @@
 {
   "source": "https://alljobs.teletalk.com.bd/bn/",
-  "updatedAt": "2026-11-17T20:54:08+00:00",
+  "updatedAt": "2026-11-18T07:30:06+00:00",
   "note": "Active government jobs from the official Teletalk Alljobs API. Open the official listing to verify details, eligibility, fees and deadline.",
   "jobs": [
     {
@@ -293,15 +293,6 @@
     },
     {
       "organization": "Trading Corporation of Bangladesh (TCB)",
-      "title": "টেলেক্স অপারেটর",
-      "openings": "01",
-      "deadline": "2026-12-08T10:00:00.000Z",
-      "url": "https://tcb.teletalk.com.bd/tcb_2026/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15331"
-    },
-    {
-      "organization": "Trading Corporation of Bangladesh (TCB)",
       "title": "সাঁটমুদ্রাক্ষরিক-কাম কম্পিউটার অপারেটর",
       "openings": "03",
       "deadline": "2026-12-08T10:00:00.000Z",
@@ -317,6 +308,15 @@
       "url": "https://tcb.teletalk.com.bd/tcb_2026/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15328"
+    },
+    {
+      "organization": "Trading Corporation of Bangladesh (TCB)",
+      "title": "টেলেক্স অপারেটর",
+      "openings": "01",
+      "deadline": "2026-12-08T10:00:00.000Z",
+      "url": "https://tcb.teletalk.com.bd/tcb_2026/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15331"
     },
     {
       "organization": "Trading Corporation of Bangladesh (TCB)",
@@ -425,6 +425,15 @@
       "url": "https://splalmonirhat.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15341"
+    },
+    {
+      "organization": "বাংলাদেশ সশস্ত্র বাহিনী বোর্ড",
+      "title": "সচিব",
+      "openings": "04",
+      "deadline": "2026-12-17T11:00:00.000Z",
+      "url": "https://basb.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15351"
     },
     {
       "organization": "বিভাগীয় কমিশনারের কার্যালয় খুলনা",
