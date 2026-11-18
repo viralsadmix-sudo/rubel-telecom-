@@ -1,6 +1,6 @@
 {
   "source": "https://alljobs.teletalk.com.bd/bn/",
-  "updatedAt": "2026-11-18T07:30:06+00:00",
+  "updatedAt": "2026-11-18T20:29:11+00:00",
   "note": "Active government jobs from the official Teletalk Alljobs API. Open the official listing to verify details, eligibility, fees and deadline.",
   "jobs": [
     {
@@ -20,15 +20,6 @@
       "url": "https://dmp.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15297"
-    },
-    {
-      "organization": "প্রতিরক্ষা মন্ত্রণালয়",
-      "title": "বাবুর্চি",
-      "openings": "02",
-      "deadline": "2026-11-30T11:00:00.000Z",
-      "url": "https://modcr.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15333"
     },
     {
       "organization": "বাংলাদেশ জাতীয় সংসদ সচিবালয়",
@@ -58,15 +49,6 @@
       "jobId": "15293"
     },
     {
-      "organization": "Dhaka South City Corporation (DSCC)",
-      "title": "মেডিকেল অফিসার (প্যাথলজী)",
-      "openings": "01",
-      "deadline": "2026-12-02T11:00:00.000Z",
-      "url": "https://dscc.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15254"
-    },
-    {
       "organization": "Ministry of Defence (MOD)",
       "title": "অফিস সহায়ক",
       "openings": "05",
@@ -86,15 +68,6 @@
     },
     {
       "organization": "National Academy for Computer Training and Research (NACTAR)",
-      "title": "(সহকারী প্রকৌশলী(কম্পিউটার))",
-      "openings": "01",
-      "deadline": "2026-12-06T10:00:00.000Z",
-      "url": "https://nactar.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15327"
-    },
-    {
-      "organization": "National Academy for Computer Training and Research (NACTAR)",
       "title": "(মেডিকেল অফিসার)",
       "openings": "01",
       "deadline": "2026-12-06T10:00:00.000Z",
@@ -104,48 +77,21 @@
     },
     {
       "organization": "National Academy for Computer Training and Research (NACTAR)",
+      "title": "(সহকারী প্রকৌশলী(কম্পিউটার))",
+      "openings": "01",
+      "deadline": "2026-12-06T10:00:00.000Z",
+      "url": "https://nactar.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15327"
+    },
+    {
+      "organization": "National Academy for Computer Training and Research (NACTAR)",
       "title": "(সহকারী প্রশিক্ষক(আইসিটি))",
       "openings": "01",
       "deadline": "2026-12-06T10:00:00.000Z",
       "url": "https://nactar.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15326"
-    },
-    {
-      "organization": "National Academy for Computer Training and Research (NACTAR)",
-      "title": "(সহকারী প্রশিক্ষক(ইংরেজি))",
-      "openings": "01",
-      "deadline": "2026-12-06T10:00:00.000Z",
-      "url": "https://nactar.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15324"
-    },
-    {
-      "organization": "National Academy for Computer Training and Research (NACTAR)",
-      "title": "(সহকারী প্রশিক্ষক(গবেষণা))",
-      "openings": "02",
-      "deadline": "2026-12-06T10:00:00.000Z",
-      "url": "https://nactar.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15323"
-    },
-    {
-      "organization": "National Academy for Computer Training and Research (NACTAR)",
-      "title": "(সহকারী প্রশিক্ষক(কম্পিউটার))",
-      "openings": "01",
-      "deadline": "2026-12-06T10:00:00.000Z",
-      "url": "https://nactar.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15322"
-    },
-    {
-      "organization": "National Academy for Computer Training and Research (NACTAR)",
-      "title": "(সহকারী ইন্সট্রাক্টর)",
-      "openings": "06",
-      "deadline": "2026-12-06T10:00:00.000Z",
-      "url": "https://nactar.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15321"
     },
     {
       "organization": "কর অঞ্চল দিনাজপুর",
@@ -239,48 +185,12 @@
     },
     {
       "organization": "কারিগরি ও মাদ্রাসা শিক্ষা বিভাগ",
-      "title": "ক্যাফেটারিয়া ম্যানেজার",
-      "openings": "01",
-      "deadline": "2026-12-07T10:00:00.000Z",
-      "url": "https://nactar.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15338"
-    },
-    {
-      "organization": "কারিগরি ও মাদ্রাসা শিক্ষা বিভাগ",
       "title": "হিসাব সহকারী",
       "openings": "01",
       "deadline": "2026-12-07T10:00:00.000Z",
       "url": "https://nactar.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15337"
-    },
-    {
-      "organization": "কারিগরি ও মাদ্রাসা শিক্ষা বিভাগ",
-      "title": "মেকানিক",
-      "openings": "01",
-      "deadline": "2026-12-07T10:00:00.000Z",
-      "url": "https://nactar.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15336"
-    },
-    {
-      "organization": "কারিগরি ও মাদ্রাসা শিক্ষা বিভাগ",
-      "title": "ক্যাশিয়ার",
-      "openings": "01",
-      "deadline": "2026-12-07T10:00:00.000Z",
-      "url": "https://nactar.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15335"
-    },
-    {
-      "organization": "কারিগরি ও মাদ্রাসা শিক্ষা বিভাগ",
-      "title": "ভেহিক্যাল সুপারভাইজার",
-      "openings": "01",
-      "deadline": "2026-12-07T10:00:00.000Z",
-      "url": "https://nactar.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15334"
     },
     {
       "organization": "Trading Corporation of Bangladesh (TCB)",
@@ -293,24 +203,6 @@
     },
     {
       "organization": "Trading Corporation of Bangladesh (TCB)",
-      "title": "সাঁটমুদ্রাক্ষরিক-কাম কম্পিউটার অপারেটর",
-      "openings": "03",
-      "deadline": "2026-12-08T10:00:00.000Z",
-      "url": "https://tcb.teletalk.com.bd/tcb_2026/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15329"
-    },
-    {
-      "organization": "Trading Corporation of Bangladesh (TCB)",
-      "title": "উপ-সহকারী প্রকৌশলী",
-      "openings": "01",
-      "deadline": "2026-12-08T10:00:00.000Z",
-      "url": "https://tcb.teletalk.com.bd/tcb_2026/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15328"
-    },
-    {
-      "organization": "Trading Corporation of Bangladesh (TCB)",
       "title": "টেলেক্স অপারেটর",
       "openings": "01",
       "deadline": "2026-12-08T10:00:00.000Z",
@@ -320,12 +212,30 @@
     },
     {
       "organization": "Trading Corporation of Bangladesh (TCB)",
+      "title": "সাঁটমুদ্রাক্ষরিক-কাম কম্পিউটার অপারেটর",
+      "openings": "03",
+      "deadline": "2026-12-08T10:00:00.000Z",
+      "url": "https://tcb.teletalk.com.bd/tcb_2026/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15329"
+    },
+    {
+      "organization": "Trading Corporation of Bangladesh (TCB)",
       "title": "সংরক্ষণ ও বিক্রয় সহকারী",
       "openings": "01",
       "deadline": "2026-12-08T10:00:00.000Z",
       "url": "https://tcb.teletalk.com.bd/tcb_2026/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15330"
+    },
+    {
+      "organization": "Trading Corporation of Bangladesh (TCB)",
+      "title": "উপ-সহকারী প্রকৌশলী",
+      "openings": "01",
+      "deadline": "2026-12-08T10:00:00.000Z",
+      "url": "https://tcb.teletalk.com.bd/tcb_2026/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15328"
     },
     {
       "organization": "Department of Agricultural Marketing (DAM)",
@@ -344,15 +254,6 @@
       "url": "https://dam.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15311"
-    },
-    {
-      "organization": "Department of Agricultural Marketing (DAM)",
-      "title": "কম্পিউটার অপারেটর",
-      "openings": "01",
-      "deadline": "2026-12-10T10:00:00.000Z",
-      "url": "https://dam.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15308"
     },
     {
       "organization": "জেলা প্রশাসকের কার্যালয় যশোর",
@@ -452,6 +353,132 @@
       "url": "https://divcomkhul.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15344"
+    },
+    {
+      "organization": "বাংলাদেশ পেট্রোলিয়াম কর্পোরেশন",
+      "title": "অফিস সহকারী কাম-কম্পিউটার মুদ্রাক্ষরিক",
+      "openings": "06",
+      "deadline": "2026-12-19T11:00:00.000Z",
+      "url": "https://bpc.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15365"
+    },
+    {
+      "organization": "বাংলাদেশ পেট্রোলিয়াম কর্পোরেশন",
+      "title": "উপসহকারী প্রকৌশলী (সাধারণ কর্মশাখা)",
+      "openings": "01",
+      "deadline": "2026-12-19T11:00:00.000Z",
+      "url": "https://bpc.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15364"
+    },
+    {
+      "organization": "বাংলাদেশ পেট্রোলিয়াম কর্পোরেশন",
+      "title": "উপসহকারী প্রকৌশলী (পরিকল্পনা ও উন্নয়ন)",
+      "openings": "01",
+      "deadline": "2026-12-19T11:00:00.000Z",
+      "url": "https://bpc.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15363"
+    },
+    {
+      "organization": "বাংলাদেশ পেট্রোলিয়াম কর্পোরেশন",
+      "title": "কনিষ্ঠ কর্মকর্তা (প্রশাসন)",
+      "openings": "01",
+      "deadline": "2026-12-19T11:00:00.000Z",
+      "url": "https://bpc.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15362"
+    },
+    {
+      "organization": "বাংলাদেশ পেট্রোলিয়াম কর্পোরেশন",
+      "title": "সহকারী প্রোগ্রামার (আইটি)",
+      "openings": "01",
+      "deadline": "2026-12-19T11:00:00.000Z",
+      "url": "https://bpc.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15361"
+    },
+    {
+      "organization": "বাংলাদেশ পেট্রোলিয়াম কর্পোরেশন",
+      "title": "সহকারী ব্যবস্থাপক (বন্টন ও বিপণন)",
+      "openings": "01",
+      "deadline": "2026-12-19T11:00:00.000Z",
+      "url": "https://bpc.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15360"
+    },
+    {
+      "organization": "বাংলাদেশ পেট্রোলিয়াম কর্পোরেশন",
+      "title": "সহকারী ব্যবস্থাপক (প্রশাসন)",
+      "openings": "01",
+      "deadline": "2026-12-19T11:00:00.000Z",
+      "url": "https://bpc.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15359"
+    },
+    {
+      "organization": "বাংলাদেশ পেট্রোলিয়াম কর্পোরেশন",
+      "title": "সহকারী ব্যবস্থাপক (হিসাব)",
+      "openings": "01",
+      "deadline": "2026-12-19T11:00:00.000Z",
+      "url": "https://bpc.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15358"
+    },
+    {
+      "organization": "বাংলাদেশ পেট্রোলিয়াম কর্পোরেশন",
+      "title": "সহকারী ব্যবস্থাপক (অর্থ)",
+      "openings": "01",
+      "deadline": "2026-12-19T11:00:00.000Z",
+      "url": "https://bpc.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15357"
+    },
+    {
+      "organization": "বাংলাদেশ পেট্রোলিয়াম কর্পোরেশন",
+      "title": "সহকারী ব্যবস্থাপক (বাণিজ্য ও অপারেশন্স)",
+      "openings": "01",
+      "deadline": "2026-12-19T11:00:00.000Z",
+      "url": "https://bpc.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15356"
+    },
+    {
+      "organization": "বাংলাদেশ পেট্রোলিয়াম কর্পোরেশন",
+      "title": "প্রোগ্রামার (আইটি)",
+      "openings": "01",
+      "deadline": "2026-12-19T11:00:00.000Z",
+      "url": "https://bpc.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15355"
+    },
+    {
+      "organization": "বাংলাদেশ পেট্রোলিয়াম কর্পোরেশন",
+      "title": "উপ-ব্যবস্থাপক (হিসাব)",
+      "openings": "01",
+      "deadline": "2026-12-19T11:00:00.000Z",
+      "url": "https://bpc.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15354"
+    },
+    {
+      "organization": "বাংলাদেশ পেট্রোলিয়াম কর্পোরেশন",
+      "title": "উপ-ব্যবস্থাপক (পরিকল্পনা ও উন্নয়ন)",
+      "openings": "01",
+      "deadline": "2026-12-19T11:00:00.000Z",
+      "url": "https://bpc.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15353"
+    },
+    {
+      "organization": "বাংলাদেশ পেট্রোলিয়াম কর্পোরেশন",
+      "title": "উপ-ব্যবস্থাপক (সাধারণ কর্মশাখা)",
+      "openings": "01",
+      "deadline": "2026-12-19T11:00:00.000Z",
+      "url": "https://bpc.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15352"
     }
   ]
 }
