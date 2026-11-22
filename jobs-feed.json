@@ -1,6 +1,6 @@
 {
   "source": "https://alljobs.teletalk.com.bd/bn/",
-  "updatedAt": "2026-11-21T19:13:28+00:00",
+  "updatedAt": "2026-11-22T06:44:55+00:00",
   "note": "Active government jobs from the official Teletalk Alljobs API. Open the official listing to verify details, eligibility, fees and deadline.",
   "jobs": [
     {
@@ -200,6 +200,15 @@
       "url": "https://tax15.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15377"
+    },
+    {
+      "organization": "Dhaka South City Corporation (DSCC)",
+      "title": "রেজিস্ট্রেশন সহকারী (জন্ম-মৃত্যু নিবন্ধিকরণ)",
+      "openings": "06",
+      "deadline": "2026-12-15T10:00:00.000Z",
+      "url": "https://dscc.teletalk.com.bd/dscc_2024_2026/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15391"
     },
     {
       "organization": "জেলা প্রশাসকের কার্যালয় যশোর",
