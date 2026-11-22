@@ -1,6 +1,6 @@
 {
   "source": "https://alljobs.teletalk.com.bd/bn/",
-  "updatedAt": "2026-11-22T06:44:55+00:00",
+  "updatedAt": "2026-11-22T19:36:29+00:00",
   "note": "Active government jobs from the official Teletalk Alljobs API. Open the official listing to verify details, eligibility, fees and deadline.",
   "jobs": [
     {
@@ -38,15 +38,6 @@
       "url": "https://tax18.teletalk.com.bd/tax18_2026/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15305"
-    },
-    {
-      "organization": "কর অঞ্চল-১৮, ঢাকা",
-      "title": "অফিস সহকারী কাম-কম্পিউটার মুদ্রাক্ষরিক",
-      "openings": "13",
-      "deadline": "2026-12-06T11:00:00.000Z",
-      "url": "https://tax18.teletalk.com.bd/tax18_2026/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15304"
     },
     {
       "organization": "কারিগরি ও মাদ্রাসা শিক্ষা বিভাগ",
@@ -122,21 +113,21 @@
     },
     {
       "organization": "কর কমিশনারের কার্যালয় কর অঞ্চল ১৪ ঢাকা",
-      "title": "প্রধান সহকারী",
-      "openings": "08",
-      "deadline": "2026-12-13T11:00:00.000Z",
-      "url": "https://tax14.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15369"
-    },
-    {
-      "organization": "কর কমিশনারের কার্যালয় কর অঞ্চল ১৪ ঢাকা",
       "title": "কম্পিউটার অপারেটর",
       "openings": "01",
       "deadline": "2026-12-13T11:00:00.000Z",
       "url": "https://tax14.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15368"
+    },
+    {
+      "organization": "কর কমিশনারের কার্যালয় কর অঞ্চল ১৪ ঢাকা",
+      "title": "প্রধান সহকারী",
+      "openings": "08",
+      "deadline": "2026-12-13T11:00:00.000Z",
+      "url": "https://tax14.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15369"
     },
     {
       "organization": "কর কমিশনারের কার্যালয় কর অঞ্চল ১৫ ঢাকা",
@@ -284,6 +275,15 @@
     },
     {
       "organization": "বাংলাদেশ পেট্রোলিয়াম কর্পোরেশন",
+      "title": "সহকারী ব্যবস্থাপক (অর্থ)",
+      "openings": "01",
+      "deadline": "2026-12-19T11:00:00.000Z",
+      "url": "https://bpc.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15357"
+    },
+    {
+      "organization": "বাংলাদেশ পেট্রোলিয়াম কর্পোরেশন",
       "title": "সহকারী ব্যবস্থাপক (বন্টন ও বিপণন)",
       "openings": "01",
       "deadline": "2026-12-19T11:00:00.000Z",
@@ -308,24 +308,6 @@
       "url": "https://bpc.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15358"
-    },
-    {
-      "organization": "বাংলাদেশ পেট্রোলিয়াম কর্পোরেশন",
-      "title": "সহকারী ব্যবস্থাপক (অর্থ)",
-      "openings": "01",
-      "deadline": "2026-12-19T11:00:00.000Z",
-      "url": "https://bpc.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15357"
-    },
-    {
-      "organization": "বাংলাদেশ পেট্রোলিয়াম কর্পোরেশন",
-      "title": "সহকারী ব্যবস্থাপক (বাণিজ্য ও অপারেশন্স)",
-      "openings": "01",
-      "deadline": "2026-12-19T11:00:00.000Z",
-      "url": "https://bpc.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15356"
     },
     {
       "organization": "Taxes Zone-10,Dhaka (TAX10)",
@@ -407,6 +389,33 @@
       "url": "https://ccb.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15366"
+    },
+    {
+      "organization": "বাংলাদেশ রপ্তানি প্রক্রিয়াকরণ এলাকা কর্তৃপক্ষ",
+      "title": "অফিস সহায়ক",
+      "openings": "129",
+      "deadline": "2026-12-24T11:00:00.000Z",
+      "url": "https://bepza.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15394"
+    },
+    {
+      "organization": "বাংলাদেশ রপ্তানি প্রক্রিয়াকরণ এলাকা কর্তৃপক্ষ",
+      "title": "নিরাপত্তা প্রহরী",
+      "openings": "200",
+      "deadline": "2026-12-24T11:00:00.000Z",
+      "url": "https://bepza.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15393"
+    },
+    {
+      "organization": "বাংলাদেশ রপ্তানি প্রক্রিয়াকরণ এলাকা কর্তৃপক্ষ",
+      "title": "নিরাপত্তা কর্মকর্তা",
+      "openings": "03",
+      "deadline": "2026-12-24T11:00:00.000Z",
+      "url": "https://bepza.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15392"
     }
   ]
 }
