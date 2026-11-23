@@ -1,6 +1,6 @@
 {
   "source": "https://alljobs.teletalk.com.bd/bn/",
-  "updatedAt": "2026-11-22T19:36:29+00:00",
+  "updatedAt": "2026-11-23T07:34:13+00:00",
   "note": "Active government jobs from the official Teletalk Alljobs API. Open the official listing to verify details, eligibility, fees and deadline.",
   "jobs": [
     {
@@ -29,15 +29,6 @@
       "url": "https://taxdin.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15318"
-    },
-    {
-      "organization": "কর অঞ্চল-১৮, ঢাকা",
-      "title": "অফিস সহায়ক",
-      "openings": "10",
-      "deadline": "2026-12-06T11:00:00.000Z",
-      "url": "https://tax18.teletalk.com.bd/tax18_2026/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15305"
     },
     {
       "organization": "কারিগরি ও মাদ্রাসা শিক্ষা বিভাগ",
@@ -74,6 +65,15 @@
       "url": "https://dam.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15311"
+    },
+    {
+      "organization": "কমাড্যান্ট পুলিশ সুপারের কার্যালয় নেত্রকোনা",
+      "title": "ডাটা এন্ট্রি অপারেটর",
+      "openings": "01",
+      "deadline": "2026-12-10T11:00:00.000Z",
+      "url": "https://itcnetrokona.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15396"
     },
     {
       "organization": "কর কমিশনারের কার্যালয় কর অঞ্চল ১৪ ঢাকা",
@@ -275,15 +275,6 @@
     },
     {
       "organization": "বাংলাদেশ পেট্রোলিয়াম কর্পোরেশন",
-      "title": "সহকারী ব্যবস্থাপক (অর্থ)",
-      "openings": "01",
-      "deadline": "2026-12-19T11:00:00.000Z",
-      "url": "https://bpc.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15357"
-    },
-    {
-      "organization": "বাংলাদেশ পেট্রোলিয়াম কর্পোরেশন",
       "title": "সহকারী ব্যবস্থাপক (বন্টন ও বিপণন)",
       "openings": "01",
       "deadline": "2026-12-19T11:00:00.000Z",
@@ -308,6 +299,24 @@
       "url": "https://bpc.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15358"
+    },
+    {
+      "organization": "বাংলাদেশ পেট্রোলিয়াম কর্পোরেশন",
+      "title": "সহকারী ব্যবস্থাপক (অর্থ)",
+      "openings": "01",
+      "deadline": "2026-12-19T11:00:00.000Z",
+      "url": "https://bpc.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15357"
+    },
+    {
+      "organization": "DC Office Rangamati (DCRANGAMATI)",
+      "title": "অফিস সহায়ক",
+      "openings": "06",
+      "deadline": "2026-12-21T10:00:00.000Z",
+      "url": "https://dcrangamati.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15395"
     },
     {
       "organization": "Taxes Zone-10,Dhaka (TAX10)",
@@ -380,15 +389,6 @@
       "url": "https://ccb.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15367"
-    },
-    {
-      "organization": "Bangladesh Competition Commission(CCB)",
-      "title": "ব্যক্তিগত সহকারি",
-      "openings": "06",
-      "deadline": "2026-12-21T11:00:00.000Z",
-      "url": "https://ccb.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15366"
     },
     {
       "organization": "বাংলাদেশ রপ্তানি প্রক্রিয়াকরণ এলাকা কর্তৃপক্ষ",
