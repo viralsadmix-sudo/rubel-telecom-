@@ -1,17 +1,8 @@
 {
   "source": "https://alljobs.teletalk.com.bd/bn/",
-  "updatedAt": "2026-11-25T21:40:01+00:00",
+  "updatedAt": "2026-11-26T08:13:31+00:00",
   "note": "Active government jobs from the official Teletalk Alljobs API. Open the official listing to verify details, eligibility, fees and deadline.",
   "jobs": [
-    {
-      "organization": "কারিগরি ও মাদ্রাসা শিক্ষা বিভাগ",
-      "title": "অফিস সহায়ক",
-      "openings": "03",
-      "deadline": "2026-12-07T10:00:00.000Z",
-      "url": "https://nactar.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15340"
-    },
     {
       "organization": "Tax Zone- Bogra (TAXBOG)",
       "title": "অফিস সহায়ক",
@@ -92,15 +83,6 @@
       "url": "https://tax14.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15372"
-    },
-    {
-      "organization": "কর কমিশনারের কার্যালয় কর অঞ্চল ১৪ ঢাকা",
-      "title": "সাঁটমুদ্রাক্ষরিক-কাম-কম্পিউটার অপারেটর",
-      "openings": "15",
-      "deadline": "2026-12-13T11:00:00.000Z",
-      "url": "https://tax14.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15371"
     },
     {
       "organization": "কর কমিশনারের কার্যালয় কর অঞ্চল ১৪ ঢাকা",
@@ -256,15 +238,6 @@
       "jobId": "15347"
     },
     {
-      "organization": "পুলিশ সুপারের কার্যালয় লালমনিরহাট",
-      "title": "অফিস সহকারী- কাম-কম্পিউটার মুদ্রাক্ষরিক",
-      "openings": "02",
-      "deadline": "2026-12-17T11:00:00.000Z",
-      "url": "https://splalmonirhat.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15343"
-    },
-    {
       "organization": "বিভাগীয় কমিশনারের কার্যালয় খুলনা",
       "title": "অফিস সহকারী কাম কম্পিউটার মুদ্রাক্ষরিক",
       "openings": "06",
@@ -283,15 +256,6 @@
       "jobId": "15365"
     },
     {
-      "organization": "বাংলাদেশ পেট্রোলিয়াম কর্পোরেশন",
-      "title": "উপসহকারী প্রকৌশলী (সাধারণ কর্মশাখা)",
-      "openings": "01",
-      "deadline": "2026-12-19T11:00:00.000Z",
-      "url": "https://bpc.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15364"
-    },
-    {
       "organization": "DC Office Rangamati (DCRANGAMATI)",
       "title": "অফিস সহায়ক",
       "openings": "06",
@@ -299,15 +263,6 @@
       "url": "https://dcrangamati.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15395"
-    },
-    {
-      "organization": "Taxes Zone-10,Dhaka (TAX10)",
-      "title": "অফিস সহায়ক",
-      "openings": "17",
-      "deadline": "2026-12-21T10:00:00.000Z",
-      "url": "https://tax10.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15390"
     },
     {
       "organization": "Taxes Zone-10,Dhaka (TAX10)",
@@ -338,6 +293,15 @@
     },
     {
       "organization": "Taxes Zone-10,Dhaka (TAX10)",
+      "title": "অফিস সহায়ক",
+      "openings": "17",
+      "deadline": "2026-12-21T10:00:00.000Z",
+      "url": "https://tax10.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15390"
+    },
+    {
+      "organization": "Taxes Zone-10,Dhaka (TAX10)",
       "title": "প্রধান সহকারী",
       "openings": "06",
       "deadline": "2026-12-21T10:00:00.000Z",
@@ -365,21 +329,21 @@
     },
     {
       "organization": "Office of the Divisional Commissioner, Barishal (DIVCOMBSL)",
-      "title": "পরিচ্ছন্নতাকর্মী",
-      "openings": "02",
-      "deadline": "2026-12-24T11:00:00.000Z",
-      "url": "https://alljobs.teletalk.com.bd/jobs/government/15400",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15400"
-    },
-    {
-      "organization": "Office of the Divisional Commissioner, Barishal (DIVCOMBSL)",
       "title": "নিরাপত্তা প্রহরী",
       "openings": "01",
       "deadline": "2026-12-24T11:00:00.000Z",
       "url": "https://alljobs.teletalk.com.bd/jobs/government/15399",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15399"
+    },
+    {
+      "organization": "Office of the Divisional Commissioner, Barishal (DIVCOMBSL)",
+      "title": "অফিস সহকারী-কাম-কম্পিউটার মুদ্রাক্ষরিক",
+      "openings": "05",
+      "deadline": "2026-12-24T11:00:00.000Z",
+      "url": "https://alljobs.teletalk.com.bd/jobs/government/15397",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15397"
     },
     {
       "organization": "Office of the Divisional Commissioner, Barishal (DIVCOMBSL)",
@@ -392,12 +356,12 @@
     },
     {
       "organization": "Office of the Divisional Commissioner, Barishal (DIVCOMBSL)",
-      "title": "অফিস সহকারী-কাম-কম্পিউটার মুদ্রাক্ষরিক",
-      "openings": "05",
+      "title": "পরিচ্ছন্নতাকর্মী",
+      "openings": "02",
       "deadline": "2026-12-24T11:00:00.000Z",
-      "url": "https://alljobs.teletalk.com.bd/jobs/government/15397",
+      "url": "https://alljobs.teletalk.com.bd/jobs/government/15400",
       "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15397"
+      "jobId": "15400"
     },
     {
       "organization": "বাংলাদেশ অভ্যন্তরীণ নৌ-পরিবহন করপোরেশন",
@@ -437,6 +401,15 @@
     },
     {
       "organization": "বাংলাদেশ রপ্তানি প্রক্রিয়াকরণ এলাকা কর্তৃপক্ষ",
+      "title": "নিরাপত্তা কর্মকর্তা",
+      "openings": "03",
+      "deadline": "2026-12-24T11:00:00.000Z",
+      "url": "https://bepza.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15392"
+    },
+    {
+      "organization": "বাংলাদেশ রপ্তানি প্রক্রিয়াকরণ এলাকা কর্তৃপক্ষ",
       "title": "অফিস সহায়ক",
       "openings": "129",
       "deadline": "2026-12-24T11:00:00.000Z",
@@ -454,13 +427,76 @@
       "jobId": "15393"
     },
     {
-      "organization": "বাংলাদেশ রপ্তানি প্রক্রিয়াকরণ এলাকা কর্তৃপক্ষ",
-      "title": "নিরাপত্তা কর্মকর্তা",
-      "openings": "03",
-      "deadline": "2026-12-24T11:00:00.000Z",
-      "url": "https://bepza.teletalk.com.bd/",
+      "organization": "Civil Surgeon Office, Sylhet (CSSYLHET)",
+      "title": "অফিস সহায়ক",
+      "openings": "07",
+      "deadline": "2026-12-25T10:00:00.000Z",
+      "url": "https://cssylhet.teletalk.com.bd/cssylhet2026/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15392"
+      "jobId": "15424"
+    },
+    {
+      "organization": "Civil Surgeon Office, Sylhet (CSSYLHET)",
+      "title": "স্বাস্থ্য সহকারী",
+      "openings": "155",
+      "deadline": "2026-12-25T10:00:00.000Z",
+      "url": "https://cssylhet.teletalk.com.bd/cssylhet2026/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15423"
+    },
+    {
+      "organization": "Civil Surgeon Office, Sylhet (CSSYLHET)",
+      "title": "ওয়ার্ড মাষ্টার",
+      "openings": "01",
+      "deadline": "2026-12-25T10:00:00.000Z",
+      "url": "https://cssylhet.teletalk.com.bd/cssylhet2026/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15421"
+    },
+    {
+      "organization": "Civil Surgeon Office, Sylhet (CSSYLHET)",
+      "title": "কীটতত্ত্বীয় টেকনিশিয়ান",
+      "openings": "02",
+      "deadline": "2026-12-25T10:00:00.000Z",
+      "url": "https://cssylhet.teletalk.com.bd/cssylhet2026/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15420"
+    },
+    {
+      "organization": "Civil Surgeon Office, Sylhet (CSSYLHET)",
+      "title": "কোল্ড চেইন টেকনিশিয়ান",
+      "openings": "01",
+      "deadline": "2026-12-25T10:00:00.000Z",
+      "url": "https://cssylhet.teletalk.com.bd/cssylhet2026/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15419"
+    },
+    {
+      "organization": "Civil Surgeon Office, Sylhet (CSSYLHET)",
+      "title": "অফিস সহকারী কাম কম্পিউটার মুদ্রাক্ষরিক",
+      "openings": "04",
+      "deadline": "2026-12-25T10:00:00.000Z",
+      "url": "https://cssylhet.teletalk.com.bd/cssylhet2026/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15418"
+    },
+    {
+      "organization": "Civil Surgeon Office, Sylhet (CSSYLHET)",
+      "title": "পরিসংখ্যানবিদ",
+      "openings": "06",
+      "deadline": "2026-12-25T10:00:00.000Z",
+      "url": "https://cssylhet.teletalk.com.bd/cssylhet2026/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15417"
+    },
+    {
+      "organization": "Civil Surgeon Office, Sylhet (CSSYLHET)",
+      "title": "স্টোর কিপার",
+      "openings": "02",
+      "deadline": "2026-12-25T10:00:00.000Z",
+      "url": "https://cssylhet.teletalk.com.bd/cssylhet2026/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15422"
     }
   ]
 }
