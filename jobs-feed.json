@@ -1,6 +1,6 @@
 {
   "source": "https://alljobs.teletalk.com.bd/bn/",
-  "updatedAt": "2026-11-26T08:13:31+00:00",
+  "updatedAt": "2026-11-26T21:29:10+00:00",
   "note": "Active government jobs from the official Teletalk Alljobs API. Open the official listing to verify details, eligibility, fees and deadline.",
   "jobs": [
     {
@@ -85,24 +85,6 @@
       "jobId": "15372"
     },
     {
-      "organization": "কর কমিশনারের কার্যালয় কর অঞ্চল ১৪ ঢাকা",
-      "title": "উচ্চমান সহকারী",
-      "openings": "05",
-      "deadline": "2026-12-13T11:00:00.000Z",
-      "url": "https://tax14.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15370"
-    },
-    {
-      "organization": "কর কমিশনারের কার্যালয় কর অঞ্চল ১৪ ঢাকা",
-      "title": "প্রধান সহকারী",
-      "openings": "08",
-      "deadline": "2026-12-13T11:00:00.000Z",
-      "url": "https://tax14.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15369"
-    },
-    {
       "organization": "কর কমিশনারের কার্যালয় কর অঞ্চল ১৫ ঢাকা",
       "title": "অফিস সহায়ক",
       "openings": "05",
@@ -176,24 +158,6 @@
     },
     {
       "organization": "DC Office Sirajganj (DCSIRAJGANJ)",
-      "title": "পরিচ্ছন্নতাকর্মী",
-      "openings": "04",
-      "deadline": "2026-12-15T11:00:00.000Z",
-      "url": "https://dcsirajganj.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15406"
-    },
-    {
-      "organization": "DC Office Sirajganj (DCSIRAJGANJ)",
-      "title": "বেয়ারার",
-      "openings": "01",
-      "deadline": "2026-12-15T11:00:00.000Z",
-      "url": "https://dcsirajganj.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15405"
-    },
-    {
-      "organization": "DC Office Sirajganj (DCSIRAJGANJ)",
       "title": "নিরাপত্তা প্রহরী",
       "openings": "11",
       "deadline": "2026-12-15T11:00:00.000Z",
@@ -221,30 +185,21 @@
     },
     {
       "organization": "DC Office Sirajganj (DCSIRAJGANJ)",
+      "title": "পরিচ্ছন্নতাকর্মী",
+      "openings": "04",
+      "deadline": "2026-12-15T11:00:00.000Z",
+      "url": "https://dcsirajganj.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15406"
+    },
+    {
+      "organization": "DC Office Sirajganj (DCSIRAJGANJ)",
       "title": "অফিস সহকারী-কাম-কম্পিউটার মুদ্রাক্ষরিক",
       "openings": "05",
       "deadline": "2026-12-15T11:00:00.000Z",
       "url": "https://dcsirajganj.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15401"
-    },
-    {
-      "organization": "জেলা প্রশাসকের কার্যালয় যশোর",
-      "title": "অফিস সহকারী-কাম-কম্পিউটার মুদ্রাক্ষরিক",
-      "openings": "13",
-      "deadline": "2026-12-17T11:00:00.000Z",
-      "url": "https://dcjashore.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15347"
-    },
-    {
-      "organization": "বিভাগীয় কমিশনারের কার্যালয় খুলনা",
-      "title": "অফিস সহকারী কাম কম্পিউটার মুদ্রাক্ষরিক",
-      "openings": "06",
-      "deadline": "2026-12-17T11:00:00.000Z",
-      "url": "https://divcomkhul.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15344"
     },
     {
       "organization": "বাংলাদেশ পেট্রোলিয়াম কর্পোরেশন",
@@ -319,6 +274,60 @@
       "jobId": "15384"
     },
     {
+      "organization": "কর অঞ্চল-২৪ ঢাকা",
+      "title": "অফিস সহায়ক",
+      "openings": "10",
+      "deadline": "2026-12-21T10:00:00.000Z",
+      "url": "https://tax24.teletalk.com.bd/tax24_2026/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15430"
+    },
+    {
+      "organization": "কর অঞ্চল-২৪ ঢাকা",
+      "title": "অফিস সহকারী কাম-কম্পিউটার মুদ্রাক্ষরিক",
+      "openings": "14",
+      "deadline": "2026-12-21T10:00:00.000Z",
+      "url": "https://tax24.teletalk.com.bd/tax24_2026/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15429"
+    },
+    {
+      "organization": "কর অঞ্চল-২৪ ঢাকা",
+      "title": "সাঁট-মুদ্রাক্ষরিক কাম-কম্পিউটার অপারেটর",
+      "openings": "10",
+      "deadline": "2026-12-21T10:00:00.000Z",
+      "url": "https://tax24.teletalk.com.bd/tax24_2026/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15428"
+    },
+    {
+      "organization": "কর অঞ্চল-২৪ ঢাকা",
+      "title": "উচ্চমান সহকারী",
+      "openings": "13",
+      "deadline": "2026-12-21T10:00:00.000Z",
+      "url": "https://tax24.teletalk.com.bd/tax24_2026/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15427"
+    },
+    {
+      "organization": "কর অঞ্চল-২৪ ঢাকা",
+      "title": "প্রধান সহকারী",
+      "openings": "10",
+      "deadline": "2026-12-21T10:00:00.000Z",
+      "url": "https://tax24.teletalk.com.bd/tax24_2026/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15426"
+    },
+    {
+      "organization": "কর অঞ্চল-২৪ ঢাকা",
+      "title": "ব্যক্তিগত সহকারী",
+      "openings": "02",
+      "deadline": "2026-12-21T10:00:00.000Z",
+      "url": "https://tax24.teletalk.com.bd/tax24_2026/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15425"
+    },
+    {
       "organization": "Bangladesh Competition Commission(CCB)",
       "title": "অফিস সহকারী কাম-কম্পিউটার মুদ্রাক্ষরিক",
       "openings": "04",
@@ -329,12 +338,12 @@
     },
     {
       "organization": "Office of the Divisional Commissioner, Barishal (DIVCOMBSL)",
-      "title": "নিরাপত্তা প্রহরী",
-      "openings": "01",
+      "title": "পরিচ্ছন্নতাকর্মী",
+      "openings": "02",
       "deadline": "2026-12-24T11:00:00.000Z",
-      "url": "https://alljobs.teletalk.com.bd/jobs/government/15399",
+      "url": "https://alljobs.teletalk.com.bd/jobs/government/15400",
       "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15399"
+      "jobId": "15400"
     },
     {
       "organization": "Office of the Divisional Commissioner, Barishal (DIVCOMBSL)",
@@ -347,21 +356,21 @@
     },
     {
       "organization": "Office of the Divisional Commissioner, Barishal (DIVCOMBSL)",
+      "title": "নিরাপত্তা প্রহরী",
+      "openings": "01",
+      "deadline": "2026-12-24T11:00:00.000Z",
+      "url": "https://alljobs.teletalk.com.bd/jobs/government/15399",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15399"
+    },
+    {
+      "organization": "Office of the Divisional Commissioner, Barishal (DIVCOMBSL)",
       "title": "অফিস সহায়ক",
       "openings": "03",
       "deadline": "2026-12-24T11:00:00.000Z",
       "url": "https://alljobs.teletalk.com.bd/jobs/government/15398",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15398"
-    },
-    {
-      "organization": "Office of the Divisional Commissioner, Barishal (DIVCOMBSL)",
-      "title": "পরিচ্ছন্নতাকর্মী",
-      "openings": "02",
-      "deadline": "2026-12-24T11:00:00.000Z",
-      "url": "https://alljobs.teletalk.com.bd/jobs/government/15400",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15400"
     },
     {
       "organization": "বাংলাদেশ অভ্যন্তরীণ নৌ-পরিবহন করপোরেশন",
@@ -371,6 +380,15 @@
       "url": "https://biwtc.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15410"
+    },
+    {
+      "organization": "বাংলাদেশ অভ্যন্তরীণ নৌ-পরিবহন করপোরেশন",
+      "title": "উপ-নৌ অধীক্ষক",
+      "openings": "01",
+      "deadline": "2026-12-24T11:00:00.000Z",
+      "url": "https://biwtc.teletalk.com.bd/",
+      "source": "https://alljobs.teletalk.com.bd/bn/",
+      "jobId": "15407"
     },
     {
       "organization": "বাংলাদেশ অভ্যন্তরীণ নৌ-পরিবহন করপোরেশন",
@@ -389,15 +407,6 @@
       "url": "https://biwtc.teletalk.com.bd/",
       "source": "https://alljobs.teletalk.com.bd/bn/",
       "jobId": "15408"
-    },
-    {
-      "organization": "বাংলাদেশ অভ্যন্তরীণ নৌ-পরিবহন করপোরেশন",
-      "title": "উপ-নৌ অধীক্ষক",
-      "openings": "01",
-      "deadline": "2026-12-24T11:00:00.000Z",
-      "url": "https://biwtc.teletalk.com.bd/",
-      "source": "https://alljobs.teletalk.com.bd/bn/",
-      "jobId": "15407"
     },
     {
       "organization": "বাংলাদেশ রপ্তানি প্রক্রিয়াকরণ এলাকা কর্তৃপক্ষ",
